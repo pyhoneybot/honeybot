@@ -1,0 +1,8 @@
+title: Honeybot
+description: Building my own IRC bot. Honeybot, a new simple bot
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-modernist
+
+gems:
+  - jekyll-mentions
