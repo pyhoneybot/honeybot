@@ -4,7 +4,7 @@ from main import Bot_core as Bot
 '''
 ':appinv!c5e342c5@gateway/web/cgi-irc/kiwiirc.com/ip.200.200.22.200 PRIVMSG ##bottestingmu :ef'
 {
-'prefix': 'appinv!c5e342c5@gateway/web/cgi-irc/kiwiirc.com/ip.197.227.66.197',
+'prefix': 'appinv!c5e342c5@gateway/web/cgi-irc/kiwiirc.com/ip.200.200.22.200',
 'command': 'PRIVMSG',
 'address': '##bottestingmu',
 'args': ['##bottestingmu', 'ef']
