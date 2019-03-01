@@ -1,3 +1,7 @@
+[![first-timers-only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](https://www.firsttimersonly.com/)
+![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-pink.svg) 
+![MadeinMoris](https://img.shields.io/badge/Made%20in-Moris-green.svg)
+
 # 🍯 honeybot py 
 
 ## about
@@ -60,7 +64,8 @@ username
 ## contact
 - Abdur-Rahmaan Janhangeer | 📧 arj.python@gmail.com
 
-
+## credits
+[@arwinneil](https://github.com/arwinneil) for opensource and madeinmoris badges
  
 
 
