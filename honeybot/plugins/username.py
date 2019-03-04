@@ -19,10 +19,14 @@ import random
 class Plugin:
     def __init__(self):
         pass
-
+    
     def gen_uname(self):
-        p1 = ['flower', 'tree', 'land', 'moon']
-        p2 = ['star', 'hope', 'ant', 'spyder']
+        """Return a string containing a randomly-generated username based on an adjectives list 
+        (p1) and a noun list (p2)"""
+        p1 = ['hopeful', 'young', 'sloppy', 'magic', 'intelligent', 'uncommon', 'cute', 'dangerous'
+        'innocent', 'spooky', 'crazy', 'young', 'desperate', 'epic', 'anonymous']
+        p2 = ['star', 'tree', 'ant', 'spider', 'moon', 'bug', 'name', 'heisenberg', 'dragon'
+         'snake', 'lion', 'rebel', 'patriot', 'flower', 'popsicle', 'sun', 'failure']
         return '{}{}'.format(random.choice(p1), random.choice(p2))
 
     def run(self, incoming, methods, info):
