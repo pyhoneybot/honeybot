@@ -51,7 +51,7 @@ name = appinventormuBot
 - [x] 💐 humour
 - [ ] 🌨️ weather
 - [ ] ✉️ mail
-- [ ] 🎛️ maths
+- [x] 🎛️ maths
 - [ ] 📥 pm when user online
 
 ## allow plugins
