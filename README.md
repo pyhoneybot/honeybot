@@ -17,7 +17,7 @@ i actually started learning python through that bot. java was too much a pain fo
 
 ## contributing countries
 
-🇲🇺 🇺🇸 
+🇲🇺 🇺🇸 🇨🇦 
 
 ## ✂ some features
 
