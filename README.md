@@ -62,7 +62,10 @@ username
 ~~~
 
 ## contact
+### Email
 - Abdur-Rahmaan Janhangeer | 📧 arj.python@gmail.com
+### Slack
+https://honeybotworkspace.slack.com/messages/CGQLHMNCE/
 
 ## credits
 [@arwinneil](https://github.com/arwinneil) for opensource and madeinmoris badges
