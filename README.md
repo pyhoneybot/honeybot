@@ -29,8 +29,9 @@ i actually started learning python through that bot. java was too much a pain fo
 ## 📚 more info
 [[ wiki ]](https://github.com/Abdur-rahmaanJ/honeybot/wiki)
 
-## commands
-[[ commands ]](https://github.com/Abdur-rahmaanJ/honeybot/wiki/commands)
+## contributing guide
+
+- don't forget to add your country flag here after accepted PR. i'll have to hunt it down on your profile if not.
 
 ## plugins devlopment
 
