@@ -33,8 +33,89 @@ i actually started learning python through that bot. java was too much a pain fo
 [[ commands ]](https://github.com/Abdur-rahmaanJ/honeybot/wiki/commands)
 
 ## plugins devlopment
-[[ commands ]](https://github.com/Abdur-rahmaanJ/honeybot/wiki/commands)
- 
+
+including it here. let's begin
+
+a plugin has the following structure:
+
+```python
+# -*- coding: utf-8 -*-
+"""
+[greet.py]
+Greet Plugin
+[Author]
+Abdur-Rahmaan Janhangeer, pythonmembers.club
+[About]
+responds to .hi, demo of a basic plugin
+[Commands]
+>>> .hi
+returns hoo
+"""
+
+
+class Plugin:
+    def __init__(self):
+        pass
+
+    def run(self, incoming, methods, info):
+        try:
+            if info['command'] == 'PRIVMSG' and info['args'][1] == '.hi':
+                methods['send'](info['address'], 'hooo')
+        except Exception as e:
+            print('woops plugin error ', e)
+```
+we see three parameters being passed to the run method ```, incoming, methods, info)```
+
+#### parameter1: incoming
+
+```incoming``` is the raw line and is not used except if you are not satisfied with the already provided methods
+
+#### parameter2: methods
+
+```methods``` is a dictionary of methods to ease your life. a quick look at [main.py](honeybot/main.py) reveals
+
+```python
+def methods(self):
+        return {
+                'send_raw': self.send,
+                'send': self.send_target,
+                'join': self.join
+                }
+```
+where ```send_raw``` allows you to send in any string you want, thereby allowing you to implement any irc protocol from scratch
+
+but, for most uses, ```send``` allows you to send a message to an address ```methods['send']('<address>', '<message>')```. using it in conjunction with info parameter allows you to send messages where it came from, in pm to the bot or in a channel. you can however hardcode the address.
+
+```join``` allows you to join a channel by ```methods['join']('<channel name>')```
+
+#### parameter3: info
+
+for a normal run, info produces
+```python
+{
+'prefix': 'appinv!c5e342c5@gateway/web/cgi-irc/kiwiirc.com/ip.200.200.22.200',
+'command': 'PRIVMSG',
+'address': '##bottestingmu',
+'args': ['##bottestingmu', 'ef']
+}
+```
+hence if you want messages, ```messages = info['args'][1:]``` or the first word if you want to check for command will be ```info['args'][1]```
+
+#### wrapping up
+
+hence
+```python
+if info['command'] == 'PRIVMSG' and info['args'][1] == '.hi':
+    methods['send'](info['address'], 'hooo')
+```
+from above means 
+```
+if message received == .hi:
+    send(address, message)
+```
+
+#
+
 ## quickstart
 
 - specify your details in CONNECT.conf (already included)
