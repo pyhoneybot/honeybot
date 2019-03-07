@@ -4,36 +4,36 @@
 
 # 🍯 honeybot py 
 
-## about
-honeybot: the bot to learn python. feel free to pr.
+## About
+HoneyBot is a python based IRC bot.
+
+Feel free to contribute to the project!
 #
 ![alt text](honeybot_real.png "honeybot logo")
 
-## don't miss updates, follow on
-[![Open Source Helpers](https://www.codetriage.com/abdur-rahmaanj/honeybot/badges/users.svg)](https://www.codetriage.com/abdur-rahmaanj/honeybot)
+## Project Motivation
+Implementing the project in Java had some inefficiencies. Thus, the project stack was shifted over to Python.
+If you can think of any features, plugins, or functionality you wish to see in the project. Feel free to add it yourself, or create an issue detailing your ideas. We highly recommend you attempt to implement it yourself first and ask for help in our slack page!
 
-## some history
-i actually started learning python through that bot. java was too much a pain for a simple connection. learnt some new py tricks? create a plugin that uses it ^^
-
-## contributing countries
+## Contributing Countries
 
 🇲🇺 🇺🇸 🇨🇦 🇦🇷 
 
-## ✂ some features
+## ✂ Current Features
 
  * 🍬 OOP architecture
  * 🛰️ keyword parameters
  * 🌵 password security with config file [disabled for now]
  * 🔌 now with plugins
  
-## 📚 more info
+## 📚 More Info
 [[ wiki ]](https://github.com/Abdur-rahmaanJ/honeybot/wiki)
 
-## contributing guide
+## Contributing Guide
 
 - don't forget to add your country flag here after accepted PR. i'll have to hunt it down on your profile if not.
 
-## plugins devlopment
+## Plugins Development
 
 including it here. let's begin
 
@@ -117,7 +117,7 @@ if message received == .hi:
 
 #
 
-## quickstart
+## Quickstart
 
 - specify your details in CONNECT.conf (already included)
 ~~~
@@ -129,21 +129,21 @@ name = appinventormuBot
 ~~~
 - run main.py
 
-## todo 🔌 plugins
+## 🔌 Todo Plugins
 - [x] 💐 humour
 - [ ] 🌨️ weather
 - [ ] ✉️ mail
 - [x] 🎛️ maths
 - [ ] 📥 pm when user online
 
-## allow plugins
+## Allowing Plugins
 in PLUGINS.conf, add the plugin to allow on a new line !
 ~~~
 calc
 username
 ~~~
 
-## contact
+## Contact
 ### Email
 - Abdur-Rahmaan Janhangeer | 📧 arj.python@gmail.com
 ### Slack
@@ -152,6 +152,6 @@ https://honeybotworkspace.slack.com/messages/CGQLHMNCE/
 ## credits
 [@arwinneil](https://github.com/arwinneil) for opensource and madeinmoris badges
  
-
-
+## Follow the project on CodeTriage for updates!
+[![Open Source Helpers](https://www.codetriage.com/abdur-rahmaanj/honeybot/badges/users.svg)](https://www.codetriage.com/abdur-rahmaanj/honeybot)
 
