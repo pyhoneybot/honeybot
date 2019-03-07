@@ -4,18 +4,21 @@
 
 # 🍯 honeybot py 
 
-## about
-honeybot: the bot to learn python. feel free to pr.
+## About
+HoneyBot is a python based bot powered by Python.
+
+Feel free to contribute to the project as a means for learning Python.
 #
 ![alt text](honeybot_real.png "honeybot logo")
 
-## don't miss updates, follow on
+## Follow the project on CodeTriage for updates!
 [![Open Source Helpers](https://www.codetriage.com/abdur-rahmaanj/honeybot/badges/users.svg)](https://www.codetriage.com/abdur-rahmaanj/honeybot)
 
-## some history
-i actually started learning python through that bot. java was too much a pain for a simple connection. learnt some new py tricks? create a plugin that uses it ^^
+## Project Motivation
+Implementing the project in Java had some inefficiencies. Thus, the project stack was shifted over to Python.
+If you can think of any features, plugins, or functionality you wish to see in the project. Feel free to add it yourself, or create an issue detailing your ideas. We highly recommend you attempt to implement it yourself first and ask for help in our slack page!
 
-## contributing countries
+## Contributing Countries
 
 🇲🇺 🇺🇸 🇨🇦 🇦🇷 
 
