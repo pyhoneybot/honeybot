@@ -9,7 +9,7 @@ honeybot: the bot to learn python. feel free to pr.
 #
 ![alt text](honeybot_real.png "honeybot logo")
 
-## project available via
+## don't miss updates, follow on
 [![Open Source Helpers](https://www.codetriage.com/abdur-rahmaanj/honeybot/badges/users.svg)](https://www.codetriage.com/abdur-rahmaanj/honeybot)
 
 ## some history
