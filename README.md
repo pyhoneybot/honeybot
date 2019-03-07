@@ -4,18 +4,20 @@
 
 # 🍯 honeybot py 
 
-## About
-HoneyBot is a python based IRC bot.
+## 📮 About
+HoneyBot is a python-based IRC bot.
 
 Feel free to contribute to the project!
 #
 ![alt text](honeybot_real.png "honeybot logo")
 
-## Project Motivation
-Implementing the project in Java had some inefficiencies. Thus, the project stack was shifted over to Python.
+## 🕹 Project Motivation
+Implementing the project in Java was a nightmare, py's connect was sleek. Thus, the project stack was shifted over to Python.
 If you can think of any features, plugins, or functionality you wish to see in the project. Feel free to add it yourself, or create an issue detailing your ideas. We highly recommend you attempt to implement it yourself first and ask for help in our slack page!
 
-## Contributing Countries
+Psst. since i learnt py through this bot, we decided to keep a new-comers friendly policy. Feeling lost? Just ping.
+
+## 📌 Contributing Countries
 
 🇲🇺 🇺🇸 🇨🇦 🇦🇷 
 
@@ -25,15 +27,12 @@ If you can think of any features, plugins, or functionality you wish to see in t
  * 🛰️ keyword parameters
  * 🌵 password security with config file [disabled for now]
  * 🔌 now with plugins
- 
-## 📚 More Info
-[[ wiki ]](https://github.com/Abdur-rahmaanJ/honeybot/wiki)
 
-## Contributing Guide
+## 📜 Contributing Guide
 
 - don't forget to add your country flag here after accepted PR. i'll have to hunt it down on your profile if not.
 
-## Plugins Development
+## 🔧 Plugins Development
 
 including it here. let's begin
 
@@ -117,7 +116,7 @@ if message received == .hi:
 
 #
 
-## Quickstart
+## ⚡ Quickstart
 
 - specify your details in CONNECT.conf (already included)
 ~~~
@@ -136,20 +135,20 @@ name = appinventormuBot
 - [x] 🎛️ maths
 - [ ] 📥 pm when user online
 
-## Allowing Plugins
+## ☑ Allowing Plugins
 in PLUGINS.conf, add the plugin to allow on a new line !
 ~~~
 calc
 username
 ~~~
 
-## Contact
+## 📧 Contact
 ### Email
-- Abdur-Rahmaan Janhangeer | 📧 arj.python@gmail.com
+- Abdur-Rahmaan Janhangeer | arj.python@gmail.com
 ### Slack
 https://honeybotworkspace.slack.com/messages/CGQLHMNCE/
 
-## credits
+## 🖊 Credits
 [@arwinneil](https://github.com/arwinneil) for opensource and madeinmoris badges
  
 ## Follow the project on CodeTriage for updates!
