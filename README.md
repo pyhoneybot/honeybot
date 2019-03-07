@@ -5,9 +5,9 @@
 # 🍯 honeybot py 
 
 ## About
-HoneyBot is a python based bot powered by Python.
+HoneyBot is a python based IRC bot.
 
-Feel free to contribute to the project as a means for learning Python.
+Feel free to contribute to the project!
 #
 ![alt text](honeybot_real.png "honeybot logo")
 
