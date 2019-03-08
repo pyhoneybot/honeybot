@@ -22,17 +22,26 @@ Psst. since i learnt py through this bot, we decided to keep a new-comers friend
 🇲🇺 🇺🇸 🇨🇦 🇦🇷 
 
 ## ✂ Current Features
- * 👋 Greeting
  * 🍬 OOP architecture
  * 🛰️ keyword parameters
  * 🌵 password security with config file [disabled for now]
  * 🔌 now with plugins
- * 📜 Quotes
- * 🧠 Self Trivia
+ 
+## ⌚ Current Plugins
+- ⏲ caesar cipher - encode your text
+- 🔢 calc - any calculation
+- 📐 maths - sin cos and the like
+- 🍃 conv sniff - set triggers like how many times a word occur for one or more words and send response
+- ❄ greet - demo plugin
+- 🕶 joke - get random joke
+- ❓ self Trivia - random trivia
+- 💢 username - username generator
+- 📜 quotes - inspirational quotes
 
-## 📜 Contributing Guide
+## 📃 Contributing Guide
 
 - don't forget to add your country flag here after accepted PR. i'll have to hunt it down on your profile if not.
+- make sure to follow PEP8
 
 ## 🔧 Plugins Development
 
