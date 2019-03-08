@@ -22,11 +22,13 @@ Psst. since i learnt py through this bot, we decided to keep a new-comers friend
 🇲🇺 🇺🇸 🇨🇦 🇦🇷 
 
 ## ✂ Current Features
-
+ * 👋 Greeting
  * 🍬 OOP architecture
  * 🛰️ keyword parameters
  * 🌵 password security with config file [disabled for now]
  * 🔌 now with plugins
+ * 📜 Quotes
+ * 🧠 Self Trivia
 
 ## 📜 Contributing Guide
 
