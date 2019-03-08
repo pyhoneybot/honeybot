@@ -28,6 +28,7 @@ Psst. since i learnt py through this bot, we decided to keep a new-comers friend
  * 🌵 password security with config file [disabled for now]
  * 🔌 now with plugins
  * 📜 Quotes
+ * 🧠 Self Trivia
 
 ## 📜 Contributing Guide
 
