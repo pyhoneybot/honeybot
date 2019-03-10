@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-[joke.py]
+[dictionary.py]
 Dictionary Plugin
 
 [Author]
@@ -11,7 +11,7 @@ sends the meaning of the word
 
 [Commands]
 >>> .dictionary <<word>>
-returns a random joke
+returns meaning of the word specified
 """
 
 from PyDictionary import PyDictionary
