@@ -1,10 +1,9 @@
 
 # -*- coding: utf-8 -*-
 
-import socket
-import os
-import importlib
 import configparser
+import importlib
+import socket
 
 config = configparser.ConfigParser()
 config.read('CONNECT.conf')
