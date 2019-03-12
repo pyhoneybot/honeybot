@@ -76,6 +76,6 @@ class Plugin:
                         if length >= 4:
                             methods['send'](info['address'], self.__passgenspecialchar(length))
                         else:
-                            raise Exception('Length od password should be greater than 4.')
+                            raise Exception('Length of password should be greater than 4.')
         except Exception as e:
             print('woops plug', e)
