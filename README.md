@@ -156,8 +156,8 @@ username
 ## 📧 Contact
 ### Email
 - Abdur-Rahmaan Janhangeer | arj.python@gmail.com
-### Slack
-https://honeybotworkspace.slack.com/messages/CGQLHMNCE/
+### Discord
+https://discord.gg/E6zD4XT
 
 ## 🖊 Credits
 [@arwinneil](https://github.com/arwinneil) for opensource and madeinmoris badges
