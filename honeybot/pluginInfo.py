@@ -14,8 +14,6 @@ returns the plugins info
 """
 
 import os
-import sys
-from importlib import import_module
 import importlib.util
 
 directory = os.fsencode(__file__[:-13] + "/plugins")

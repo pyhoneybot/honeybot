@@ -19,7 +19,7 @@ Psst. since i learnt py through this bot, we decided to keep a new-comers friend
 
 ## 📌 Contributing Countries
 
-🇲🇺 🇺🇸 🇨🇦 🇦🇷 
+🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳
 
 ## ✂ Current Features
  * 🍬 OOP architecture
