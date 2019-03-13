@@ -34,6 +34,10 @@ greet.py\
 by Abdur-Rahmaan Janhangeer, pythonmembers.club, Unknown Website\
 responds to .hi, demo of a basic plugin
 
+pluginInfo.py\
+by Gabriele Ron, Unknown Website\
+Returns info about each plugin
+
 calc.py\
 by Abdur-Rahmaan Janhangeer, pythonmembers.club, Unknown Website\
 evaluates maths expressions in the format supported by py
@@ -45,3 +49,4 @@ Returns a private trivia question
 caesar_cipher.py\
 by Kyle Galloway, Unknown Website\
 encrypts and decrypts using a caesar cipher
+
