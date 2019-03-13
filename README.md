@@ -47,8 +47,6 @@ Psst. since i learnt py through this bot, we decided to keep a new-comers friend
 - don't forget to add your country flag here after accepted PR. i'll have to hunt it down on your profile if not.
 - make sure to follow PEP8
 - different changes to different files. for example, someone making a weather plugin first he creates a new branch
-
-**Detailed explanations:**
 ```
 git checkout -b "weather-plugin" 
 ```
