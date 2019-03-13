@@ -18,6 +18,10 @@ dictionary.py\
 by Nishant, JPMorgan Chase & Co., Unknown Website\
 sends the meaning of the word
 
+bitcoin.py\
+by Gabriele Ron, Unknown Website\
+Checks the current price for Bitcoin through the Legacy Coin Market Cap API
+
 username.py\
 by Abdur-Rahmaan Janhangeer, pythonmembers.club, Unknown Website\
 generates random usernames, used for inspiration
@@ -33,10 +37,6 @@ some maths related commands
 greet.py\
 by Abdur-Rahmaan Janhangeer, pythonmembers.club, Unknown Website\
 responds to .hi, demo of a basic plugin
-
-pluginInfo.py\
-by Gabriele Ron, Unknown Website\
-Returns info about each plugin
 
 calc.py\
 by Abdur-Rahmaan Janhangeer, pythonmembers.club, Unknown Website\

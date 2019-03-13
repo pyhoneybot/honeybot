@@ -14,9 +14,9 @@ returns the plugins info
 """
 
 import os
-from importlib import import_module
+import importlib.util
 
-directory = os.fsencode("./")
+directory = os.fsencode(__file__[:-13] + "/plugins")
 
 def docFind(lines, att):
     hit = False
@@ -34,14 +34,16 @@ def docFind(lines, att):
     return f"Unknown {att}"
 
 
-f = open("./plugins_info.md", "w")
+f = open(__file__[:-13] + "/plugins_info.md", "w")
 plug = ""
 
 for file in os.listdir(directory):
     filename = os.fsdecode(file)
 
     if filename.endswith(".py"):
-        x = import_module(filename[:-3])
+        spec = importlib.util.spec_from_file_location(filename[:-3], __file__[:-13] + "plugins/" + filename)
+        x = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(x)
 
         if isinstance(x.__doc__, str):
             plug += filename + "\\" + "\n"
