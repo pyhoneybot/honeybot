@@ -12,7 +12,7 @@ Feel free to contribute to the project!
 ![alt text](honeybot_real.png "honeybot logo")
 
 ## 🕹 Project Motivation
-Implementing the project in Java was a nightmare, py's connect was sleek. Thus, the project stack was shifted over to Python.
+Implementing the project in Java was weird, py's connect was sleek. Thus, the project stack was shifted over to Python.
 If you can think of any features, plugins, or functionality you wish to see in the project. Feel free to add it yourself, or create an issue detailing your ideas. We highly recommend you attempt to implement it yourself first and ask for help in our slack page!
 
 Psst. since i learnt py through this bot, we decided to keep a new-comers friendly policy. Feeling lost? Just ping.
@@ -28,20 +28,65 @@ Psst. since i learnt py through this bot, we decided to keep a new-comers friend
  * 🔌 now with plugins
  
 ## ⌚ Current Plugins
-- ⏲ caesar cipher - encode your text
-- 🔢 calc - any calculation
-- 📐 maths - sin cos and the like
-- 🍃 conv sniff - set triggers like how many times a word occur for one or more words and send response
-- ❄ greet - demo plugin
-- 🕶 joke - get random joke
-- ❓ self Trivia - random trivia
-- 💢 username - username generator
-- 📜 quotes - inspirational quotes
+
+- 💎 bitcoin by [@Macr0Nerd](https://github.com/Macr0Nerd) - get price of bitcoin
+- ⏲ caesar cipher by [@kylegalloway](https://github.com/kylegalloway) - encode your text
+- 🔢 calc by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - evaluates maths expressions
+- 📐 maths by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - sin cos and the like
+- 🍃 conv sniff by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - set triggers like how many times a word occur for one or more words and send response
+- ❄ greet by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - demo plugin
+- 🕶 joke by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ), [@colbyjayallen](https://github.com/colbyjayallen) - get random joke
+- ❓ self Trivia by [@ajimenezUCLA](https://github.com/ajimenezUCLA) - random trivia
+- 💢 username by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ), [@sseryani](https://github.com/sseryani) - username generator
+- 📜 quotes by [@German-Corpaz](https://github.com/German-Corpaz) - inspirational quotes
+- 📖 dictionary by [@iamnishant14](https://github.com/iamnishant14) - returns meaning of word
+- 🔣 password generator by [@iamnishant14](https://github.com/iamnishant14) - the name tells it all
 
 ## 📃 Contributing Guide
 
 - don't forget to add your country flag here after accepted PR. i'll have to hunt it down on your profile if not.
 - make sure to follow PEP8
+- different changes to different files. for example, someone making a weather plugin first he creates a new branch
+
+**Detailed explanations:**
+```
+git checkout -b "weather-plugin" 
+```
+then he commits
+```
+git add *
+git commit -m "added weather plugin"
+```
+then he push to create a PR with the branch
+```
+git push origin head
+```
+now let us say he wants to work on another issue, adding a joke in the jokes plugin, he creates another branch
+```
+git checkout -b "add-jokes" 
+```
+after, same as before
+```
+git add *
+git commit -m "added some jokes"
+git push origin head
+```
+now he wants to fix his weather plugin, he changes branch
+```
+git checkout weather-plugin
+```
+works, then commit 
+```
+git add *
+git commit -m "fixed <issue>"
+```
+then a PR
+```
+git push origin head
+```
+**Why all these?**
+
+So as not to reject a whole PR just because of some oddities. Reject only unneeded part.
 
 ## 🔧 Plugins Development
 
