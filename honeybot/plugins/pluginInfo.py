@@ -1,8 +1,22 @@
+"""
+[pluginInfo.py]
+Plugin Info Plugin
+
+[Author]
+Gabriele Ron
+
+[About]
+Returns info about each plugin
+
+[Commands]
+>>> ...
+returns the plugins info
+"""
+
 import os
 from importlib import import_module
 
 directory = os.fsencode("./")
-
 
 def docFind(lines, att):
     hit = False

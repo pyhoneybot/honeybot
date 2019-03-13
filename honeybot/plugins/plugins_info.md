@@ -45,4 +45,3 @@ Returns a private trivia question
 caesar_cipher.py\
 by Kyle Galloway, Unknown Website\
 encrypts and decrypts using a caesar cipher
-
