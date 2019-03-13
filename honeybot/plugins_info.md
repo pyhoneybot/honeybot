@@ -1,3 +1,7 @@
+password_generator.py\
+by Nishant, JPMorgan Chase & Co., Unknown Website\
+sends different type of passwords
+
 quote.py\
 by German Corpaz, Unknown Website\
 Sends a random quote on request
@@ -25,6 +29,10 @@ Checks the current price for Bitcoin through the Legacy Coin Market Cap API
 username.py\
 by Abdur-Rahmaan Janhangeer, pythonmembers.club, Unknown Website\
 generates random usernames, used for inspiration
+
+wikipedia.py\
+by Gabriele Ron, Unknown Website\
+sends a random wikipedia article on request
 
 joke.py\
 by Abdur-Rahmaan Janhangeer, pythonmembers.club, Unknown Website\
