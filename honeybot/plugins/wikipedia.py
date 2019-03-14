@@ -9,6 +9,9 @@ Gabriele Ron
 [About]
 sends a wikipedia article on request based off of a search or random query
 
+[Website]
+https://Macr0Nerd.github.io
+
 [Commands]
 >>> .wiki <command> <topic>
 returns a wikipedia article

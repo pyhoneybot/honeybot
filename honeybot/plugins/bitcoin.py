@@ -6,6 +6,9 @@ Bitcoin Price Checking Plugin
 [Author]
 Gabriele Ron
 
+[Website]
+https://Macr0Nerd.github.io
+
 [About]
 Checks the current price for Bitcoin through the Legacy Coin Market Cap API
 TODO: Update API to new Coin Market Cap API
