@@ -32,7 +32,7 @@ generates random usernames, used for inspiration
 
 wikipedia.py\
 by Gabriele Ron, Unknown Website\
-sends a random wikipedia article on request
+sends a wikipedia article on request based off of a search or random query
 
 joke.py\
 by Abdur-Rahmaan Janhangeer, pythonmembers.club, Unknown Website\
