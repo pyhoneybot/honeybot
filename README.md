@@ -184,7 +184,7 @@ name = appinventormuBot
 
 ## 🔌 Todo Plugins
 - [x] 💐 humour
-- [ ] 🌨️ weather
+- [x] 🌨️ weather
 - [ ] ✉️ mail
 - [x] 🎛️ maths
 - [ ] 📥 pm when user online
