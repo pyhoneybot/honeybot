@@ -1,16 +1,5 @@
 """
-[pluginInfo.py]
-Plugin Info Plugin
-
-[Author]
-Gabriele Ron
-
-[About]
-Returns info about each plugin
-
-[Commands]
->>> ...
-returns the plugins info
+script to generate plugins info
 """
 
 import os
