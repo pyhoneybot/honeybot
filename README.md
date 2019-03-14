@@ -21,6 +21,12 @@ Psst. since i learnt py through this bot, we decided to keep a new-comers friend
 
 🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳
 
+## 📨 Follow the project on CodeTriage for updates!
+
+get issues delivered in your inbox.
+
+[![Open Source Helpers](https://www.codetriage.com/abdur-rahmaanj/honeybot/badges/users.svg)](https://www.codetriage.com/abdur-rahmaanj/honeybot)
+
 ## ✂ Current Features
  * 🍬 OOP architecture
  * 🛰️ keyword parameters
@@ -85,6 +91,23 @@ git push origin head
 **Why all these?**
 
 So as not to reject a whole PR just because of some oddities. Reject only unneeded part.
+
+## 🥄 Updating fork
+
+Now, other changes are ongoing, what if you need the latest changes?
+
+```
+git pull origin master
+```
+helps if you cloned your own repo. What is you want to update your local copy of someone else repo?
+you do it like that 
+
+```
+cd <your/local/cloned/repo/path/here>
+git remote add upstream git://github.com/Abdur-rahmaanJ/honeybot.git
+git fetch upstream
+git pull upstream master
+```
 
 ## 🔧 Plugins Development
 
@@ -204,7 +227,4 @@ https://discord.gg/E6zD4XT
 
 ## 🖊 Credits
 [@arwinneil](https://github.com/arwinneil) for opensource and madeinmoris badges
- 
-## Follow the project on CodeTriage for updates!
-[![Open Source Helpers](https://www.codetriage.com/abdur-rahmaanj/honeybot/badges/users.svg)](https://www.codetriage.com/abdur-rahmaanj/honeybot)
 
