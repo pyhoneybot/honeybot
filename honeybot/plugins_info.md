@@ -46,8 +46,12 @@ some maths related commands
 by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 responds to .hi, demo of a basic plugin
 
-# calc.py
-by Abdur-Rahmaan Janhangeer, pythonmembers.club\
+# weather.py\
+by Gabriele Ron, Unknown Website\
+A plugin to get the weather of a location
+
+# calc.py\
+by Abdur-Rahmaan Janhangeer, pythonmembers.club, Unknown Website\
 evaluates maths expressions in the format supported by py
 
 # selfTrivia.py
