@@ -35,8 +35,13 @@ for file in os.listdir(directory):
         spec.loader.exec_module(x)
 
         if isinstance(x.__doc__, str):
-            plug += filename + "\\" + "\n"
-            plug += "by " + docFind(x.__doc__, "Author") + ", " + docFind(x.__doc__, "Website") + "\\" + "\n"
+            plug += "# " + filename + "\n"
+            plug += "by " + docFind(x.__doc__, "Author")
+            if docFind(x.__doc__, "Website") != "Unknown Website":
+                plug += ", " + "[Website](" + docFind(x.__doc__, "Website") + ")\\\n"
+            else:
+                plug += "\\\n"
+
             plug += docFind(x.__doc__, "About") + "\n" + "\n"
 
 f.write(plug)

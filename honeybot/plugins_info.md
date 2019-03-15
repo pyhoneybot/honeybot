@@ -1,64 +1,64 @@
-password_generator.py\
-by Nishant, JPMorgan Chase & Co., Unknown Website\
+# password_generator.py
+by Nishant, JPMorgan Chase & Co.\
 sends different type of passwords
 
-quote.py\
-by German Corpaz, Unknown Website\
+# quote.py
+by German Corpaz\
 Sends a random quote on request
 
-debug.py\
-by Abdur-Rahmaan Janhangeer, pythonmembers.club, Unknown Website\
+# debug.py
+by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 prints all parameters passed to bot
 
-test.py\
-by Abdur-Rahmaan Janhangeer, pythonmembers.club, Unknown Website\
+# test.py
+by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 tests run
 
-conv_sniff.py\
-by Abdur-Rahmaan Janhangeer, pythonmembers.club, Unknown Website\
+# conv_sniff.py
+by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 senses conversation topic with sensitivity set by user, also supports
 
-dictionary.py\
-by Nishant, JPMorgan Chase & Co., Unknown Website\
+# dictionary.py
+by Nishant, JPMorgan Chase & Co.\
 sends the meaning of the word
 
-bitcoin.py\
-by Gabriele Ron, Unknown Website\
+# bitcoin.py
+by Gabriele Ron, [Website](https://Macr0Nerd.github.io)\
 Checks the current price for Bitcoin through the Legacy Coin Market Cap API
 
-username.py\
-by Abdur-Rahmaan Janhangeer, pythonmembers.club, Unknown Website\
+# username.py
+by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 generates random usernames, used for inspiration
 
-wikipedia.py\
-by Gabriele Ron, Unknown Website\
+# wikipedia.py
+by Gabriele Ron, [Website](https://Macr0Nerd.github.io)\
 sends a wikipedia article on request based off of a search or random query
 
-joke.py\
-by Abdur-Rahmaan Janhangeer, pythonmembers.club, Unknown Website\
+# joke.py
+by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 sends a random joke on request
 
-maths.py\
-by Abdur-Rahmaan Janhangeer, pythonmembers.club, Unknown Website\
+# maths.py
+by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 some maths related commands
 
-greet.py\
-by Abdur-Rahmaan Janhangeer, pythonmembers.club, Unknown Website\
+# greet.py
+by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 responds to .hi, demo of a basic plugin
 
-weather.py\
+# weather.py\
 by Gabriele Ron, Unknown Website\
 A plugin to get the weather of a location
 
-calc.py\
+# calc.py\
 by Abdur-Rahmaan Janhangeer, pythonmembers.club, Unknown Website\
 evaluates maths expressions in the format supported by py
 
-selfTrivia.py\
-by Angel Jimenez, Unknown Website\
+# selfTrivia.py
+by Angel Jimenez\
 Returns a private trivia question
 
-caesar_cipher.py\
-by Kyle Galloway, Unknown Website\
+# caesar_cipher.py
+by Kyle Galloway\
 encrypts and decrypts using a caesar cipher
 
