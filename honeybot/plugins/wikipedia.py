@@ -7,10 +7,13 @@ Wikipedia Plugin
 Gabriele Ron
 
 [About]
-sends a random wikipedia article on request
+sends a wikipedia article on request based off of a search or random query
+
+[Website]
+https://Macr0Nerd.github.io
 
 [Commands]
->>> .wiki
+>>> .wiki <command> <topic>
 returns a wikipedia article
 """
 
@@ -25,7 +28,11 @@ class Plugin:
             # print(info)
         try:
             if info['command'] == 'PRIVMSG' and info['args'][1] == '.wiki':
-                article = wikipedia.page(wikipedia.random(1))
-                methods['send'](info['address'], article)
+                if info['args'][2] == 'random':
+                    article = wikipedia.page(wikipedia.random(1))
+                    methods['send'](info['address'], article)
+                elif info['args'][2] == 'search':
+                    article = wikipedia.search(info['args'][3])
+                    methods['send'](info['address'], article)
         except Exception as e:
             print('woops plug', e)

@@ -1,16 +1,5 @@
 """
-[pluginInfo.py]
-Plugin Info Plugin
-
-[Author]
-Gabriele Ron
-
-[About]
-Returns info about each plugin
-
-[Commands]
->>> ...
-returns the plugins info
+script to generate plugins info
 """
 
 import os
@@ -46,8 +35,13 @@ for file in os.listdir(directory):
         spec.loader.exec_module(x)
 
         if isinstance(x.__doc__, str):
-            plug += filename + "\\" + "\n"
-            plug += "by " + docFind(x.__doc__, "Author") + ", " + docFind(x.__doc__, "Website") + "\\" + "\n"
+            plug += "# " + filename + "\n"
+            plug += "by " + docFind(x.__doc__, "Author")
+            if docFind(x.__doc__, "Website") != "Unknown Website":
+                plug += ", " + "[Website](" + docFind(x.__doc__, "Website") + ")\\\n"
+            else:
+                plug += "\\\n"
+
             plug += docFind(x.__doc__, "About") + "\n" + "\n"
 
 f.write(plug)
