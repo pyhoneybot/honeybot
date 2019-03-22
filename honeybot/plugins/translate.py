@@ -1,4 +1,33 @@
 # -*- coding: utf-8 -*-
+
+"""
+[weather.py]
+Translate Plugin
+[Author]
+Ahmed Deeb
+[About]
+A Google Translate plugin 
+[Commands]
+>>> . Google Translator object.
+
+    Examples
+    --------
+    translator = Plugin()
+
+    results1 = translator.translate("Einen schönen Tag allerseits")
+
+    # try 2 at a time
+    results2 = translator.translate(["Einen schönen Tag allerseits",
+                                     "Ich nehme an"])
+
+    # try detect
+    results3 = translator.detect("Einen schönen Tag allerseits")
+
+    # try to detect 2 at a time
+    results4 = translator.detect(["Einen schönen Tag allerseits",
+                                     "Ich nehme an"])
+   
+"""
 """
 You need to fill in your API key from google below. Note that querying
 supported languages is not implemented.
@@ -139,13 +168,13 @@ class RedirectHandler(HTTPRedirectHandler):
 
 ### Translator Class ###
 
-class GoogleTranslator(object):
+class Plugin(object):
     """
     Google Translator object.
 
     Examples
     --------
-    translator = GoogleTranslator()
+    translator = Plugin()
 
     results1 = translator.translate("Einen schönen Tag allerseits")
 
@@ -295,7 +324,7 @@ if __name__ == "__main__":
     do_run = raw_input("Running this costs money. Key 1 to continue: ")
     if int(do_run) != 1:
         raise ValueError("Exiting")
-    translator = GoogleTranslator()
+    translator = Plugin()
 
     results1 = translator.translate("Einen schönen Tag allerseits")
 
