@@ -5,7 +5,7 @@
 # 🍯 honeybot py 
 
 ## 📮 About
-HoneyBot is a python-based IRC bot.
+HoneyBot is a python-based IRC bot. (**python3**)
 
 Feel free to contribute to the project!
 #
