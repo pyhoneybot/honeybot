@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-[weather.py]
+[translate.py]
 Translate Plugin
 [Author]
 Ahmed Deeb
@@ -87,11 +87,13 @@ Vietnamese 	vi
 Welsh 	cy
 Yiddish 	yi
 """
-import os
-import urlparse
-import urllib
-import urllib2
-import httplib2
+import os.path
+import urllib.parse
+from urllib.request import urlopen, Request
+from urllib.parse import urlencode, quote
+from urllib import error
+from json import loads
+from urllib.request import urlopen
 import gzip
 import json
 from httplib2 import FileCache
