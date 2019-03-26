@@ -27,12 +27,18 @@ class Plugin:
         # if '!~' in info['prefix']:
             # print(info)
         try:
-            if info['command'] == 'PRIVMSG' and info['args'][1] == '.wiki':
-                if info['args'][2] == 'random':
-                    article = wikipedia.page(wikipedia.random(1))
+            msgs = info['args'][1:][0].split()
+
+            if info['command'] == 'PRIVMSG' and msgs[0] == '.wiki':
+                if msgs[1] == 'random':
+                    print("You want the random article!")
+
+                    article = wikipedia.page(wikipedia.random(1)).summary
                     methods['send'](info['address'], article)
-                elif info['args'][2] == 'search':
-                    article = wikipedia.search(info['args'][3])
+                elif msgs[1] == 'search':
+                    print(f"You wanted {msgs[2]}")
+
+                    article = wikipedia.page(msgs[2]).summary
                     methods['send'](info['address'], article)
         except Exception as e:
             print('woops plug', e)

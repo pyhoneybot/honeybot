@@ -73,6 +73,6 @@ class Plugin:
         try:
             msgs = info['args'][1:]
             if info['command'] == 'PRIVMSG' and msgs[0] == '.quote':
-                methods['send'](info['address'], self.quote())
+                methods['send'](info['address'], Plugin.quote(self))
         except Exception as e:
             print('error quote plugin', e)

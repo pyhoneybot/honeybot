@@ -19,8 +19,10 @@ class Plugin:
 
     def run(self, incoming, methods, info):
         try:
-            if info['command'] == 'PRIVMSG' and info['args'][1] == '.weather':
-                api_url = f"api.openweathermap.org/data/2.5/weather?q={info['args'][2]},{info['args'][3]}" \
+            msgs = info['args'][1:][0].split()
+
+            if info['command'] == 'PRIVMSG' and msgs[0] == '.weather':
+                api_url = f"https://api.openweathermap.org/data/2.5/weather?q={msgs[1]},{msgs[2]}" \
                     f"&APPID=8801bc666d30a8cc9294feaf60c01117"
                 response = requests.get(api_url)
                 response_json = response.json()

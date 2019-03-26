@@ -8,6 +8,10 @@ Kyle Galloway
 
 [About]
 encrypts and decrypts using a caesar cipher
+
+[Commands]
+>>> .caesar_cipher <message>
+returns the encrypted version of message
 """
 import codecs
 

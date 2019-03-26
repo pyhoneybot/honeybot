@@ -18,7 +18,7 @@ class Bot_core(object):
                  owners=['appinventorMu', 'appinv'],
                  password='',
                  friends=['haruno', 'keiserr', 'loganaden'],
-                 autojoin_channels=['##bottestingmu', '#bottest']
+                 autojoin_channels=['#ltch']
                  ):
         self.server_url = server_url
         self.port = port
@@ -58,7 +58,7 @@ class Bot_core(object):
         return "PRIVMSG " + target + " :" + msg + "\r\n"
 
     def pong_return(self):
-        return 'PONG \r\n'
+        return 'PONG\r\n'
 
     def info(self, s):
         def return_it(x):
@@ -112,6 +112,8 @@ class Bot_core(object):
     '''
 
     def load_plugins(self, list_to_add):
+        print("\033[0;36mLoading plugins...\033[0;0m")
+
         try:
             to_load = []
             with open('PLUGINS.conf', 'r') as f:
@@ -119,9 +121,11 @@ class Bot_core(object):
                 to_load = list(filter(lambda x: x != '', to_load))
             for file in to_load:
                 module = importlib.import_module('plugins.'+file)
-                Plugin = getattr(module, 'Plugin')
-                obj = Plugin()
+                obj = module.Plugin
                 list_to_add.append(obj)
+
+            self.plugins = list_to_add
+            print("\033[0;32mLoaded plugins...\033[0;0m")
         except ModuleNotFoundError as e:
             print('module not found', e)
 
@@ -136,8 +140,16 @@ class Bot_core(object):
         '''
         incoming is the unparsed string. refer to test.py
         '''
-        for plugin in listfrom:
-            plugin.run(incoming, self.methods(), self.info(incoming))
+
+        print(f"\033[0;36mListfrom is {listfrom}\033[0;0m")
+        print(f"\033[0;33mInfo is {self.info(incoming)}\033[0;0m")
+
+        if self.info(incoming)['args'][1][0] == ".":
+            print("\033[0;32mReceived!\033[0;0m")
+
+            for plugin in listfrom:
+                print(f"\033[0;33mTrying {plugin}\033[0;0m")
+                plugin.run(self, incoming, self.methods(), self.info(incoming))
 
     '''
     MESSAGE PARSING
@@ -147,6 +159,7 @@ class Bot_core(object):
         '''
         PLUGINS
         '''
+
         self.run_plugins(self.plugins, incoming)
 
     '''
@@ -216,4 +229,4 @@ class Bot_core(object):
 
 if __name__ == '__main__':
     x = Bot_core()
-    x.registered_run()
+    x.unregistered_run()
