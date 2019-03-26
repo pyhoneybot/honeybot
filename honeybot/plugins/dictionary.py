@@ -33,6 +33,6 @@ class Plugin:
                 if len(msgs) > 1:
                     if msgs[0] == '.dictionary':
                         word = msgs[1]
-                        methods['send'](info['address'], self.__dictionary(word))
+                        methods['send'](info['address'], Plugin.__dictionary(self, word))
         except Exception as e:
             print('woops plug', e)

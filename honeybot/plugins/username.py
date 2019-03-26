@@ -35,6 +35,6 @@ class Plugin:
                 # print(info)
             msgs = info['args'][1:]
             if info['command'] == 'PRIVMSG' and msgs[0] == '.uname':
-                methods['send'](info['address'], self.gen_uname())
+                methods['send'](info['address'], Plugin.gen_uname(self))
         except Exception as e:
             print('woops plug', e)

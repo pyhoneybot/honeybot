@@ -109,7 +109,7 @@ class Plugin:
         try:
             msgs = info['args'][1:]
             if info['command'] == 'PRIVMSG' and msgs[0] == '.selfTrivia':
-                methods['send'](info['address'], self.trivia())
+                methods['send'](info['address'], Plugin.trivia(self))
         except Exception as e:
             print('Error with Self Trivia Plugin!', e)
 

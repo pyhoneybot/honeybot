@@ -80,6 +80,6 @@ class Plugin:
                 # print(info)
             msgs = info['args'][1:]
             if info['command'] == 'PRIVMSG' and msgs[0] == '.joke':
-                methods['send'](info['address'], self.joke())
+                methods['send'](info['address'], Plugin.joke(self))
         except Exception as e:
             print('woops plug', e)
