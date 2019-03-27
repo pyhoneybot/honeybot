@@ -47,6 +47,11 @@ get issues delivered in your inbox.
 - 📜 quotes by [@German-Corpaz](https://github.com/German-Corpaz) - inspirational quotes
 - 📖 dictionary by [@iamnishant14](https://github.com/iamnishant14) - returns meaning of word
 - 🔣 password generator by [@iamnishant14](https://github.com/iamnishant14) - the name tells it all
+- 🐜 debug by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - prints all parameters passed to bot
+- 📚 wikipedia by [@Macr0Nerd](https://github.com/Macr0Nerd) - returns a wikipedia article
+- 🗿 translate by Ahmed Deeb - google translate plugin
+- 📑 test by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - runs tests
+- ⛅️ weather by [@Macr0Nerd](https://github.com/Macr0Nerd) - returns weather info for a given location
 
 ## 📃 Contributing Guide
 
