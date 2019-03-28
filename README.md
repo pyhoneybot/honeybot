@@ -57,7 +57,10 @@ get issues delivered in your inbox.
 
 - don't forget to add your country flag here after accepted PR. i'll have to hunt it down on your profile if not.
 - make sure to follow PEP8
-- different changes to different files. for example, someone making a weather plugin first he creates a new branch
+
+**about PR**
+
+different changes to different files. for example, someone making a weather plugin first he creates a new branch
 ```
 git checkout -b "weather-plugin" 
 ```
