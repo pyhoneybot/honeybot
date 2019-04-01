@@ -64,7 +64,6 @@ class Plugin:
                 if len(msgs) > 1:
                     if msgs[0] == '.passgen':
                         length = msgs[1]
-                        #had self rather than plugin, no type casts, functions were looking for 2 vars and only 1 was being passes
                         methods['send'](info['address'], Plugin.__passgen(int(length)))
                     if msgs[0] == '.passgensecure':
                         length = msgs[1]
