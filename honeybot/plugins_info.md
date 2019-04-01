@@ -62,3 +62,7 @@ Returns a private trivia question
 by Kyle Galloway\
 encrypts and decrypts using a caesar cipher
 
+# mail.py
+by Tanner Fry
+send an email using the following command format:
+.mail <To email address> .body <Text for the body of your email> .subject <Text of subject for email>

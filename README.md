@@ -1,8 +1,8 @@
 [![first-timers-only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](https://www.firsttimersonly.com/)
-![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-pink.svg) 
+![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-pink.svg)
 ![MadeinMoris](https://img.shields.io/badge/Made%20in-Moris-green.svg)
 
-# 🍯 honeybot py 
+# 🍯 honeybot py
 
 ## 📮 About
 HoneyBot is a python-based IRC bot. (**python3**)
@@ -32,7 +32,7 @@ get issues delivered in your inbox.
  * 🛰️ keyword parameters
  * 🌵 password security with config file [disabled for now]
  * 🔌 now with plugins
- 
+
 ## ⌚ Current Plugins
 
 - 💎 bitcoin by [@Macr0Nerd](https://github.com/Macr0Nerd) - get price of bitcoin
@@ -52,7 +52,7 @@ get issues delivered in your inbox.
 - 🗿 translate by Ahmed Deeb - google translate plugin
 - 📑 test by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - runs tests
 - ⛅️ weather by [@Macr0Nerd](https://github.com/Macr0Nerd) - returns weather info for a given location
-
+- ✉️  mail by [@TannerFry](https://github.com/TannerFry) - send emails within the chat
 ## 📃 Contributing Guide
 
 - don't forget to add your country flag here after accepted PR. i'll have to hunt it down on your profile if not.
@@ -62,7 +62,7 @@ get issues delivered in your inbox.
 
 different changes to different files. for example, someone making a weather plugin first he creates a new branch
 ```
-git checkout -b "weather-plugin" 
+git checkout -b "weather-plugin"
 ```
 then he commits
 ```
@@ -75,7 +75,7 @@ git push origin head
 ```
 now let us say he wants to work on another issue, adding a joke in the jokes plugin, he creates another branch
 ```
-git checkout -b "add-jokes" 
+git checkout -b "add-jokes"
 ```
 after, same as before
 ```
@@ -87,7 +87,7 @@ now he wants to fix his weather plugin, he changes branch
 ```
 git checkout weather-plugin
 ```
-works, then commit 
+works, then commit
 ```
 git add *
 git commit -m "fixed <issue>"
@@ -108,7 +108,7 @@ Now, other changes are ongoing, what if you need the latest changes?
 git pull origin master
 ```
 helps if you cloned your own repo. What is you want to update your local copy of someone else repo?
-you do it like that 
+you do it like that
 
 ```
 cd <your/local/cloned/repo/path/here>
@@ -193,7 +193,7 @@ hence
 if info['command'] == 'PRIVMSG' and info['args'][1] == '.hi':
     methods['send'](info['address'], 'hooo')
 ```
-from above means 
+from above means
 ```
 if message received == .hi:
     send(address, message)
@@ -216,7 +216,7 @@ name = appinventormuBot
 ## 🔌 Todo Plugins
 - [x] 💐 humour
 - [x] 🌨️ weather
-- [ ] ✉️ mail
+- [x] ✉️ mail
 - [x] 🎛️ maths
 - [ ] 📥 pm when user online
 
@@ -235,4 +235,3 @@ https://discord.gg/E6zD4XT
 
 ## 🖊 Credits
 [@arwinneil](https://github.com/arwinneil) for opensource and madeinmoris badges
-
