@@ -14,7 +14,7 @@ sends the meaning of the word
 returns meaning of the word specified
 """
 
-from PyDictionary import PyDictionary
+import PyDictionary
 
 
 class Plugin:
