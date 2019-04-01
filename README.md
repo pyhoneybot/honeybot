@@ -27,10 +27,12 @@ get issues delivered in your inbox.
 
 [![Open Source Helpers](https://www.codetriage.com/abdur-rahmaanj/honeybot/badges/users.svg)](https://www.codetriage.com/abdur-rahmaanj/honeybot)
 
-## :thought_balloon: Testimonials
-[@TannerFry](https://github.com/TannerFry) - "With experience in programming in Python, and experience implementing a SMTP email plugin for a different system, picking up the HoneyBot system and following the documentation provided for new-comers made it very simple to implement the same SMTP email plugin to the HoneyBot system. This was my first time contributing to an open-source
+## :thought_balloon: Project Testimonials
+[@TannerFry](https://github.com/TannerFry)
+
+> With experience in programming in Python, and implementing an SMTP email plugin for a different system, picking up HoneyBot and following the documentation provided for new-comers made it very simple to implement the same SMTP email plugin to the HoneyBot system. This was my first time contributing to an open-source
 project on GitHub and it was an overall great experience. The welcoming of new contributors and documentation on how to contribute and implement plugins is great for people
-who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was extremely helpful when answering my questions and helping me along the way."
+who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was extremely helpful when answering my questions and helping me along the way.
 
 ## ✂ Current Features
  * 🍬 OOP architecture
