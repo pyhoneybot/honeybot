@@ -35,6 +35,10 @@ get issues delivered in your inbox.
 project on GitHub and it was an overall great experience. The welcoming of new contributors and documentation on how to contribute and implement plugins is great for people
 who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was extremely helpful when answering my questions and helping me along the way.
 
+[@RiceAbove](https://github.com/RiceAbove)
+
+> HoneyBot is my first time collaborating to an open source project and I'm loving it. Before discovering HoneyBot, I was very intimidated on the idea of working with other people and had no idea what an IRC even was. Now I realize how much fun and rewarding it is to work together on a project with dedicated and friendly individuals. The documentation is easy to follow and everyone is super helpful. I highly recommend any new programmer who want to contribute on an open source project to try out HoneyBot. Personally I enjoy working on this project more than my own schoolwork. 
+
 ## ✂ Current Features
  * 🍬 OOP architecture
  * 🛰️ keyword parameters
