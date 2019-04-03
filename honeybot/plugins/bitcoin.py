@@ -27,12 +27,12 @@ class Plugin:
 
     def run(self, incoming, methods, info):
         try:
-            msgs = info['args'][1:][0].split()
+            #msgs = info['args'][1:][0].split()
 
-            if info['command'] == 'PRIVMSG' and msgs[0] == '.btc':
-                        response = requests.get("https://api.coinmarketcap.com/v1/ticker/bitcoin/")
-                        response_json = response.json()
-                        methods['send'](info['address'], "$" + response_json[0]['price_usd'])
+            if info['command'] == 'PRIVMSG' and info['args'][1] == '.btc':
+                response = requests.get("https://api.coinmarketcap.com/v1/ticker/bitcoin/")
+                response_json = response.json()
+                methods['send'](info['address'], "$" + response_json[0]['price_usd'])
 
         except Exception as e:
             print('woops plugin', __file__, e)
