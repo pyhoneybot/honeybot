@@ -8,13 +8,15 @@ Nishant, JPMorgan Chase & Co.
 
 [About]
 sends the meaning of the word
+requires PyDictionary to be installed
+can use pip -> "pip install PyDictionary"
 
 [Commands]
 >>> .dictionary <<word>>
 returns meaning of the word specified
 """
 
-from PyDictionary import PyDictionary
+import PyDictionary
 
 
 class Plugin:

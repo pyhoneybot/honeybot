@@ -8,6 +8,7 @@ Gabriele Ron
 
 [About]
 sends a wikipedia article on request based off of a search or random query
+requires wikipedia library. Can use pip -> "pip install wikipedia"
 
 [Website]
 https://Macr0Nerd.github.io
