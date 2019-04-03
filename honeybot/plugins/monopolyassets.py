@@ -1,9 +1,3 @@
-# Game logic
-class Monopoly:
-    def __init__(self):
-        pass
-
-
 # Game Objects
 class Property:
     def __init__(self, name, color, price, 
