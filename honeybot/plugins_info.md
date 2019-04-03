@@ -2,6 +2,10 @@
 by Nishant, JPMorgan Chase & Co.\
 sends different type of passwords
 
+# translate.py
+by Ahmed Deeb\
+A Google Translate plugin
+
 # quote.py
 by German Corpaz\
 Sends a random quote on request
@@ -46,12 +50,12 @@ some maths related commands
 by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 responds to .hi, demo of a basic plugin
 
-# weather.py\
-by Gabriele Ron, Unknown Website\
+# weather.py
+by Gabriele Ron\
 A plugin to get the weather of a location
 
-# calc.py\
-by Abdur-Rahmaan Janhangeer, pythonmembers.club, Unknown Website\
+# calc.py
+by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 evaluates maths expressions in the format supported by py
 
 # selfTrivia.py
