@@ -4,6 +4,7 @@
 import configparser
 import importlib
 import socket
+import sys
 
 config = configparser.ConfigParser()
 config.read('CONNECT.conf')
@@ -18,7 +19,7 @@ class Bot_core(object):
                  owners=['appinventorMu', 'appinv'],
                  password='',
                  friends=['haruno', 'keiserr', 'loganaden'],
-                 autojoin_channels=['#ltch']
+                 autojoin_channels=['##bottestingmu']
                  ):
         self.server_url = server_url
         self.port = port
@@ -192,6 +193,7 @@ class Bot_core(object):
                 if len(data) == 0:
                     try:
                         print('<must handle reconnection>')
+                        sys.exit()
                     except Exception as e:
                         print(e)
             except Exception as e:
@@ -208,7 +210,7 @@ class Bot_core(object):
     def unregistered_run(self):
         self.connect()
         self.greet()
-        self.load_plugins(plugins)
+        self.load_plugins(self.plugins)
         self.pull()
 
     '''
