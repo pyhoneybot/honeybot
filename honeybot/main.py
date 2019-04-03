@@ -208,7 +208,7 @@ class Bot_core(object):
     def unregistered_run(self):
         self.connect()
         self.greet()
-        self.load_plugins(plugins)
+        self.load_plugins(self.plugins)
         self.pull()
 
     '''
