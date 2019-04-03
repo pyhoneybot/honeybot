@@ -1,5 +1,6 @@
 [![first-timers-only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](https://www.firsttimersonly.com/)
 ![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-pink.svg)
+![Open Source Love](https://img.shields.io/badge/chat%20on-discord-green.svg)
 ![MadeinMoris](https://img.shields.io/badge/Made%20in-Moris-green.svg)
 
 # 🍯 honeybot py
@@ -13,7 +14,7 @@ Feel free to contribute to the project!
 
 ## 🕹 Project Motivation
 Implementing the project in Java was weird, py's connect was sleek. Thus, the project stack was shifted over to Python.
-If you can think of any features, plugins, or functionality you wish to see in the project. Feel free to add it yourself, or create an issue detailing your ideas. We highly recommend you attempt to implement it yourself first and ask for help in our slack page!
+If you can think of any features, plugins, or functionality you wish to see in the project. Feel free to add it yourself, or create an issue detailing your ideas. We highly recommend you attempt to implement it yourself first and ask for help in our discord server!
 
 Psst. since i learnt py through this bot, we decided to keep a new-comers friendly policy. Feeling lost? Just ping.
 
