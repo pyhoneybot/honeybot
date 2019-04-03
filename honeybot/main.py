@@ -224,7 +224,7 @@ class Bot_core(object):
         if 'ping' in incoming.lower():
             part = incoming.split(':')
             if self.domain in part[1]:
-                self.send(self.pong_return())
+                self.send(self.pong_return() + ":{0}".format(part[1]))
                 print('''
                       ***** message *****
                       ping detected from
