@@ -16,25 +16,20 @@ can use pip -> "pip install PyDictionary"
 returns meaning of the word specified
 """
 
-import PyDictionary
-
+from PyDictionary import PyDictionary
 
 class Plugin:
     def __init__(self):
         pass
 
-    def __dictionary(self, word):
-        return PyDictionary().meaning(word).get('Noun')
-
     def run(self, incoming, methods, info):
         try:
-            # if '!~' in info['prefix']:
-            # print(info)
             msgs = info['args'][1:][0].split()
-            if info['command'] == 'PRIVMSG':
-                if len(msgs) > 1:
-                    if msgs[0] == '.dictionary':
-                        word = msgs[1]
-                        methods['send'](info['address'], Plugin.__dictionary(self, word))
+
+            if info['command'] == 'PRIVMSG' and msgs[0] == '.dictionary':
+                dict = PyDictionary()
+                word = str(msgs[1])
+                defin = dict.meaning(word)['Noun']
+                methods['send'](info['address'], '{}'.format(defin))
         except Exception as e:
             print('woops plug', e)
