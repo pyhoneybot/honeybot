@@ -15,6 +15,7 @@ guess
 """
 import random
 
+
 class Plugin:
     def __init__(self):
         self.hangman = Hangman()
@@ -52,16 +53,34 @@ class Plugin:
             except Exception as e:
                 print('woops plugin error', e)
 
+
 class Hangman:
     def __init__(self):
-        self.wordChoices = ["pig"]
+        self.wordChoices = [
+            "pig", "candy", "nerve", "shocking", "eating", "werewolf",
+            "blouse", "bloom", "coward", "crafty", "doctor", "container",
+            "cursed", "convertible", "beaver", "biblical", "arsonist",
+            "victory", "loneliness", "blowgun", "spider", "federal",
+            "analysis", "reverse", "horizontal", "martini", "bleeder",
+            "ammonia", "biplane", "bless", "crusher", "hippo", "americana",
+            "ambient", "blinking", "vibrator", "apocalypse", "appetite",
+            "baptism", "calculation", "knuckle", "formula", "robbery",
+            "basement", "decadence", "fright", "jigsaw", "guidebook",
+            "robotic", "arrogant", "acrobat", "weasel", "blueberry",
+            "anybody", "propeller", "wolves", "crystal", "flamethrower",
+            "breakwater", "discontent", "creation", "academic", "downfall",
+            "peach", "cunning", "atonement", "tongue", "academy", "vaccant",
+            "family", "brave", "adaptive", "insane", "crayon", "healing",
+            "ghoul", "abandon", "robotic", "plasma", "hidden"
+        ]
 
     def start(self):
         randIndex = random.randint(0,len(self.wordChoices)-1)
         self.gameWord = self.wordChoices[randIndex]
-        self.display = "_"*len(self.gameWord)
+        self.display = "-"*len(self.gameWord)
         self.guessCount = len(self.display) + 3
-        self.display_message = "You have {0} guesses remaining.".format(self.guessCount)
+        self.display_message = "You have {0} guesses remaining." \
+                               .format(self.guessCount)
         self.endGame = False
         self.endMessage = "You shouldn't be able to see this"
 
@@ -79,11 +98,10 @@ class Hangman:
             if len(indeces)>0 and indeces[0] == tracker:
                 indeces.pop(0)
                 newWord += guessLetter
-            elif self.display[tracker] != "_":
+            elif self.display[tracker] != "-":
                 newWord += self.display[tracker]
             else: 
-                newWord += "_"
-
+                newWord += "-"
         self.display = newWord
         self.check_win()
 
@@ -92,17 +110,22 @@ class Hangman:
             self.display = self.gameWord
             self.check_win()
         else:
-            self.display_message = "'{0}' was incorrect. You have {1} guesses remaining.".format(wordGuess,self.guessCount)
+            self.display_message = "'{0}' was incorrect. " \
+                                   .format(wordGuess) + \
+                                   "You have {1} guesses remaining." \
+                                   .format(wordGuess,self.guessCount)
 
     def check_win(self):
         win = True
         for letter in self.display:
-            if letter == "_":
+            if letter == "-":
                 win = False
 
         if win == True:
             self.display = "'{0}' is correct. You win!".format(self.gameWord)
-            self.display_message = " You had {0} guesses remaining.".format(self.guessCount) +"\nUse 'start' command to try again."
+            self.display_message = " You had {0} guesses remaining." \
+                                   .format(self.guessCount) + \
+                                   "\nUse 'start' command to try again."
             self.endGame = True
             self.endMessage = self.display+self.display_message
         else:
@@ -112,11 +135,13 @@ class Hangman:
         self.guessCount -= 1
         if self.guessCount == 0:
             self.endMessage = "You have no more guesses.\n" + \
-                           "The correct word was '{0}'.\n".format(self.gameWord) + \
+                           "The correct word was '{0}'.\n" \
+                           .format(self.gameWord) + \
                            "You lose. Use start command to try again"
             self.endGame = True
         else:
-            self.display_message = " You have {0} guesses remaining.".format(self.guessCount)
+            self.display_message = " You have {0} guesses remaining." \
+                                   .format(self.guessCount)
 
     def display_screen(self):
         if self.endGame == False:
@@ -124,10 +149,10 @@ class Hangman:
         else:
             return self.endMessage
 
+
 def send(info, message):
     print(message)
 
-plug = Plugin()
 
 def test_them(plugin, msg):
 
@@ -137,6 +162,9 @@ def test_them(plugin, msg):
             'command':'PRIVMSG',
             'address':'That place'}
     plug.run("",methods,info)
+
+
+plug = Plugin()
 
 test_them(plug, ".hangman start")
 
