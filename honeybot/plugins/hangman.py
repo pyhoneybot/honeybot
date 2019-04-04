@@ -10,9 +10,13 @@ Justin Walker
 Plays game of hangman
 
 [Commands]
-start
-guess
+>>> .hangman start
+Starts hangman game and returns game screen.
+
+>>> .hangman guess <<word or letter>>
+Submits word or letter guess and returns game screen.
 """
+
 import random
 
 
@@ -173,30 +177,3 @@ class Hangman:
             return self.display + self.display_message
         else:
             return self.endMessage
-
-
-def send(info, message):
-    print(message)
-
-
-def test_them(plugin, msg):
-
-    methods = {"send":send}
-    msg = msg
-    info = {'args':[None,msg],
-            'command':'PRIVMSG',
-            'address':'That place'}
-    plug.run("",methods,info)
-
-
-plug = Plugin()
-
-test_them(plug, ".hangman start")
-
-test_them(plug, ".hangman guess p")
-
-test_them(plug, ".hangman guess o")
-
-test_them(plug, ".hangman guess pig")
-
-test_them(plug, ".hangman guess a")
