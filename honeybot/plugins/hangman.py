@@ -10,23 +10,45 @@ Justin Walker
 Plays game of hangman
 
 [Commands]
+start
+guess
 """
+import random
 
 class Plugin:
     def __init__(self):
-        pass
+        self.hangman = Hangman()
 
-    def __hangman(self, command):
-        pass
+    def __hangman(self, command, word):
+        msg = "Command entered incorrectly."
+        if command.lower() == "start":
+            self.hangman.start()
+            msg = "Welcome to hangman!\n" + \
+            "You may use command 'start' to start new game " + \
+            "or 'guess ---' with a word or letter to play.\n" + \
+            self.hangman.display_screen()
+        elif command.lower() == "guess":
+            if len(word.strip()) > 1:
+                self.hangman.guess_word(word)
+                msg = self.hangman.display_screen()
+            elif len(word.strip()) == 1:
+                self.hangman.guess_letter(word)
+                msg = self.hangman.display_screen()
+        return msg
 
     def run(self, incoming, methods, info):
             try:
-                msgs = info['args'][1:][0].split()
+                msgs = info['args'][1:][0].split() 
                 if info['command'] == 'PRIVMSG':
                     if len(msgs) > 1:
                         if msgs[0] == '.hangman':
-                            word = msgs[1]
-                            methods['send'](info['address'], Plugin.__hangman(self, command))
+                            command = msgs[1]
+                            word = ""
+                            if len(msgs) > 2:
+                                word = msgs[2]
+                            methods['send'](
+                                    info['address'], \
+                                    Plugin.__hangman(self, command, word))
             except Exception as e:
                 print('woops plugin error', e)
 
@@ -40,6 +62,8 @@ class Hangman:
         self.display = "_"*len(self.gameWord)
         self.guessCount = len(self.display) + 3
         self.display_message = "You have {0} guesses remaining.".format(self.guessCount)
+        self.endGame = False
+        self.endMessage = "You shouldn't be able to see this"
 
     def guess_letter(self, guessLetter):
         indeces = []
@@ -68,7 +92,7 @@ class Hangman:
             self.display = self.gameWord
             self.check_win()
         else:
-            self.display_message = "'{0}' was incorrect. You have {1} guesses remaining.".format(wordGuess,guessCount)
+            self.display_message = "'{0}' was incorrect. You have {1} guesses remaining.".format(wordGuess,self.guessCount)
 
     def check_win(self):
         win = True
@@ -78,18 +102,48 @@ class Hangman:
 
         if win == True:
             self.display = "'{0}' is correct. You win!".format(self.gameWord)
-            self.display_message = " You had {0} guesses remaining.".format(self.guessCount)
+            self.display_message = " You had {0} guesses remaining.".format(self.guessCount) +"\nUse 'start' command to try again."
+            self.endGame = True
+            self.endMessage = self.display+self.display_message
         else:
             self.decrement_guesses()
 
     def decrement_guesses(self):
         self.guessCount -= 1
         if self.guessCount == 0:
-            self.display = "You have no more guesses.\n" + \
-                           "The correct word was '{0}'.\n".format(self.gameWord)
-            self.display_message = "You lose."
+            self.endMessage = "You have no more guesses.\n" + \
+                           "The correct word was '{0}'.\n".format(self.gameWord) + \
+                           "You lose. Use start command to try again"
+            self.endGame = True
         else:
             self.display_message = " You have {0} guesses remaining.".format(self.guessCount)
 
     def display_screen(self):
-        return self.display + self.display_message
+        if self.endGame == False:
+            return self.display + self.display_message
+        else:
+            return self.endMessage
+
+def send(info, message):
+    print(message)
+
+plug = Plugin()
+
+def test_them(plugin, msg):
+
+    methods = {"send":send}
+    msg = msg
+    info = {'args':[None,msg],
+            'command':'PRIVMSG',
+            'address':'That place'}
+    plug.run("",methods,info)
+
+test_them(plug, ".hangman start")
+
+test_them(plug, ".hangman guess p")
+
+test_them(plug, ".hangman guess o")
+
+test_them(plug, ".hangman guess pig")
+
+test_them(plug, ".hangman guess a")
