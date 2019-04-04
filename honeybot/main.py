@@ -19,7 +19,7 @@ class Bot_core(object):
                  owners=['appinventorMu', 'appinv'],
                  password='',
                  friends=['haruno', 'keiserr', 'loganaden'],
-                 autojoin_channels=['##bottestingmu']
+                 autojoin_channels=['#ltch']
                  ):
         self.server_url = server_url
         self.port = port
@@ -115,7 +115,7 @@ class Bot_core(object):
     def load_plugins(self, list_to_add):
         print("\033[0;36mLoading plugins...\033[0;0m")
 
-        
+
         to_load = []
         with open('PLUGINS.conf', 'r') as f:
             to_load = f.read().split('\n')
@@ -130,7 +130,7 @@ class Bot_core(object):
 
         self.plugins = list_to_add
         print("\033[0;32mLoaded plugins...\033[0;0m")
-        
+
 
     def methods(self):
         return {
@@ -225,7 +225,7 @@ class Bot_core(object):
         if 'ping' in incoming.lower():
             part = incoming.split(':')
             if self.domain in part[1]:
-                self.send(self.pong_return())
+                self.send(self.pong_return() + ":{0}".format(part[1]))
                 print('''
                       ***** message *****
                       ping detected from
