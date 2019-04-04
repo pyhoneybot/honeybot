@@ -50,7 +50,7 @@ class Hangman:
             if guessLetter.lower() == letter:
                 indeces.append(index)
             index += 1
-            
+
         for tracker in range(len(self.display)):
             if len(indeces)>0 and indeces[0] == tracker:
                 indeces.pop(0)
@@ -67,7 +67,16 @@ class Hangman:
         pass
 
     def check_win(self):
-        pass
+        win = True
+        for letter in self.display:
+            if letter == "_":
+                win = False
+
+        if win == True:
+            self.display = "'{0}' is correct. You win!".format(self.gameWord)
+            self.display_message = " You had {0} guesses remaining.".format(self.guessCount)
+        else:
+            self.decrement_guesses()
 
     def decrement_guesses(self):
         pass
