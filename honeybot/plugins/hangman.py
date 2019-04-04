@@ -64,7 +64,11 @@ class Hangman:
         self.check_win()
 
     def guess_word(self, wordGuess):
-        pass
+        if wordGuess.lower() == self.gameWord:
+            self.display = self.gameWord
+            self.check_win()
+        else:
+            self.display_message = "'{0}' was incorrect. You have {1} guesses remaining.".format(wordGuess,guessCount)
 
     def check_win(self):
         win = True
@@ -88,4 +92,4 @@ class Hangman:
             self.display_message = " You have {0} guesses remaining.".format(self.guessCount)
 
     def display_screen(self):
-        print(self.display+self.display_message)
+        return self.display + self.display_message
