@@ -194,7 +194,7 @@ class Bot_core(object):
                    """.format(msg))
                 if len(data) == 0:
                     try:
-                        print('<must handle reconnection>')
+                        print('<must handle reconnection - len(data)==0>')
                         sys.exit()
                     except Exception as e:
                         print(e)
@@ -220,6 +220,7 @@ class Bot_core(object):
     '''
     def stay_alive(self, incoming):
         if not incoming:
+            print('<must handle reconnection - incoming is not True>')
             sys.exit()
         if 'ping' in incoming.lower():
             part = incoming.split(':')
