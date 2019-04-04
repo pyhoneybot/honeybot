@@ -79,7 +79,13 @@ class Hangman:
             self.decrement_guesses()
 
     def decrement_guesses(self):
-        pass
+        self.guessCount -= 1
+        if self.guessCount == 0:
+            self.display = "You have no more guesses.\n" + \
+                           "The correct word was '{0}'.\n".format(self.gameWord)
+            self.display_message = "You lose."
+        else:
+            self.display_message = " You have {0} guesses remaining.".format(self.guessCount)
 
     def display_screen(self):
-        pass
+        print(self.display+self.display_message)
