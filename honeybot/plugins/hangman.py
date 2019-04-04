@@ -32,10 +32,14 @@ class Plugin:
 
 class Hangman:
     def __init__(self):
-        pass
+        self.wordChoices = ["pig"]
 
     def start(self):
-        pass
+        randIndex = random.randint(0,len(self.wordChoices)-1)
+        self.gameWord = self.wordChoices[randIndex]
+        self.display = "_"*len(self.gameWord)
+        self.guessCount = len(self.display) + 3
+        self.display_message = "You have {0} guesses remaining.".format(self.guessCount)
 
     def guess_letter(self, guessLetter):
         pass
