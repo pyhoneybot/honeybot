@@ -4,6 +4,7 @@
 import configparser
 import importlib
 import socket
+import sys
 
 config = configparser.ConfigParser()
 config.read('CONNECT.conf')
@@ -114,20 +115,22 @@ class Bot_core(object):
     def load_plugins(self, list_to_add):
         print("\033[0;36mLoading plugins...\033[0;0m")
 
-        try:
-            to_load = []
-            with open('PLUGINS.conf', 'r') as f:
-                to_load = f.read().split('\n')
-                to_load = list(filter(lambda x: x != '', to_load))
-            for file in to_load:
-                module = importlib.import_module('plugins.'+file)
-                obj = module.Plugin
-                list_to_add.append(obj)
 
-            self.plugins = list_to_add
-            print("\033[0;32mLoaded plugins...\033[0;0m")
-        except ModuleNotFoundError as e:
-            print('module not found', e)
+        to_load = []
+        with open('PLUGINS.conf', 'r') as f:
+            to_load = f.read().split('\n')
+            to_load = list(filter(lambda x: x != '', to_load))
+        for file in to_load:
+            try:
+                module = importlib.import_module('plugins.'+file)
+            except ModuleNotFoundError as e:
+                print('module not found', e, 'in', file)
+            obj = module.Plugin
+            list_to_add.append(obj)
+
+        self.plugins = list_to_add
+        print("\033[0;32mLoaded plugins...\033[0;0m")
+
 
     def methods(self):
         return {
@@ -141,14 +144,14 @@ class Bot_core(object):
         incoming is the unparsed string. refer to test.py
         '''
 
-        print(f"\033[0;36mListfrom is {listfrom}\033[0;0m")
-        print(f"\033[0;33mInfo is {self.info(incoming)}\033[0;0m")
+        #print(f"\033[0;36mListfrom is {listfrom}\033[0;0m")
+        #print(f"\033[0;33mInfo is {self.info(incoming)}\033[0;0m")
 
         if self.info(incoming)['args'][1][0] == ".":
-            print("\033[0;32mReceived!\033[0;0m")
+            #print("\033[0;32mReceived!\033[0;0m")
 
             for plugin in listfrom:
-                print(f"\033[0;33mTrying {plugin}\033[0;0m")
+                #print(f"\033[0;33mTrying {plugin}\033[0;0m")
                 plugin.run(self, incoming, self.methods(), self.info(incoming))
 
     '''
@@ -191,7 +194,8 @@ class Bot_core(object):
                    """.format(msg))
                 if len(data) == 0:
                     try:
-                        print('<must handle reconnection>')
+                        print('<must handle reconnection - len(data)==0>')
+                        sys.exit()
                     except Exception as e:
                         print(e)
             except Exception as e:
@@ -208,17 +212,20 @@ class Bot_core(object):
     def unregistered_run(self):
         self.connect()
         self.greet()
-        self.load_plugins(plugins)
+        self.load_plugins(self.plugins)
         self.pull()
 
     '''
     ONGOING REQUIREMENT/S
     '''
     def stay_alive(self, incoming):
+        if not incoming:
+            print('<must handle reconnection - incoming is not True>')
+            sys.exit()
         if 'ping' in incoming.lower():
             part = incoming.split(':')
             if self.domain in part[1]:
-                self.send(self.pong_return())
+                self.send(self.pong_return() + ":{0}".format(part[1]))
                 print('''
                       ***** message *****
                       ping detected from
