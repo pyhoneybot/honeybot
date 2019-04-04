@@ -20,13 +20,18 @@ class Plugin:
     def __init__(self):
         self.hangman = Hangman()
 
+# __hangman allows the plugin to call the hangman class and sends input to the
+# game. Detects which command is entered, either 'start' or 'guess', and if
+# guess is followed by a single char or entire word. Error displayed upon
+# incorrect command.
+
     def __hangman(self, command, word):
         msg = "Command entered incorrectly."
         if command.lower() == "start":
             self.hangman.start()
             msg = "Welcome to hangman!\n" + \
-            "You may use command 'start' to start new game " + \
-            "or 'guess ---' with a word or letter to play.\n" + \
+                  "You may use command 'start' to start new game " + \
+                  "or 'guess ---' with a word or letter to play.\n" + \
             self.hangman.display_screen()
         elif command.lower() == "guess":
             if len(word.strip()) > 1:
@@ -74,6 +79,8 @@ class Hangman:
             "ghoul", "abandon", "robotic", "plasma", "hidden"
         ]
 
+# start is used to start or restart hangman game.
+
     def start(self):
         randIndex = random.randint(0,len(self.wordChoices)-1)
         self.gameWord = self.wordChoices[randIndex]
@@ -84,15 +91,21 @@ class Hangman:
         self.endGame = False
         self.endMessage = "You shouldn't be able to see this"
 
+# guess_letter is used when user enters a single character guess.
+
     def guess_letter(self, guessLetter):
+    # First find at which indeces the guessed letter is in the word.
+
         indeces = []
         index = 0
         newWord = ""
-
         for letter in self.gameWord:
             if guessLetter.lower() == letter:
                 indeces.append(index)
             index += 1
+
+    # Form new word with - for incorrect letter and add in correct letter
+    # at found indeces
 
         for tracker in range(len(self.display)):
             if len(indeces)>0 and indeces[0] == tracker:
@@ -102,8 +115,11 @@ class Hangman:
                 newWord += self.display[tracker]
             else: 
                 newWord += "-"
+
         self.display = newWord
         self.check_win()
+
+# guess_word is for when user tries to guess the complete word.
 
     def guess_word(self, wordGuess):
         if wordGuess.lower() == self.gameWord:
@@ -114,6 +130,9 @@ class Hangman:
                                    .format(wordGuess) + \
                                    "You have {1} guesses remaining." \
                                    .format(wordGuess,self.guessCount)
+
+# check_win determines if the user has guessed the entire word after each
+# guess. If the user hasn't won, they lost one of their guesses.
 
     def check_win(self):
         win = True
@@ -131,6 +150,9 @@ class Hangman:
         else:
             self.decrement_guesses()
 
+# decrement_guesses reduces the players guessCount and declares loss if the
+# count reaches 0.
+
     def decrement_guesses(self):
         self.guessCount -= 1
         if self.guessCount == 0:
@@ -142,6 +164,9 @@ class Hangman:
         else:
             self.display_message = " You have {0} guesses remaining." \
                                    .format(self.guessCount)
+
+# display_screen is to output what the user should see in the game's current
+# state.
 
     def display_screen(self):
         if self.endGame == False:
