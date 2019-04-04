@@ -42,7 +42,26 @@ class Hangman:
         self.display_message = "You have {0} guesses remaining.".format(self.guessCount)
 
     def guess_letter(self, guessLetter):
-        pass
+        indeces = []
+        index = 0
+        newWord = ""
+
+        for letter in self.gameWord:
+            if guessLetter.lower() == letter:
+                indeces.append(index)
+            index += 1
+            
+        for tracker in range(len(self.display)):
+            if len(indeces)>0 and indeces[0] == tracker:
+                indeces.pop(0)
+                newWord += guessLetter
+            elif self.display[tracker] != "_":
+                newWord += self.display[tracker]
+            else: 
+                newWord += "_"
+
+        self.display = newWord
+        self.check_win()
 
     def guess_word(self, wordGuess):
         pass
