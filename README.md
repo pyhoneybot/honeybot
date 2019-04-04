@@ -28,6 +28,9 @@ get issues delivered in your inbox.
 
 [![Open Source Helpers](https://www.codetriage.com/abdur-rahmaanj/honeybot/badges/users.svg)](https://www.codetriage.com/abdur-rahmaanj/honeybot)
 
+## Discord
+https://discord.gg/E6zD4XT
+
 ## :thought_balloon: Project Testimonials
 [@TannerFry](https://github.com/TannerFry)
 
@@ -242,8 +245,6 @@ username
 ## 📧 Contact
 ### Email
 - Abdur-Rahmaan Janhangeer | arj.python@gmail.com
-### Discord
-https://discord.gg/E6zD4XT
 
 ## 🖊 Credits
 [@arwinneil](https://github.com/arwinneil) for opensource and madeinmoris badges
