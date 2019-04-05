@@ -13,6 +13,7 @@ Given birthday it returns your age.
 >>> .age <<day>> <<month>> <<year>>
 returns age in yr/mo/day format.
 """
+
 from datetime import date
 
 class Plugin:
@@ -35,32 +36,14 @@ class Plugin:
             msgs = info['args'][1:][0].split()
 
             if info['command'] == 'PRIVMSG' and msgs[0] == '.age':
-                if len(msgs) == 4 and len(msgs[1]) < 3 and len(msgs[2]) < 3 and len(msgs[3]) == 4:
+                if len(msgs) == 4 and len(msgs[1]) < 3 and \
+                   len(msgs[2]) < 3 and len(msgs[3]) == 4:
                     day = int(msgs[1])
                     mo = int(msgs[2])
                     yr = int(msgs[3])
                     methods['send'](info['address'], self.__age(day,mo,yr))
                 else:
-                    methods['send'](info['address'], "Incorrect format. " + \
-                                                     "Should be '.age day mo yr'")
+                    methods['send'](info['address'], \
+                            "Incorrect format. Should be '.age day mo yr'")
         except Exception as e:
             print('woops plugin error: ', e)
-
-def send(info, message):
-    print(message)
-
-def test_them(plugin, msg):
-
-    methods = {"send":send}
-    msg = msg
-    info = {'args':[None,msg],
-            'command':'PRIVMSG',
-            'address':'That place'}
-    plug.run("",methods,info)
-
-
-plug = Plugin()
-
-test_them(plug, ".age 19 05 1994")
-
-test_them(plug, ".age 9")
