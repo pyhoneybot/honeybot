@@ -30,9 +30,12 @@ for file in os.listdir(directory):
     filename = os.fsdecode(file)
 
     if filename.endswith(".py"):
-        spec = importlib.util.spec_from_file_location(filename[:-3], __file__[:-13] + "plugins/" + filename)
-        x = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(x)
+        try:
+            spec = importlib.util.spec_from_file_location(filename[:-3], __file__[:-13] + "plugins/" + filename)
+            x = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(x)
+        except:
+            print('skipped')
 
         if isinstance(x.__doc__, str):
             plug += "# " + filename + "\n"

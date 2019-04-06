@@ -6,21 +6,22 @@ import importlib
 import socket
 import sys
 
-config = configparser.ConfigParser()
-config.read('settings/CONNECT.conf')
+connect_config = configparser.ConfigParser()
+connect_config.read('settings/CONNECT.conf')
 plugins = []
 
 
 class Bot_core(object):
     def __init__(self,
-                 server_url=config['INFO']['server_url'],
-                 port=int(config['INFO']['port']),
-                 name=config['INFO']['name'],
+                 server_url=connect_config['INFO']['server_url'],
+                 port=int(connect_config['INFO']['port']),
+                 name=connect_config['INFO']['name'],
                  owners=['appinventorMu', 'appinv'],
                  password='',
                  friends=['haruno', 'keiserr', 'loganaden'],
-                 autojoin_channels=['#ltch']
+                 autojoin_channels=['#ltch', '##bottestingmu']
                  ):
+
         self.server_url = server_url
         self.port = port
         self.name = name
@@ -91,7 +92,8 @@ class Bot_core(object):
                     'prefix': return_it(prefix),
                     'command': return_it(command),
                     'args': ['' if e is None else e for e in args],
-                    'address': return_it(address)
+                    'address': return_it(address),
+                    'bot_special_command': self.sp_command
                     }
         except Exception as e:
             print('woops', e)
@@ -126,7 +128,7 @@ class Bot_core(object):
             try:
                 module = importlib.import_module('plugins.'+file)
             except ModuleNotFoundError as e:
-                print('module not found', e, 'in', file)
+                print('module import error, skipped', e, 'in', file)
             obj = module.Plugin
             list_to_add.append(obj)
 
@@ -198,6 +200,7 @@ class Bot_core(object):
                         print(e)
             except Exception as e:
                 print(e)
+
 
     # all in one for registered bot
     def registered_run(self):
