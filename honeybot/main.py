@@ -241,3 +241,7 @@ class Bot_core(object):
 if __name__ == '__main__':
     x = Bot_core()
     x.unregistered_run()
+
+
+
+    
