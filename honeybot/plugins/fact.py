@@ -15,6 +15,7 @@ http://mentalfloss.com/article/55443/101-amazing-facts
 >>> .fact
 returns random fact
 """
+
 import random
 
 
@@ -31,6 +32,7 @@ class Plugin:
                 methods['send'](info['address'], self.__fact())
         except Exception as e:
             print('woops plugin error: ', e)
+
 
 FACT_LIST = [
     "In 2006, an Australian man tried to sell New Zealand on Ebay. The " + \
@@ -79,7 +81,7 @@ FACT_LIST = [
     "If your dog's feet smell like corn chips, you're not alone. The term" + \
         "'Frito feet' was coined to describe the scent.",
     "Barry Manilow did not write his hit 'I Write the Songs'.",
-    "Barry Manilow wrote State Farm's "Like a Good Neighbor" jingle.",
+    "Barry Manilow wrote State Farm's 'Like a Good Neighbor' jingle.",
     "Winston Churchill's mother was born in Brooklyn.",
     "Officials in Portland, OR, drained 8 million gallons of water from " + \
         "a resevoir in 2011 because a buzzed 21-year-old peed in it.",
@@ -129,27 +131,5 @@ FACT_LIST = [
     "Bob Ross on his Air Force career. 'I was the guy who makes you " + \
         "scrub the latrine... Who screams at you for being late to work.",
     "In 1973, Mao Zedong told Henry Kissinger that China had an excess " + \
-        "of females and offered the U.S. 10 million Chinese women."
+        "of females and offered the U.S. 10 million Chinese woman."
 ]
-
-
-def send(info, message):
-    print(message)
-
-
-def test_them(plugin, msg):
-
-    methods = {"send":send}
-    msg = msg
-    info = {'args':[None,msg],
-            'command':'PRIVMSG',
-            'address':'That place'}
-    plug.run("",methods,info)
-
-
-plug = Plugin()
-
-test_them(plug, ".fact")
-test_them(plug, ".fact")
-
-test_them(plug, ".fact")
