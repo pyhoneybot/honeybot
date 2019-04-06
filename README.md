@@ -68,69 +68,6 @@ who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was
 - 📑 test by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - runs tests
 - ⛅️ weather by [@Macr0Nerd](https://github.com/Macr0Nerd) - returns weather info for a given location
 - ✉️  mail by [@TannerFry](https://github.com/TannerFry) - send emails within the chat
-## 📃 Contributing Guide
-
-- don't forget to add your country flag here after accepted PR. i'll have to hunt it down on your profile if not.
-- make sure to follow PEP8
-
-**about PR**
-
-different changes to different files. for example, someone making a weather plugin first he creates a new branch
-```
-git checkout -b "weather-plugin"
-```
-then he commits
-```
-git add *
-git commit -m "added weather plugin"
-```
-then he push to create a PR with the branch
-```
-git push origin head
-```
-now let us say he wants to work on another issue, adding a joke in the jokes plugin, he creates another branch
-```
-git checkout -b "add-jokes"
-```
-after, same as before
-```
-git add *
-git commit -m "added some jokes"
-git push origin head
-```
-now he wants to fix his weather plugin, he changes branch
-```
-git checkout weather-plugin
-```
-works, then commit
-```
-git add *
-git commit -m "fixed <issue>"
-```
-then a PR
-```
-git push origin head
-```
-**Why all these?**
-
-So as not to reject a whole PR just because of some oddities. Reject only unneeded part.
-
-## 🥄 Updating fork
-
-Now, other changes are ongoing, what if you need the latest changes?
-
-```
-git pull origin master
-```
-helps if you cloned your own repo. What is you want to update your local copy of someone else repo?
-you do it like that
-
-```
-cd <your/local/cloned/repo/path/here>
-git remote add upstream git://github.com/Abdur-rahmaanJ/honeybot.git
-git fetch upstream
-git pull upstream master
-```
 
 ## 🔧 Plugins Development
 
@@ -215,6 +152,70 @@ if message received == .hi:
 ```
 
 #
+
+## 📃 Contributing Guide
+
+- don't forget to add your country flag here after accepted PR. i'll have to hunt it down on your profile if not.
+- make sure to follow PEP8
+
+**about PR**
+
+different changes to different files. for example, someone making a weather plugin first he creates a new branch
+```
+git checkout -b "weather-plugin"
+```
+then he commits
+```
+git add *
+git commit -m "added weather plugin"
+```
+then he push to create a PR with the branch
+```
+git push origin head
+```
+now let us say he wants to work on another issue, adding a joke in the jokes plugin, he creates another branch
+```
+git checkout -b "add-jokes"
+```
+after, same as before
+```
+git add *
+git commit -m "added some jokes"
+git push origin head
+```
+now he wants to fix his weather plugin, he changes branch
+```
+git checkout weather-plugin
+```
+works, then commit
+```
+git add *
+git commit -m "fixed <issue>"
+```
+then a PR
+```
+git push origin head
+```
+**Why all these?**
+
+So as not to reject a whole PR just because of some oddities. Reject only unneeded part.
+
+## 🥄 Updating fork
+
+Now, other changes are ongoing, what if you need the latest changes?
+
+```
+git pull origin master
+```
+helps if you cloned your own repo. What is you want to update your local copy of someone else repo?
+you do it like that
+
+```
+cd <your/local/cloned/repo/path/here>
+git remote add upstream git://github.com/Abdur-rahmaanJ/honeybot.git
+git fetch upstream
+git pull upstream master
+```
 
 ## ⚡ Quickstart
 
