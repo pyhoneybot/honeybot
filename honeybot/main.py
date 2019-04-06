@@ -7,7 +7,7 @@ import socket
 import sys
 
 config = configparser.ConfigParser()
-config.read('CONNECT.conf')
+config.read('settings/CONNECT.conf')
 plugins = []
 
 
@@ -112,12 +112,14 @@ class Bot_core(object):
     BOT UTIL
     '''
 
-    def load_plugins(self, list_to_add):
+    def load_plugins(self, plugins_to_load):
+        list_to_add = self.plugins
         print("\033[0;36mLoading plugins...\033[0;0m")
 
 
         to_load = []
-        with open('PLUGINS.conf', 'r') as f:
+        plugs = 'settings/{}.conf'.format(plugins_to_load)
+        with open(plugs) as f:
             to_load = f.read().split('\n')
             to_load = list(filter(lambda x: x != '', to_load))
         for file in to_load:
@@ -206,13 +208,15 @@ class Bot_core(object):
         self.connect()
         self.identify()
         self.greet()
-        self.load_plugins(self.plugins)
+        self.load_plugins('STD_PLUGINS')
+        self.load_plugins('USER_PLUGINS')
         self.pull()
 
     def unregistered_run(self):
         self.connect()
         self.greet()
-        self.load_plugins(self.plugins)
+        self.load_plugins('STD_PLUGINS')
+        self.load_plugins('USER_PLUGINS')
         self.pull()
 
     '''
