@@ -20,7 +20,7 @@ class Plugin:
     def __init__(self):
         pass
 
-    def __age(self,day,mo,yr):
+    def __age(self, day, mo, yr):
         years = date.today().year - yr
         months = date.today().month - mo
         days = date.today().day - day
@@ -43,7 +43,7 @@ class Plugin:
                     yr = int(msgs[3])
                     methods['send'](info['address'], self.__age(day,mo,yr))
                 else:
-                    methods['send'](info['address'], \
+                    methods['send'](info['address'],
                             "Incorrect format. Should be '.age day mo yr'")
         except Exception as e:
             print('woops plugin error: ', e)

@@ -11,7 +11,7 @@ from main import Bot_core as Bot
 }
 '''
 config = configparser.ConfigParser()
-config.read('CONNECT.conf')
+config.read('settings/CONNECT.conf')
 
 # incoming
 incoming = ':appinv!c5e342c5@gateway/web/cgi-irc/kiwiirc.com/ip.200.200.22.200 PRIVMSG ##bottestingmu :ef'

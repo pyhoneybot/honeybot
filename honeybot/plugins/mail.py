@@ -26,7 +26,7 @@ import string
 from email.mime.text import MIMEText
 
 #open config file for user credentials to email
-f = open("email_config.conf")
+f = open("settings/email_config.conf")
 str = f.read()
 f.close()
 
