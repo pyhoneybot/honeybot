@@ -145,16 +145,12 @@ class Bot_core(object):
         '''
         incoming is the unparsed string. refer to test.py
         '''
-
-        #print(f"\033[0;36mListfrom is {listfrom}\033[0;0m")
-        #print(f"\033[0;33mInfo is {self.info(incoming)}\033[0;0m")
-
-        if self.info(incoming)['args'][1][0] == ".":
+        #if self.info(incoming)['args'][1][0] == ".":
             #print("\033[0;32mReceived!\033[0;0m")
 
-            for plugin in listfrom:
-                #print(f"\033[0;33mTrying {plugin}\033[0;0m")
-                plugin.run(self, incoming, self.methods(), self.info(incoming))
+        for plugin in listfrom:
+            #print(f"\033[0;33mTrying {plugin}\033[0;0m")
+            plugin.run(self, incoming, self.methods(), self.info(incoming))
 
     '''
     MESSAGE PARSING
@@ -244,4 +240,4 @@ if __name__ == '__main__':
 
 
 
-    
+
