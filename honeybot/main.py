@@ -18,8 +18,7 @@ class Bot_core(object):
                  name=connect_config['INFO']['name'],
                  owners=['appinventorMu', 'appinv'],
                  password='',
-                 friends=['haruno', 'keiserr', 'loganaden'],
-                 autojoin_channels=['#ltch', '##bottestingmu']
+                 friends=['haruno', 'keiserr', 'loganaden']
                  ):
 
         self.server_url = server_url
@@ -27,7 +26,6 @@ class Bot_core(object):
         self.name = name
         self.owners = owners
         self.password = password
-        self.autojoin_channels = autojoin_channels
         self.friends = friends
 
         '''
@@ -39,6 +37,12 @@ class Bot_core(object):
         self.domain = '.'.join(dom[-2:])
         self.sp_command = 'hbot'
         self.plugins = []
+
+        to_load = []
+        with open('settings/AUTOJOIN_CHANNELS.conf') as f:
+            to_load = f.read().split('\n')
+            to_load = list(filter(lambda x: x != '', to_load))
+        self.autojoin_channels = to_load
 
     '''
     STRINGS
@@ -117,7 +121,6 @@ class Bot_core(object):
     def load_plugins(self, plugins_to_load):
         list_to_add = self.plugins
         print("\033[0;36mLoading plugins...\033[0;0m")
-
 
         to_load = []
         plugs = 'settings/{}.conf'.format(plugins_to_load)
