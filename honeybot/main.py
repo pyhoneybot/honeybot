@@ -63,8 +63,8 @@ class Bot_core(object):
     def specific_send_command(self, target, msg):
         return "PRIVMSG " + target + " :" + msg + "\r\n"
 
-    def pong_return(self):
-        return 'PONG\r\n'
+    def pong_return(self, domain):
+        return 'PONG :{}\r\n'.format(domain)
 
     def info(self, s):
         def return_it(x):
@@ -228,17 +228,18 @@ class Bot_core(object):
         if not incoming:
             print('<must handle reconnection - incoming is not True>')
             sys.exit()
-        if 'ping' in incoming.lower():
-            part = incoming.split(':')
-            if self.domain in part[1]:
-                self.send(self.pong_return() + ":{0}".format(part[1]))
-                print('''
-                      ***** message *****
-                      ping detected from
-                      {}
-                      *******************
-                      '''.format(part[1]))
-                self.irc.recv(2048).decode("UTF-8")
+        parts = incoming.split(':')
+        if parts[0].strip().lower() == 'ping':
+            # if self.domain in parts[1]:
+            self.send(self.pong_return(self.domain))
+            print('''
+                  ***** message *****
+                  ping detected from
+                  {}
+                  *******************
+                  '''.format(parts[1]))
+            self.send(self.pong_return(parts[1]))
+            self.irc.recv(2048).decode("UTF-8")
 
 if __name__ == '__main__':
     x = Bot_core()
