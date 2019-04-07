@@ -28,7 +28,8 @@ class Plugin:
     # curr date
     curr = date.today().strftime("%d-%m-%Y")
 
-    # logging config
+    # Logging config
+    # For debugging, set => .format(logs)
     logging.basicConfig(
         filename='log/{}.txt'.format(curr),
         level=logging.INFO,
@@ -48,6 +49,7 @@ class Plugin:
                 user = raw_user[0:user_index]
 
                 # Logging the chat into logs.txt
+                # TODO: Find how to get bot messages
                 logging.info(' {}: {}'.format(user, msgs[0]))
 
         except Exception as e:
