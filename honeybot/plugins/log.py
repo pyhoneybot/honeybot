@@ -16,10 +16,13 @@ import logging
 class Plugin:
     # Makes a new log dir if not existent
     # Change according to where you have honeybot dir
-    log_path = os.getcwd() + "/log"
-    if not os.path.exists(log_path):
-        os.makedirs('log')
-    os.chdir(log_path)
+    #log_path = "/log"
+    try:
+        if not os.path.exists(log_path):
+            os.makedirs('log')
+    except:
+        pass
+    #os.chdir(log_path)
 
     # logging config
     logging.basicConfig(
