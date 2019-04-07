@@ -17,8 +17,8 @@ from datetime import date
 class Plugin:
     # Makes a new log dir if not existent
     # Change according to where you have honeybot dir
-    #log_path = "/log"
     try:
+        log_path = "{}/log".format(os.getcwd())
         if not os.path.exists(log_path):
             os.makedirs('log')
     except:
@@ -30,7 +30,7 @@ class Plugin:
 
     # logging config
     logging.basicConfig(
-        filename=curr + '.txt',
+        filename='log/{}.txt'.format(curr),
         level=logging.INFO,
         format="%(asctime)s:%(message)s"
         )
