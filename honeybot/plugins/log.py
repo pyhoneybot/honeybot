@@ -12,6 +12,7 @@ Logs the chat into a log.txt file
 
 import os
 import logging
+from datetime import date
 
 class Plugin:
     # Makes a new log dir if not existent
@@ -24,9 +25,12 @@ class Plugin:
         pass
     #os.chdir(log_path)
 
+    # curr date
+    curr = date.today().strftime("%d-%m-%Y")
+
     # logging config
     logging.basicConfig(
-        filename="logs.txt",
+        filename=curr + '.txt',
         level=logging.INFO,
         format="%(asctime)s:%(message)s"
         )
