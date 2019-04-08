@@ -1,3 +1,5 @@
 PyDictionary==1.5.2
 requests==2.21.0
 wikipedia==1.4.0
+beautifulsoup4==4.7.1
+google==2.0.2
