@@ -67,7 +67,11 @@ who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was
 - 🗿 translate by Ahmed Deeb - google translate plugin
 - 📑 test by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - runs tests
 - ⛅️ weather by [@Macr0Nerd](https://github.com/Macr0Nerd) - returns weather info for a given location
-- ✉️  mail by [@TannerFry](https://github.com/TannerFry) - send emails within the chat
+- ✉️ mail by [@TannerFry](https://github.com/TannerFry) - send emails within the chat
+- 🕴️ hangman by [@JustinWalker4179](https://github.com/justinwalker4179) - play hangman in the chat
+- 🎂 age by [@JustinWalker4179](https://github.com/justinwalker4179) - takes in birthday and outputs age
+- ✔️ fact by [@JustinWalker4179](https://github.com/justinwalker4179) - returns a random fact
+- 📝 log by [@RiceAbove](https://github.com/RiceAbove) - logs the chat into a log file
 
 ## 🔧 Plugins Development
 
