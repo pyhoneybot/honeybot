@@ -12,21 +12,14 @@ plugins = []
 
 
 class Bot_core(object):
-    def __init__(self,
-                 server_url=connect_config['INFO']['server_url'],
-                 port=int(connect_config['INFO']['port']),
-                 name=connect_config['INFO']['name'],
-                 owners=['appinventorMu', 'appinv'],
-                 password='',
-                 friends=['haruno', 'keiserr', 'loganaden']
-                 ):
+    def __init__(self, password=''):
 
-        self.server_url = server_url
-        self.port = port
-        self.name = name
-        self.owners = owners
+        self.server_url = connect_config['INFO']['server_url']
+        self.port = int(connect_config['INFO']['port'])
+        self.name = connect_config['INFO']['name']
+        self.owners = self.configfile_to_list('OWNERS')
         self.password = password
-        self.friends = friends
+        self.friends = self.configfile_to_list('FRIENDS')
 
         '''
         NORMAL ATTRIBUTES
@@ -38,11 +31,7 @@ class Bot_core(object):
         self.sp_command = 'hbot'
         self.plugins = []
 
-        to_load = []
-        with open('settings/AUTOJOIN_CHANNELS.conf') as f:
-            to_load = f.read().split('\n')
-            to_load = list(filter(lambda x: x != '', to_load))
-        self.autojoin_channels = to_load
+        self.autojoin_channels = self.configfile_to_list('AUTOJOIN_CHANNELS')
 
     '''
     STRINGS
@@ -138,6 +127,12 @@ class Bot_core(object):
         self.plugins = list_to_add
         print("\033[0;32mLoaded plugins...\033[0;0m")
 
+    def configfile_to_list(self, filename):
+        elements = []
+        with open('settings/{}.conf'.format(filename)) as f:
+            elements = f.read().split('\n')
+            elements = list(filter(lambda x: x != '', elements))
+        return elements
 
     def methods(self):
         return {
