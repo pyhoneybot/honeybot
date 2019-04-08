@@ -23,8 +23,14 @@ class Plugin:
     def __init__(self):
         pass
 
-    def __google(self, search_time, search_count):
-        pass
+    def __google(self, search_term, search_count):
+        if search_count != None:
+            num = search_term
+        else:
+            num = 10
+
+        return search(search_term, num=search_count, start=0)
+
 
     def run(self, incoming, methods, info):
         try:
