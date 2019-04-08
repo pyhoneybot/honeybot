@@ -17,11 +17,14 @@ class Plugin:
 
     def run(self, incoming, methods, info):
         try:
-            if info['command'] == 'JOIN':
-                # Parse the user ID from info['prefix']
-                raw_user = info['prefix']
-                user_index = raw_user.find('!')
-                user = raw_user[0:user_index]
+            # Parse the user ID from info['prefix']
+            raw_user = info['prefix']
+            user_index = raw_user.find('!')
+            user = raw_user[0:user_index]
+
+            # If someone joins and it is not the bot, greet user
+            bot_name = info['bot_name']
+            if info['command'] == 'JOIN' and user != bot_name:
 
                 # Greets joined user
                 channel = info['args'][0]

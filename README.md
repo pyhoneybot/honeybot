@@ -72,6 +72,7 @@ who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was
 - 🎂 age by [@JustinWalker4179](https://github.com/justinwalker4179) - takes in birthday and outputs age
 - ✔️ fact by [@JustinWalker4179](https://github.com/justinwalker4179) - returns a random fact
 - 📝 log by [@RiceAbove](https://github.com/RiceAbove) - logs the chat into a log file
+- 🚪 joins by [@RiceAbove](https://github.com/RiceAbove) - greets everyone who joins the channel
 
 ## 🔧 Plugins Development
 
