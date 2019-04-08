@@ -12,3 +12,5 @@
 2019-04-08 11:32:25,583: appinv: .hi
 2019-04-08 11:45:28,234: appinv: .hangman start
 2019-04-08 11:45:36,573: appinv: .hi
+2019-04-08 10:25:16,582: freenode-connect: VERSION
+2019-04-08 10:39:56,634: freenode-connect: VERSION
