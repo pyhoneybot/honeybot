@@ -86,6 +86,7 @@ class Bot_core(object):
                     'command': return_it(command),
                     'args': ['' if e is None else e for e in args],
                     'address': return_it(address),
+                    'bot_name': return_it(self.name),
                     'bot_special_command': self.sp_command
                     }
         except Exception as e:
@@ -239,7 +240,3 @@ class Bot_core(object):
 if __name__ == '__main__':
     x = Bot_core()
     x.unregistered_run()
-
-
-
-

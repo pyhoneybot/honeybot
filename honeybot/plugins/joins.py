@@ -23,8 +23,7 @@ class Plugin:
             user = raw_user[0:user_index]
 
             # If someone joins and it is not the bot, greet user
-            # Change bot_name according the bots name in CONNECT.conf 
-            bot_name = "hb_tst003"
+            bot_name = info['bot_name']
             if info['command'] == 'JOIN' and user != bot_name:
 
                 # Greets joined user
