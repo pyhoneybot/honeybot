@@ -1,14 +1,20 @@
-2019-04-08 11:10:09,914: appinv: .hi
-2019-04-08 11:10:15,699: appinv: .google apple
-2019-04-08 11:10:33,473: appinv: .btc
-2019-04-08 11:10:39,848: appinv: .google apple
-2019-04-08 11:10:56,132: appinv: .google apple 10
-2019-04-08 11:13:25,783: appinv: .hi
-2019-04-08 11:13:32,072: appinv: .age 5 5 97
-2019-04-08 11:13:44,311: appinv: .age 5 5 1997
-2019-04-08 11:13:54,865: appinv: .btc
-2019-04-08 11:14:00,805: appinv: .google apple
-2019-04-08 11:15:51,051: appinv: .dictionary apple
-2019-04-08 11:32:25,583: appinv: .hi
-2019-04-08 11:45:28,234: appinv: .hangman start
-2019-04-08 11:45:36,573: appinv: .hi
+2019-04-08 04:27:59,580: freenode-connect: VERSION
+2019-04-08 04:28:11,031: IronPenguin: .btc
+2019-04-08 04:28:15,118: IronPenguin: .hangman start
+2019-04-08 04:28:41,140: IronPenguin: Dang
+2019-04-08 04:29:02,676: IronPenguin: I take it '\n' doesn't work in this kind of chat
+2019-04-08 04:29:47,106: IronPenguin: .hangman a
+2019-04-08 04:29:53,587: IronPenguin: .hangman guess a
+2019-04-08 04:32:45,145: freenode-connect: VERSION
+2019-04-08 04:33:04,242: IronPenguin: .hangman start
+2019-04-08 04:34:22,948: IronPenguin: .hangman guss a
+2019-04-08 04:34:27,584: IronPenguin: .hangman guess a
+2019-04-08 04:37:10,317: IronPenguin: .hangman start
+2019-04-08 04:37:32,468: IronPenguin: .hangman guess apocalypse
+2019-04-08 13:30:42,003: freenode-connect: VERSION
+2019-04-08 13:31:04,679: IronPenguin: .hi
+2019-04-08 13:31:11,084: IronPenguin: .hangman start
+2019-04-08 13:31:22,758: IronPenguin: .hangman guess arsonist
+2019-04-08 13:31:29,625: IronPenguin: .hangman start
+2019-04-08 13:31:34,900: IronPenguin: .hangman guess a
+2019-04-08 13:31:39,710: IronPenguin: .hangman guess o
