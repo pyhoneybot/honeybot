@@ -52,22 +52,3 @@ class Plugin:
     
         except Exception as e:
             print('woops plugin error: ', e)
-
-
-
-def send(info, message):
-    print(message)
-
-
-def test_them(plugin, msg):
-    methods = {"send":send}
-    msg = msg
-    info = {'args':[None,msg],
-            'command':'PRIVMSG',
-            'address':'That place'}
-    plug.run("",methods,info)
-
-
-plug = Plugin()
-
-test_them(plug, ".google cool")
