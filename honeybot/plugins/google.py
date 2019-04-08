@@ -10,7 +10,7 @@ Justin Walker
 Returns the first several links from a google search.
 
 [Commands]
->>> .google <<search term>> <<link count>>
+>>> .google <<search term>> <<optional link count, default 10>>
 returns search links
 """
 
@@ -19,30 +19,34 @@ try:
 except ImportError:  
     print("No module named 'google' found")
 
+
 class Plugin:
     def __init__(self):
         pass
 
     def __google(self, search_term, search_count):
-        if search_count != None:
-            num = search_term
-        else:
-            num = 10
-
-        return search(search_term, num=search_count, start=0)
-
+        # num is number of links, start is what link to start with,
+        # only_standard limits it to normal links instead of adds and extra
+        # links.
+        return search(search_term, num=search_count, start=0,
+                      only_standard=True)
 
     def run(self, incoming, methods, info):
         try:
             msgs = info['args'][1:][0].split()
    
             if info['command'] == 'PRIVMSG' and msgs[0] == '.google':
-                count = None
+                count = 10
+                # First argurment after .google should be search term,
+                # if it exists
                 if len(msgs) == 2:
                     term = msgs[1]
+                    # Second argument should be count if it exists.
                     if len(msgs) == 3:
                         count = msgs[2]
-                    methods['send'](info['address'], self.__google(term,count))
+
+                    for link in self.__google(term, count):
+                        methods['send'](info['address'], link)
                 else:
                     methods['send'](info['address'], "Input error. '.google search_term search_count'.")
     
@@ -56,7 +60,6 @@ def send(info, message):
 
 
 def test_them(plugin, msg):
-
     methods = {"send":send}
     msg = msg
     info = {'args':[None,msg],
