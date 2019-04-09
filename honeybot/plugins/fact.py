@@ -23,13 +23,13 @@ class Plugin:
     def __init__(self):
         pass
 
-    def __fact(self):
+    def __fact():
         return random.choice(FACT_LIST)
 
     def run(self, incoming, methods, info):
         try:
             if info['command'] == 'PRIVMSG' and info['args'][1] == '.fact':
-                methods['send'](info['address'], self.__fact())
+                methods['send'](info['address'], Plugin.__fact())
         except Exception as e:
             print('woops plugin error: ', e)
 
