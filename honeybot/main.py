@@ -20,10 +20,9 @@ class Bot_core(object):
         self.owners = self.configfile_to_list('OWNERS')
         self.password = password
         self.friends = self.configfile_to_list('FRIENDS')
+        self.autojoin_channels = self.configfile_to_list('AUTOJOIN_CHANNELS')
+        self.required_modules = self.requirements()
 
-        '''
-        NORMAL ATTRIBUTES
-        '''
         self.irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.isListenOn = 1
         dom = self.server_url.split('.')
@@ -31,7 +30,7 @@ class Bot_core(object):
         self.sp_command = 'hbot'
         self.plugins = []
 
-        self.autojoin_channels = self.configfile_to_list('AUTOJOIN_CHANNELS')
+        
 
     '''
     STRINGS
@@ -87,7 +86,8 @@ class Bot_core(object):
                     'args': ['' if e is None else e for e in args],
                     'address': prevent_none(address),
                     'bot_name': prevent_none(self.name),
-                    'bot_special_command': self.sp_command
+                    'bot_special_command': self.sp_command,
+                    'required_modules': self.required_modules
                     }
         except Exception as e:
             print('woops', e)
@@ -153,6 +153,12 @@ class Bot_core(object):
             #print(f"\033[0;33mTrying {plugin}\033[0;0m")
             plugin.run(self, incoming, self.methods(), self.info(incoming))
 
+    def requirements(self):
+        reqs = []
+        with open('../requirements.txt') as f:
+            reqs = f.read().split('\n')
+        reqs = [m.split('==')[0] for m in reqs if m]
+        return reqs
     '''
     MESSAGE PARSING
     '''
