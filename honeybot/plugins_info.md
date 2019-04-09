@@ -30,6 +30,10 @@ sends the meaning of the word
 by Justin Walker\
 Returns a random fact.
 
+# google.py
+by Justin Walker\
+Returns the first three links from a google search.
+
 # greet.py
 by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 responds to .hi, demo of a basic plugin
@@ -38,9 +42,21 @@ responds to .hi, demo of a basic plugin
 by Justin Walker\
 Plays game of hangman
 
+# installed_modules.py
+by Abdur-Rahmaan Janhangeer, pythonmembers.club\
+checks if all listed in requirements.txt installed
+
+# joins.py
+by Gico Carlo Evangelista, https://gicocarlo.me/\
+Greets everyone who joins the channel
+
 # joke.py
 by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 sends a random joke on request
+
+# log.py
+by Gico Carlo Evangelista, https://gicocarlo.me/\
+Logs the chat into a log.txt file
 
 # mail.py
 by Tanner Fry\
@@ -57,6 +73,10 @@ sends different type of passwords
 # quote.py
 by German Corpaz\
 Sends a random quote on request
+
+# roll.py
+by Glenn Toms\
+Will roll dice in the form of 1d4, 10d6 and return total.
 
 # selfTrivia.py
 by Angel Jimenez\
