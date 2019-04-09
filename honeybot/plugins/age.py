@@ -20,7 +20,7 @@ class Plugin:
     def __init__(self):
         pass
 
-    def __age(self, day, mo, yr):
+    def __age(day, mo, yr):
         years = date.today().year - yr
         months = date.today().month - mo
         days = date.today().day - day
@@ -34,16 +34,16 @@ class Plugin:
     def run(self, incoming, methods, info):
         try:
             msgs = info['args'][1:][0].split()
-
+            print(len(msgs))
             if info['command'] == 'PRIVMSG' and msgs[0] == '.age':
                 if len(msgs) == 4 and len(msgs[1]) < 3 and \
                    len(msgs[2]) < 3 and len(msgs[3]) == 4:
                     day = int(msgs[1])
                     mo = int(msgs[2])
                     yr = int(msgs[3])
-                    methods['send'](info['address'], self.__age(day,mo,yr))
+                    methods['send'](info['address'], Plugin.__age(day,mo,yr))
                 else:
                     methods['send'](info['address'],
-                            "Incorrect format. Should be '.age day mo yr'")
+                            "Incorrect format. Should be '.age dy mo year -- -- ----'")
         except Exception as e:
             print('woops plugin error: ', e)

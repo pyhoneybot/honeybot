@@ -56,7 +56,7 @@ class Bot_core(object):
         return 'PONG :{}\r\n'.format(domain)
 
     def info(self, s):
-        def return_it(x):
+        def prevent_none(x):
             if x is None:
                 return ''
             else:
@@ -82,10 +82,11 @@ class Bot_core(object):
                 address = prefix.split('!~')[0]
             # return prefix, command, args, address
             return {
-                    'prefix': return_it(prefix),
-                    'command': return_it(command),
+                    'prefix': prevent_none(prefix),
+                    'command': prevent_none(command),
                     'args': ['' if e is None else e for e in args],
-                    'address': return_it(address),
+                    'address': prevent_none(address),
+                    'bot_name': prevent_none(self.name),
                     'bot_special_command': self.sp_command
                     }
         except Exception as e:
@@ -239,7 +240,3 @@ class Bot_core(object):
 if __name__ == '__main__':
     x = Bot_core()
     x.unregistered_run()
-
-
-
-
