@@ -94,8 +94,8 @@ class HoneybotTests(unittest.TestCase):
 
     def test_pong_return(self):
         self.assertEqual(
-            bot.pong_return(),
-            'PONG \r\n'
+            bot.pong_return('abc'),
+            'PONG :abc\r\n'
         )
 
 
