@@ -29,7 +29,7 @@ class Plugin:
     def run(self, incoming, methods, info):
         try:
             if info['command'] == 'PRIVMSG' and info['args'][1] == '.fact':
-                methods['send'](info['address'], self.__fact())
+                methods['send'](info['address'], Plugin__fact())
         except Exception as e:
             print('woops plugin error: ', e)
 
