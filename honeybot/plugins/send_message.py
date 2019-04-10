@@ -31,6 +31,7 @@ class Plugin:
             msgs = info['args'][1:][0].split()
             if info['command'] == 'PRIVMSG' and msgs[0] == '.send':
                 message = ''
+                # Take raw suffix and pull out sender name from before !
                 bang = info['prefix'].find('!')
                 channel_destination = msgs[1]
                 sender = info['prefix'][0:bang]
@@ -41,29 +42,33 @@ class Plugin:
                     message = Plugin.send_general_message(msgs, sender, 
                                                           sender_channel)
                     methods['send'](channel_destination, message)
-
                 # Checks for specific message type
                 elif (len(msgs) >= 6 and 
                       msgs[2] == '.u' and
                       msgs[4] == '.m'):
                     recipient = msgs[3]
-                    #methods['send_raw']('whois {0} \r\n'.format(recipient))
-                    #data = self.irc.recv(2048)
-                    #raw_msg = data.decode("UTF-8")
-                    #msg = raw_msg.strip('\n\r')
-                    #if msg.endswith('No such nick/channel'):
-                    #    methods['send'](info['address'], sender + 
-                    #                   " isn't online.")
-                    #else:
-                    message = Plugin.send_specific_message(
-                            msgs, recipient, sender, sender_channel)
-                    methods['send'](channel_destination, message)
 
+                    # Sends whois to server to determine online status
+                    methods['send_raw']('whois {0} \r\n'.format(recipient))
+
+                    # Recieves message back from server and converts to be
+                    # usable.
+                    data = self.irc.recv(2048)
+                    raw_msg = data.decode("UTF-8")
+                    msg = raw_msg.strip('\n\r')
+
+                    if msg.endswith('No such nick/channel'):
+                        methods['send'](info['address'], sender + 
+                                        " isn't online.")
+                    else:
+                        message = Plugin.send_specific_message(
+                                msgs, recipient, sender, sender_channel)
+                    methods['send'](channel_destination, message)
                 else:
-                    methods['send'](info['address'], "Command input " + \
-                                    "error. Needs to be '.send #channel " + \
-                                    "message' or '.send #channel .u " + \
-                                    "username .m message'.")
+                    methods['send'](info['address'], \
+                            "Command input error. Needs to be '.send " + \
+                            "#channel message' or '.send #channel .u " + \
+                            "username .m message'.")
         except Exception as e:
             print('woops plugin error: ', e)
 
