@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-[greet.py]
-Greet Plugin
+[send_message.py]
+Send Message Plugin
 
 [Author]
-Abdur-Rahmaan Janhangeer, pythonmembers.club
+Justin Walker
 
 [About]
-responds to .hi, demo of a basic plugin
+Sends a message to another channel.
 
 [Commands]
 >>> .send #channel .u riceabove .m how are you?
@@ -49,14 +49,25 @@ class Plugin:
                           msgs[2] == '.u' and
                           msgs[4] == '.m'):
                         user_recipient = msgs[3]
-                        for word in msgs[5:]:
-                            message += word + ' '
-                        complete_message = ('{0} from {1} says to {2}: {3}'
-                                           .format(sender,sender_channel,
-                                           user_recipient,message.rstrip()))
+                        if self.check_online(user_recipient) == True:
+                            for word in msgs[5:]:
+                                message += word + ' '
+                            complete_message = ('{0} from {1} says to {2}: {3}'
+                                            .format(sender,sender_channel,
+                                            user_recipient,message.rstrip()))
                     
                     methods['send'](channel_destination, complete_message)
                 else:
                     methods['send'](info['address'], 'Command input error.')
         except Exception as e:
             print('woops plugin error: ', e)
+
+    def check_online(self,user):
+        methods['send_raw']('whois {0} \r\n'.format(user))
+        data = self.irc.recv(2048)
+        raw_msg = data.decode("UTF-8")
+        msg = raw_msg.strip('\n\r')
+        if msg.endswith('No such nick/channel'):
+            methods['send'](info['address'], "User isn't online.")
+        else:
+            return True
