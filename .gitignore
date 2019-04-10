@@ -112,3 +112,5 @@ cmake-build-debug/
 
 # logs
 honeybot/log/*
+# visual studio code settings
+.vscode/
