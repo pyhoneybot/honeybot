@@ -38,6 +38,7 @@ MANIFEST
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
+nohup.out
 
 # Unit test / coverage reports
 htmlcov/
