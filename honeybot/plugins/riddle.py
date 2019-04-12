@@ -49,6 +49,6 @@ class Plugin:
         try:
             msgs = info['args'][1:]
             if info['command'] == 'PRIVMSG' and msgs[0] == '.riddle':
-                methods['send'](info['address'], self.riddle(self))
+                methods['send'](info['address'], Plugin.riddle(self))
         except Exception as e:
             print('Error with Riddle Plugin!', e)
