@@ -42,7 +42,7 @@ who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was
 
 > HoneyBot is my first time collaborating to an open source project and I'm loving it. Before discovering HoneyBot, I was very intimidated on the idea of working with other people and had no idea what an IRC even was. Now I realize how much fun and rewarding it is to work together on a project with dedicated and friendly individuals. The documentation is easy to follow and everyone is super helpful. I highly recommend any new programmer who want to contribute on an open source project to try out HoneyBot. Personally I enjoy working on this project more than my own schoolwork.
 
-[@justinwalker4179](https://github.com/justinwalker4179)
+[@justinwalker4179](https://github.com/IronPenguin4179)
 
 > HoneyBot is my first open source project and I had never worked with an IRC before. For school I was required to contribute to projects, but it was always so intimidating to me. I had always heard it gets easier once you've gotten over the fear wall, and that's what HoneyBot did for me. Excellent readme and quick feedback allowed me to make my first plugin. Now I've made many contributions, and look forward to any new issues I can get my hands on. Abdur-Rahmaan Janhangeer has been extremely helpful and I owe him and this project a lot for getting me into the open source world.
 
