@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 [quote.py]
-Humour Plugin
+Riddle Plugin
 
 [Author]
 Angelo Giacco
