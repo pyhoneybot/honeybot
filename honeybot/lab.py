@@ -1,4 +1,15 @@
-from main import Bot_core as Bot
+import importlib
 
-bot = Bot()
-print(bot.specific_send_command('#abc', 'greetings'))
+reqs = []
+with open('../requirements.txt') as f:
+    reqs = f.read().split('\n')
+
+
+reqs = [m.split('==')[0] for m in reqs if m]
+
+for module in reqs:
+    try:
+        importlib.import_module(module)
+    except ModuleNotFoundError as e:
+        print('not found:', module)
+print(reqs)

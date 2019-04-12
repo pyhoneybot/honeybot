@@ -22,33 +22,33 @@ import random
 
 class Plugin:
     def __init__(self):
-        self.hangman = Hangman()
+        pass
 
 # __hangman allows the plugin to call the hangman class and sends input to the
 # game. Detects which command is entered, either 'start' or 'guess', and if
 # guess is followed by a single char or entire word. Error displayed upon
 # incorrect command.
 
-    def __hangman(self, command, word):
+    def hangman(self, command, word):
         msg = "Command entered incorrectly."
         if command.lower() == "start":
-            self.hangman.start()
-            msg = "Welcome to hangman!\n" + \
-                  "You may use command 'start' to start new game " + \
-                  "or 'guess ---' with a word or letter to play.\n" + \
-            self.hangman.display_screen()
+            self.class_hangman = Hangman()
+            msg = "Welcome to hangman! " + \
+                  "You may use command 'start' to start new game  " + \
+                  "or 'guess ---' with a word or letter to play." + \
+            self.class_hangman.display_screen()
         elif command.lower() == "guess":
             if len(word.strip()) > 1:
-                self.hangman.guess_word(word)
-                msg = self.hangman.display_screen()
+                self.class_hangman.guess_word(word)
+                msg = self.class_hangman.display_screen()
             elif len(word.strip()) == 1:
-                self.hangman.guess_letter(word)
-                msg = self.hangman.display_screen()
+                self.class_hangman.guess_letter(word)
+                msg = self.class_hangman.display_screen()
         return msg
 
     def run(self, incoming, methods, info):
             try:
-                msgs = info['args'][1:][0].split() 
+                msgs = info['args'][1:][0].split()
                 if info['command'] == 'PRIVMSG':
                     if len(msgs) > 1:
                         if msgs[0] == '.hangman':
@@ -58,7 +58,7 @@ class Plugin:
                                 word = msgs[2]
                             methods['send'](
                                     info['address'], \
-                                    Plugin.__hangman(self, command, word))
+                                    Plugin.hangman(self, command, word))
             except Exception as e:
                 print('woops plugin error', e)
 
@@ -82,18 +82,15 @@ class Hangman:
             "family", "brave", "adaptive", "insane", "crayon", "healing",
             "ghoul", "abandon", "robotic", "plasma", "hidden"
         ]
-
-# start is used to start or restart hangman game.
-
-    def start(self):
         randIndex = random.randint(0,len(self.wordChoices)-1)
         self.gameWord = self.wordChoices[randIndex]
+        print(self.gameWord)
         self.display = "-"*len(self.gameWord)
         self.guessCount = len(self.display) + 3
-        self.display_message = "You have {0} guesses remaining." \
+        self.display_message = " You have {0} guesses remaining." \
                                .format(self.guessCount)
         self.endGame = False
-        self.endMessage = "You shouldn't be able to see this"
+        self.endMessage = "You shouldn't be able to see this."
 
 # guess_letter is used when user enters a single character guess.
 
@@ -177,3 +174,17 @@ class Hangman:
             return self.display + self.display_message
         else:
             return self.endMessage
+            
+
+def send(info, message):
+    print(message)
+
+
+def test_them(plugin, msg):
+
+    methods = {"send":send}
+    msg = msg
+    info = {'args':[None,msg],
+            'command':'PRIVMSG',
+            'address':'That place'}
+    plug.run("",methods,info)

@@ -110,3 +110,8 @@ cmake-build-debug/
 
 # mypy
 .mypy_cache/
+
+# logs
+honeybot/log/*
+# visual studio code settings
+.vscode/

@@ -17,19 +17,14 @@ from datetime import date
 class Plugin:
     # Makes a new log dir if not existent
     # Change according to where you have honeybot dir
-    try:
-        log_path = "{}/log".format(os.getcwd())
-        if not os.path.exists(log_path):
-            os.makedirs('log')
-    except:
-        pass
-    #os.chdir(log_path)
+    log_path = "{}/log".format(os.getcwd())
+    if not os.path.exists(log_path):
+        os.makedirs('log')
 
     # curr date
     curr = date.today().strftime("%d-%m-%Y")
 
     # Logging config
-    # For debugging, set => .format(logs)
     logging.basicConfig(
         filename='log/{}.txt'.format(curr),
         level=logging.INFO,
