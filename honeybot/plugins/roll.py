@@ -26,7 +26,11 @@ class Plugin:
 
     def run(self, incoming, methods, info):
         try:
-            msgs = info['args'][1:][0].split()
+            try:
+                msgs = info['args'][1:][0].split()
+            except Exception as e:
+                pass
+
             if info['command'] == 'PRIVMSG' and msgs[0] == '.roll':
                 text = ''
                 total = 0
