@@ -69,7 +69,7 @@ who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was
 - 🔣 password generator by [@iamnishant14](https://github.com/iamnishant14) - the name tells it all
 - 🐜 debug by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - prints all parameters passed to bot
 - 📚 wikipedia by [@Macr0Nerd](https://github.com/Macr0Nerd) - returns a wikipedia article
-- 🗿 translate by Ahmed Deeb - google translate plugin
+- 🗿 translate by [@a-deeb](https://github.com/a-deeb) - google translate plugin
 - 📑 test by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - runs tests
 - ⛅️ weather by [@Macr0Nerd](https://github.com/Macr0Nerd) - returns weather info for a given location
 - ✉️ mail by [@TannerFry](https://github.com/TannerFry) - send emails within the chat
