@@ -28,7 +28,7 @@ class Plugin:
                 response_json = response.json()
 
                 weather = f"The weather for {response_json['name']} is {response_json['weather'][0]['description']} at " \
-                    f"{response_json['main']['temp']} degrees"
+                    f"{(int(response_json['main']['temp']) - 32) * 5/9} degrees"
 
                 methods['send'](info['address'], weather)
         except Exception as e:
