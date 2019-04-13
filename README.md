@@ -60,7 +60,6 @@ who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was
 - 📐 maths by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - sin cos and the like
 - 🍃 conv sniff by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - set triggers like how many times a word occur for one or more words and send response
 - ❄ greet by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - demo plugin
-- ⛓ installed_modules by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - checks dependencies installed
 - 🕶 joke by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ), [@colbyjayallen](https://github.com/colbyjayallen) - get random joke
 - ❓ self Trivia by [@ajimenezUCLA](https://github.com/ajimenezUCLA) - random trivia
 - 💢 username by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ), [@sseryani](https://github.com/sseryani) - username generator
@@ -76,13 +75,8 @@ who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was
 - 🕴️ hangman by [@JustinWalker4179](https://github.com/justinwalker4179) - play hangman in the chat
 - 🎂 age by [@JustinWalker4179](https://github.com/justinwalker4179) - takes in birthday and outputs age
 - ✔️ fact by [@JustinWalker4179](https://github.com/justinwalker4179) - returns a random fact
-- 🔍 google by [@JustinWalker4179](https://github.com/justinwalker4179) - returns three search results from google
-- 📮 send message by [@JustinWalker4179](https://github.com/justinwalker4179) - sends a message to another channel
 - 📝 log by [@RiceAbove](https://github.com/RiceAbove) - logs the chat into a log file
 - 🚪 joins by [@RiceAbove](https://github.com/RiceAbove) - greets everyone who joins the channel
-- 📅 date by [@RiceAbove](https://github.com/RiceAbove) - posts the current date
-- 🕵️‍ riddle by [@AngeloGiacco](https://github.com/AngeloGiacco) - returns a random riddle
-- 🎲 roll by [@GlennToms](https://github.com/GlennToms) - rolls a dice
 
 ## 🔧 Plugins Development
 
