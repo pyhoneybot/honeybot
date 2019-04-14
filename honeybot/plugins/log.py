@@ -10,26 +10,26 @@ Gico Carlo Evangelista, https://gicocarlo.me/
 Logs the chat into a log.txt file
 """
 
+# UPDATE: 13/4/2019
+# Due to logging module in main.py, log.py will now log the chat using
+# standard python file handling
+
 import os
-import logging
 from datetime import date
 
+# Makes a new log dir if not existent
+# Change according to where you have honeybot dir
+log_path = "{}/log".format(os.getcwd())
+if not os.path.exists(log_path):
+    os.makedirs('log')
+
+# curr date
+curr = date.today().strftime("%d-%m-%Y")
+
+# Make log file (if not existent) using current date
+f = open('log/{}.txt'.format(curr), 'a+')
+
 class Plugin:
-    # Makes a new log dir if not existent
-    # Change according to where you have honeybot dir
-    log_path = "{}/log".format(os.getcwd())
-    if not os.path.exists(log_path):
-        os.makedirs('log')
-
-    # curr date
-    curr = date.today().strftime("%d-%m-%Y")
-
-    # Logging config
-    logging.basicConfig(
-        filename='log/{}.txt'.format(curr),
-        level=logging.INFO,
-        format="%(asctime)s:%(message)s"
-        )
 
     def __init__(self):
         pass
@@ -43,9 +43,8 @@ class Plugin:
                 user_index = raw_user.find('!')
                 user = raw_user[0:user_index]
 
-                # Logging the chat into logs.txt
-                # TODO: Find how to get bot messages
-                logging.info(' {}: {}'.format(user, msgs[0]))
+                # Logging the chat into txt file
+                f.write('{}: {}\r\n'.format(user, msgs[0]))
 
         except Exception as e:
             print('woops plugin error ', e)
