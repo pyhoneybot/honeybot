@@ -13,9 +13,11 @@ Returns your daily horoscope based on your star sign
 >>> .horoscope <<star sign>>
 prints star sign
 """
-
-import requests
-from bs4 import BeautifulSoup
+try:
+    import requests
+    from bs4 import BeautifulSoup
+except ImportError:
+    print("Required modules not found")
 
 class Plugin:
     def __init__(self):
