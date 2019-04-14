@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-[googleSearch.py]
+[horoscope.py]
 Horoscope Plugin
 
 [Author]
