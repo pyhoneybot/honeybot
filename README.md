@@ -82,6 +82,7 @@ who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was
 - 🚪 joins by [@RiceAbove](https://github.com/RiceAbove) - greets everyone who joins the channel
 - 📅 date by [@RiceAbove](https://github.com/RiceAbove) - posts the current date
 - 🕵️‍ riddle by [@AngeloGiacco](https://github.com/AngeloGiacco) - returns a random riddle
+- 🗞 news by [@AngeloGiacco](https://github.com/AngeloGiacco) - gets the top 10 headlines from bbc world news
 - 🎲 roll by [@GlennToms](https://github.com/GlennToms) - rolls a dice
 
 ## 🔧 Plugins Development
