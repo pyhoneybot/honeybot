@@ -7,11 +7,14 @@ Riddle Plugin
 Angelo Giacco
 
 [About]
-Returns a riddle
+Returns a riddle or whether guess at the answer was correct or not.
 
 [Commands]
 >>> .riddle
 returns a random riddle
+
+.riddle guess <<attempt>>
+returns whether the guess was correct or wrong
 """
 import random
 
@@ -19,12 +22,12 @@ class Plugin:
     def __init__(self):
         pass
 
-    def riddle(self,command="show", words = None):
-        if command = "show":
-            r = Riddle()
-            methods['send'](info['address'], r.riddle)
-        elif command = "guess":
-            methods['send'](info['address'], r.guess_answer(words))
+    def riddle(self,command="show", words = ""):
+        if command == "show":
+            self.r = Riddle()
+            messasge = self.r.riddle
+        elif command == "guess":
+            message = self.r.guess_answer(words)
 
     def run(self, incoming, methods, info):
         try:
@@ -63,7 +66,7 @@ class Riddle:
             'What is a thing that the more you take, the more you leave behind?':"footsteps",
             'Remove six letters from this sequence to reveal a familiar English word. BSAINXLEATNTEARS':"bananas"
         }
-        self.riddle = random.choice(list(riddles_dict.keys()))
+        self.riddle = random.choice(list(self.riddles_dict.keys()))
 
         def guess_answer(self,guess):
             if guess.lower() == self.riddle:
