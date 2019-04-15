@@ -39,14 +39,14 @@ class Plugin:
         signs['pisces'] = '12'
 
         if starsign not in signs:
-            print("That is not a valid star sign, check for typos")
+            message = "That is not a valid star sign, check for typos"
         else:
             basic_url = "https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign="
             url = basic_url + signs[starsign]#creates the url
             content = requests.get(url) #gets the horoscope website
             doc = BeautifulSoup(content.text, 'html.parser') #parses website
             message = doc.find_all('p')[0].text #the first p element of the website is the horoscope and we only want its text
-            print(message)
+        return(message)
 
     def run(self, incoming, methods, info):
         try:
@@ -54,15 +54,13 @@ class Plugin:
 
             if info['command'] == 'PRIVMSG' and msgs[0] == '.horoscope':
                 # The next message should be the star sign
-                term = ''
                 if len(msgs) > 2: # the message should only contain .horoscope and the user's star sign
-                    print("Too many messages")
-                    raise Excepion
-                elif (msgs) == 2:
+                    methods['send'](info['address'], "too many messages")
+                elif len(msgs) == 2:
                     starsign = msgs[1]
-                    horoscope(starsign)
+                    methods['send'](info['address'], Plugin.horoscope(starsign))
                 else:
-                    print(".horoscope requires a star sign")
+                    methods['send'](info['address'], ".horoscope requires a star sign")
 
         except Exception as e:
             print('woops horoscope plugin error: ', e)
