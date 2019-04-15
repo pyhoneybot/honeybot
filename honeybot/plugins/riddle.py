@@ -47,7 +47,7 @@ class Plugin:
 
     def run(self, incoming, methods, info):
         try:
-            msgs = info['args'][1:][0].split()
+            msgs = info['args'][1:]
             if info['command'] == 'PRIVMSG' and msgs[0] == '.riddle':
                 methods['send'](info['address'], Plugin.riddle(self))
         except Exception as e:
