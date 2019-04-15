@@ -84,61 +84,65 @@ class Plugin:
                         else:
                             methods['send'](info['address'], "invalid day")
                     elif month == 'february' or month == "2":
-                        if (is_date_valid(1,day)):
+                        if (is_date_valid(2,day)):
                             astro_sign = 'aquarius' if (day < 19) else 'pisces'
                             methods['send'](info['address'], Plugin.horoscope(astro_sign))
                         else:
                             methods['send'](info['address'], "invalid day")
                     elif month == 'march' or month == "3":
-                        if (is_date_valid(1,day)):
+                        methods['send'](info['address'], "yo its march")
+                        methods['send'](info['address'], str(day))
+                        if is_date_valid(3,day):
+                            methods['send'](info['address'], "yo its valid")
                             astro_sign = 'pisces' if (day < 21) else 'aries'
+                            methods['send'](info['address'], astro_sign)
                             methods['send'](info['address'], Plugin.horoscope(astro_sign))
                         else:
                             methods['send'](info['address'], "invalid day")
                     elif month == 'april' or month == "4":
-                        if (is_date_valid(1,day)):
+                        if (is_date_valid(4,day)):
                             astro_sign = 'aries' if (day < 20) else 'taurus'
                             methods['send'](info['address'], Plugin.horoscope(astro_sign))
                         else:
                             methods['send'](info['address'], "invalid day")
                     elif month == 'may' or month == "5":
-                        if (is_date_valid(1,day)):
+                        if (is_date_valid(5,day)):
                             astro_sign = 'taurus' if (day < 21) else 'gemini'
                             methods['send'](info['address'], Plugin.horoscope(astro_sign))
                         else:
                             methods['send'](info['address'], "invalid day")
                     elif month == 'june' or month == "6":
-                        if (is_date_valid(1,day)):
+                        if (is_date_valid(6,day)):
                             astro_sign = 'gemini' if (day < 21) else 'cancer'
                             methods['send'](info['address'], Plugin.horoscope(astro_sign))
                         else:
                             methods['send'](info['address'], "invalid day")
                     elif month == 'july' or month == "7":
-                        if (is_date_valid(1,day)):
+                        if (is_date_valid(7,day)):
                             astro_sign = 'cancer' if (day < 23) else 'leo'
                             methods['send'](info['address'], Plugin.horoscope(astro_sign))
                         else:
                             methods['send'](info['address'], "invalid day")
                     elif month == 'august' or month == "8":
-                        if (is_date_valid(1,day)):
+                        if (is_date_valid(8,day)):
                             astro_sign = 'leo' if (day < 23) else 'virgo'
                             methods['send'](info['address'], Plugin.horoscope(astro_sign))
                         else:
                             methods['send'](info['address'], "invalid day")
                     elif month == 'september' or month == "9":
-                        if (is_date_valid(1,day)):
+                        if (is_date_valid(9,day)):
                             astro_sign = 'virgo' if (day < 23) else 'libra'
                             methods['send'](info['address'], Plugin.horoscope(astro_sign))
                         else:
                             methods['send'](info['address'], "invalid day")
                     elif month == 'october' or month == "10":
-                        if (is_date_valid(1,day)):
+                        if (is_date_valid(10,day)):
                             astro_sign = 'libra' if (day < 23) else 'scorpio'
                             methods['send'](info['address'], Plugin.horoscope(astro_sign))
                         else:
                             methods['send'](info['address'], "invalid day")
                     elif month == 'november' or month == "11":
-                        if (is_date_valid(1,day)):
+                        if (is_date_valid(11,day)):
                             astro_sign = 'scorpio' if (day < 22) else 'sagittarius'
                             methods['send'](info['address'], Plugin.horoscope(astro_sign))
                         else:
