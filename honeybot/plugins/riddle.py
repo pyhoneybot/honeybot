@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-[quote.py]
+[riddle.py]
 Riddle Plugin
 
 [Author]
