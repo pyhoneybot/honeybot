@@ -22,28 +22,41 @@ class Plugin:
     def __init__(self):
         pass
 
-    def riddle(self,command="show", words = ""):
+    def get_riddle(self,command="show", words = ""):
         if command == "show":
+            print("show")
             self.r = Riddle()
-            messasge = self.r.riddle
+            message = self.r.riddle
+            return message
         elif command == "guess":
-            message = self.r.guess_answer(words)
+            print("guess")
+            try:
+                message = self.r.guess_answer(words)
+                return message
+            except NameError:
+                return "first create a riddle by entering .riddle"
+        else:
+            print("else")
+            return "riddle plugin error"
 
     def run(self, incoming, methods, info):
         try:
             msgs = info['args'][1:][0].split()
+            print(msgs)
             if info['command'] == 'PRIVMSG' and msgs[0] == '.riddle':
-                if len(msgs) >= 3 and msgs[1] == "guess":
-                    attempt = msgs[2:]
-                    riddle("guess",attempt)
-                elif len(msgs) == 0:
-                    riddle()
-                methods['send'](info['address'], Plugin.riddle(self))
+                if len(msgs) >= 3:
+                    if msgs[1] == "guess":
+                        attempt = msgs[2:]
+                        methods['send'](info['address'], Plugin.get_riddle(self,"guess",attempt))
+                elif len(msgs) == 1:
+                    methods['send'](info['address'], Plugin.get_riddle(self))
+
         except Exception as e:
             print('Error with riddle plugin', e)
 
 class Riddle:
     def __init__(self):
+        print("create riddle")
         self.riddles_dict = {
             'The more you have of it, the less you see. What is it?' : "darkness",
             'What has a head, a tail, is brown, and has no legs?' : "a penny",
@@ -68,9 +81,9 @@ class Riddle:
         }
         self.riddle = random.choice(list(self.riddles_dict.keys()))
 
-        def guess_answer(self,guess):
-            if guess.lower() == self.riddle:
-                message = "Correct!"
-            else:
-                message = "Wrong!"
-            return message
+    def guess_answer(self,guess):
+        if guess.lower() == self.riddles_dict[self.riddle]:
+            message = guess +" is correct!"
+        else:
+            message = guess + " is wrong! The correct answer is "+self.riddles_dict[self.riddle]
+        return message
