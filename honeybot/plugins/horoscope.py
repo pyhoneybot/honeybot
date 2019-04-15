@@ -56,7 +56,7 @@ class Plugin:
                 # The next message should be the star sign
                 if len(msgs) > 2: # the message should only contain .horoscope and the user's star sign
                     methods['send'](info['address'], "too many messages")
-                elif (msgs) == 2:
+                elif len(msgs) == 2:
                     starsign = msgs[1]
                     methods['send'](info['address'], Plugin.horoscope(starsign))
                 else:
