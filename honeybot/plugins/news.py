@@ -24,11 +24,12 @@ class Plugin:
         #hence the wierd indexes for headline.text
         #we also only want the first 10 headlines
         ten_headlines_text_list = [headline.text[1:-1] for headline in headlines[:10]]
-        return ("\n").join(ten_headlines_text_list)#return the list as a string with newlines
+        return ten_headlines_text_list#return the list as a string with newlines
 
     def run(self, incoming, methods, info):
         try:
             if info['command'] == 'PRIVMSG' and info['args'][1] == '.news':
-                methods['send'](info['address'], Plugin.news(self))
+                for headline in Plugin.news(self):
+                    methods['send'](info['address'], headline)
         except Exception as e:
             print('woops news plugin error ', e)
