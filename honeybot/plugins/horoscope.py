@@ -28,6 +28,10 @@ class Plugin:
     def __init__(self):
         pass
 
+    def is_date_valid(month, day):
+        day_count_for_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        return (1 <= month <= 12 and 1 <= day <= day_count_for_month[month])
+
     def horoscope(starsign):
         signs = dict()
         signs['aries'] = '1'
@@ -64,7 +68,6 @@ class Plugin:
                 elif len(msgs) == 3:
                     month = msgs[1]
                     day = int(msgs[2])
-
                     def is_date_valid(month, day):
                         day_count_for_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
                         return (1 <= month <= 12 and 1 <= day <= day_count_for_month[month])
