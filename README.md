@@ -20,7 +20,7 @@ Psst. since i learnt py through this bot, we decided to keep a new-comers friend
 
 ## 📌 Contributing Countries
 
-🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳 🇬🇧
+🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳 🇬🇧 🇬🇬
 
 ## 📨 Follow the project on CodeTriage for updates!
 
@@ -83,6 +83,7 @@ who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was
 - 📅 date by [@RiceAbove](https://github.com/RiceAbove) - posts the current date
 - 🕵️‍ riddle by [@AngeloGiacco](https://github.com/AngeloGiacco) - returns a random riddle
 - 🗞 news by [@AngeloGiacco](https://github.com/AngeloGiacco) - gets the top 10 headlines from bbc world news
+- 📝 horoscope by [@AngeloGiacco](https://github.com/AngeloGiacco) - gets your daily horoscope for your starsign
 - 🎲 roll by [@GlennToms](https://github.com/GlennToms) - rolls a dice
 
 ## 🔧 Plugins Development
