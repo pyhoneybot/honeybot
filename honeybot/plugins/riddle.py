@@ -32,8 +32,9 @@ class Plugin:
             print("guess")
             try:
                 message = self.r.guess_answer(words)
+                self.r = None
                 return message
-            except NameError:
+            except:
                 return "first create a riddle by entering .riddle"
         else:
             print("else")
@@ -46,7 +47,7 @@ class Plugin:
             if info['command'] == 'PRIVMSG' and msgs[0] == '.riddle':
                 if len(msgs) >= 3:
                     if msgs[1] == "guess":
-                        attempt = msgs[2:]
+                        attempt = " ".join(msgs[2:])
                         methods['send'](info['address'], Plugin.get_riddle(self,"guess",attempt))
                 elif len(msgs) == 1:
                     methods['send'](info['address'], Plugin.get_riddle(self))
@@ -77,7 +78,7 @@ class Riddle:
             'Feed me and I live, give me drink and I die. What am I?' :"a fire",
             'A man went to the hardware store to buy items for his house. 1 would cost $.25, 12 would cost $.50, 122 would cost $.75. What was he buying?': "house numbers",
             'What is a thing that the more you take, the more you leave behind?':"footsteps",
-            'Remove six letters from this sequence to reveal a familiar English word. BSAINXLEATNTEARS':"bananas"
+            'Remove six letters from this sequence to reveal a familiar English word. BSAINXLEATNTEARS':"banana"
         }
         self.riddle = random.choice(list(self.riddles_dict.keys()))
 
