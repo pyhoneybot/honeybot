@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-[quote.py]
+[riddle.py]
 Riddle Plugin
 
 [Author]
@@ -42,7 +42,7 @@ class Plugin:
             'What is a thing that the more you take, the more you leave behind?', # footsteps
             'Remove six letters from this sequence to reveal a familiar English word. BSAINXLEATNTEARS' # remove six letters to get bananas
         ]
-
+        print('{}'.format(random.choice(riddles)))
         return '{}'.format(random.choice(riddles))
 
     def run(self, incoming, methods, info):
@@ -51,4 +51,4 @@ class Plugin:
             if info['command'] == 'PRIVMSG' and msgs[0] == '.riddle':
                 methods['send'](info['address'], Plugin.riddle(self))
         except Exception as e:
-            print('Error with Riddle Plugin!', e)
+            print('Error with riddle plugin', e)
