@@ -81,6 +81,10 @@ Returns your daily horoscope based on your star sign
 \
 <code>.horoscope \<\<star sign>></code>
 
+or based on your month and day_count_for_month
+\
+<code>.horoscope \<\<month>> \<\<day>></code>
+
 # installed_modules.py
 by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 checks if all listed in requirements.txt installed
@@ -138,6 +142,10 @@ by Angelo Giacco\
 Returns a riddle
 \
 <code>.riddle</code>
+\
+and checks a guess
+\
+<code>.riddle guess \<\<attempt>></code>
 
 # roll.py
 by Glenn Toms\
@@ -186,3 +194,7 @@ sends a wikipedia article on request based off of a search or random query
 \
 <code>.wiki \<command> \<topic></code>
 
+#russian_roulette.py
+by Angelo Giacco\
+may or may not kick you off the channel\
+<code>.russian_roulette </code>
