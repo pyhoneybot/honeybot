@@ -27,8 +27,10 @@ class Plugin:
     def risk(self, incoming, methods, info):
         kill = True if random.random() < 0.2 else False #should the user be kicked
         if kill:
-            incoming = ": "+info['prefix']+" QUIT :"
-            info['command'] = 'QUIT'
+            name = info["prefix"].split("!")[0]
+            channel = info["address"]
+            kill_command = "/kick "+ channel + " " + name
+            methods["send"](info["address"],kill_command)
             #code to quit the channel
             return "Suicide is always a risk when playing russian roulette... RIP..."
         else:
