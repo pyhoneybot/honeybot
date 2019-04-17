@@ -24,3 +24,6 @@ class Player:
 
     def getPortfolio:
         return self.portfolio
+
+    def checkWon():
+        pass
