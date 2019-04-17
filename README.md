@@ -87,6 +87,8 @@ who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was
 - 💵 currency converter by [@AngeloGiacco](https://github.com/AngeloGiacco) - converts currencies
 - 🎲 roll by [@GlennToms](https://github.com/GlennToms) - rolls a dice
 - ❓ help by [@edumello](https://github.com/edumello) - show link to plugin's information page
+- ✅ channeljoin by [@marceloyb](https://github.com/marceloyb) - join command for bot
+
 
 ## 🔧 Plugins Development
 
