@@ -26,7 +26,7 @@ evaluates maths expressions in the format supported by py
 by Marcelo Benesciutti\
 Join command for the bot. User must be in owners file.
 \
-<code> .join \<channel></code>
+<code> .channeljoin \<channel></code>
 
 # conv_sniff.py
 by Abdur-Rahmaan Janhangeer, pythonmembers.club\
