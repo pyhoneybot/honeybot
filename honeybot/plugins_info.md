@@ -87,6 +87,12 @@ checks if all listed in requirements.txt installed
 \
 <code>.installed</code>
 
+# join.py
+by Marcelo Benesciutti, https://github.com/marceloyb\
+Join command for the bot. User must be in owners file.
+\
+<code> .join \<channel></code>
+
 # joins.py
 by Gico Carlo Evangelista, https://gicocarlo.me/\
 Greets everyone who joins the channel
