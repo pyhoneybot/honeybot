@@ -30,6 +30,7 @@ class Plugin:
                 dict = PyDictionary()
                 word = str(msgs[1])
                 defin = dict.meaning(word)['Noun']
-                methods['send'](info['address'], '{}'.format(defin))
+                for definition in defin:
+                    methods['send'](info['address'], definition)
         except Exception as e:
             print('woops plug', e)

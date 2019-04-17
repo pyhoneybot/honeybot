@@ -193,3 +193,12 @@ sends a wikipedia article on request based off of a search or random query
 \
 <code>.wiki \<command> \<topic></code>
 
+# converter.py
+by Angelo Giacco\
+converts a currency with default amount of 1
+\
+<code>.converter \<base currency> \<target currency> \<amount></code>
+\
+or to get help on currencies supported:
+\
+<code>.converter \<help></code>
