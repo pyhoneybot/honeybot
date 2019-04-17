@@ -1,6 +1,6 @@
 # Game Objects
 class Property:
-    def __init__(self, name, color, price, 
+    def __init__(self, name, color, price,
                  rent, one_house_rent, two_house_rent,
                  three_house_rent, four_house_rent, hotel_rent,
                  build_cost):
@@ -21,7 +21,7 @@ class Railroad:
         self.price = 200
         self.rents = {"one_railroad":25,
                       "two_railroad":50,
-                      "three_railroad":100,   
+                      "three_railroad":100,
                       "four_railroad":200}
 
 
@@ -120,7 +120,7 @@ chance_deck = {
 community_deck = {
         1:"Get out of jail free. This card may be kept until needed or sold",
         2:"From sale of stock, you get $45",
-        3:"Grand opera opening." + 
+        3:"Grand opera opening." +
          "Collect $50 from every player for opening night seats",
         4:"Advance to Go, collect $200",
         5:"Xmas fund matures, collect $100",
