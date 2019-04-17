@@ -20,7 +20,7 @@ Psst. since i learnt py through this bot, we decided to keep a new-comers friend
 
 ## 📌 Contributing Countries
 
-🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳 🇬🇧 🇬🇬
+🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳 🇬🇧 🇬🇬 🇧🇷
 
 ## 📨 Follow the project on CodeTriage for updates!
 
@@ -86,6 +86,7 @@ who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was
 - 📝 horoscope by [@AngeloGiacco](https://github.com/AngeloGiacco) - gets your daily horoscope for your starsign
 - 💵 currency converter by [@AngeloGiacco](https://github.com/AngeloGiacco) - converts currencies
 - 🎲 roll by [@GlennToms](https://github.com/GlennToms) - rolls a dice
+- ❓ help by [@edumello](https://github.com/edumello) - show link to plugin's information page
 
 ## 🔧 Plugins Development
 
