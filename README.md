@@ -86,7 +86,7 @@ who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was
 - 📝 horoscope by [@AngeloGiacco](https://github.com/AngeloGiacco) - gets your daily horoscope for your starsign
 - 🎲 roll by [@GlennToms](https://github.com/GlennToms) - rolls a dice
 - ❓ help by [@edumello](https://github.com/edumello) - show link to plugin's information page
-- ![channeljoin](http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Actions-irc-join-channel-icon.png) channeljoin by [@marceloyb](https://github.com/marceloyb) - join command for bot
+- ✅ channeljoin by [@marceloyb](https://github.com/marceloyb) - join command for bot
 
 ## 🔧 Plugins Development
 
