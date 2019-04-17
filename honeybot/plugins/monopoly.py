@@ -20,10 +20,10 @@ starts the game
 rolls two dice to see how far the user will move/if the user can leave the jail
 
 >>> .monopoly buy
-user purchases property
+user purchases property if unowned, otherwise buys house
 
 >>> .monopoly pass
-user passes on the opportunity to buy a property
+user passes on the opportunity to buy a property if unowned, or on the opportunity to buy a house
 
 >>> .monopoly quit
 ends the game
@@ -44,17 +44,31 @@ class Plugin:
     def __init__(self):
         pass
 
+    def count_color_property(portfolio, col):
+        properties = [asset for asset in portfolio if isinstance(asset,Property)]
+        return sum(property.color == col for property in properties)
+
+    def count_utilities(portfolio):
+        return len([utility for utility in portfolio if isinstance(utility,Utility)])
+
+    def count_railroads(portfolio):
+        return len([railroad for railroad in portfolio if isinstance(railroad,Railroad)])
+
     def count_player_properties(player):
         #creates a dictionary with the users properties from the portfolio list
         #utilises the fact that True is equal to 1
-        violet = sum(property.color == "Violet" for property in player.getPortfolio())
-        light_blue = sum(property.color == "Light blue" for property in player.getPortfolio())
-        purple = sum(property.color == "Purple" for property in player.getPortfolio())
-        orange = sum(property.color == "Orange" for property in player.getPortfolio())
-        red = sum(property.color == "Red" for property in player.getPortfolio())
-        yellow = sum(property.color == "Yellow" for property in player.getPortfolio())
-        green = sum(property.color == "Green" for property in player.getPortfolio())
-        blue = sum(property.color == "Blue" for property in player.getPortfolio())
+        portfolio = player.getPortfolio()
+
+        violet = count_color_property(portfolio, "Violet")
+        light_blue = count_color_property(portfolio, "Light blue")
+        purple = count_color_property(portfolio, "Purple")
+        orange = count_color_property(portfolio, "Orange")
+        red = count_color_property(portfolio, "Red")
+        yellow = count_color_property(portfolio, "Yellow")
+        green = count_color_property(portfolio, "Green")
+        blue = count_color_property(portfolio, "Blue")
+        utilities = count_utilities(portfolio)
+        railroads = count_railroads(portfolio)
         prop_count_dict = {"Violet":violet,
                            "Light blue":light_blue,
                            "Purple":purple,
@@ -62,7 +76,9 @@ class Plugin:
                            "Red":red,
                            "Yellow":yellow,
                            "Green":green,
-                           "Blue":blue}
+                           "Blue":blue,
+                           "Utility":utilities,
+                           "Railroad":railroads}
         return prop_count_dict
 
     def get_info(self,methods,info):
@@ -82,6 +98,14 @@ class Plugin:
                 message = name+" has no properties"
                 methods['send'](info['address'],message)
             methods['send'](info['address'],name+"'s pot is "+str(pot))
+
+    def find_owner(asset_name):
+        for player in Plugin.players:
+            for property in player.getPortfolio():
+                if property.name == asset_name:
+                    return [True,Plugin.players.index(player)]
+                else:
+                    return [False]
 
     def create(self):
         Plugin.stage = 0
@@ -109,6 +133,23 @@ class Plugin:
         turn_player = Plugin.players[turn].getName()
         methods["send"](info["address"],"first up is "+turn_player)
         Plugin.next = "roll"
+
+    def roll(self):
+        move_amount = random.randint(1,6) + random.randint(1,6)
+        player = Plugin.players[turn]
+        passed_go = player.update_position(move_amount)
+        new_location = board_spaces[player.getPosition()]
+        methods["send"](info['address'],player.name+" rolled "+str(move_amount) +\
+        " and is now located at "+new_location.name)
+        new_location_owned = find_owner(new_location.name)
+        if new_location_owned[0]:
+            owner = Plugin.players[new_location_owned[1]]
+            #must figure out fee
+            #find a way to find out the number of houses owned
+            #possibly create a self.house_count in Property class
+            #this is your work for tomorrow
+            methods["send"](info['address'],player.name+" landed on a property owned by "+\
+            owner.name)
 
     def quit(self):
         if Plugin.stage == None:#may be self.stage
@@ -146,12 +187,15 @@ class Plugin:
 
                 elif msgs[1].lower() == "start":
                     Plugin.start(self,methods,info)
-                    
+
                 elif msgs[1].lower() == "roll":
+                    Plugin.roll(self,methods,info)
 
                 elif msgs[1].lower() == "buy":
+                    pass
 
                 elif msgs[1].lower() == "pass":
+                    pass
 
                 elif msgs[1].lower() == "quit":
                     methods['send'](info['address'],Plugin.quit(self))

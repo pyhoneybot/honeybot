@@ -7,11 +7,13 @@ class Property:
         self.name = name
         self.color = color
         self.price = price
-        self.rents = {"one":one_house_rent,
-                      "two":two_house_rent,
-                      "three":three_house_rent,
-                      "four":four_house_rent,
-                      "hotel":hotel_rent}
+        self.house_count = 0 #5 means hotel
+        self.rents = {0:rent,
+                      1:one_house_rent,
+                      2:two_house_rent,
+                      3:three_house_rent,
+                      4:four_house_rent,
+                      5:hotel_rent}
         self.build_cost = build_cost
 
 
@@ -19,18 +21,18 @@ class Railroad:
     def __init__(self, name):
         self.name = name
         self.price = 200
-        self.rents = {"one_railroad":25,
-                      "two_railroad":50,
-                      "three_railroad":100,
-                      "four_railroad":200}
+        self.rents = {1:25,
+                      2:50,
+                      3:100,
+                      4:200}
 
 
 class Utility:
     def __init__(self, name):
         self.name = name
         self.price = 150
-        self.rents = {"one_utility":"4x"
-                      "two_utility":"10x"}
+        self.rents = {1:"4x",
+                      2:"10x"}
 
 
 # Assets

@@ -9,9 +9,25 @@ class Player:
         self.name = name
         self.pot = 1500
         self.portfolio = []
+        self.position = 1
+
+    def update_position(self,amount):
+        passed_go = False
+        self.position += amount
+        if self.position > 40:
+            passed_go = True
+            self.position -= 40
+            self.increasePot(200)
+        elif self.position == 40:
+            passed_go = True
+            self.increasePot(200)
+        return passed_go
 
     def getName(self):
         return self.name
+
+    def getPosition(self):
+        return self.position
 
     def getPot(self):
         return str(self.pot)
