@@ -148,6 +148,7 @@ class Plugin:
             #find a way to find out the number of houses owned
             #possibly create a self.house_count in Property class
             #this is your work for tomorrow
+            #also consider .monopoly info command rather than always printing
             methods["send"](info['address'],player.name+" landed on a property owned by "+\
             owner.name)
 
