@@ -45,6 +45,7 @@ class Plugin:
 
     def create(self):
         stage = 0
+        print("stage = "+str(stage))
 
     def join(self,nickname):
         if Plugin.stage == 0:
@@ -59,18 +60,22 @@ class Plugin:
 
     def run(self,incoming,methods,info):
         try:
-            msgs = info['args'][1:]
+            msgs = info['args'][1:][0].split(" ")
             if info['command'] == 'PRIVMSG' and msgs[0] == '.monopoly':
 
+                print("msgs")
+                print(msgs)
+
                 if not(len(msgs) == 2):
-                    methods['send'](info]['address'],".monopoly requires one argument:" +\
+                    methods['send'](info['address'],".monopoly requires one argument:" +\
                     " create, join, start, buy, pass or quit")
 
-                elif msgs[0] == "create":
+                elif msgs[1] == "create":
+                    print("create if statement")
                     name = info["address"].split("!")[0]
                     create(self)
                     methods['send'](info['address'],"game has been created by "+name)
-                    join(self,name)
+                    methods['send'](info['address'],Plugin.join(self,name)) #automatically adds the creator
                     methods['send'](info['address'],"to join this monopoly game "+\
                     "enter '.monopoly join'")
 

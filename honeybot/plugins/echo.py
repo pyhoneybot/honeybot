@@ -19,9 +19,9 @@ class Plugin:
 
     def run(self,incoming,methods,info):
         try:
-            msgs = info['args'][1:]
+            msgs = info['args'][1:][0].split(" ")
             if info["command"] == "PRIVMSG" and msgs[0] == ".echo":
-                message = msgs[1:]
-                methods['send'](info['address'],message)
+                message = " ".join(msgs[1:])
+                methods['send_raw'](message)
         except Exception as e:
             print("woops echo plugin error",e)
