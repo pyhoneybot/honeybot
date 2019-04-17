@@ -7,11 +7,11 @@ Join Plugin
 Marcelo Benesciutti
 
 [About]
-Will join a given channel in the server
+Bot Will join a given channel in the server
 
 [Commands]
 >>> .channeljoin channel
-joins the given channel
+bot joins the given channel
 """
 
 class Plugin:
