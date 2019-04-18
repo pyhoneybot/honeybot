@@ -22,6 +22,12 @@ evaluates maths expressions in the format supported by py
 \
 <code>.calc \<maths expression></code>
 
+# channeljoin.py
+by Marcelo Benesciutti\
+Join command for the bot. User must be in owners file.
+\
+<code> .channeljoin \<channel></code>
+
 # conv_sniff.py
 by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 senses conversation topic with sensitivity set by user, also supports
@@ -90,6 +96,7 @@ by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 checks if all listed in requirements.txt installed
 \
 <code>.installed</code>
+
 
 # joins.py
 by Gico Carlo Evangelista, https://gicocarlo.me/\
@@ -194,6 +201,16 @@ sends a wikipedia article on request based off of a search or random query
 \
 <code>.wiki \<command> \<topic></code>
 
+# converter.py
+by Angelo Giacco\
+converts a currency with default amount of 1
+\
+<code>.converter \<base currency> \<target currency> \<amount></code>
+\
+or to get help on currencies supported:
+\
+<code>.converter \<help></code>
+  
 #russian_roulette.py
 by Angelo Giacco\
 may or may not kick you off the channel\

@@ -38,16 +38,31 @@ class Plugin:
             if info['command'] == 'PRIVMSG':
                 if len(msgs) > 1:
                     if msgs[0] == '.sin':
-                        sine = math.sin(int(msgs[1]))
-                        methods['send'](info['address'], '{}'.format(sine))
+                        try:
+                            sine = math.sin(float(msgs[1]))
+                            methods['send'](info['address'], '{}'.format(sine))
+                        except ValueError:
+                            methods['send'](info['address'], ".sin must have numbers")
                     elif msgs[0] == '.cos':
-                        cosine = math.cos(int(msgs[1]))
-                        methods['send'](info['address'], '{}'.format(cosine))
+                        try:
+                            cosine = math.cos(float(msgs[1]))
+                            methods['send'](info['address'], '{}'.format(cosine))
+                        except ValueError:
+                            methods['send'](info['address'], ".cos must have numbers")
                     elif msgs[0] == '.tan':
-                        tangent = math.tan(int(msgs[1]))
-                        methods['send'](info['address'], '{}'.format(tangent))
+                        try:
+                            tangent = math.tan(float(msgs[1]))
+                            methods['send'](info['address'], '{}'.format(tangent))
+                        except ValueError:
+                            methods['send'](info['address'], ".tan must have numbers")
                     elif msgs[0] == '.rand':
-                        rand = random.randint(int(msgs[1]), int(msgs[2]))
-                        methods['send'](info['address'], '{}'.format(rand))
+                        try:
+                            if int(msgs[1]) >= int(msgs[2]):
+                                methods['send'](info['address'], ".rand requires two integers that are not equal and the first must be biggest")
+                            else:
+                                rand = random.randint(int(msgs[1]), int(msgs[2]))
+                                methods['send'](info['address'], '{}'.format(rand))
+                        except ValueError:
+                            methods['send'](info['address'], ".rand must have numbers")
         except Exception as e:
             print('\n*error*\nwoops plugin', __file__, e, '\n')
