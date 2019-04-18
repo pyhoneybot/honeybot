@@ -3,7 +3,7 @@ class Property:
     def __init__(self, name, color, price,
                  rent, one_house_rent, two_house_rent,
                  three_house_rent, four_house_rent, hotel_rent,
-                 build_cost):
+                 house_cost):
         self.name = name
         self.color = color
         self.price = price
@@ -14,7 +14,7 @@ class Property:
                       3:three_house_rent,
                       4:four_house_rent,
                       5:hotel_rent}
-        self.build_cost = build_cost
+        self.house_cost = house_cost
 
 
 class Railroad:
@@ -31,8 +31,8 @@ class Utility:
     def __init__(self, name):
         self.name = name
         self.price = 150
-        self.rents = {1:"4x",
-                      2:"10x"}
+        self.rents = {1:"4 *",
+                      2:"10 *"}
 
 
 # Assets

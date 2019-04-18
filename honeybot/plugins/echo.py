@@ -22,6 +22,7 @@ class Plugin:
             msgs = info['args'][1:][0].split(" ")
             if info["command"] == "PRIVMSG" and msgs[0] == ".echo":
                 message = " ".join(msgs[1:])
-                methods['send'](info['address'],message)
+                methods['send_raw'](info['address'],message)#this will get executed but not shown
+                methods['send'](info['address'],message)#this will get shown but not executed
         except Exception as e:
             print("woops echo plugin error",e)

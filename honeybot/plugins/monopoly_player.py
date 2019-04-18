@@ -10,6 +10,8 @@ class Player:
         self.pot = 1500
         self.portfolio = []
         self.position = 1
+        self.imprisoned = False
+        self.prison_time = 0
 
     def update_position(self,amount):
         passed_go = False
