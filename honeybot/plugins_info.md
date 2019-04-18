@@ -87,6 +87,10 @@ Returns your daily horoscope based on your star sign
 \
 <code>.horoscope \<\<star sign>></code>
 
+or based on your month and day_count_for_month
+\
+<code>.horoscope \<\<month>> \<\<day>></code>
+
 # installed_modules.py
 by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 checks if all listed in requirements.txt installed
