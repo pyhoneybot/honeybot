@@ -10,8 +10,10 @@ Angelo Giacco
 In the original russian roulette, you have a one sixth chance of committing
 suicide. In this version, you have a one sixth chance of being kicked from
 the channel. The bot will utilise the IRC command:
-/kick #channel nickname
+KICK #channel nickname
 where #channel is the channel name and nicknames is the nickname of the user
+
+WARNING: BOT MUST BE CHANNEL OPERATOR!!!
 
 [Commands]
 >>> .russian_roulette
