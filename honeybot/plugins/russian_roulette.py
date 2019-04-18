@@ -29,7 +29,7 @@ class Plugin:
         if kill:
             name = info["prefix"].split("!")[0]
             channel = info["address"]
-            kill_command = "/kick "+ channel + " " + name + " \r\n"
+            kill_command = "KICK "+ channel + " " + name + " \r\n"
             methods["send_raw"](kill_command)
             #code to quit the channel
             return "Suicide is always a risk when playing russian roulette... RIP..."
