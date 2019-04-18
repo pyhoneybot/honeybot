@@ -10,8 +10,10 @@ Angelo Giacco
 In the original russian roulette, you have a one sixth chance of committing
 suicide. In this version, you have a one sixth chance of being kicked from
 the channel. The bot will utilise the IRC command:
-/kick #channel nickname
+KICK #channel nickname
 where #channel is the channel name and nicknames is the nickname of the user
+
+WARNING: BOT MUST BE CHANNEL OPERATOR!!!
 
 [Commands]
 >>> .russian_roulette
@@ -29,8 +31,8 @@ class Plugin:
         if kill:
             name = info["prefix"].split("!")[0]
             channel = info["address"]
-            kill_command = "/KICK "+ channel + " " + name + " \r\n"
-            methods["send"](info["address"],kill_command)
+            kill_command = "KICK "+ channel + " " + name + " \r\n"
+            methods["send_raw"](kill_command)
             #code to quit the channel
             return "Suicide is always a risk when playing russian roulette... RIP..."
         else:
