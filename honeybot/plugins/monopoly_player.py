@@ -10,6 +10,9 @@ class Player:
         self.pot = 1500
         self.portfolio = []
         self.position = 1
+        self.imprisoned = False
+        self.prison_time = 0
+        self.get_outta_jail = False
 
     def update_position(self,amount):
         passed_go = False
@@ -36,7 +39,12 @@ class Player:
         self.pot += amount
 
     def reducePot(self,amount):
-        self.pot -= amount
+        if self.pot > amount:
+            self.pot -= amount
+            return True #they are still alive
+        else:
+            self.pot = 0
+            return False #no longer alive
 
     def getPortfolio:
         return self.portfolio

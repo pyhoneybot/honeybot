@@ -210,7 +210,7 @@ converts a currency with default amount of 1
 or to get help on currencies supported:
 \
 <code>.converter \<help></code>
-  
+
 #russian_roulette.py
 by Angelo Giacco\
 may or may not kick you off the channel\
