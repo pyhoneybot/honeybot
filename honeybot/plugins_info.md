@@ -145,6 +145,10 @@ by Angelo Giacco\
 Returns a riddle
 \
 <code>.riddle</code>
+\
+and checks a guess
+\
+<code>.riddle guess \<\<attempt>></code>
 
 # roll.py
 by Glenn Toms\
