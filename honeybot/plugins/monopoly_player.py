@@ -38,7 +38,12 @@ class Player:
         self.pot += amount
 
     def reducePot(self,amount):
-        self.pot -= amount
+        if self.pot > amount:
+            self.pot -= amount
+            return True #they are still alive
+        else:
+            self.pot = 0
+            return False #no longer alive
 
     def getPortfolio:
         return self.portfolio
