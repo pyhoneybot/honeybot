@@ -87,6 +87,10 @@ Returns your daily horoscope based on your star sign
 \
 <code>.horoscope \<\<star sign>></code>
 
+or based on your month and day_count_for_month
+\
+<code>.horoscope \<\<month>> \<\<day>></code>
+
 # installed_modules.py
 by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 checks if all listed in requirements.txt installed
@@ -145,6 +149,10 @@ by Angelo Giacco\
 Returns a riddle
 \
 <code>.riddle</code>
+\
+and checks a guess
+\
+<code>.riddle guess \<\<attempt>></code>
 
 # roll.py
 by Glenn Toms\
@@ -202,3 +210,8 @@ converts a currency with default amount of 1
 or to get help on currencies supported:
 \
 <code>.converter \<help></code>
+  
+#russian_roulette.py
+by Angelo Giacco\
+may or may not kick you off the channel\
+<code>.russian_roulette </code>

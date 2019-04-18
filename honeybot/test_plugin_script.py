@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ''' Change to your plugin file name below.
                     ↓↓↓↓  '''
-from plugins import roll as test_plugin
+from plugins import russian_roulette as test_plugin
 
 
 test_plugin = test_plugin.Plugin
@@ -9,7 +9,7 @@ test_plugin = test_plugin.Plugin
 
 class Tester:
 
-    def __init__(self, test_type='message', command='.roll 2d4'):
+    def __init__(self, test_type='user_quit', command='.roll 2d4'):
 
         # Same methods as HoneyBot, but these print to screen
         methods = {
