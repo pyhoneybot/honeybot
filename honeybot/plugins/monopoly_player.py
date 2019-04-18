@@ -12,18 +12,17 @@ class Player:
         self.position = 1
         self.imprisoned = False
         self.prison_time = 0
-        self.get_outta_jail = False
+        self.get_outta_jail_card = False
 
     def update_position(self,amount):
         passed_go = False
         self.position += amount
-        if self.position > 40:
+        if self.position >= 39:
             passed_go = True
             self.position -= 40
             self.increasePot(200)
-        elif self.position == 40:
-            passed_go = True
-            self.increasePot(200)
+            if self.position > 39:
+                self.position -= 40
         return passed_go
 
     def getName(self):
@@ -46,6 +45,10 @@ class Player:
             self.pot = 0
             return False #no longer alive
 
+    def setPosition(self,index):
+        #ensure index is between 0 and 39
+        self.position = index
+        
     def getPortfolio:
         return self.portfolio
 
