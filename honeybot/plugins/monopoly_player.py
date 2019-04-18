@@ -12,6 +12,7 @@ class Player:
         self.position = 1
         self.imprisoned = False
         self.prison_time = 0
+        self.get_outta_jail = False
 
     def update_position(self,amount):
         passed_go = False

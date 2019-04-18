@@ -7,6 +7,17 @@ class Space:
         return self.name
 
 class Property(Space):
+    set_houses = {
+                  "Violet":2,
+                  "Light blue":3,
+                  "Purple":3,
+                  "Orange":3
+                  "Red":3,
+                  "Yellow":3,
+                  "Green":3,
+                  "Blue":2
+                  }
+
     def __init__(self, color, price,
                  rent, one_house_rent, two_house_rent,
                  three_house_rent, four_house_rent, hotel_rent,
@@ -20,6 +31,9 @@ class Property(Space):
                       4:four_house_rent,
                       5:hotel_rent}
         self.house_cost = house_cost
+
+    def get_house_cost(self):
+        return self.house_cost
 
     def get_info(self):
         return "whatever"
@@ -47,7 +61,7 @@ class Utility(Space):
         return "whatever"
 
 
-# Assets
+# Assets, hat nem fogok использовать
 currencies = [1,5,10,20,50,100,500]
 
 board_spaces = {
@@ -84,7 +98,7 @@ board_spaces = {
         31:Space("Go to Jail"),
         32:Property("Pacific Ave.","Green",300,26,130,390,900,1100,1275,200),
         33:Property("No. Carolina Ave.","Green",300,26,130,390,900,1100,1275,200),
-        34:Space("Draw Community Card"),
+        34:Space("Community Card"),
         35:Property("Pennsylvania Ave.","Green",320,28,150,450,1000,1200,1400,200),
         36:Railroad("Short Line Railroad"),
         37:Space("Chance Card"),
@@ -92,7 +106,7 @@ board_spaces = {
         39:Space("Luxury Tax"),
         40:Property("Boardwalk","Blue",400,50,200,600,1400,1700,2000,200)
 }
-
+#was ist das kurwa?
 game_board = [
     [ [11],[12],[13],[14],[15],[16],[17],[18],[19],[20],[21] ],
     [ [10],                                             [22] ],
@@ -106,7 +120,7 @@ game_board = [
     [ [ 2],                                             [30] ],
     [ [ 1],[40],[39],[38],[37],[36],[35],[34],[33],[32],[31] ]
 ]
-
+#why is this a dict?????
 chance_deck = {
         1:"You have been elected chairman of the board, pay each player $50",
         2:"Take a ride on the reading, if you pass GO collect $200",
@@ -130,7 +144,9 @@ chance_deck = {
          "amount thrown",
         16:"Go back 3 spaces"
 }
-
+#why is this a dict??????
+#create functions in player file like collect which is associated with the string
+#or make a list and shuffle it
 community_deck = {
         1:"Get out of jail free. This card may be kept until needed or sold",
         2:"From sale of stock, you get $45",

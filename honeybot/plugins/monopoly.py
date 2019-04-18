@@ -25,7 +25,8 @@ user purchases property if unowned, otherwise buys house
 >>> .monopoly pass
 user passes on the opportunity to buy a property if unowned, or on the opportunity to buy a house
 
->>> .monopoly quit
+>>> .monopoly quit"""#should it be that the user can leave game or quit whole game with separate commands???
+"""
 ends the game
 
 >>>.monopoly help
@@ -47,9 +48,11 @@ class Plugin:
     Plugin.start_join_req = False #start game or join game required
     Plugin.roll_req = False #roll required
     Plugin.buy_pass_req = False #buy or pass required
-    Plugin.buy_choice = [] #stores information about the property player can buy or pass on
 
     def __init__(self):
+        pass
+
+    def next_turn(self):
         pass
 
     def count_color_property(portfolio, col):
@@ -105,7 +108,7 @@ class Plugin:
             else:
                 message = name+" has no properties"
                 methods['send'](info['address'],message)
-            methods['send'](info['address'],name+"'s pot is "+str(pot))
+            methods['send'](info['address'],name+"'s pot is "+pot)
             location = board_spaces[player.getPosition()].get_name()
             methods['send'](info['address'],name+"is at "+location)
 
@@ -186,11 +189,28 @@ class Plugin:
         methods["send"](info['address'],player.getName()+" rolled "+str(move_amount) +\
         " and is now located at "+new_location.get_name())
         new_location_owned = find_owner(new_location.get_name())
-        if new_location_owned[0]:
+        if new_location_owned[0]:##if property is owned by somebody
             owner = Plugin.players[new_location_owned[1]]
             if player.getName() == owner:
                 ##buy a house option
-                cost_house = get_cost_house(self,asset)
+                if isinstance(new_location,Property):
+                    num_prop_in_set = count_player_properties(player)[new_location.color]
+                    if num_prop_in_set == Property.set_houses[new_location.color]:
+                        cost_house = new_location.get_house_cost()
+                        methods["send"](info["address"],"You have landed on your own property."+\
+                        "and can buy a house for "+str(cost_house))
+                        #should show property information and user pot
+                        Plugin.buy_pass_req = True
+                        Plugin.roll_req = False
+                        #maybe add house info or summat to know what is being bought
+                    else:
+                        methods["send"](info["address"],"You have landed on your own property."+\
+                        "but cannot buy a house as you need a full set")
+                        next_turn()
+                else:
+                    methods["send"](info["address"],"You have landed on your own property "+\
+                    "but you cannot buy houses for railroads or utilities")
+                    next_turn()
             else:
                 rent = get_rent(self,new_location,owner,move_amount)
                 methods["send"](info['address'],player.getName()+" landed on a property owned by "+\
@@ -200,18 +220,63 @@ class Plugin:
                 if player_alive:
                     methods["send"](info['address'],player.getName+" now only has "+player.getPot() +\
                     "whereas "+owner.getName()+" now has "+owner.getPot()
+                    next_turn()
                 else:
                     methods["send"](info['address'],player.getName+" is now out of the game "+\
                     "whereas "+owner.getName()+" now has "+owner.getPot()
                     players.remove(player)
-        else:
+                    next_turn()
+        elif isinstance(new_location,Property) or isinstance(new_location,Utility) or isinstance(new_location,Railroad):
             #buy
             Plugin.buy_pass_req = True
             Plugin.roll_req = False
-
-            methods["send"](info['address'],"")
+            methods["send"](info['address'],"You have landed on an unowned asset"+\
+            "which you may buy for "+str(new_location.price))
+            #methods["send"](info["address"],getInfo(new_location))
+            #something like the line above should be executed to give the user an idea
+            #about what they are buying and the rest of their situation
+            #such as ownership of other properties in that set and how much money they have
+        elif player.getPosition() == 3 or player.getPosition() == 18 or player.getPosition() == 34:
+            #take community Card
+            next_turn()
+        elif player.getPosition() == 8 or player.getPosition() == 23 or player.getPosition() == 37:
+            #take chance card
+            next_turn()
+        elif player.getPosition() == 31:
+            #check player has a get out of jail card
+            if player.get_outta_jail:
+                player.get_outta_jail = False
+                methods["send"](info["address"],name+" landed on go to jail but used his get out of jail card...")
+                next_turn()
+            else:
+                player.position = 11
+                player.imprisoned = True
+                next_turn()
+        elif player.getPosition == 39:
+            player_alive = player.reducePot(100)
+            if player_alive:
+                methods["send"](info["address"],name+" landed on luxury tax and had to pay"+\
+                " 100 in tax and so now has "+player.getPot())
+            else:
+                methods["send"](info["address"],name+" landed on luxury tax and had to pay"+\
+                " 100 in tax but did not have enough many so is no longer in the game...")
+                players.remove(player)
+            next_turn()
+        elif player.getPosition == 5:
+            player_alive = player.reducePot(200)
+            if player_alive:
+                methods["send"](info["address"],name+" landed on luxury tax and had to pay"+\
+                " 200 in tax and so now has "+player.getPot())
+            else:
+                methods["send"](info["address"],name+" landed on luxury tax and had to pay"+\
+                " 200 in tax but did not have enough many so is no longer in the game...")
+                players.remove(player)
+            next_turn()
+        else:
+            next_turn()
 
     def quit(self):
+        #change to quit a single user
         if Plugin.stage == None:#may be self.stage
             return "no game has started yet"
         else:
