@@ -3,6 +3,7 @@
 
 import configparser
 import importlib
+import logging
 import socket
 import sys
 
@@ -10,27 +11,21 @@ connect_config = configparser.ConfigParser()
 connect_config.read('settings/CONNECT.conf')
 plugins = []
 
+logger = logging.getLogger('bot_core')
+
 
 class Bot_core(object):
-    def __init__(self,
-                 server_url=connect_config['INFO']['server_url'],
-                 port=int(connect_config['INFO']['port']),
-                 name=connect_config['INFO']['name'],
-                 owners=['appinventorMu', 'appinv'],
-                 password='',
-                 friends=['haruno', 'keiserr', 'loganaden']
-                 ):
+    def __init__(self, password=''):
 
-        self.server_url = server_url
-        self.port = port
-        self.name = name
-        self.owners = owners
+        self.server_url = connect_config['INFO']['server_url']
+        self.port = int(connect_config['INFO']['port'])
+        self.name = connect_config['INFO']['name']
+        self.owners = self.configfile_to_list('OWNERS')
         self.password = password
-        self.friends = friends
+        self.friends = self.configfile_to_list('FRIENDS')
+        self.autojoin_channels = self.configfile_to_list('AUTOJOIN_CHANNELS')
+        self.required_modules = self.requirements()
 
-        '''
-        NORMAL ATTRIBUTES
-        '''
         self.irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.isListenOn = 1
         dom = self.server_url.split('.')
@@ -38,11 +33,7 @@ class Bot_core(object):
         self.sp_command = 'hbot'
         self.plugins = []
 
-        to_load = []
-        with open('settings/AUTOJOIN_CHANNELS.conf') as f:
-            to_load = f.read().split('\n')
-            to_load = list(filter(lambda x: x != '', to_load))
-        self.autojoin_channels = to_load
+        
 
     '''
     STRINGS
@@ -67,7 +58,7 @@ class Bot_core(object):
         return 'PONG :{}\r\n'.format(domain)
 
     def info(self, s):
-        def return_it(x):
+        def prevent_none(x):
             if x is None:
                 return ''
             else:
@@ -77,7 +68,7 @@ class Bot_core(object):
             trailing = []
             address = ''
             if not s:
-                print("Empty line.")
+                pass
             if s[0] == ':':
                 prefix, s = s[1:].split(' ', 1)
             if s.find(' :') != -1:
@@ -93,14 +84,16 @@ class Bot_core(object):
                 address = prefix.split('!~')[0]
             # return prefix, command, args, address
             return {
-                    'prefix': return_it(prefix),
-                    'command': return_it(command),
+                    'prefix': prevent_none(prefix),
+                    'command': prevent_none(command),
                     'args': ['' if e is None else e for e in args],
-                    'address': return_it(address),
-                    'bot_special_command': self.sp_command
+                    'address': prevent_none(address),
+                    'bot_name': prevent_none(self.name),
+                    'bot_special_command': self.sp_command,
+                    'required_modules': self.required_modules
                     }
         except Exception as e:
-            print('woops', e)
+            logger.error(e)
 
     '''
     MESSAGE UTIL
@@ -120,7 +113,7 @@ class Bot_core(object):
 
     def load_plugins(self, plugins_to_load):
         list_to_add = self.plugins
-        print("\033[0;36mLoading plugins...\033[0;0m")
+        logger.info('Loading plugins...')
 
         to_load = []
         plugs = 'settings/{}.conf'.format(plugins_to_load)
@@ -131,13 +124,19 @@ class Bot_core(object):
             try:
                 module = importlib.import_module('plugins.'+file)
             except ModuleNotFoundError as e:
-                print('module import error, skipped', e, 'in', file)
+                logger.warning(f"module import error, skipped' {e} in {file}")
             obj = module.Plugin
             list_to_add.append(obj)
 
         self.plugins = list_to_add
-        print("\033[0;32mLoaded plugins...\033[0;0m")
+        logger.info('Loaded plugins...')
 
+    def configfile_to_list(self, filename):
+        elements = []
+        with open('settings/{}.conf'.format(filename)) as f:
+            elements = f.read().split('\n')
+            elements = list(filter(lambda x: x != '', elements))
+        return elements
 
     def methods(self):
         return {
@@ -157,6 +156,12 @@ class Bot_core(object):
             #print(f"\033[0;33mTrying {plugin}\033[0;0m")
             plugin.run(self, incoming, self.methods(), self.info(incoming))
 
+    def requirements(self):
+        reqs = []
+        with open('../requirements.txt') as f:
+            reqs = f.read().split('\n')
+        reqs = [m.split('==')[0] for m in reqs if m]
+        return reqs
     '''
     MESSAGE PARSING
     '''
@@ -191,18 +196,16 @@ class Bot_core(object):
                 msg = raw_msg.strip('\n\r')
                 self.stay_alive(msg)
                 self.core_commands_parse(msg)
-                print(
-                """***
-{}
-                   """.format(msg))
+                logger.info(msg)
+
                 if len(data) == 0:
                     try:
-                        print('<must handle reconnection - len(data)==0>')
+                        logger.critical(f'<must handle reconnection - {len(data)}==0>')
                         sys.exit()
                     except Exception as e:
-                        print(e)
+                        logger.info(e)
             except Exception as e:
-                print(e)
+                logger.info(e)
 
 
     # all in one for registered bot
@@ -226,25 +229,28 @@ class Bot_core(object):
     '''
     def stay_alive(self, incoming):
         if not incoming:
-            print('<must handle reconnection - incoming is not True>')
+            logger.critical('<must handle reconnection - incoming is not True>')
             sys.exit()
         parts = incoming.split(':')
         if parts[0].strip().lower() == 'ping':
             # if self.domain in parts[1]:
+            logger.warning(parts[1])
             self.send(self.pong_return(self.domain))
-            print('''
-                  ***** message *****
-                  ping detected from
-                  {}
-                  *******************
-                  '''.format(parts[1]))
             self.send(self.pong_return(parts[1]))
             self.irc.recv(2048).decode("UTF-8")
 
 if __name__ == '__main__':
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format='%(asctime)s %(name)s %(levelname)s - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S',
+    )
+
+    # logger.debug("debug message")
+    # logger.info("info message")
+    # logger.warning("warn message")
+    # logger.error("error message")
+    # logger.critical("critical message")
+
     x = Bot_core()
     x.unregistered_run()
-
-
-
-
