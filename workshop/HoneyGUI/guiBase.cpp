@@ -1,16 +1,22 @@
 #include "guiBase.h"
+#include <iostream>
 
-guiBase::guiBase() : m_HPaned(Gtk::ORIENTATION_HORIZONTAL) {
+guiBase::guiBase() : m_HPaned(Gtk::ORIENTATION_HORIZONTAL), m_VPaned(Gtk::ORIENTATION_VERTICAL) {
     set_title("HoneyGUI"); //Sets the title for the project
     set_border_width(10); //Default border width
-    set_default_size(1400, 800); //Window size TODO make window more adjustable
+    set_default_size(1200, 400); //Window size TODO make window more adjustable
 
     add(m_HPaned); //Adds the paned view
 
-    m_HPaned.add1(m_OptionsList); //Adds the options list TODO figure out how to get these to interact
-    m_HPaned.add2(m_OptionsDisplay); //Adds the display options
+    m_VPaned.add1(controls); //Adding in the control panel to the top left
+    m_VPaned.add2(config); //Adding in the config editor to the bottom right
 
-    m_HPaned.set_position(400); //This is the vertical divider TODO make vertical divider auto-adjust
+    m_VPaned.set_position(100); //Setting the left divider
+
+    m_HPaned.add1(m_VPaned); //Adding the left side
+    m_HPaned.add2(plugins); //Adding plugin select to the right
+
+    m_HPaned.set_position(800); //This is the horizontal divider TODO make horizontal divider auto-adjust
 
     show_all_children(); //Exactly what it sounds like
 }
