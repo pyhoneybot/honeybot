@@ -11,18 +11,20 @@ class Property(Space):
                   "Violet":2,
                   "Light blue":3,
                   "Purple":3,
-                  "Orange":3
+                  "Orange":3,
                   "Red":3,
                   "Yellow":3,
                   "Green":3,
                   "Blue":2
                   }
 
-    def __init__(self, color, price,
+    def __init__(self, name, color, price,
                  rent, one_house_rent, two_house_rent,
                  three_house_rent, four_house_rent, hotel_rent,
                  house_cost):
+        super().__init__(name)
         self.price = price
+        self.color = color
         self.house_count = 0 #5 means hotel
         self.rents = {0:rent,
                       1:one_house_rent,
@@ -40,7 +42,8 @@ class Property(Space):
 
 
 class Railroad(Space):
-    def __init__(self):
+    def __init__(self,name):
+        super().__init__(name)
         self.price = 200
         self.rents = {1:25,
                       2:50,
@@ -52,7 +55,8 @@ class Railroad(Space):
 
 
 class Utility(Space):
-    def __init__(self):
+    def __init__(self,name):
+        super().__init__(name)
         self.price = 150
         self.rents = {1:"4 *",
                       2:"10 *"}
@@ -103,26 +107,26 @@ board_spaces = [
                 Property("Boardwalk","Blue",400,50,200,600,1400,1700,2000,200)
                ]
 
-#chance_methods = [pay_all,reading_rail,boardwalk,go,railroad,get_outta_jail,jail,earn,illinois,fine,repairs,st_charles_place,util,move_back_three]
-
+#chance_methods = [pay_all,reading_rail,move_to,go,railroad,get_outta_jail,jail,earn,fine,repairs,util,move_back_three]
+#                    0       1               2  3   4           5           6   7      8      9     10  11
 chance_deck = [
-               {"You have been elected chairman of the board, pay each player $50":[0,(150)]]},
+               {"You have been elected chairman of the board, pay each player $50":[0,(50)]]},
                {"Take a ride on the reading, if you pass GO collect $200":[1,()]]},
-               {"Take a walk on the board walk, advance token to board walk":[2,()]]},
+               {"Take a walk on the board walk, advance token to board walk":[2,(board_spaces[38])]]},
                {"Advance to go, collect $200":[3,()]},
                {"Advance token to the nearest Railroad and pay owner Twice the Rental owed. If Railroad is unowned you may buy it from the bank":[4,()]},
                {"Advance token to the nearest Railroad and pay owner Twice the Rental owed. If Railroad is unowned you may buy it from the bank":[4,()]},
                {"Get out of jail free. This card may be kept until needed or sold":[5,()]},
                {"Go directly to jail. Do not pass Go, do not collect $200":[6,()]},
                {"Bank pays you dividend of $50",[7,(50)]]},
-               {"Advance to Illinois Ave":[8,()]},
-               {"Pay poor tax of $15":[9,(15)]},
-               {"Make general repairs on all your property. For each house pay $25, for each hotel $100":[10,(25,100)]},
-               {"Advance to St. Charles Place. If you pass Go, collect $200":[11,()]},
+               {"Advance to Illinois Ave":[2,(board_spaces[24])]},
+               {"Pay poor tax of $15":[8,(15)]},
+               {"Make general repairs on all your property. For each house pay $25, for each hotel $100":[9,(25,100)]},
+               {"Advance to St. Charles Place. If you pass Go, collect $200":[2,(board_spaces[11])]},
                {"Your building and loan matures. Collect $150":[7,(150)]},
-               {"Advance token to nearest utility. If Unowned you may buy it from the bank. If owned throw dice and pay owner ten times the amount thrown.":[12,()]},
-               {"Go back 3 spaces":[13,()]}
-              ].shuffle()
+               {"Advance token to nearest utility. If Unowned you may buy it from the bank. If owned throw dice and pay owner ten times the amount thrown.":[10,()]},
+               {"Go back 3 spaces":[11,()]}
+              ]
 
 #cc methods = [earn,get_outta_jail,collect,go,jail,repairs,fine]
 community_deck = [
@@ -142,4 +146,4 @@ community_deck = [
                   {"Receive for services $25":[0,(25)]},
                   {"Bank error in your favor, collect $200":[0,(200)]},
                   {"You have won second prize in a beauty contest, collect $10":[0,(10)]}
-                 ].shuffle()
+                 ]

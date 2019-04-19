@@ -175,6 +175,7 @@ class Plugin:
         elif player.getPosition == board_spaces.index(space):
             methods["send"](info["address"],player.getName()+" was already at "+space.get_name())
         else:
+            methods["send"](info["address"],player.getName()+" moved to "+space.get_name())
             player.setPosition(board_spaces.index(space))
 
     def land_unowned_property(self,methods,info,player,space):
@@ -244,14 +245,7 @@ class Plugin:
     def collect(self,methods,info,player,amount):
         for opponent in Plugin.players:#will iterate over player as well
             if player != opponent:
-                opponent_alive = opponent.reducePot(amount)
-                player.increasePot(amount)
-                if opponent_alive:
-                    methods["send"](info["address"],player.getName()+" received "+\
-                    str(amount)+" from "+opponent.getName())
-                else:
-                    methods["send"](info["address"],player.getName()+" took all of "+\
-                    opponent.getName()+"'s money and so "+opponent.getName()+" has left the game")
+                pay(self,methods,info,opponent,player,amount)
 
     def go(self,methods,info,player):
         player.setPosition(0)
@@ -265,6 +259,19 @@ class Plugin:
             player.setPosition(10)
             player.imprisoned = True
 
+    def fine(self,methods,info,player,amount):
+        #must do this tomorrow
+        player_alive = player.reducePot(amount)
+
+        if player_alive:
+            methods["send"](info["address"],player.getName+" was forced to pay "+\
+            +str(amount)+" and now has "+player.getPot())
+        else:
+            methods["send"](info["address"],player.getName+" was forced to pay "+\
+            +str(amount)+" on and now has no more money so has left the game")
+            Plugin.players.remove(player)
+        next_turn()
+
     def repairs(self,methods,info,player,house_fee,hotel_fee):
         property_list = [asset for asset in player.getPortfolio() if isinstance(asset,Property)]
         hotel_total = 0
@@ -276,27 +283,7 @@ class Plugin:
                 house_total += property.house_count
 
         cost = house_fee * house_total + hotel_fee * hotel_total
-        player_alive = player.reducePot(cost)
-
-        if player_alive:
-            methods["send"](info["address"],player.getName+" was forced to spend "+\
-            +str(cost)+" on repairs and now has "+player.getPot())
-        else:
-            methods["send"](info["address"],player.getName+" was forced to spend "+\
-            +str(cost)+" on repairs and now has no more money so has left the game")
-            Plugin.players.remove(player)
-
-    def fine(self,methods,info,player,amount):
-        #must do this tomorrow
-        player_alive = player.reducePot(amount)
-
-        if player_alive:
-            methods["send"](info["address"],player.getName+" was forced to pay "+\
-            +str(amount)+" and now has "+player.getPot())
-        else:
-            methods["send"](info["address"],player.getName+" was forced to pay "+\
-            +str(amount)+" on repairs and now has no more money so has left the game")
-            Plugin.players.remove(player)
+        fine(self,methods,info,player,cost)
 
     def pay_all(self,methods,info,player,amount):
         other_players = [opponent for opponent in Plugin.players if opponent != player]
@@ -313,6 +300,7 @@ class Plugin:
 
         for opponent in other_players:
             opponent.increasePot(amount)
+        next_turn()
 
     def reading_rail(self,methods,info,player):
         reading_rail = board_spaces[5]
@@ -328,34 +316,80 @@ class Plugin:
                 owner_railroads = count_player_properties(owner_info[1])["Railroad"]
                 rent = reading_rail.rents[owner_railroads]
                 methods["send"](info["address"],"Reading Railroad is owned by"+\
-                owner.getName() + " and so "+player.getName()+" must pay them "+str(rent))
+                owner_info[1].getName() + " and so "+player.getName()+" must pay them "+str(rent))
                 pay(self,methods,info,player,owner_info[1],rent)
         else:
             #unowned
-            land_unowned_property(self,methods,info,reading_rail)
-
-    def boardwalk(self,methods,info,player):
-        boardwalk_space = board_spaces[38]
-        move_to_space(self,methods, info, player,boardwalk_space)
-        owner_info = find_owner("Boardwalk")
-        if owner_info[0]:
-            if owner_info[1] == player:
-                offer_house(self,methods,info,player,boardwalk_space)
-            else:
-                owner_blues = count_player_properties(owner_info[1])["Blue"]
-                rent = reading_rail.rents[owner_blues]
-                methods["send"](info["address"],"Boardwalk is owned by"+\
-                owner.getName() + " and so "+player.getName()+" must pay them "+str(rent))
-                pay(self,methods,info,player,owner,rent)
-        else:
-            land_unowned_property(self,methods,info,boardwalk_space)
+            land_unowned_property(self,methods,info,player,reading_rail)
 
     def railroad(self,methods,info,player):
         #find railroad, all railroads have index ending in five. in addition, player must move forwards.
-        #if already at railroad must go forward to next one
-        current_index = player.getPosition()
+        #if already at railroad must still go forward to next one
         for i in range(10): #player can only be 10 away from next railroad
-            
+            updatePosition(1)
+            if is_instance(board_spaces[player.getPosition()],Railroad):
+                break
+        railroad = board_spaces[player.getPosition()]
+        owner_info = find_owner(railroad.get_name())
+        if owner_info[0]:
+            if owner_info[1] == player:
+                methods["send"](info["address"],player.getName()+" is at "+\
+                railroad.get_name()+" which they already own")
+                next_turn()
+            else:
+                owner_railroads = count_player_properties(owner_info[1])["Railroad"]
+                rent = railroad.rents[owner_railroads]
+                rent *= 2
+                methods["send"](info["address"],railroad.get_name()+" is owned by"+\
+                owner_info[1].getName() + " and so "+player.getName()+" must pay them "+str(rent))
+                pay(self,methods,info,player,owner_info[1],rent)
+        else:
+            land_unowned_property(self,methods,info,player,railroad)
+
+    def move_to_property(self,methods,info,player,property):
+        move_to_space(self,methods, info, player,property)
+        owner_info = find_owner(property.get_name())
+        if owner_info[0]:
+            if owner_info[1] == player:
+                offer_house(self,methods,info,player,property)
+            else:
+                rent = property.rents[property.house_count]
+                methods["send"](info["address"],property.get_name()+" is owned by"+\
+                owner_info[1].getName() + " and so "+player.getName()+" must pay them "+str(rent))
+                pay(self,methods,info,player,owner_info[1],rent)
+                next_turn()
+        else:
+            land_unowned_property(self,methods,info,player,boardwalk_space)
+
+    def util(self,methods,info,player):
+        start = False #make sure the user advances at least one pace
+        while (not isinstance(board_spaces[player.getPosition()]),Utility) and start:
+            start = True
+            player.updatePosition(1)
+        utility = board_spaces[player.getPosition()]
+        owner_info = find_owner(utility.get_name())
+        if owner_info[0]:
+            if owner_info[1] == player:
+                methods["send"](info["address"],player.getName()+" has landed on his own utility.")
+                next_turn()
+            else:
+                methods["send"](info["address"],player.getName()+" has landed on "+\
+                owner_info[0].getName()"'s utility and must pay ten times whatever he rolls now with two dice!")
+                total = random.randint(1,6) + random.randint(1,6)
+                methods[send](info["address"],player.getName()+" rolled a total of "+str(total))
+                pay(self,methods,info,player,owner_info[1],total*10)
+        else:
+            land_unowned_property(self,methods,info,player,utility)
+
+    def move_back_three(self,methods,info,player):
+        if player.getPosition == 22:
+            move_to_property(self,methods,info,player,board_spaces[19])
+        elif player.getPosition == 26:
+            #pick community card
+        elif player.getPosition == 7:
+            #send a message about being fined
+            fine(self,methods,info,player,100)
+
 
     """
     PLUGIN COMMANDS
@@ -403,7 +437,7 @@ class Plugin:
     def roll(self,methods,info):
         move_amount = random.randint(1,6) + random.randint(1,6)
         player = Plugin.players[turn]
-        passed_go = player.update_position(move_amount)
+        passed_go = player.updatePosition(move_amount)
         new_location = board_spaces[player.getPosition()]
         methods["send"](info['address'],player.getName()+" rolled "+str(move_amount) +\
         " and is now located at "+new_location.get_name())
@@ -451,16 +485,14 @@ class Plugin:
             chance_card_methods = [
                                     pay_all,
                                     reading_rail,
-                                    boardwalk,
+                                    move_to_property,
                                     go,
                                     railroad,
                                     get_outta_jail,
                                     jail,
                                     earn,
-                                    illiois,
                                     fine,
                                     repairs,
-                                    st_charles_place,
                                     util,
                                     move_back_three
                                   ]
