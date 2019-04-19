@@ -9,12 +9,12 @@ class Player:
         self.name = name
         self.pot = 1500
         self.portfolio = []
-        self.position = 1
+        self.position = 0
         self.imprisoned = False
         self.prison_time = 0
         self.get_outta_jail_card = False
 
-    def update_position(self,amount):
+    def updatePosition(self,amount):
         passed_go = False
         self.position += amount
         if self.position >= 39:
@@ -48,7 +48,7 @@ class Player:
     def setPosition(self,index):
         #ensure index is between 0 and 39
         self.position = index
-        
+
     def getPortfolio:
         return self.portfolio
 
