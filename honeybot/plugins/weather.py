@@ -23,13 +23,12 @@ class Plugin:
 
             if info['command'] == 'PRIVMSG' and msgs[0] == '.weather':
                 api_url = f"https://api.openweathermap.org/data/2.5/weather?q={msgs[1]},{msgs[2]}" \
-                    f"&APPID=8801bc666d30a8cc9294feaf60c01117"
+                    f"&APPID=8801bc666d30a8cc9294feaf60c01117&units=metric"
                 response = requests.get(api_url)
                 response_json = response.json()
 
                 weather = f"The weather for {response_json['name']} is {response_json['weather'][0]['description']} at " \
-                    f"{(int(response_json['main']['temp']) - 32) * 5/9} degrees"
-
+                    f"{int(response_json['main']['temp'])} degrees celsius"
                 methods['send'](info['address'], weather)
         except Exception as e:
             print('woops plugin error ', e)

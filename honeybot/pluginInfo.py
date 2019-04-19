@@ -45,7 +45,14 @@ for file in os.listdir(directory):
             else:
                 plug += "\\\n"
 
-            plug += docFind(x.__doc__, "About") + "\n" + "\n"
+            plug += docFind(x.__doc__, "About") + "\n" 
+            if docFind(x.__doc__, "Commands") != "Unknown Commands":
+                plug += "\\\n<code>" + docFind(x.__doc__, "Commands").replace(">>> ","").replace("<","\\<") + "</code>" + "\n"
+            else:
+                plug += "\\\n"
+            plug += "\n"
 
 f.write(plug)
 f.close()
+
+
