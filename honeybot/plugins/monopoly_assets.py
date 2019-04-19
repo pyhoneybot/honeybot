@@ -110,15 +110,15 @@ board_spaces = [
 #chance_methods = [pay_all,reading_rail,move_to,go,railroad,get_outta_jail,jail,earn,fine,repairs,util,move_back_three]
 #                    0       1               2  3   4           5           6   7      8      9     10  11
 chance_deck = [
-               {"You have been elected chairman of the board, pay each player $50":[0,(50)]]},
-               {"Take a ride on the reading, if you pass GO collect $200":[1,()]]},
-               {"Take a walk on the board walk, advance token to board walk":[2,(board_spaces[38])]]},
+               {"You have been elected chairman of the board, pay each player $50":[0,(50)]},
+               {"Take a ride on the reading, if you pass GO collect $200":[1,()]},
+               {"Take a walk on the board walk, advance token to board walk":[2,(board_spaces[38])]},
                {"Advance to go, collect $200":[3,()]},
                {"Advance token to the nearest Railroad and pay owner Twice the Rental owed. If Railroad is unowned you may buy it from the bank":[4,()]},
                {"Advance token to the nearest Railroad and pay owner Twice the Rental owed. If Railroad is unowned you may buy it from the bank":[4,()]},
                {"Get out of jail free. This card may be kept until needed or sold":[5,()]},
                {"Go directly to jail. Do not pass Go, do not collect $200":[6,()]},
-               {"Bank pays you dividend of $50",[7,(50)]]},
+               {"Bank pays you dividend of $50":[7,(50)]},
                {"Advance to Illinois Ave":[2,(board_spaces[24])]},
                {"Pay poor tax of $15":[8,(15)]},
                {"Make general repairs on all your property. For each house pay $25, for each hotel $100":[9,(25,100)]},

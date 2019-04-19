@@ -59,7 +59,12 @@ class Plugin:
     """
 
     def next_turn(self):
-        pass
+        try:
+            turn += 1
+            if turn >= len(players):
+                turn -= len(players)
+        except Exception as e:
+            print("woops, monopoly turn change error ",e)
 
 
     def count_color_property(portfolio, col):
@@ -148,14 +153,12 @@ class Plugin:
         for player in Plugin.players:
             for property in player.getPortfolio():
                 if property.get_name() == asset_name:
-                    return [True,Plugin.players.index(player)]
+                    return [True,player]
                 else:
                     return [False]
 
     def get_rent(self, asset, asset_owner, move_amount):
         if isinstance(asset,Property):
-            #find a way to find out the number of properties owned in a set
-            #num_prop_in_set = len([property for property in asset_owner.getPortfolio() if property.color == asset.color])
             return asset.rents[asset.house_count]
 
         elif isinstance(self,asset, Utility):
@@ -225,39 +228,71 @@ class Plugin:
 
     #all of these methods will take self,methods,info,player arguments for simplicity
     #additional arguments supplied can be found in the second element of the values of the dictionaries of the monopoly_assets.py file
-    #i know that was confusing so here's an example
+    #here's an example
     #{"From sale of stock, you get $45":[0,(45)]}
-    #0 refers to earn as it is the function at first index and (45) is the argument
+    #0 refers to earn as it is the function at first index of community_deck_methods and (45) is the argument
     #additional arugments will be supplied using * so that they are split up
+
+    def community_card(self,methods,info,player):
+        #take community Card
+        #must pick first in array, place it at back, and execute its function with correct args.
+        community_card_methods = [earn,get_outta_jail,collect,go,jail,repairs,fine]
+        methods["send"](info["address"],player.getName()+" is picking up a community card, it says:")
+        card = community_deck.pop(0)#take first card, returns a dict {"message":[int,(tuple)]}
+        card_string = next(iter(card))
+        methods["send"](info["address"],card_string)
+        #execute card: get function,add standard arguments,unpack those stored in the thing
+        func = community_card_methods[card[card_string][0]]
+        func(self,methods,info,player,*card[card_string][1])
+        community_deck.append(card)#put it at the back
+
+    def chance_card(self,methods,info,player):
+        #chance_methods = [pay_all,reading_rail,boardwalk,go,railroad,get_outta_jail,jail,earn,illinois,fine,repairs,st_charles_place,util,move_back_three]
+        chance_card_methods = [pay_all,reading_rail,move_to_property,go,railroad,get_outta_jail,jail,earn,fine,repairs,util,move_back_three]
+        methods["send"](info["address"],player.getName()+" is picking up a chance card, it says:")
+        card = chance_deck.pop(0)#take first card, returns a dict {"message":[int,(tuple)]}
+        card_string = next(iter(card))
+        methods["send"](info["address"],card_string)
+        #execute card: get function,add standard arguments,unpack those stored in the thing
+        func = community_card_methods[card[card_string][0]]
+        func(self,methods,info,player,*card[card_string][1])
+        chance_deck.append(card)#put it at the back
 
     def earn(self,methods,info,player,amount):
         player.increasePot(amount)
         methods["send"](info["address"],player.getName()+" now has a pot of "+player.getPot())
+        next_turn()
 
     def get_outta_jail(self,methods,info,player):
         if player.imprisoned:
             player.imprisoned = False
             player.prison_time = 0
             methods["send"](info["address"],player.getName()+" escaped the jail")
+            next_turn()
         else:
             player.get_outta_jail_card = True
+            next_turn()
 
     def collect(self,methods,info,player,amount):
         for opponent in Plugin.players:#will iterate over player as well
             if player != opponent:
                 pay(self,methods,info,opponent,player,amount)
+        next_turn()
 
     def go(self,methods,info,player):
         player.setPosition(0)
         player.increasePot(200)
+        next_turn()
 
     def jail(self,methods,info,player):
         if player.get_outta_jail_card:
             methods["send"](info["address"],player.getName()+" used his get out of jail free card!")
             player.setPosition(10)
+            next_turn()
         else:
             player.setPosition(10)
             player.imprisoned = True
+            next_turn()
 
     def fine(self,methods,info,player,amount):
         #must do this tomorrow
@@ -357,7 +392,6 @@ class Plugin:
                 methods["send"](info["address"],property.get_name()+" is owned by"+\
                 owner_info[1].getName() + " and so "+player.getName()+" must pay them "+str(rent))
                 pay(self,methods,info,player,owner_info[1],rent)
-                next_turn()
         else:
             land_unowned_property(self,methods,info,player,boardwalk_space)
 
@@ -406,7 +440,7 @@ class Plugin:
 
 
     def join(self,nickname):
-        if Plugin.stage == 0:
+        if Plugin.stage == 0 and Plugin.start_join_req:
             if nickname not in Plugin.players:
                 Plugin.players.append(Player(nickname))
                 return nickname+" has been added to the monopoly game"
@@ -430,96 +464,124 @@ class Plugin:
             methods["send"](info["address"],"first up is "+turn_player)
             Plugin.roll_req = True
             Plugin.start_join_req = False
+            random.shuffle(community_deck)
+            random.shuffle(chance_deck)
         else:
             methods["send"](info["address"],"This command is currently not possible")
 
 
     def roll(self,methods,info):
-        move_amount = random.randint(1,6) + random.randint(1,6)
         player = Plugin.players[turn]
-        passed_go = player.updatePosition(move_amount)
-        new_location = board_spaces[player.getPosition()]
-        methods["send"](info['address'],player.getName()+" rolled "+str(move_amount) +\
-        " and is now located at "+new_location.get_name())
-        new_location_owned = find_owner(new_location.get_name())
-        if new_location_owned[0]:##if property is owned by somebody
-            owner = Plugin.players[new_location_owned[1]]
-
-            if player.getName() == owner:
-                ##buy a house option
-
-                if isinstance(new_location,Property):
-                    offer_house(self,methods,info,player,new_location)
+        if not player.imprisoned or player.prison_time == 2:
+            roll1 = random.randint(1,6)
+            roll2 = random.randint(1,6)
+            if player.prison_time == 2 and player.imprisoned:
+                methods["send"](info["address"],"You are in prison, this is your last "+\
+                "chance to leave for free by rolling a double".)
+                if roll1 == roll2:
+                    player.imprisoned = False
+                    player.prison_time = 0
+                    methods["send"](info["address"],"You rolled a "+str(roll1)+" twice and so are free!")
                 else:
-                    methods["send"](info["address"],"You have landed on your own property "+\
-                    "but you cannot buy houses for railroads or utilities")
+                    methods["send"](info["address"],"You did not roll a double so have to pay a fee to leave!")
+                    fine(self,methods,info,player,50)
+
+            move_amount = roll1 + roll2
+            passed_go = player.updatePosition(move_amount)
+            new_location = board_spaces[player.getPosition()]
+            methods["send"](info['address'],player.getName()+" rolled "+str(move_amount) +\
+            " and is now located at "+new_location.get_name())
+            new_location_owned = find_owner(new_location.get_name())
+            if new_location_owned[0]:##if property is owned by somebody
+                owner = Plugin.players[new_location_owned[1]]
+
+                if player == owner:
+                    ##buy a house option
+
+                    if isinstance(new_location,Property):
+                        offer_house(self,methods,info,player,new_location)
+                    else:
+                        methods["send"](info["address"],"You have landed on your own property "+\
+                        "but you cannot buy houses for railroads or utilities")
+                        next_turn()
+
+                else:
+                    rent = get_rent(self,new_location,owner,move_amount)
+                    methods["send"](info['address'],player.getName()+" landed on a property owned by "+\
+                    owner.getName()+" and must pay them "+str(rent))
+                    pay(self,methods,info,player,owner,rent)
+
+            elif isinstance(new_location,Property) or isinstance(new_location,Utility) or isinstance(new_location,Railroad):
+                #buy
+                land_unowned_property(self,methods,info,player,new_location)
+
+            elif player.getPosition() == 2 or player.getPosition() == 17 or player.getPosition() == 33:
+                community_card(self,methods,info,player)
+
+            elif player.getPosition() == 7 or player.getPosition() == 22 or player.getPosition() == 36:
+                chance_card(self,methods,info,player)
+
+            elif player.getPosition() == 30:
+                #check player has a get out of jail card
+                if player.get_outta_jail_card:
+                    player.get_outta_jail_card = False
+                    methods["send"](info["address"],name+" landed on go to jail but used his get out of jail card...")
+                    next_turn()
+                else:
+                    player.setPosition(10)
+                    player.imprisoned = True
+                    next_turn()
+
+            elif player.getPosition == 38:
+                fine(self,methods,info,player,100)
+                next_turn()
+
+            elif player.getPosition == 4:
+                fine(self,methods,info,player,100)
+                next_turn()
+
+            else:
+                next_turn()
+        else:
+            methods["send"](info["address"],"you are in jail and will not move unless you roll a double!")
+            roll1 = random.randint(1,6)
+            roll2 = random.randint(1,6)
+            if roll1 == roll2:
+                move_amount = roll1 + roll2
+                passed_go = player.updatePosition(move_amount)
+                new_location = board_spaces[player.getPosition()]
+                methods["send"](info['address'],player.getName()+" rolled "+str(move_amount) +\
+                " and is now located at "+new_location.get_name())
+                new_location_owned = find_owner(new_location.get_name())
+                if new_location_owned[0]:##if property is owned by somebody
+                    owner = Plugin.players[new_location_owned[1]]
+                    if player == owner:
+                        ##buy a house option
+                        if isinstance(new_location,Property):
+                            offer_house(self,methods,info,player,new_location)
+                        else:
+                            methods["send"](info["address"],"You have landed on your own property "+\
+                            "but you cannot buy houses for railroads or utilities")
+                            next_turn()
+                    else:
+                        rent = get_rent(self,new_location,owner,move_amount)
+                        methods["send"](info['address'],player.getName()+" landed on a property owned by "+\
+                        owner.getName()+" and must pay them "+str(rent))
+                        pay(self,methods,info,player,owner,rent)
+
+                elif isinstance(new_location,Property) or isinstance(new_location,Utility) or isinstance(new_location,Railroad):
+                    #buy
+                    land_unowned_property(self,methods,info,player,new_location)
+
+                elif player.getPosition() == 22:
+                    chance_card(self,methods,info,player)
+
+                else:#don't need to check other options as we know user starts at index ten and throwing a double limits the possibilities
                     next_turn()
 
             else:
-                rent = get_rent(self,new_location,owner,move_amount)
-                methods["send"](info['address'],player.getName()+" landed on a property owned by "+\
-                owner.getName()+" and must pay them "+str(rent))
-                pay(self,methods,info,player,owner,rent)
-
-        elif isinstance(new_location,Property) or isinstance(new_location,Utility) or isinstance(new_location,Railroad):
-            #buy
-            land_unowned_property(self,methods,info,player,new_location)
-
-        elif player.getPosition() == 2 or player.getPosition() == 17 or player.getPosition() == 33:
-            #take community Card
-            community_card_methods = [
-                                      earn,
-                                      get_outta_jail,
-                                      collect,
-                                      go,
-                                      jail,
-                                      repairs,
-                                      fine
-                                     ]
-            #must pick first in array, place it at back, and execute its function with correct args.
-            #not all methods require next_turn
-            next_turn()
-
-        elif player.getPosition() == 7 or player.getPosition() == 22 or player.getPosition() == 36:
-            #chance_methods = [pay_all,reading_rail,boardwalk,go,railroad,get_outta_jail,jail,earn,illinois,fine,repairs,st_charles_place,util,move_back_three]
-            chance_card_methods = [
-                                    pay_all,
-                                    reading_rail,
-                                    move_to_property,
-                                    go,
-                                    railroad,
-                                    get_outta_jail,
-                                    jail,
-                                    earn,
-                                    fine,
-                                    repairs,
-                                    util,
-                                    move_back_three
-                                  ]
-            next_turn()
-
-        elif player.getPosition() == 30:
-            #check player has a get out of jail card
-            if player.get_outta_jail_card:
-                player.get_outta_jail_card = False
-                methods["send"](info["address"],name+" landed on go to jail but used his get out of jail card...")
+                self.prison_time += 1
                 next_turn()
-            else:
-                player.setPosition(10)
-                player.imprisoned = True
-                next_turn()
-
-        elif player.getPosition == 38:
-            fine(self,methods,info,player,100)
-            next_turn()
-
-        elif player.getPosition == 4:
-            fine(self,methods,info,player,100)
-            next_turn()
-
-        else:
-            next_turn()
-
 
     def leave(self,player):
         #change to quit a single user
