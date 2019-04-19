@@ -2,6 +2,7 @@
 #define HONEYGUI_CONFIGDISPLAY_H
 
 #include <gtkmm.h>
+#include <string>
 
 class configDisplay : public Gtk::Frame {
 public:
@@ -9,6 +10,13 @@ public:
     virtual ~configDisplay();
 
 protected:
+    std::string path;
+
+    int file_replace(std::string toReplace, std::string replaceWith, std::string file);
+    int file_seperated(std::string write, std::string file);
+    void on_entry_activated(Gtk::Entry* text, const std::string& change, std::string file);
+    void seperated_entry_activated(Gtk::Entry* text, std::string change, std::string file);
+
     Gtk::Alignment alignment1;
     Gtk::Grid editors;
 

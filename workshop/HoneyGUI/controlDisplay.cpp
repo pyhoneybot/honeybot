@@ -28,7 +28,7 @@ controlDisplay::~controlDisplay() {}
 
 void controlDisplay::botStart() { //This is to execute the Python script...
     std::cout << "Starting the bot..." << std::endl;
-    system("cd ./../../honeybot; nohup python3 main.py&");
+    system("x=$(find ~/ -name \"honeybot\" -print | head -n 1); cd $x/honeybot; nohup python3 main.py&");
 }
 
 void controlDisplay::botStop() { //...and this is to put a bullet in it
