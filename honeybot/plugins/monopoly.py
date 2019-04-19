@@ -419,11 +419,10 @@ class Plugin:
         if player.getPosition == 22:
             move_to_property(self,methods,info,player,board_spaces[19])
         elif player.getPosition == 26:
-            #pick community card
+            community_card(self,methods,info,player)
         elif player.getPosition == 7:
             #send a message about being fined
             fine(self,methods,info,player,100)
-
 
     """
     PLUGIN COMMANDS
