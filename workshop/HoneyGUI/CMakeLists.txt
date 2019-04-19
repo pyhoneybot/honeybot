@@ -7,5 +7,5 @@ include_directories(${GTKMM_INCLUDE_DIRS})
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(HoneyGUI main.cpp guiBase.cpp guiBase.h optionList.cpp optionList.h optionDisplay.cpp optionDisplay.h)
+add_executable(HoneyGUI main.cpp guiBase.cpp guiBase.h controlDisplay.cpp controlDisplay.h configDisplay.cpp configDisplay.h pluginDisplay.cpp pluginDisplay.h)
 target_link_libraries(${PROJECT_NAME} ${GTKMM_LIBRARIES})
