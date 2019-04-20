@@ -1,5 +1,4 @@
 [INFO]
-
 server_url = chat.freenode.net
 port = 6667
-name = hb_tst003
+name = hb_testing003
