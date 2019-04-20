@@ -7,7 +7,7 @@ class Space:
         return self.name
 
 class Property(Space):
-    set_houses = {
+    Property.set_houses = {
                   "Violet":2,
                   "Light blue":3,
                   "Purple":3,
