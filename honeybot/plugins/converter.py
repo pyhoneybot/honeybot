@@ -77,4 +77,4 @@ class Plugin:
                     methods['send'](info['address'],"either two currencies with an optional amount")
                     methods['send'](info['address'],"or help")
         except Exception as e:
-            print('woops news plugin error ', e)
+            print('woops converter plugin error ', e)

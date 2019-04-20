@@ -1,5 +1,5 @@
 # Game Objects
-class Space:
+class Space(object):
     def __init__(self,name):
         self.name = name
 
@@ -22,7 +22,7 @@ class Property(Space):
                  rent, one_house_rent, two_house_rent,
                  three_house_rent, four_house_rent, hotel_rent,
                  house_cost):
-        super().__init__(name)
+        super(Property,self).__init__(name)
         self.price = price
         self.color = color
         self.house_count = 0 #5 means hotel
@@ -54,7 +54,7 @@ class Property(Space):
 
 class Railroad(Space):
     def __init__(self,name):
-        super().__init__(name)
+        super(Railroad, self).__init__(name)
         self.price = 200
         self.rents = {1:25,
                       2:50,
@@ -74,13 +74,13 @@ class Railroad(Space):
 
 class Utility(Space):
     def __init__(self,name):
-        super().__init__(name)
+        super(Utility,self).__init__(name)
         self.price = 150
         self.rents = {1:"4 *",
                       2:"10 *"}
 
     def info(self):
-        return self.name+" is a utility that costs "+str(self.price).+". If you have " +\
+        return self.name+" is a utility that costs "+str(self.price)+". If you have " +\
         "one utility rent is four times the amount the player rolled on the dice or "+\
         "if you have two utilities the rent is ten times!"
 

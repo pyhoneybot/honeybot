@@ -733,15 +733,15 @@ class Plugin:
 
     def run(self,incoming,methods,info):
         try:
-            msgs = info['args'][1:][0].split(" ")
-            print("msgs")
-            print(msgs)
+            msgs = info['args'][1:][0].split()
             if info['command'] == 'PRIVMSG' and msgs[0] == '.monopoly':
                 name = info["address"].split("!")[0]
+                print(name)
+                print("Length of msgs is "+str(len(msgs)))
                 #if not(checkWon(methods,info)):#if checkWon evaluates to true will print winner so no need to have else
 
                 #elif not(len(msgs) == 2):
-                if not(len(msgs) == 2):
+                if len(msgs) != 2:
                     methods['send'](info['address'],".monopoly requires one argument:" +\
                     " create, join, start, buy, pass, gameInfo, help or leave")
 
