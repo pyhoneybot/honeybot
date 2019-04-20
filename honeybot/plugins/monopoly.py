@@ -7,7 +7,7 @@ Angelo Giacco
 [About]
 Play monopoly
 [Commands]
->>> .monopoly create
+>>>.monopoly create
 creates monopoly
 
 >>>.monopoly join
@@ -19,13 +19,13 @@ starts the game
 >>>.monopoly roll
 rolls two dice to see how far the user will move/if the user can leave the jail
 
->>> .monopoly buy
+>>>.monopoly buy
 user purchases property if unowned, otherwise buys house
 
->>> .monopoly pass
+>>>.monopoly pass
 user passes on the opportunity to buy a property if unowned, or on the opportunity to buy a house
 
->>> .monopoly leave
+>>>.monopoly leave
 user leaves the game
 
 >>>.monopoly help
@@ -39,16 +39,17 @@ import monopoly_player
 import random
 
 class Plugin:
-    Plugin.stage = None #none for no game yet initalised, 0 for create, 1 for already started
-    Plugin.game_over = False #becomes true when a player wins
+    stage = None #none for no game yet initalised, 0 for create, 1 for already started
+    game_over = False #becomes true when a player wins
     #also becomes true when one player left bot not implemented yet because not practical for testing
-    Plugin.players = [] #stores player objects
-    Plugin.create_req = True #create command required
-    Plugin.decision_req = False #buy or pass command required
-    Plugin.start_join_req = False #start game or join game required
-    Plugin.roll_req = False #roll required
-    Plugin.buy_pass_req = False #buy or pass required
-    Plugin.winner = ""
+    players = [] #stores player objects
+    create_req = True #create command required
+    decision_req = False #buy or pass command required
+    start_join_req = False #start game or join game required
+    roll_req = False #roll required
+    buy_pass_req = False #buy or pass required
+    winner = ""
+    turn = 0
 
 
     def __init__(self):
@@ -138,11 +139,11 @@ class Plugin:
                 methods['send'](info['address'],message)
             methods['send'](info['address'],name+"'s pot is "+pot)
 
-            if player.getPosition() == 10 && player.imprisoned:
+            if player.getPosition() == 10 and player.imprisoned:
                 methods['send'](info['address'],name+" is locked in jail")
-            elif player.getPosition() == 10 && not player.imprisoned:
+            elif player.getPosition() == 10 and not player.imprisoned:
                 methods['send'](info['address'],name+" is at the joil but not inside... yet")
-            if player.imprisoned:
+            else:
                 location = board_spaces[player.getPosition()].get_name()
                 methods['send'](info['address'],name+" is at "+location)
 
@@ -244,7 +245,7 @@ class Plugin:
     def land_unowned_property(self,methods,info,player,space):
         methods["send"](info['address'],space.get_name()+" is unowned and may be"+\
         " bought for "+str(space.price)+". Enter '.monopoly buy' if you "+\
-        "want to to buy it or '.monopoly pass' if not"
+        "want to to buy it or '.monopoly pass' if not")
         Plugin.roll_req = False
         Plugin.buy_req = True
         get_location_info(methods,info,player,space)
@@ -258,12 +259,12 @@ class Plugin:
 
         if player_alive:
             methods["send"](info['address'],payer.getName+" now only has "+payer.getPot() +\
-            "whereas "+receiver.getName()+" now has "+receiver.getPot()
+            "whereas "+receiver.getName()+" now has "+receiver.getPot())
             next_turn()
 
         else:
             methods["send"](info['address'],payer.getName+" is now out of the game "+\
-            "whereas "+receiver.getName()+" now has "+receiver.getPot()
+            "whereas "+receiver.getName()+" now has "+receiver.getPot())
             Plugin.players.remove(player)
             next_turn()
 
@@ -380,8 +381,7 @@ class Plugin:
                 hotel_total += 1
             else:
                 house_total += property.house_count
-
-        cost = house_fee * house_total + hotel_fee * hotel_total
+        cost = house_fee*house_total + hotel_fee * hotel_total
         fine(methods,info,player,cost)
 
     def pay_all(self,methods,info,player,amount):
@@ -472,7 +472,7 @@ class Plugin:
                 next_turn()
             else:
                 methods["send"](info["address"],player.getName()+" has landed on "+\
-                owner_info[0].getName()"'s utility and must pay ten times whatever he rolls now with two dice!")
+                owner_info[1].getName()+"'s utility and must pay ten times whatever he rolls now with two dice!")
                 total = random.randint(1,6) + random.randint(1,6)
                 methods[send](info["address"],player.getName()+" rolled a total of "+str(total))
                 pay(methods,info,player,owner_info[1],total*10)
@@ -481,7 +481,7 @@ class Plugin:
 
     def move_back_three(self,methods,info,player):
         if player.getPosition == 22:
-            player.setPosition(19c)
+            player.setPosition(19)
             methods["send"](info["address"],"You moved back to the New York Ave. space...")
             property = board_spaces[19]
             owner_info = find_owner(property.get_name())
@@ -558,7 +558,7 @@ class Plugin:
                 roll2 = random.randint(1,6)
                 if player.prison_time == 2 and player.imprisoned:
                     methods["send"](info["address"],"You are in prison, this is your last "+\
-                    "chance to leave for free by rolling a double".)
+                    "chance to leave for free by rolling a double.")
                     if roll1 == roll2:
                         player.imprisoned = False
                         player.prison_time = 0
@@ -704,7 +704,7 @@ class Plugin:
                             purchase = "hotel" if property.house_count == 5 else "house"
                             methods["send"](info["address"],player.getName() +\
                             "bought a "+purchase+" for "+property.get_name()+\
-                            " so if you land there now you have to pay "+str(property.rents[property.house_count])
+                            " so if you land there now you have to pay "+str(property.rents[property.house_count]))
                             next_turn()
                         else:
                             methods["send"](info["address"],"you need a full set to buy a house")
@@ -717,8 +717,8 @@ class Plugin:
                     player.reducePot(property.price)
                     player.portfolio.append(property)
                     methods["send"](info["address"],player.getName() +\
-                    "bought "+property.get_name()+" for "+str(property.price+\
-                    " and if you land there you will have to pay "+str(property.rents[property.house_count])
+                    "bought "+property.get_name()+" for "+str(property.price)+\
+                    " and if you land there you will have to pay "+str(property.rents[property.house_count]))
                     next_turn()
                 else:
                     methods["send"](info["address"],"You do not have enough money to buy"+property.get_name())
@@ -741,7 +741,7 @@ class Plugin:
                 #if not(checkWon(methods,info)):#if checkWon evaluates to true will print winner so no need to have else
 
                 #elif not(len(msgs) == 2):
-                if not(len(msgs) == 2):ot 
+                if not(len(msgs) == 2):
                     methods['send'](info['address'],".monopoly requires one argument:" +\
                     " create, join, start, buy, pass, gameInfo, help or leave")
 

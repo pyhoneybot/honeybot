@@ -7,7 +7,7 @@ class Space:
         return self.name
 
 class Property(Space):
-    Property.set_houses = {
+    set_houses = {
                   "Violet":2,
                   "Light blue":3,
                   "Purple":3,
@@ -38,7 +38,18 @@ class Property(Space):
         return self.house_cost
 
     def info(self):
-        return "whatever"
+        information = [
+                       self.name+" is a "+self.color+" property that costs "+str(self.price)+".",
+                       "It currently has "+str(self.house_count)+"houses.",
+                       "With no houses rent is "+str(self.rents[0])+".",
+                       "With 1 house rent is "+str(self.rents[1])+".",
+                       "With 2 houses rent is "+str(self.rents[2])+".",
+                       "With 3 houses rent is "+str(self.rents[3])+".",
+                       "With 4 houses rent is "+str(self.rents[4])+".",
+                       "With a hotel rent is "+str(self.rents[5])+".",
+                       "A house costs "+str(self.house_cost)+" to build."
+        ]
+        return " ".join(information)
 
 
 class Railroad(Space):
@@ -51,7 +62,14 @@ class Railroad(Space):
                       4:200}
 
     def info(self):
-        return "whatever"
+        information = [
+                       self.name+" is a railroad that costs "+str(self.price)+".",
+                       "If a player has one railroad only the rent is "+str(self.rents[1])+".",
+                       "If a player has two railroads the rent is "+str(self.rents[2])+".",
+                       "If a player has three railroads only the rent is "+str(self.rents[3])+".",
+                       "If a player has four railroads only the rent is "+str(self.rents[4])+"."
+                       ]
+        return " ".join(information)
 
 
 class Utility(Space):
@@ -62,7 +80,9 @@ class Utility(Space):
                       2:"10 *"}
 
     def info(self):
-        return "whatever"
+        return self.name+" is a utility that costs "+str(self.price).+". If you have " +\
+        "one utility rent is four times the amount the player rolled on the dice or "+\
+        "if you have two utilities the rent is ten times!"
 
 board_spaces = [
                 Space("GO"),
