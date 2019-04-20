@@ -5,6 +5,7 @@
 
 int main(int argc, char *argv[]) {
     system("x=$(find ~/ -name \"honeybot\" | head -n 1); echo $x > path.txt");
+    system("x=$(find ~/ -name \"honeybot\" | head -n 1); cd $x/honeybot/plugins; ls > plugins.txt");
 
     auto app = Gtk::Application::create(argc, argv, "org.gtkmm.example"); //Simply creates the application window to run
     //everything in
