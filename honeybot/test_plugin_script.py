@@ -68,7 +68,7 @@ if __name__ == "__main__":
             4.1 User quitting a channel
     '''
 
-    incoming_command_test = '.monopoly start'
+    incoming_command_test = '.monopoly roll'
 
     Tester('message', incoming_command_test)
     Tester('user_join', incoming_command_test)
