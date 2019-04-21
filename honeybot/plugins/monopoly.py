@@ -223,7 +223,7 @@ class Plugin:
                         else:
                             methods["send"](info["address"],space.get_name()+" is owned by "+owner_info[1].getName())
                     else:
-                        methods["send"](info["address"],space,get_name()+" is unowned!")
+                        methods["send"](info["address"],space.get_name()+" is unowned!")
 
             elif isinstance(location,Railroad):
                 methods["send"](info["address"],location.info())
@@ -244,7 +244,7 @@ class Plugin:
                         else:
                             methods["send"](info["address"],rail.get_name()+" is owned by "+owner_info[1].getName())
                     else:
-                        methods["send"](info["address"],rail,get_name()+" is unowned!")
+                        methods["send"](info["address"],rail.get_name()+" is unowned!")
 
             elif isinstance(location,Utility):
                 methods["send"](info["address"],location.info())
@@ -264,7 +264,7 @@ class Plugin:
                     else:
                         methods["send"](info["address"],other_util.get_name()+" is owned by "+owner_info[1].getName())
                 else:
-                    methods["send"](info["address"],other_util,get_name()+" is unowned!")
+                    methods["send"](info["address"],other_util.get_name()+" is unowned!")
             except:
                 print("get location info error")
 
