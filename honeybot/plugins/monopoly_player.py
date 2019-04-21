@@ -49,7 +49,7 @@ class Player:
         #ensure index is between 0 and 39
         self.position = index
 
-    def getPortfolio:
+    def getPortfolio(self):
         return self.portfolio
 
     def checkWon():

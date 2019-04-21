@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ''' Change to your plugin file name below.
                     ↓↓↓↓  '''
-from plugins import russian_roulette as test_plugin
+from plugins import monopoly as test_plugin
 
 
 test_plugin = test_plugin.Plugin
@@ -9,7 +9,7 @@ test_plugin = test_plugin.Plugin
 
 class Tester:
 
-    def __init__(self, test_type='user_quit', command='.roll 2d4'):
+    def __init__(self, test_type='user_quit', command='.monopoly create'):
 
         # Same methods as HoneyBot, but these print to screen
         methods = {
@@ -68,7 +68,7 @@ if __name__ == "__main__":
             4.1 User quitting a channel
     '''
 
-    incoming_command_test = '.roll 2d4'
+    incoming_command_test = '.monopoly start'
 
     Tester('message', incoming_command_test)
     Tester('user_join', incoming_command_test)
