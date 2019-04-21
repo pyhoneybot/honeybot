@@ -43,7 +43,7 @@ try:
     from .monopoly_player import *
 except:
     print("PLAYER MODULE NOT FOUND")
-import random
+import random,sys,os
 
 class Plugin:
     stage = None #none for no game yet initalised, 0 for create, 1 for already started
@@ -177,6 +177,7 @@ class Plugin:
                     return [True,player]
                 else:
                     return [False]
+        return [False]
 
     def get_rent(asset, asset_owner, move_amount):
         if isinstance(asset,Property):
@@ -221,11 +222,11 @@ class Plugin:
                 else:
                     methods["send"](info["address"],space,get_name()+" is unowned!")
 
-        elif is_instance(location,Railroad):
+        elif isinstance(location,Railroad):
             methods["send"](info["address"],location.info())
             other_rails = []
             for space in board_spaces:
-                if is_instance(space,Railroad) and space != location:
+                if isinstance(space,Railroad) and space != location:
                     other_rails.append(space)
             methods["send"](info["address"],"Of the other railroads:")
             for rail in other_rails:
@@ -238,10 +239,10 @@ class Plugin:
                 else:
                     methods["send"](info["address"],rail,get_name()+" is unowned!")
 
-        elif is_instance(location,Utility):
+        elif isinstance(location,Utility):
             methods["send"](info["address"],location.info())
             for space in board_spaces:
-                if is_instance(space,Utility) and space != location:
+                if isinstance(space,Utility) and space != location:
                     other_util = space
                     break
             owner_info = Plugin.find_owner(other_util.get_name())
@@ -437,7 +438,7 @@ class Plugin:
         #if already at railroad must still go forward to next one
         for i in range(10): #player can only be 10 away from next railroad
             updatePosition(1)
-            if is_instance(board_spaces[player.getPosition()],Railroad):
+            if isinstance(board_spaces[player.getPosition()],Railroad):
                 break
         railroad = board_spaces[player.getPosition()]
         owner_info = Plugin.find_owner(railroad.get_name())
@@ -524,7 +525,10 @@ class Plugin:
             Plugin.stage = 0
             Plugin.create_req = False
             Plugin.start_join_req = True
-            print("stage = "+str(Plugin.stage))
+            methods['send'](info['address'],"game has been created by "+name)
+            methods['send'](info['address'],Plugin.join(name)) #automatically adds the creator
+            methods['send'](info['address'],"to join this monopoly game "+\
+            "enter '.monopoly join'")
         else:
             methods["send"](info["address"],"Game has already started")
 
@@ -585,29 +589,31 @@ class Plugin:
                 new_location = board_spaces[player.getPosition()]
                 methods["send"](info['address'],player.getName()+" rolled "+str(move_amount) +\
                 " and is now located at "+new_location.get_name())
-                new_location_owned = Plugin.find_owner(new_location.get_name())
-                if new_location_owned[0]:##if property is owned by somebody
-                    owner = Plugin.players[new_location_owned[1]]
+                if isinstance(new_location,Property) or isinstance(new_location,Railroad) or isinstance(new_location,Utility):
+                    new_location_owned = Plugin.find_owner(new_location.get_name())
+                    print(new_location_owned)
+                    if new_location_owned[0]:##if property is owned by somebody
+                        owner = Plugin.players[new_location_owned[1]]
 
-                    if player == owner:
-                        ##buy a house option
+                        if player == owner:
+                            ##buy a house option
 
-                        if isinstance(new_location,Property):
-                            Plugin.offer_house(methods,info,player,new_location)
+                            if isinstance(new_location,Property):
+                                Plugin.offer_house(methods,info,player,new_location)
+                            else:
+                                methods["send"](info["address"],"You have landed on your own property "+\
+                                "but you cannot buy houses for railroads or utilities")
+                                Plugin.next_turn()
+
                         else:
-                            methods["send"](info["address"],"You have landed on your own property "+\
-                            "but you cannot buy houses for railroads or utilities")
-                            Plugin.next_turn()
+                            rent = Plugin.get_rent(new_location,owner,move_amount)
+                            methods["send"](info['address'],player.getName()+" landed on a property owned by "+\
+                            owner.getName()+" and must pay them "+str(rent))
+                            Plugin.pay(methods,info,player,owner,rent)
 
-                    else:
-                        rent = Plugin.get_rent(new_location,owner,move_amount)
-                        methods["send"](info['address'],player.getName()+" landed on a property owned by "+\
-                        owner.getName()+" and must pay them "+str(rent))
-                        Plugin.pay(methods,info,player,owner,rent)
-
-                elif isinstance(new_location,Property) or isinstance(new_location,Utility) or isinstance(new_location,Railroad):
-                    #buy
-                    Plugin.land_unowned_property(methods,info,player,new_location)
+                    elif isinstance(new_location,Property) or isinstance(new_location,Utility) or isinstance(new_location,Railroad):
+                        #buy
+                        Plugin.land_unowned_property(methods,info,player,new_location)
 
                 elif player.getPosition() == 2 or player.getPosition() == 17 or player.getPosition() == 33:
                     Plugin.community_card(methods,info,player)
@@ -701,7 +707,7 @@ class Plugin:
             return "The game is already over. The winner was "+Plugin.winner
 
     def buy(methods,info):
-        if buy_pass_req:
+        if Plugin.buy_pass_req:
             Plugin.buy_pass_req = False
             Plugin.roll_req = True
             player = Plugin.player[Plugin.turn]
@@ -761,10 +767,6 @@ class Plugin:
 
                     elif msgs[1].lower() == "create":
                         Plugin.create(methods,info)
-                        methods['send'](info['address'],"game has been created by "+name)
-                        methods['send'](info['address'],Plugin.join(name)) #automatically adds the creator
-                        methods['send'](info['address'],"to join this monopoly game "+\
-                        "enter '.monopoly join'")
 
                     elif msgs[1].lower() == "join":
                         methods['send'](info['address'],Plugin.join(name))
@@ -803,4 +805,7 @@ class Plugin:
                         " create, join, start, roll, buy, pass, gameInfo, help or leave")
 
         except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+            print(exc_type, fname, exc_tb.tb_lineno)
             print("woops, monopoly plugin error ",e)
