@@ -48,7 +48,7 @@ pluginDisplay::pluginDisplay() : plugPane(Gtk::ORIENTATION_VERTICAL), plugs(Gtk:
     infile.open(path + "plugins/plugins.txt");
 
     while (getline(infile, strTemp)){ //Reading the available plugins
-        plugins.push_back(strTemp);
+        plugins.push_back(strTemp.substr(0, strTemp.length() - 3));
     }
 
     infile.close();
