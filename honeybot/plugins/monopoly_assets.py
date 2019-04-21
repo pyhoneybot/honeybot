@@ -40,7 +40,7 @@ class Property(Space):
     def info(self):
         information = [
                        self.name+" is a "+self.color+" property that costs "+str(self.price)+".",
-                       "It currently has "+str(self.house_count)+"houses.",
+                       "It currently has "+str(self.house_count)+" houses.",
                        "With no houses rent is "+str(self.rents[0])+".",
                        "With 1 house rent is "+str(self.rents[1])+".",
                        "With 2 houses rent is "+str(self.rents[2])+".",

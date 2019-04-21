@@ -175,8 +175,6 @@ class Plugin:
             for property in player.getPortfolio():
                 if property.get_name() == asset_name:
                     return [True,player]
-                else:
-                    return [False]
         return [False]
 
     def get_rent(asset, asset_owner, move_amount):
@@ -204,66 +202,85 @@ class Plugin:
             player.setPosition(board_spaces.index(space))
 
     def get_location_info(methods,info,player,location):#location is a space object
-        if isinstance(location,Property):
-            methods["send"](info["address"],location.info())
-            methods["send"](info["address"],"Remember that you need a full set to buy houses! Of the other properties in the set:")
-            set_others = []
-            for space in board_spaces:
-                if isinstance(space,Property):
-                    if space.color == location.color and space != location:
-                        set_others.append(space)
-            for space in set_others:
-                owner_info = Plugin.find_owner(space.get_name())
+        try:
+            if isinstance(location,Property):
+                methods["send"](info["address"],location.info())
+                methods["send"](info["address"],"Remember that you need a full set to buy houses! Of the other properties in the set:")
+                set_others = []
+                for space in board_spaces:
+                    if isinstance(space,Property):
+                        if space.color == location.color and space != location:
+                            set_others.append(space)
+                print("Set others:")
+                print(set_others)
+                for space in set_others:
+                    owner_info = Plugin.find_owner(space.get_name())
+                    print("owner info")
+                    print(owner_info)
+                    if owner_info[0]:
+                        if owner_info[1].getName() == player.getName():
+                            methods["send"](info["address"],"You already own "+space.get_name())
+                        else:
+                            methods["send"](info["address"],space.get_name()+" is owned by "+owner_info[1].getName())
+                    else:
+                        methods["send"](info["address"],space,get_name()+" is unowned!")
+
+            elif isinstance(location,Railroad):
+                methods["send"](info["address"],location.info())
+                other_rails = []
+                for space in board_spaces:
+                    if isinstance(space,Railroad) and space != location:
+                        other_rails.append(space)
+                methods["send"](info["address"],"Of the other railroads:")
+                print("others")
+                print(other_rails)
+                for rail in other_rails:
+                    owner_info = Plugin.find_owner(rail.get_name())
+                    print("owner info")
+                    print(owner_info)
+                    if owner_info[0]:
+                        if owner_info[1].getName() == player.getName():
+                            methods["send"](info["address"],"You already own "+rail.get_name())
+                        else:
+                            methods["send"](info["address"],rail.get_name()+" is owned by "+owner_info[1].getName())
+                    else:
+                        methods["send"](info["address"],rail,get_name()+" is unowned!")
+
+            elif isinstance(location,Utility):
+                methods["send"](info["address"],location.info())
+                for space in board_spaces:
+                    if isinstance(space,Utility) and space != location:
+                        other_util = space
+                        break
+
+                print("other")
+                print(other_util)
+                owner_info = Plugin.find_owner(other_util.get_name())
+                print("owner info")
+                print(owner_info)
                 if owner_info[0]:
                     if owner_info[1].getName() == player.getName():
-                        methods["send"](info["address"],"You already own "+space.get_name())
+                        methods["send"](info["address"],"You already own "+other_util.get_name())
                     else:
-                        methods["send"](info["address"],space.get_name()+" is owned by "+owner_info[1].getName())
+                        methods["send"](info["address"],other_util.get_name()+" is owned by "+owner_info[1].getName())
                 else:
-                    methods["send"](info["address"],space,get_name()+" is unowned!")
-
-        elif isinstance(location,Railroad):
-            methods["send"](info["address"],location.info())
-            other_rails = []
-            for space in board_spaces:
-                if isinstance(space,Railroad) and space != location:
-                    other_rails.append(space)
-            methods["send"](info["address"],"Of the other railroads:")
-            for rail in other_rails:
-                owner_info = Plugin.find_owner(rail.get_name())
-                if owner_info[0]:
-                    if owner_info[1].getName() == player.getName():
-                        methods["send"](info["address"],"You already own "+rail.get_name())
-                    else:
-                        methods["send"](info["address"],rail.get_name()+" is owned by "+owner_info[1].getName())
-                else:
-                    methods["send"](info["address"],rail,get_name()+" is unowned!")
-
-        elif isinstance(location,Utility):
-            methods["send"](info["address"],location.info())
-            for space in board_spaces:
-                if isinstance(space,Utility) and space != location:
-                    other_util = space
-                    break
-            owner_info = Plugin.find_owner(other_util.get_name())
-            if owner_info[0]:
-                if owner_info[1].getName() == player.getName():
-                    methods["send"](info["address"],"You already own "+other_util.get_name())
-                else:
-                    methods["send"](info["address"],other_util.get_name()+" is owned by "+owner_info[1].getName())
-            else:
-                methods["send"](info["address"],other_util,get_name()+" is unowned!")
+                    methods["send"](info["address"],other_util,get_name()+" is unowned!")
+            except:
+                print("get location info error")
 
     def land_unowned_property(methods,info,player,space):
-        methods["send"](info['address'],space.get_name()+" is unowned and may be"+\
-        " bought for "+str(space.price)+". Enter '.monopoly buy' if you "+\
-        "want to to buy it or '.monopoly pass' if not")
-        Plugin.roll_req = False
-        Plugin.buy_req = True
-        Plugin.get_location_info(methods,info,player,space)
-        #something like the line above should be executed to give the user an idea
-        #about what they are buying and the rest of their situation
-        #such as ownership of other properties in that set and how much money they have
+        try:
+            methods["send"](info['address'],space.get_name()+" is unowned and may be"+\
+            " bought for "+str(space.price)+". Enter '.monopoly buy' if you "+\
+            "want to to buy it or '.monopoly pass' if not")
+            Plugin.roll_req = False
+            Plugin.buy_pass_req = True
+            Plugin.get_location_info(methods,info,player,space)
+            #something like the line above should be executed to give the user an idea
+            #about what they are buying and the rest of their situation
+            #such as ownership of other properties in that set and how much money they have
+        except:
+            print("land unowned property error")
 
     def pay(methods,info,payer,receiver,amount):
         payer_alive = payer.reducePot(amount)
@@ -520,7 +537,7 @@ class Plugin:
     PLUGIN COMMANDS
     """
 
-    def create(methods,info):
+    def create(methods,info,name):
         if Plugin.create_req:
             Plugin.stage = 0
             Plugin.create_req = False
@@ -530,11 +547,10 @@ class Plugin:
             methods['send'](info['address'],"to join this monopoly game "+\
             "enter '.monopoly join'")
         else:
-            methods["send"](info["address"],"Game has already started")
+            methods["send"](info["address"],"Game has already been created")
 
 
     def join(nickname):
-        print("join "+nickname)
         if Plugin.stage == 0 and Plugin.start_join_req:
             nicknames = [player.getName() for player in Plugin.players]
             if nickname not in nicknames:
@@ -692,13 +708,13 @@ class Plugin:
 
     def leave(player_name):
         #change to quit a single user
-        if Plugin.game_over:
-            if Plugin.stage == None:#may be self.stage
+        if not Plugin.game_over:
+            if Plugin.stage == None:
                 return "no game has started yet"
             else:
                 for player in Plugin.players:
                     if player.getName() == player_name:
-                        players.remove(player)
+                        Plugin.players.remove(player)
                         return player.getName() +" has left the game"
                         break
                 else:
@@ -766,7 +782,7 @@ class Plugin:
                         Plugin.get_help(methods,info)
 
                     elif msgs[1].lower() == "create":
-                        Plugin.create(methods,info)
+                        Plugin.create(methods,info,name)
 
                     elif msgs[1].lower() == "join":
                         methods['send'](info['address'],Plugin.join(name))
@@ -807,5 +823,5 @@ class Plugin:
         except Exception as e:
             exc_type, exc_obj, exc_tb = sys.exc_info()
             fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-            print(exc_type, fname, exc_tb.tb_lineno)
+            methods["send"](info["address"],(exc_type, fname, exc_tb.tb_lineno))
             print("woops, monopoly plugin error ",e)
