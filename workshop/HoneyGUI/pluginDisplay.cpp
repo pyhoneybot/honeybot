@@ -17,66 +17,80 @@ int pluginDisplay::fileSave() {
     return 0;
 }
 
+int pluginDisplay::get_list() {
+    std::ifstream infile(path + "settings/PLUGINS.conf");
+
+    if(!infile){
+        return 1;
+    }
+
+    std::string strTemp;
+
+    while (getline(infile, strTemp)){
+        checks += strTemp + '\n';
+        selected.push_back(strTemp);
+    }
+
+    infile.close();
+
+    return 0;
+}
+
 pluginDisplay::pluginDisplay() : plugPane(Gtk::ORIENTATION_VERTICAL), plugs(Gtk::ORIENTATION_VERTICAL) {
-    std::ifstream infile;
+    std::ifstream infile; //Reading the path
     infile.open("path.txt");
     getline(infile, path);
     infile.close();
 
     path += "/honeybot/";
-
-    infile.open(path + "plugins/plugins.txt");
     std::string strTemp;
 
-    while (getline(infile, strTemp)){
-        if(strTemp.substr(strTemp.length() - 3) == ".py") {
-            plugins.push_back(strTemp.substr(0, strTemp.length() - 3));
-        }
-    }
-
-    infile.close();
     infile.open(path + "plugins/plugins.txt");
 
-    while (getline(infile, strTemp)){
-        if(strTemp.substr(strTemp.length() - 3) == ".py") {
-            plugins.push_back(strTemp.substr(0, strTemp.length() - 3));
-        }
+    while (getline(infile, strTemp)){ //Reading the available plugins
+        plugins.push_back(strTemp);
     }
 
     infile.close();
     infile.open(path + "settings/STD_PLUGINS.conf");
 
-    while (getline(infile, strTemp)) {
+    while (getline(infile, strTemp)) { //Reading the standard plugins
         stdPlugins.push_back(strTemp);
     }
 
     infile.close();
 
-    for (int i = 0; i < plugins.size(); ++i) {
-        plugs.pack_start(butts[i]);
+    get_list(); //Getting the selected plugins
+
+    for (int i = 0; i < plugins.size(); ++i) { //Creating each CheckButton
+        plugs.pack_start(butts[i]); //Adding it into view
 
         strTemp = "User Plugin";
 
         if (std::find(stdPlugins.begin(), stdPlugins.end(), plugins[i]) != stdPlugins.end()){
-            strTemp = "Standard Plugin";
+            strTemp = "Standard Plugin"; //Checking if its a Standard Plugin
         }
 
-        butts[i].set_label(plugins[i] + " | " + strTemp);
-        butts[i].signal_toggled().connect( sigc::bind(sigc::mem_fun(*this, &pluginDisplay::alterCheck), butts[i].property_active(), plugins[i]) );
+        if (std::find(selected.begin(), selected.end(), plugins[i]) != selected.end()){
+            butts[i].set_active(true); //If its preselected than activate it
+        }
+
+        butts[i].set_label(plugins[i] + " | " + strTemp); //Setting the label
+        butts[i].signal_toggled().connect( sigc::bind(sigc::mem_fun(*this, &pluginDisplay::alterCheck), butts[i].property_active(), plugins[i]) ); //Connecting the signal
     }
 
-    scroll.add(plugs);
+    scroll.add(plugs); //Adding in the button box
 
-    scroll.set_policy(Gtk::POLICY_AUTOMATIC, Gtk::POLICY_ALWAYS);
+    scroll.set_policy(Gtk::POLICY_AUTOMATIC, Gtk::POLICY_ALWAYS); //Rules for the scrollbar
 
-    plugPane.add1(scroll);
-    plugPane.add2(save);
-    plugPane.set_position(325);
+    plugPane.add1(scroll); //Adding the scroll window
+    plugPane.add2(save); //Adding the save button
+    plugPane.set_position(325); //Manually setting the divider
 
-    save.set_label("Save");
-    save.signal_clicked().connect( sigc::mem_fun(*this, &pluginDisplay::savePlug) );
+    save.set_label("Save"); //Save button label
+    save.signal_clicked().connect( sigc::mem_fun(*this, &pluginDisplay::savePlug) ); //Connecting the save button
 
-    alignment1.add(plugPane);
+    alignment1.add(plugPane); //Adding it all to the alignment
 
     add(alignment1);
     set_label("Plugins");
@@ -86,7 +100,7 @@ pluginDisplay::pluginDisplay() : plugPane(Gtk::ORIENTATION_VERTICAL), plugs(Gtk:
 
 pluginDisplay::~pluginDisplay() {}
 
-void pluginDisplay::alterCheck(bool yes, std::string plu) {
+void pluginDisplay::alterCheck(bool yes, std::string plu) { //If ACTIVE add to checks otherwise remove from checks
     if (yes) {
         checks += plu + '\n';
     } else {
