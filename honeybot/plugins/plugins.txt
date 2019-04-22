@@ -2,6 +2,8 @@ age.py
 bitcoin.py
 caesar_cipher.py
 calc.py
+channeljoin.py
+converter.py
 conv_sniff.py
 date.py
 debug.py
@@ -10,6 +12,7 @@ fact.py
 google.py
 greet.py
 hangman.py
+help.py
 horoscope.py
 __init__.py
 installed_modules.py
