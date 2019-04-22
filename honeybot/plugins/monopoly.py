@@ -128,6 +128,7 @@ class Plugin:
         if Plugin.winner != "" and Plugin.game_over:
             methods['send'](info['address'],"The game is over and the winner was "+Plugin.winner)
         elif len(Plugin.players) > 0:
+            methods["send"](info["address"],"It is "+Plugin.players[Plugin.turn].getName()+"'s turn!")
             for player in Plugin.players:
                 portfolio = player.getPortfolio()#returns array
                 name = player.getName()
@@ -183,12 +184,17 @@ class Plugin:
 
         elif isinstance(asset, Utility):
             num_util = len([property for property in asset_owner.getPortfolio() if isinstance(property,Utility)])
+            print(num_util)
             calc_string = asset.rents[num_util] + " " + str(move_amount)
+            print(calc_string)
             return eval(calc_string)
 
         elif isinstance(asset, Railroad):
             num_rail = len([property for property in asset_owner.getPortfolio() if isinstance(property,Railroad)])
+            print(num_rail)
             return asset.rents[num_rail]
+        else:
+            return 0
 
     def move_to_space(methods, info, player,space):
         if player.getPosition() > board_spaces.index(space) and player.getPosition < 39:
@@ -210,12 +216,8 @@ class Plugin:
                 if isinstance(space,Property):
                     if space.color == location.color and space != location:
                         set_others.append(space)
-            print("Set others:")
-            print(set_others)
             for space in set_others:
                 owner_info = Plugin.find_owner(space.get_name())
-                print("owner info")
-                print(owner_info)
                 if owner_info[0]:
                     if owner_info[1].getName() == player.getName():
                         methods["send"](info["address"],"You already own "+space.get_name())
@@ -231,12 +233,8 @@ class Plugin:
                 if isinstance(space,Railroad) and space != location:
                     other_rails.append(space)
             methods["send"](info["address"],"Of the other railroads:")
-            print("others")
-            print(other_rails)
             for rail in other_rails:
                 owner_info = Plugin.find_owner(rail.get_name())
-                print("owner info")
-                print(owner_info)
                 if owner_info[0]:
                     if owner_info[1].getName() == player.getName():
                         methods["send"](info["address"],"You already own "+rail.get_name())
@@ -251,12 +249,7 @@ class Plugin:
                 if isinstance(space,Utility) and space != location:
                     other_util = space
                     break
-
-            print("other")
-            print(other_util)
             owner_info = Plugin.find_owner(other_util.get_name())
-            print("owner info")
-            print(owner_info)
             if owner_info[0]:
                 if owner_info[1].getName() == player.getName():
                     methods["send"](info["address"],"You already own "+other_util.get_name())
@@ -281,28 +274,35 @@ class Plugin:
 
     def pay(methods,info,payer,receiver,amount):
         payer_alive = payer.reducePot(amount)
+        print(payer_alive)
         receiver.increasePot(amount)
 
-        if player_alive:
+        if payer_alive:
+            print("player is still alive")
             methods["send"](info['address'],payer.getName()+" now only has "+payer.getPot() +\
-            "whereas "+receiver.getName()+" now has "+receiver.getPot())
+            " whereas "+receiver.getName()+" now has "+receiver.getPot())
             Plugin.next_turn()
 
         else:
             methods["send"](info['address'],payer.getName()+" is now out of the game "+\
-            "whereas "+receiver.getName()+" now has "+receiver.getPot())
-            Plugin.players.remove(player)
+            " whereas "+receiver.getName()+" now has "+receiver.getPot())
+            Plugin.leave(player.getName())
             Plugin.next_turn()
 
     def offer_house(methods,info,player,property):
+        print("offer house")
         num_prop_in_set = Plugin.count_player_properties(player)[property.color]
+        print(num_prop_in_set)
+        print("yeet")
+        print(Property.set_houses[property.color])
         if num_prop_in_set == Property.set_houses[property.color]:
             if property.house_count == 5:
                 methods["send"](info["address"],"Your property already has a hotel!")
                 Plugin.next_turn()
             else:
+                print("can buy house")
                 cost_house = property.get_house_cost()
-                methods["send"](info["address"],"You have landed on your own property."+\
+                methods["send"](info["address"],"You have landed on your own property "+\
                 "and can buy a house for "+str(cost_house))
                 #should show property information and user pot
                 Plugin.buy_pass_req = True
@@ -327,25 +327,35 @@ class Plugin:
     def community_card(methods,info,player):
         #take community Card
         #must pick first in array, place it at back, and execute its function with correct args.
-        community_card_methods = [earn,get_outta_jail,collect,go,jail,repairs,fine]
+        community_card_methods = [Plugin.earn,Plugin.get_outta_jail,
+                                  Plugin.collect,Plugin.go,Plugin.jail,
+                                  Plugin.repairs,Plugin.fine]
         methods["send"](info["address"],player.getName()+" is picking up a community card, it says:")
         card = community_deck.pop(0)#take first card, returns a dict {"message":[int,(tuple)]}
+        print(card)
         card_string = next(iter(card))
+        print(card_string)
         methods["send"](info["address"],card_string)
         #execute card: get function,add standard arguments,unpack those stored in the thing
         func = community_card_methods[card[card_string][0]]
-        Plugin.func(methods,info,player,*card[card_string][1])
+        func(methods,info,player,*card[card_string][1])
         community_deck.append(card)#put it at the back
 
     def chance_card(methods,info,player):
         #chance_methods = [pay_all,reading_rail,boardwalk,go,railroad,get_outta_jail,jail,earn,illinois,fine,repairs,st_charles_place,util,move_back_three]
-        chance_card_methods = [pay_all,reading_rail,move_to_property,go,railroad,get_outta_jail,jail,earn,fine,repairs,util,move_back_three]
+        chance_card_methods = [Plugin.pay_all,Plugin.reading_rail,
+                               Plugin.move_to_property,Plugin.go,Plugin.railroad,
+                               Plugin.get_outta_jail,Plugin.jail,Plugin.earn,
+                               Plugin.fine,Plugin.repairs,Plugin.util,
+                               Plugin.move_back_three]
         methods["send"](info["address"],player.getName()+" is picking up a chance card, it says:")
         card = chance_deck.pop(0)#take first card, returns a dict {"message":[int,(tuple)]}
+        print(card)
         card_string = next(iter(card))
+        print(card_string)
         methods["send"](info["address"],card_string)
         #execute card: get function,add standard arguments,unpack those stored in the thing
-        func = community_card_methods[card[card_string][0]]
+        func = chance_card_methods[card[card_string][0]]
         func(methods,info,player,*card[card_string][1])
         chance_deck.append(card)#put it at the back
 
@@ -386,7 +396,6 @@ class Plugin:
             Plugin.next_turn()
 
     def fine(methods,info,player,amount):
-        #must do this tomorrow
         player_alive = player.reducePot(amount)
 
         if player_alive:
@@ -395,7 +404,7 @@ class Plugin:
         else:
             methods["send"](info["address"],player.getName()+" was forced to pay "+\
             +str(amount)+" on and now has no more money so has left the game")
-            Plugin.players.remove(player)
+            Plugin.leave(player.getName())
         Plugin.next_turn()
 
     def repairs(methods,info,player,house_fee,hotel_fee):
@@ -421,7 +430,7 @@ class Plugin:
         else:
             methods["send"](info["address"],player.getName()+" was forced to pay "+\
             +str(amount)+" on repairs and now has no more money so has left the game")
-            Plugin.players.remove(player)
+            Plugin.leave(player.getName())
 
         for opponent in other_players:
             opponent.increasePot(amount)
@@ -576,6 +585,12 @@ class Plugin:
             Plugin.start_join_req = False
             random.shuffle(community_deck)
             random.shuffle(chance_deck)
+            #remove this
+            for space in board_spaces:
+                if isinstance(space,Property):
+                    Plugin.players[0].portfolio.append(space)
+                elif isinstance(space,Railroad) or isinstance(space,Utility):
+                    Plugin.players[1].portfolio.append(space)
         else:
             methods["send"](info["address"],"This command is currently not possible")
 
@@ -603,13 +618,15 @@ class Plugin:
                 methods["send"](info['address'],player.getName()+" rolled "+str(move_amount) +\
                 " and is now located at "+new_location.get_name())
                 if isinstance(new_location,Property) or isinstance(new_location,Railroad) or isinstance(new_location,Utility):
-                    new_location_owned = Plugin.find_owner(new_location.get_name())
+                    new_location_name = new_location.get_name()
+                    new_location_owned = Plugin.find_owner(new_location_name)
                     print(new_location_owned)
                     if new_location_owned[0]:##if property is owned by somebody
-                        owner = Plugin.players[new_location_owned[1]]
-
+                        owner = new_location_owned[1]
+                        print(owner.getName())
                         if player == owner:
                             ##buy a house option
+                            print("house")
 
                             if isinstance(new_location,Property):
                                 Plugin.offer_house(methods,info,player,new_location)
@@ -619,7 +636,9 @@ class Plugin:
                                 Plugin.next_turn()
 
                         else:
+                            print("rent")
                             rent = Plugin.get_rent(new_location,owner,move_amount)
+                            print(rent)
                             methods["send"](info['address'],player.getName()+" landed on a property owned by "+\
                             owner.getName()+" and must pay them "+str(rent))
                             Plugin.pay(methods,info,player,owner,rent)
@@ -629,9 +648,11 @@ class Plugin:
                         Plugin.land_unowned_property(methods,info,player,new_location)
 
                 elif player.getPosition() == 2 or player.getPosition() == 17 or player.getPosition() == 33:
+                    print("community_card")
                     Plugin.community_card(methods,info,player)
 
                 elif player.getPosition() == 7 or player.getPosition() == 22 or player.getPosition() == 36:
+                    print("chance")
                     Plugin.chance_card(methods,info,player)
 
                 elif player.getPosition() == 30:
@@ -650,6 +671,7 @@ class Plugin:
                     Plugin.next_turn()
 
                 elif player.getPosition() == 4:
+                    print("tax")
                     Plugin.fine(methods,info,player,100)
                     Plugin.next_turn()
 
@@ -667,7 +689,7 @@ class Plugin:
                     " and is now located at "+new_location.get_name())
                     new_location_owned = Plugin.find_owner(new_location.get_name())
                     if new_location_owned[0]:##if property is owned by somebody
-                        owner = Plugin.players[new_location_owned[1]]
+                        owner = new_location_owned[1]
                         if player == owner:
                             ##buy a house option
                             if isinstance(new_location,Property):
@@ -710,7 +732,13 @@ class Plugin:
                 return "no game has started yet"
             else:
                 for player in Plugin.players:
-                    if player.getName() == player_name:
+                    if player.getName() == player_name: #we should remove the player
+                        if Plugin.turn == (len(Plugin.players) - 1):#check if there will be an index error when user removed
+                            Plugin.turn -= 1
+                        if (Plugin.players[Plugin.turn].getName()) == player_name:
+                            Plugin.next_turn()
+                            Plugin.roll_req = True
+                            Plugin.buy_pass_req = False
                         Plugin.players.remove(player)
                         return player.getName() +" has left the game"
                         break
@@ -723,7 +751,7 @@ class Plugin:
         if Plugin.buy_pass_req:
             Plugin.buy_pass_req = False
             Plugin.roll_req = True
-            player = Plugin.player[Plugin.turn]
+            player = Plugin.players[Plugin.turn]
             property = board_spaces[player.getPosition()]
             owner_info = Plugin.find_owner(property.get_name())
             if owner_info[0]:
@@ -731,11 +759,11 @@ class Plugin:
                     #buy a house
                     if int(player.getPot()) > property.house_cost:
                         if Plugin.count_player_properties(player)[property.color] == Property.set_houses[property.color]: #if full set
-                            player.reducePot(property.house_cost)
+                            player_alive = player.reducePot(property.house_cost)
                             property.house_count += 1
                             purchase = "hotel" if property.house_count == 5 else "house"
                             methods["send"](info["address"],player.getName() +\
-                            "bought a "+purchase+" for "+property.get_name()+\
+                            " bought a "+purchase+" for "+property.get_name()+\
                             " so if you land there now you have to pay "+str(property.rents[property.house_count]))
                             Plugin.next_turn()
                         else:
@@ -746,7 +774,7 @@ class Plugin:
                         Plugin.next_turn()
             else:
                 if int(player.getPot()) > property.price:
-                    player.reducePot(property.price)
+                    player_alive = player.reducePot(property.price)
                     player.portfolio.append(property)
                     methods["send"](info["address"],player.getName() +\
                     "bought "+property.get_name()+" for "+str(property.price)+\
@@ -771,7 +799,6 @@ class Plugin:
                     #if not(Plugin.checkWon(methods,info)):#if Plugin.checkWon evaluates to true will print winner so no need to have else
                     #elif not(len(msgs) == 2):
                     if len(msgs) != 2:
-                        print("Length not 2!!!!!")
                         methods['send'](info['address'],".monopoly requires one argument:" +\
                         " create, join, start, roll, buy, pass, gameInfo, help or leave")
                     #following commands can be executed by anyone
@@ -822,7 +849,4 @@ class Plugin:
                         " create, join, start, roll, buy, pass, gameInfo, help or leave")
 
         except Exception as e:
-            exc_type, exc_obj, exc_tb = sys.exc_info()
-            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-            methods["send"](info["address"],(exc_type, fname, exc_tb.tb_lineno))
             print("woops, monopoly plugin error ",e)
