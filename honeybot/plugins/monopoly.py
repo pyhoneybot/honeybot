@@ -47,8 +47,7 @@ import random,sys,os
 
 class Plugin:
     stage = None #none for no game yet initalised, 0 for create, 1 for already started
-    game_over = False #becomes true when a player wins
-    #also becomes true when one player left bot not implemented yet because not practical for testing
+    game_over = False #becomes true when only one player left
     players = [] #stores player objects
     create_req = True #create command required
     start_join_req = False #start game or join game required
@@ -75,8 +74,9 @@ class Plugin:
             print("woops, monopoly turn change error ",e)
 
     def checkWon(methods,info):
-        if len(Plugin.players) == 1:
+        if len(Plugin.players) == 1 and Plugin.stage > 0:
             Plugin.winner = Plugin.players[0].getName()
+            Plugin.game_over = True
             methods["send"](info["address"],"The winner of this monopoly game is "+Plugin.winner)
             return True
         else:
@@ -128,14 +128,15 @@ class Plugin:
         if Plugin.winner != "" and Plugin.game_over:
             methods['send'](info['address'],"The game is over and the winner was "+Plugin.winner)
         elif len(Plugin.players) > 0:
-            methods["send"](info["address"],"It is "+Plugin.players[Plugin.turn].getName()+"'s turn!")
             for player in Plugin.players:
                 portfolio = player.getPortfolio()#returns array
                 name = player.getName()
                 pot = player.getPot()#returns string
-
+                methods['send'](info['address'],name+"'s pot is "+pot)
                 if len(portfolio) > 0:
                     portfolio_dict = Plugin.count_player_properties(player)
+                    print(portfolio_dict)
+                    print(portfolio_dict.keys())
                     for key in portfolio_dict.keys():
 
                         if portfolio_dict[key] != 0:
@@ -145,17 +146,17 @@ class Plugin:
                             continue
 
                 else:
-                    message = name+" has no properties"
-                    methods['send'](info['address'],message)
-                methods['send'](info['address'],name+"'s pot is "+pot)
+                    methods['send'](info['address'],name+" has no properties")
 
                 if player.getPosition() == 10 and player.imprisoned:
                     methods['send'](info['address'],name+" is locked in jail")
                 elif player.getPosition() == 10 and not player.imprisoned:
-                    methods['send'](info['address'],name+" is at the joil but not inside... yet")
+                    methods['send'](info['address'],name+" is at the jail but not inside... yet")
                 else:
                     location = board_spaces[player.getPosition()].get_name()
-                    methods['send'](info['address'],name+" is at "+location)
+                    methods['send'](info['address'],name+" is at "+location+\
+                    " which is board space number "+str(player.getPosition()))
+            methods["send"](info["address"],"It is "+Plugin.players[Plugin.turn].getName()+"'s turn!")
         else:
             methods['send'](info['address'],"There are no players yet!")
 
@@ -197,7 +198,7 @@ class Plugin:
             return 0
 
     def move_to_space(methods, info, player,space):
-        if player.getPosition() > board_spaces.index(space) and player.getPosition < 39:
+        if player.getPosition() > board_spaces.index(space) and player.getPosition() < 39:
             methods["send"](info["address"],player.getName()+" passed go moving to "+space.get_name())
             player.increasePot(200)
             player.setPosition(board_spaces.index(space))
@@ -274,11 +275,9 @@ class Plugin:
 
     def pay(methods,info,payer,receiver,amount):
         payer_alive = payer.reducePot(amount)
-        print(payer_alive)
         receiver.increasePot(amount)
 
         if payer_alive:
-            print("player is still alive")
             methods["send"](info['address'],payer.getName()+" now only has "+payer.getPot() +\
             " whereas "+receiver.getName()+" now has "+receiver.getPot())
             Plugin.next_turn()
@@ -287,20 +286,16 @@ class Plugin:
             methods["send"](info['address'],payer.getName()+" is now out of the game "+\
             " whereas "+receiver.getName()+" now has "+receiver.getPot())
             Plugin.leave(player.getName())
+            Plugin.checkWon(methods,info)
             Plugin.next_turn()
 
     def offer_house(methods,info,player,property):
-        print("offer house")
         num_prop_in_set = Plugin.count_player_properties(player)[property.color]
-        print(num_prop_in_set)
-        print("yeet")
-        print(Property.set_houses[property.color])
         if num_prop_in_set == Property.set_houses[property.color]:
             if property.house_count == 5:
                 methods["send"](info["address"],"Your property already has a hotel!")
                 Plugin.next_turn()
             else:
-                print("can buy house")
                 cost_house = property.get_house_cost()
                 methods["send"](info["address"],"You have landed on your own property "+\
                 "and can buy a house for "+str(cost_house))
@@ -350,9 +345,7 @@ class Plugin:
                                Plugin.move_back_three]
         methods["send"](info["address"],player.getName()+" is picking up a chance card, it says:")
         card = chance_deck.pop(0)#take first card, returns a dict {"message":[int,(tuple)]}
-        print(card)
         card_string = next(iter(card))
-        print(card_string)
         methods["send"](info["address"],card_string)
         #execute card: get function,add standard arguments,unpack those stored in the thing
         func = chance_card_methods[card[card_string][0]]
@@ -400,11 +393,12 @@ class Plugin:
 
         if player_alive:
             methods["send"](info["address"],player.getName()+" was forced to pay "+\
-            +str(amount)+" and now has "+player.getPot())
+            str(amount)+" and now has "+player.getPot())
         else:
             methods["send"](info["address"],player.getName()+" was forced to pay "+\
-            +str(amount)+" on and now has no more money so has left the game")
+            str(amount)+" on and now has no more money so has left the game")
             Plugin.leave(player.getName())
+            Plugin.checkWon(methods,info)
         Plugin.next_turn()
 
     def repairs(methods,info,player,house_fee,hotel_fee):
@@ -426,11 +420,12 @@ class Plugin:
 
         if player_alive:
             methods["send"](info["address"],player.getName()+" was forced to pay "+\
-            +str(amount)+" and now has "+player.getPot())
+            str(amount)+" and now has "+player.getPot())
         else:
             methods["send"](info["address"],player.getName()+" was forced to pay "+\
-            +str(amount)+" on repairs and now has no more money so has left the game")
+            str(amount)+" on repairs and now has no more money so has left the game")
             Plugin.leave(player.getName())
+            Plugin.checkWon(methods,info)
 
         for opponent in other_players:
             opponent.increasePot(amount)
@@ -460,7 +455,7 @@ class Plugin:
         #find railroad, all railroads have index ending in five. in addition, player must move forwards.
         #if already at railroad must still go forward to next one
         for i in range(10): #player can only be 10 away from next railroad
-            updatePosition(1)
+            player.updatePosition(1)
             if isinstance(board_spaces[player.getPosition()],Railroad):
                 break
         railroad = board_spaces[player.getPosition()]
@@ -579,7 +574,6 @@ class Plugin:
             Plugin.get_info(methods,info)
             Plugin.turn = 0
             turn_player = Plugin.players[Plugin.turn].getName()
-            methods["send"](info["address"],"first up is "+turn_player)
             Plugin.stage = 1
             Plugin.roll_req = True
             Plugin.start_join_req = False
@@ -616,8 +610,8 @@ class Plugin:
                 passed_go = player.updatePosition(move_amount)
                 new_location = board_spaces[player.getPosition()]
                 methods["send"](info['address'],player.getName()+" rolled "+str(move_amount) +\
-                " and is now located at "+new_location.get_name())
-                if isinstance(new_location,Property) or isinstance(new_location,Railroad) or isinstance(new_location,Utility):
+                " and is now located at "+new_location.get_name()+" which is board space number "+str(player.getPosition()))
+                if (isinstance(new_location,Property) or isinstance(new_location,Railroad)) or isinstance(new_location,Utility):
                     new_location_name = new_location.get_name()
                     new_location_owned = Plugin.find_owner(new_location_name)
                     print(new_location_owned)
@@ -626,8 +620,6 @@ class Plugin:
                         print(owner.getName())
                         if player == owner:
                             ##buy a house option
-                            print("house")
-
                             if isinstance(new_location,Property):
                                 Plugin.offer_house(methods,info,player,new_location)
                             else:
@@ -636,9 +628,7 @@ class Plugin:
                                 Plugin.next_turn()
 
                         else:
-                            print("rent")
                             rent = Plugin.get_rent(new_location,owner,move_amount)
-                            print(rent)
                             methods["send"](info['address'],player.getName()+" landed on a property owned by "+\
                             owner.getName()+" and must pay them "+str(rent))
                             Plugin.pay(methods,info,player,owner,rent)
@@ -648,11 +638,9 @@ class Plugin:
                         Plugin.land_unowned_property(methods,info,player,new_location)
 
                 elif player.getPosition() == 2 or player.getPosition() == 17 or player.getPosition() == 33:
-                    print("community_card")
                     Plugin.community_card(methods,info,player)
 
                 elif player.getPosition() == 7 or player.getPosition() == 22 or player.getPosition() == 36:
-                    print("chance")
                     Plugin.chance_card(methods,info,player)
 
                 elif player.getPosition() == 30:
@@ -668,12 +656,9 @@ class Plugin:
 
                 elif player.getPosition() == 38:
                     Plugin.fine(methods,info,player,100)
-                    Plugin.next_turn()
 
                 elif player.getPosition() == 4:
-                    print("tax")
                     Plugin.fine(methods,info,player,100)
-                    Plugin.next_turn()
 
                 else:
                     Plugin.next_turn()
@@ -715,7 +700,7 @@ class Plugin:
                         Plugin.next_turn()
 
                 else:
-                    self.prison_time += 1
+                    player.prison_time += 1
                     Plugin.next_turn()
 
         elif Plugin.game_over:
@@ -796,57 +781,57 @@ class Plugin:
                 msgs = info['args'][1:][0].split()
                 if msgs[0] == '.monopoly':
                     name = info["prefix"].split("!")[0]
-                    #if not(Plugin.checkWon(methods,info)):#if Plugin.checkWon evaluates to true will print winner so no need to have else
-                    #elif not(len(msgs) == 2):
-                    if len(msgs) != 2:
-                        methods['send'](info['address'],".monopoly requires one argument:" +\
-                        " create, join, start, roll, buy, pass, gameInfo, help or leave")
-                    #following commands can be executed by anyone
-                    elif msgs[1].lower() == "help":
-                        Plugin.get_help(methods,info)
+                    if not(Plugin.checkWon(methods,info)):#if Plugin.checkWon evaluates to true will print winner so no need to have else
+                        if len(msgs) != 2:
+                            methods['send'](info['address'],".monopoly requires one argument:" +\
+                            " create, join, start, roll, buy, pass, gameInfo, help or leave")
+                        #following commands can be executed by anyone
+                        elif msgs[1].lower() == "help":
+                            Plugin.get_help(methods,info)
 
-                    elif msgs[1].lower() == "create":
-                        Plugin.create(methods,info,name)
+                        elif msgs[1].lower() == "create":
+                            Plugin.create(methods,info,name)
 
-                    elif msgs[1].lower() == "join":
-                        methods['send'](info['address'],Plugin.join(name))
+                        elif msgs[1].lower() == "join":
+                            methods['send'](info['address'],Plugin.join(name))
 
-                    elif msgs[1].lower() == "gameinfo":
-                        Plugin.get_info(methods,info)
+                        elif msgs[1].lower() == "gameinfo":
+                            Plugin.get_info(methods,info)
 
-                    elif msgs[1].lower() == "start":
-                        Plugin.start(methods,info)
+                        elif msgs[1].lower() == "start":
+                            Plugin.start(methods,info)
 
-                    elif msgs[1].lower() == "leave":
-                        methods['send'](info['address'],Plugin.leave(name))
+                        elif msgs[1].lower() == "leave":
+                            methods['send'](info['address'],Plugin.leave(name))
+                            Plugin.checkWon(methods,info)
 
-                    elif Plugin.stage == 1:#if the game has started
-                        if len(Plugin.players) > 0:
-                            if name == Plugin.players[Plugin.turn].getName():#check the correct player issued the command
+                        elif Plugin.stage == 1:#if the game has started
+                            if len(Plugin.players) > 0:
+                                if name == Plugin.players[Plugin.turn].getName():#check the correct player issued the command
 
-                                if msgs[1].lower() == "roll":
-                                    Plugin.roll(methods,info)
+                                    if msgs[1].lower() == "roll":
+                                        Plugin.roll(methods,info)
 
-                                elif msgs[1].lower() == "buy":
-                                    Plugin.buy(methods,info)
+                                    elif msgs[1].lower() == "buy":
+                                        Plugin.buy(methods,info)
 
-                                elif msgs[1].lower() == "pass":
-                                    Plugin.buy_pass_req = False
-                                    Plugin.roll_req = True
-                                    Plugin.next_turn()
+                                    elif msgs[1].lower() == "pass":
+                                        Plugin.buy_pass_req = False
+                                        Plugin.roll_req = True
+                                        Plugin.next_turn()
 
+                                    else:
+                                        methods['send'](info['address'],".monopoly requires one argument:" +\
+                                        " create, join, start, roll, buy, pass, gameInfo, help or leave")
                                 else:
-                                    methods['send'](info['address'],".monopoly requires one argument:" +\
-                                    " create, join, start, roll, buy, pass, gameInfo, help or leave")
-                            else:
-                                methods["send"](info["address"],"It is not your turn!")
+                                    methods["send"](info["address"],"It is not your turn!")
 
-                    elif msgs[1].lower() == "roll" or msgs[1].lower() == "buy" or msgs[1].lower() == "pass":
-                        methods['send'](info['address'],"Invalid command at this time, wait for game to start!")
+                        elif msgs[1].lower() == "roll" or msgs[1].lower() == "buy" or msgs[1].lower() == "pass":
+                            methods['send'](info['address'],"Invalid command at this time, wait for game to start!")
 
-                    else:
-                        methods['send'](info['address'],".monopoly requires one argument:" +\
-                        " create, join, start, roll, buy, pass, gameInfo, help or leave")
+                        else:
+                            methods['send'](info['address'],".monopoly requires one argument:" +\
+                            " create, join, start, roll, buy, pass, gameInfo, help or leave")
 
         except Exception as e:
             print("woops, monopoly plugin error ",e)
