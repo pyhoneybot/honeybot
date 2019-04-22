@@ -213,15 +213,13 @@ class Bot_core(object):
         self.connect()
         self.identify()
         self.greet()
-        self.load_plugins('STD_PLUGINS')
-        self.load_plugins('USER_PLUGINS')
+        self.load_plugins('PLUGINS')
         self.pull()
 
     def unregistered_run(self):
         self.connect()
         self.greet()
-        self.load_plugins('STD_PLUGINS')
-        self.load_plugins('USER_PLUGINS')
+        self.load_plugins('PLUGINS')
         self.pull()
 
     '''

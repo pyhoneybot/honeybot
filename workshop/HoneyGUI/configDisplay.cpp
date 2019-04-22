@@ -59,6 +59,44 @@ int configDisplay::file_seperated(std::string write, std::string file) {
     return 0;
 }
 
+std::string configDisplay::get_conf(std::string field, std::string file) {
+    std::ifstream infile(path + "/" + file);
+
+    if(!infile){
+        return "";
+    }
+
+    std::string strTemp;
+    std::regex match ("(" + field + ")(.*)");
+
+    while (getline(infile, strTemp)){
+        if (std::regex_match(strTemp, match)){
+            return strTemp.erase(0, field.length());
+        }
+    }
+
+    infile.close();
+}
+
+std::string configDisplay::get_list(std::string file) {
+    std::ifstream infile(path + "/" + file);
+
+    if(!infile){
+        return "";
+    }
+
+    std::string strTemp;
+    std::string x;
+
+    while (getline(infile, strTemp)){
+        x += strTemp + ", ";
+    }
+
+    infile.close();
+
+    return x;
+}
+
 configDisplay::configDisplay() {
     std::ifstream infile;
     infile.open("path.txt");
@@ -72,45 +110,53 @@ configDisplay::configDisplay() {
     editors.set_margin_left(10);
     editors.set_margin_top(5);
 
-    editors.attach(nameFrame, 0, 0, 2, 1); //Adding in all the frames and entries
+    editors.attach(nameFrame, 0, 0, 2, 1); //Adding in all the frames and entries, along with their properties
     nameFrame.set_label("Bot Name");
     nameFrame.add(nameEntry);
+    nameEntry.set_text(get_conf("name = ", "CONNECT.conf"));
     nameEntry.signal_activate().connect( sigc::bind<Gtk::Entry*>(sigc::mem_fun(*this, &configDisplay::on_entry_activated), &nameEntry, "name = ", "CONNECT.conf") );
 
     editors.attach(serverFrame, 0, 1, 1, 1);
     serverFrame.set_label("Server URL");
     serverFrame.add(serverEntry);
+    serverEntry.set_text(get_conf("server_url = ", "CONNECT.conf"));
     serverEntry.signal_activate().connect( sigc::bind<Gtk::Entry*>(sigc::mem_fun(*this, &configDisplay::on_entry_activated), &serverEntry, "server_url = ", "CONNECT.conf") );
 
     editors.attach(portFrame, 1, 1, 1, 1);
     portFrame.set_label("Port Number");
     portFrame.add(portEntry);
+    portEntry.set_text(get_conf("port = ", "CONNECT.conf"));
     portEntry.signal_activate().connect( sigc::bind<Gtk::Entry*>(sigc::mem_fun(*this, &configDisplay::on_entry_activated), &portEntry, "port = ", "CONNECT.conf") );
 
     editors.attach(channelFrame, 2, 1, 1, 1);
     channelFrame.set_label("Channels, Comma Seperated");
     channelFrame.add(channelEntry);
+    channelEntry.set_text(get_list("AUTOJOIN_CHANNELS.conf"));
     channelEntry.signal_activate().connect( sigc::bind<Gtk::Entry*>(sigc::mem_fun(*this, &configDisplay::seperated_entry_activated), &channelEntry, "", "AUTOJOIN_CHANNELS.conf") );
 
     editors.attach(euserFrame, 0, 2, 1, 1);
     euserFrame.set_label("Email");
     euserFrame.add(euserEntry);
+    euserEntry.set_text(get_conf("Email: ", "email_config.conf"));
     euserEntry.signal_activate().connect( sigc::bind<Gtk::Entry*>(sigc::mem_fun(*this, &configDisplay::on_entry_activated), &euserEntry, "Email: ", "email_config.conf") );
 
     editors.attach(epassFrame, 1, 2, 1, 1);
     epassFrame.set_label("Email Password");
     epassFrame.add(epassEntry);
     epassEntry.set_visibility(false);
+    epassEntry.set_text(get_conf("Password: ", "email_config.conf"));
     epassEntry.signal_activate().connect( sigc::bind<Gtk::Entry*>(sigc::mem_fun(*this, &configDisplay::on_entry_activated), &epassEntry, "Password: ", "email_config.conf") );
 
     editors.attach(eservFrame, 2, 2, 1, 1);
     eservFrame.set_label("SMTP Server");
     eservFrame.add(eservEntry);
+    eservEntry.set_text(get_conf("SMTP Server: ", "email_config.conf"));
     eservEntry.signal_activate().connect( sigc::bind<Gtk::Entry*>(sigc::mem_fun(*this, &configDisplay::on_entry_activated), &eservEntry, "SMTP Server: ", "email_config.conf") );
 
     editors.attach(eportFrame, 3, 2, 1, 1);
     eportFrame.set_label("SMTP Port");
     eportFrame.add(eportEntry);
+    eportEntry.set_text(get_conf("SMTP Server Port: ", "email_config.conf"));
     eportEntry.signal_activate().connect( sigc::bind<Gtk::Entry*>(sigc::mem_fun(*this, &configDisplay::on_entry_activated), &eportEntry, "SMTP Server Port: ", "email_config.conf") );
 
     alignment1.add(editors);
