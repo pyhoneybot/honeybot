@@ -1,3 +1,7 @@
+/**
+ * Easy way to connect everything and organize
+ */
+
 #ifndef HONEYGUI_GUIBASE_H
 #define HONEYGUI_GUIBASE_H
 
