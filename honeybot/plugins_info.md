@@ -211,7 +211,17 @@ or to get help on currencies supported:
 \
 <code>.converter \<help></code>
 
-#russian_roulette.py
+# russian_roulette.py
 by Angelo Giacco\
 may or may not kick you off the channel\
 <code>.russian_roulette </code>
+
+# monopoly.py
+by Angelo Giacco\
+Bringing the world's most divisive game to honeybot!\
+<code>.monopoly \<\<command>></code>\
+The command can be any of the following: create, join, start, roll, buy, pass, info, help or leave.\
+Optionally, info can be followed by a player name to find more about the player, a property's name to find out more about it or it can be followed by 'rolls' to find out about the possible outcomes for each amount you might roll.
+
+
+
