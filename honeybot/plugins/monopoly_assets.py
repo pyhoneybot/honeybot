@@ -89,7 +89,7 @@ board_spaces = [
                 Property("Mediterranean Ave.","Violet",60,2,10,30,90,160,250,50),
                 Space("Community Card"),
                 Property("Baltic Ave.","Violet",60,4,20,60,180,320,450,50),
-                Space("Income Tax"),
+                Space(" Tax"),
                 Railroad("Reading Railroad"),
                 Property("Oriental Ave.","Light blue",100,6,30,90,270,400,550,50),
                 Space("Chance Card"),
@@ -133,7 +133,7 @@ board_spaces = [
 chance_deck = [
                {"You have been elected chairman of the board, pay each player $50":[0,(50,)]},
                {"Take a ride on the reading, if you pass GO collect $200":[1,()]},
-               {"Take a walk on the board walk, advance token to board walk":[2,(board_spaces[38],)]},
+               {"Take a walk on the board walk, advance token to board walk":[2,(board_spaces[39],)]},
                {"Advance to go, collect $200":[3,()]},
                {"Advance token to the nearest Railroad and pay owner Twice the Rental owed. If Railroad is unowned you may buy it from the bank":[4,()]},
                {"Advance token to the nearest Railroad and pay owner Twice the Rental owed. If Railroad is unowned you may buy it from the bank":[4,()]},
