@@ -148,12 +148,15 @@ class Plugin:
 
     def show_rolls(methods,info,player):
         '''show what will happen for each amount a user rolls'''
-        methods["send"](info["address"],"Upcoming spaces that "+player.getName()+"could roll to:")
+        methods["send"](info["address"],"Upcoming spaces that "+player.getName()+" could roll to:")
         start = player.getPosition()
         for i in range(2,13):
-            space = board_spaces[start+i]
+            index = start + i
+            if index > 39:
+                index -= 40
+            space = board_spaces[index]
             if isinstance(space,Property) or isinstance(space,Railroad) or isinstance(space,Utility):
-                owner_info = find_owner(space.get_name())
+                owner_info = Plugin.find_owner(space.get_name())
                 if owner_info[0]:
                     if owner_info[1] == player:
                         message = "If you roll "+str(i)+" you will end up at "+\
@@ -162,7 +165,7 @@ class Plugin:
                             message = message + " and can buy a house for if you"+\
                             " have a full set and don't already have a hotel."
                     else:
-                        rent = get_rent(methods,info,space,owner_info[1],i)
+                        rent = Plugin.get_rent(space,owner_info[1],i)
                         message = "If you roll "+str(i)+" you will end up at "+\
                         space.get_name()+" which you is owned by "+owner_info[1].getName()+\
                         " and you would have to pay them "+str(rent)
@@ -855,7 +858,7 @@ class Plugin:
                     player.portfolio.append(property)
                     if isinstance(property,Property) or isinstance(property,Railroad):
                         methods["send"](info["address"],player.getName() +\
-                        "bought "+property.get_name()+" for "+str(property.price)+\
+                        " bought "+property.get_name()+" for "+str(property.price)+\
                         " and if you land there you will have to pay "+str(Plugin.get_rent(property,player,0)))
                         Plugin.next_turn()
                     elif isinstance(property,Utility):
@@ -884,37 +887,52 @@ class Plugin:
                 if msgs[0] == '.monopoly':
                     name = info["prefix"].split("!")[0]
                     if not(Plugin.checkWon(methods,info)):#if Plugin.checkWon evaluates to true will print winner so no need to have else
-                        if len(msgs) != 2 and len(msgs) != 3:
+                        if len(msgs) == 1:
                             methods['send'](info['address'],".monopoly requires an argument:" +\
                             " create, join, start, roll, buy, pass, info, help, showrolls or leave")
 
-                        elif len(msgs) == 3:
+                        elif len(msgs) >= 3:
                             if msgs[1] == "info":
                                 if msgs[2] == "rolls":
-                                    if isinstance(Plugin.check_player(name),Player):
+                                    player = Plugin.check_player(name)
+                                    if isinstance(player,Player):
                                         Plugin.show_rolls(methods,info,player)
                                     else:
                                         methods["send"](info["address"],"You are not playing!")
 
                                 else:
                                     pl = False #msgs[2] not a player
+                                    print(msgs[2:])
                                     for space in board_spaces:
-                                        if space.get_name() == msgs[2]:
+                                        if space.get_name() == " ".join(msgs[2:]):
+                                            print("space found")
+                                            print(space.get_name())
                                             prop = True
                                             pl = Plugin.check_player(name)
-                                            if isinstance(pl,Player):
+                                            if isinstance(pl,Player):#check pl not false
+                                                owner_info = Plugin.find_owner(space.get_name())
+                                                if owner_info[0]:
+                                                    if owner_info[1].getName() == pl.getName():
+                                                        methods["send"](info["address"],"You already own "+space.get_name())
+                                                    else:
+                                                        methods["send"](info["address"],space.get_name()+" is owned by "+owner_info[1].getName())
+                                                else:
+                                                    methods["send"](info["address"],space.get_name()+" is unowned!")
                                                 Plugin.get_location_info(methods,info,pl,space)
                                                 break
                                             else:
                                                 methods["send"](info["address"],"You are not playing and so can not request this information!")
                                     else:
                                         prop = False#msgs[2] not a property
+
+                                    found = False
                                     if prop == False:
                                         pl = Plugin.check_player(msgs[2])
                                         if isinstance(pl,Player):
-                                            Plugin.show_player_info(methods,info,pl)
-                                        else:
-                                            methods["send"](info["address"],player.getName()+" is not playing!")
+                                            Plugin.get_player_info(methods,info,pl)
+                                            found = True
+                                        if not found:
+                                            methods["send"](info["address"],"Invalid command")
 
                             else:
                                 methods["send"](info["address"],"Only the info command allows"+\

@@ -94,7 +94,7 @@ board_spaces = [
                 Property("Oriental Ave.","Light blue",100,6,30,90,270,400,550,50),
                 Space("Chance Card"),
                 Property("Vermont Ave.","Light blue",100,6,30,90,270,400,550,50),
-                Property("Connecticut Ave.","Light blue",120,8,40,100,300,450,600,50),
+                Property("Conneticut Ave.","Light blue",120,8,40,100,300,450,600,50),
                 Space("Jail"),
                 Property("St. Charles Pl.","Purple",140,10,50,150,450,625,750,100),
                 Utility("Electric Company"),
