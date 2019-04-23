@@ -17,7 +17,7 @@ class Player:
     def updatePosition(self,amount):
         passed_go = False
         self.position += amount
-        if self.position >= 39:
+        if self.position > 39:
             passed_go = True
             self.position -= 40
             self.increasePot(200)
