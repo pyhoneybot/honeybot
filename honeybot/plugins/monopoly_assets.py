@@ -89,7 +89,7 @@ board_spaces = [
                 Property("Mediterranean Ave.","Violet",60,2,10,30,90,160,250,50),
                 Space("Community Card"),
                 Property("Baltic Ave.","Violet",60,4,20,60,180,320,450,50),
-                Space(" Tax"),
+                Space("Income Tax"),
                 Railroad("Reading Railroad"),
                 Property("Oriental Ave.","Light blue",100,6,30,90,270,400,550,50),
                 Space("Chance Card"),
