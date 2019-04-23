@@ -113,8 +113,6 @@ class Plugin:
 
     def count_player_properties(player):
         '''count property types of assets in player portfolio, returns a dict'''
-        #creates a dictionary with the users properties from the portfolio list
-        #utilises the fact that True is equal to 1
         portfolio = player.getPortfolio()
 
         violet = Plugin.count_color_property(portfolio, "Violet")
@@ -333,9 +331,6 @@ class Plugin:
         Plugin.roll_req = False
         Plugin.buy_pass_req = True
         Plugin.get_location_info(methods,info,player,space)
-        #something like the line above should be executed to give the user an idea
-        #about what they are buying and the rest of their situation
-        #such as ownership of other properties in that set and how much money they have
 
     def pay(methods,info,payer,receiver,amount):
         '''payers pays a user a certain amount and may be kicked out of the game if has no money'''
@@ -365,10 +360,8 @@ class Plugin:
                 cost_house = property.get_house_cost()
                 methods["send"](info["address"],"You have landed on your own property "+\
                 "and can buy a house for "+str(cost_house))
-                #should show property information and user pot
                 Plugin.buy_pass_req = True
                 Plugin.roll_req = False
-                #maybe add house info or summat to know what is being bought
         else:
             methods["send"](info["address"],"You have landed on your own property."+\
             "but cannot buy a house as you need a full set")
@@ -403,7 +396,6 @@ class Plugin:
 
     def chance_card(methods,info,player):
         '''pick a chance card from top, execute it, add it to bottom of pack'''
-        #chance_methods = [pay_all,reading_rail,boardwalk,go,railroad,get_outta_jail,jail,earn,illinois,fine,repairs,st_charles_place,util,move_back_three]
         chance_card_methods = [Plugin.pay_all,Plugin.reading_rail,
                                Plugin.move_to_property,Plugin.go,Plugin.railroad,
                                Plugin.get_outta_jail,Plugin.jail,Plugin.earn,
@@ -624,7 +616,6 @@ class Plugin:
             methods["send"](info["address"],"You moved back to the community card space...")
             Plugin.community_card(methods,info,player)
         elif player.getPosition == 7:
-            #send a message about being fined
             methods["send"](info["address"],"You moved back to income tax...")
             Plugin.fine(methods,info,player,200)
 
@@ -783,7 +774,6 @@ class Plugin:
                             Plugin.pay(methods,info,player,owner,rent)
 
                     elif isinstance(new_location,Property) or isinstance(new_location,Utility) or isinstance(new_location,Railroad):
-                        #buy
                         Plugin.land_unowned_property(methods,info,player,new_location)
 
                     elif player.getPosition() == 22:
@@ -886,7 +876,7 @@ class Plugin:
                 msgs = info['args'][1:][0].split()
                 if msgs[0] == '.monopoly':
                     name = info["prefix"].split("!")[0]
-                    if not(Plugin.checkWon(methods,info)):#if Plugin.checkWon evaluates to true will print winner so no need to have else
+                    if not(Plugin.checkWon(methods,info)):#if Plugin.checkWon evaluates to true it will print winner already
                         if len(msgs) == 1:
                             methods['send'](info['address'],".monopoly requires an argument:" +\
                             " create, join, start, roll, buy, pass, info, help or leave")
@@ -959,7 +949,7 @@ class Plugin:
                             methods['send'](info['address'],Plugin.leave(name))
                             Plugin.checkWon(methods,info)
 
-                        elif Plugin.stage == 1:#if the game has started
+                        elif Plugin.stage == 1:#following commands only executable if the game has started
                             if len(Plugin.players) > 0:
                                 if name == Plugin.players[Plugin.turn].getName():#check the correct player issued the command
 
