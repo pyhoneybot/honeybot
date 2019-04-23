@@ -1,6 +1,6 @@
-//
-// Created by erev on 4/18/19.
-//
+/**
+ * This displays the basic bot controls
+ */
 
 #ifndef HONEYGUI_CONTROLDISPLAY_H
 #define HONEYGUI_CONTROLDISPLAY_H
