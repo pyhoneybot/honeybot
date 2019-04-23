@@ -889,7 +889,7 @@ class Plugin:
                     if not(Plugin.checkWon(methods,info)):#if Plugin.checkWon evaluates to true will print winner so no need to have else
                         if len(msgs) == 1:
                             methods['send'](info['address'],".monopoly requires an argument:" +\
-                            " create, join, start, roll, buy, pass, info, help, showrolls or leave")
+                            " create, join, start, roll, buy, pass, info, help or leave")
 
                         elif len(msgs) >= 3:
                             if msgs[1] == "info":
@@ -976,7 +976,7 @@ class Plugin:
 
                                     else:
                                         methods['send'](info['address'],".monopoly requires one argument:" +\
-                                        " create, join, start, roll, buy, pass, info, help, showrolls or leave")
+                                        " create, join, start, roll, buy, pass, info, help or leave")
                                 else:
                                     methods["send"](info["address"],"It is not your turn!")
 
@@ -985,7 +985,7 @@ class Plugin:
 
                         else:
                             methods['send'](info['address'],".monopoly requires one argument:" +\
-                            " create, join, start, roll, buy, pass, info, help, showrolls or leave")
+                            " create, join, start, roll, buy, pass, info, help or leave")
 
         except Exception as e:
             print("woops, monopoly plugin error ",e)
