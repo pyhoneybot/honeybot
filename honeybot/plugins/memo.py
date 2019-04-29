@@ -1,17 +1,18 @@
 # -*- coding: utf-8 -*-
 """
-[greet.py]
-Greet Plugin
+[memo.py]
+Memory Use Illustration Plugin
 
 [Author]
 Abdur-Rahmaan Janhangeer, pythonmembers.club
 
 [About]
-responds to .hi, demo of a basic plugin
+responds to .memo, demo of a basic memory plugin
 
 [Commands]
->>> .hi
-returns hoo
+>>> .memo add <key> <value>
+>>> .memo rem <key>
+>>> .memo fetch <key>
 """
 
 
