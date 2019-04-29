@@ -9,6 +9,9 @@ import sys
 
 connect_config = configparser.ConfigParser()
 connect_config.read('settings/CONNECT.conf')
+
+memory_reader = configparser.ConfigParser()
+
 plugins = []
 
 logger = logging.getLogger('bot_core')
@@ -32,8 +35,6 @@ class Bot_core(object):
         self.domain = '.'.join(dom[-2:])
         self.sp_command = 'hbot'
         self.plugins = []
-
-        
 
     '''
     STRINGS
@@ -142,7 +143,10 @@ class Bot_core(object):
         return {
                 'send_raw': self.send,
                 'send': self.send_target,
-                'join': self.join
+                'join': self.join,
+                'mem_add': self.memory_add_value,
+                'mem_rem': self.memory_remove_value,
+                'mem_fetch': self.memory_fetch_value
                 }
 
     def run_plugins(self, listfrom, incoming):
@@ -162,6 +166,24 @@ class Bot_core(object):
             reqs = f.read().split('\n')
         reqs = [m.split('==')[0] for m in reqs if m]
         return reqs
+
+    # TODO: classify methods according to APIs and have
+    # a memory API
+    def memory_add_value(self, memfile, section, key, value):
+        memory_reader.read('memory/{}.txt'.format(memfile))
+        memory_reader[section][key] = value
+        with open('memory/{}.txt'.format(memfile), 'w') as file:
+            memory_reader.write(file)
+
+    def memory_remove_value(self, memfile, section, key):
+        memory_reader.read('memory/{}.txt'.format(memfile))
+        memory_reader.remove_option(section, key)
+        with open('memory/{}.txt'.format(memfile), 'w') as file:
+            memory_reader.write(file)
+
+    def memory_fetch_value(self, memfile, section, key):
+        memory_reader.read('memory/{}.txt'.format(memfile))
+        return memory_reader[section][key]
     '''
     MESSAGE PARSING
     '''
@@ -213,13 +235,15 @@ class Bot_core(object):
         self.connect()
         self.identify()
         self.greet()
-        self.load_plugins('PLUGINS')
+        self.load_plugins('STD_PLUGINS')
+        self.load_plugins('USER_PLUGINS')
         self.pull()
 
     def unregistered_run(self):
         self.connect()
         self.greet()
-        self.load_plugins('PLUGINS')
+        self.load_plugins('STD_PLUGINS')
+        self.load_plugins('USER_PLUGINS')
         self.pull()
 
     '''
@@ -236,6 +260,7 @@ class Bot_core(object):
             self.send(self.pong_return(self.domain))
             self.send(self.pong_return(parts[1]))
             self.irc.recv(2048).decode("UTF-8")
+
 
 if __name__ == '__main__':
     logging.basicConfig(
