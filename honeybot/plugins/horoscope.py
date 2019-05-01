@@ -57,7 +57,7 @@ class Plugin:
             message = doc.find_all('p')[0].text #the first p element of the website is the horoscope and we only want its text
         return(message)
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             msgs = info['args'][1:][0].split()
 

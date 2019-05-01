@@ -11,7 +11,7 @@ prints all parameters passed to bot
 
 [Commands]
 >>> .debug
-prints all parameters
+prints some parameters
 """
 
 
@@ -19,7 +19,7 @@ class Plugin:
     def __init__(self):
         pass
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             # if '!~' in info['prefix']:
                 # print(info)

@@ -46,7 +46,7 @@ class Plugin:
                 msg = self.class_hangman.display_screen()
         return msg
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
             try:
                 msgs = info['args'][1:][0].split()
                 if info['command'] == 'PRIVMSG':

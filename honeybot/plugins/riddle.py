@@ -40,7 +40,7 @@ class Plugin:
             print("else")
             return "riddle plugin error"
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             msgs = info['args'][1:][0].split()
             print(msgs)

@@ -31,7 +31,7 @@ class Plugin:
         return search(search_term, start=1, stop=3, \
                       only_standard=True)
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             msgs = info['args'][1:][0].split()
    

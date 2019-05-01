@@ -55,7 +55,7 @@ class Plugin:
         password = ''.join(passwordList)
         return password
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             # if '!~' in info['prefix']:
             # print(info)

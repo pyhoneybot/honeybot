@@ -19,7 +19,7 @@ class Plugin:
     def __init__(self):
         pass
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             # if '!~' in info['prefix']:
                 # print(info)

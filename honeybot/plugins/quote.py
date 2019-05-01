@@ -69,7 +69,7 @@ class Plugin:
 
         return '{}'.format(random.choice(quotes))
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             msgs = info['args'][1:]
             if info['command'] == 'PRIVMSG' and msgs[0] == '.quote':

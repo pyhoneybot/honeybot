@@ -25,7 +25,7 @@ class Plugin:
         self.api_url = "https://api.coinmarketcap.com/v1/ticker/bitcoin/"
         pass
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             #msgs = info['args'][1:][0].split()
 

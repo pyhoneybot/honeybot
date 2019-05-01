@@ -74,7 +74,7 @@ class Plugin:
 
         return '{}'.format(random.choice(jokes))
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             # if '!~' in info['prefix']:
                 # print(info)

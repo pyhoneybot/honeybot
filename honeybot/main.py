@@ -58,7 +58,7 @@ class Bot_core(object):
     def pong_return(self, domain):
         return 'PONG :{}\r\n'.format(domain)
 
-    def info(self, s):
+    def message_info(self, s):
         def prevent_none(x):
             if x is None:
                 return ''
@@ -88,14 +88,18 @@ class Bot_core(object):
                     'prefix': prevent_none(prefix),
                     'command': prevent_none(command),
                     'args': ['' if e is None else e for e in args],
-                    'address': prevent_none(address),
-                    'bot_name': prevent_none(self.name),
-                    'bot_special_command': self.sp_command,
-                    'required_modules': self.required_modules
+                    'address': prevent_none(address)
                     }
         except Exception as e:
             logger.error(e)
 
+    def bot_info(self):
+        return {
+            'name': self.name,
+            'special_command': self.sp_command,
+            'required_modules': self.required_modules,
+            'owners': self.owners
+        }
     '''
     MESSAGE UTIL
     '''
@@ -153,12 +157,12 @@ class Bot_core(object):
         '''
         incoming is the unparsed string. refer to test.py
         '''
-        #if self.info(incoming)['args'][1][0] == ".":
+        #if self.message_info(incoming)['args'][1][0] == ".":
             #print("\033[0;32mReceived!\033[0;0m")
 
         for plugin in listfrom:
             #print(f"\033[0;33mTrying {plugin}\033[0;0m")
-            plugin.run(self, incoming, self.methods(), self.info(incoming))
+            plugin.run(self, incoming, self.methods(), self.message_info(incoming), self.bot_info())
 
     def requirements(self):
         reqs = []

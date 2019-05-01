@@ -90,7 +90,7 @@ class Plugin:
             i = i+1
         return (SUBJECT)
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             # if '!~' in info['prefix']:
                 # print(info)

@@ -26,7 +26,7 @@ class Plugin:
         ten_headlines_text_list = [headline.text[1:-1] for headline in headlines[:10]]
         return ten_headlines_text_list#return the list as a string with newlines
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             if info['command'] == 'PRIVMSG' and info['args'][1] == '.news':
                 for headline in Plugin.news(self):
