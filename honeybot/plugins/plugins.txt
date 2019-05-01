@@ -16,11 +16,13 @@ help.py
 horoscope.py
 __init__.py
 installed_modules.py
+jcommand.py
 joins.py
 joke.py
 log.py
 mail.py
 maths.py
+memo.py
 monopoly_assets.py
 monopoly_player.py
 monopoly.py
