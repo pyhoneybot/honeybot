@@ -15,6 +15,12 @@ A Google Translate plugin
 \
 <code>. Google Translator object.</code>
 
+# russian_roulette.py
+by Angelo Giacco\
+In the original russian roulette, you have a one sixth chance of committing
+\
+<code>.russian_roulette</code>
+
 # help.py
 by Eduardo Moraes de Mello, https://github.com/edumello\
 Show link with all the functionalities of the bot.
@@ -43,6 +49,12 @@ by Justin Walker\
 Plays game of hangman
 \
 <code>.hangman start</code>
+
+# monopoly.py
+by Angelo Giacco\
+Play monopoly
+\
+<code>>>>.monopoly create</code>
 
 # riddle.py
 by Angelo Giacco\
@@ -162,6 +174,12 @@ checks if all listed in requirements.txt installed
 \
 <code>.installed</code>
 
+# jcommand.py
+by Abdur-Rahmaan Janhangeer, pythonmembers.club\
+
+\
+<code></code>
+
 # converter.py
 by Angelo Giacco\
 Gets the top 10 headlines around the world from bbc world news
@@ -179,6 +197,12 @@ by Justin Walker\
 Given birthday it returns your age.
 \
 <code>.age \<\<day>> \<\<month>> \<\<year>></code>
+
+# memo.py
+by Abdur-Rahmaan Janhangeer, pythonmembers.club\
+responds to .memo, demo of a basic memory plugin
+\
+<code>.memo add \<key> \<value></code>
 
 # selfTrivia.py
 by Angel Jimenez\
@@ -198,53 +222,3 @@ Sends a message to another channel.
 \
 <code>.send #channel .u riceabove .m how are you?</code>
 
-# test.py
-by Abdur-Rahmaan Janhangeer, pythonmembers.club\
-tests run
-\
-
-# translate.py
-by Ahmed Deeb\
-A Google Translate plugin
-\
-<code>. Google Translator object.</code>
-
-# username.py
-by Abdur-Rahmaan Janhangeer, pythonmembers.club\
-generates random usernames, used for inspiration
-\
-<code>.uname</code>
-
-# weather.py
-by Gabriele Ron\
-A plugin to get the weather of a location
-\
-<code>.weather \<city> \<country code></code>
-
-# wikipedia.py
-by Gabriele Ron, [Website](https://Macr0Nerd.github.io)\
-sends a wikipedia article on request based off of a search or random query
-\
-<code>.wiki \<command> \<topic></code>
-
-# converter.py
-by Angelo Giacco\
-converts a currency with default amount of 1
-\
-<code>.converter \<base currency> \<target currency> \<amount></code>
-\
-or to get help on currencies supported:
-\
-<code>.converter \<help></code>
-
-# russian_roulette.py
-by Angelo Giacco\
-may or may not kick you off the channel\
-<code>.russian_roulette </code>
-
-# monopoly.py
-by Angelo Giacco\
-Bringing the world's most divisive game to honeybot!\
-<code>.monopoly \<\<command>></code>\
-The command can be any of the following: create, join, start, roll, buy, pass, info, help or leave.\
-Optionally, info can be followed by a player name to find more about the player, a property's name to find out more about it or it can be followed by 'rolls' to find out about the possible outcomes for each amount you might roll.

@@ -239,15 +239,13 @@ class Bot_core(object):
         self.connect()
         self.identify()
         self.greet()
-        self.load_plugins('STD_PLUGINS')
-        self.load_plugins('USER_PLUGINS')
+        self.load_plugins('PLUGINS')
         self.pull()
 
     def unregistered_run(self):
         self.connect()
         self.greet()
-        self.load_plugins('STD_PLUGINS')
-        self.load_plugins('USER_PLUGINS')
+        self.load_plugins('PLUGINS')
         self.pull()
 
     '''
@@ -263,7 +261,6 @@ class Bot_core(object):
             logger.warning(parts[1])
             self.send(self.pong_return(self.domain))
             self.send(self.pong_return(parts[1]))
-            self.irc.recv(2048).decode("UTF-8")
 
 
 if __name__ == '__main__':
