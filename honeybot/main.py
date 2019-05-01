@@ -83,12 +83,14 @@ class Bot_core(object):
                 address = args[0]
             else:
                 address = prefix.split('!~')[0]
+            user = prefix.split('!')[0]
             # return prefix, command, args, address
             return {
                     'prefix': prevent_none(prefix),
                     'command': prevent_none(command),
                     'args': ['' if e is None else e for e in args],
-                    'address': prevent_none(address)
+                    'address': prevent_none(address),
+                    'user': prevent_none(user)
                     }
         except Exception as e:
             logger.error(e)
