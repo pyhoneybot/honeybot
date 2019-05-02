@@ -870,7 +870,7 @@ class Plugin:
     RUN PLUGIN
     """
 
-    def run(self,incoming,methods,info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             if info['command'] == 'PRIVMSG':
                 msgs = info['args'][1:][0].split()

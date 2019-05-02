@@ -31,7 +31,7 @@ class Plugin:
               .format(years, abs(months), abs(days))
         return msg
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             msgs = info['args'][1:][0].split()
             print(len(msgs))

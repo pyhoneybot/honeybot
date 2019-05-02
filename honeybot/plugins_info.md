@@ -1,64 +1,55 @@
-# joins.py
+# age.py
+by Justin Walker\
+Given birthday it returns your age.
+\
+<code>.age \<\<day>> \<\<month>> \<\<year>></code>
+
+# bitcoin.py
+by Gabriele Ron, [Website](https://Macr0Nerd.github.io)\
+Checks the current price for Bitcoin through the Legacy Coin Market Cap API
+\
+<code>.btc</code>
+
+# caesar_cipher.py
+by Kyle Galloway\
+encrypts and decrypts using a caesar cipher
+\
+<code>.caesar_cipher \<message></code>
+
+# calc.py
+by Abdur-Rahmaan Janhangeer, pythonmembers.club\
+evaluates maths expressions in the format supported by py
+\
+<code>.calc \<maths expression></code>
+
+# channeljoin.py
+by Marcelo Benesciutti\
+Bot Will join a given channel in the server
+\
+<code>.channeljoin channel</code>
+
+# converter.py
+by Angelo Giacco\
+Converts currencies
+\
+<code>.convert \<\<base currency code>> \<\<target currency code>> \<\<amount>></code>
+
+# conv_sniff.py
+by Abdur-Rahmaan Janhangeer, pythonmembers.club\
+senses conversation topic with sensitivity set by user, also supports
+\
+
+# date.py
 by Gico Carlo Evangelista, https://gicocarlo.me/\
-Greets everyone who joins the channel
+Will post the current date
 \
-
-# password_generator.py
-by Nishant, JPMorgan Chase & Co.\
-sends different type of passwords
-\
-<code>.passgen \<\<length>></code>
-
-# translate.py
-by Ahmed Deeb\
-A Google Translate plugin
-\
-<code>. Google Translator object.</code>
-
-# help.py
-by Eduardo Moraes de Mello, https://github.com/edumello\
-Show link with all the functionalities of the bot.
-\
-<code>.help</code>
-
-# quote.py
-by German Corpaz\
-Sends a random quote on request
-\
-<code>.quote</code>
-
-# log.py
-by Gico Carlo Evangelista, https://gicocarlo.me/\
-Logs the chat into a log.txt file
-\
+<code>.date today</code>
 
 # debug.py
 by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 prints all parameters passed to bot
 \
 <code>.debug</code>
-
-# hangman.py
-by Justin Walker\
-Plays game of hangman
-\
-<code>.hangman start</code>
-
-# riddle.py
-by Angelo Giacco\
-Returns a riddle or whether guess at the answer was correct or not.
-\
-<code>.riddle</code>
-
-# test.py
-by Abdur-Rahmaan Janhangeer, pythonmembers.club\
-tests run
-\
-
-# conv_sniff.py
-by Abdur-Rahmaan Janhangeer, pythonmembers.club\
-senses conversation topic with sensitivity set by user, also supports
-\
 
 # dictionary.py
 by Nishant, JPMorgan Chase & Co.\
@@ -72,59 +63,11 @@ Returns a random fact.
 \
 <code>.fact</code>
 
-# horoscope.py
-by Angelo Giacco\
-Returns your daily horoscope based on your star sign
+# google.py
+by Justin Walker\
+Returns the first three links from a google search.
 \
-<code>.horoscope \<\<starsign>></code>
-
-# bitcoin.py
-by Gabriele Ron, [Website](https://Macr0Nerd.github.io)\
-Checks the current price for Bitcoin through the Legacy Coin Market Cap API
-\
-<code>.btc</code>
-
-# username.py
-by Abdur-Rahmaan Janhangeer, pythonmembers.club\
-generates random usernames, used for inspiration
-\
-<code>.uname</code>
-
-# wikipedia.py
-by Gabriele Ron, [Website](https://Macr0Nerd.github.io)\
-sends a wikipedia article on request based off of a search or random query
-\
-<code>.wiki \<command> \<topic></code>
-
-# date.py
-by Gico Carlo Evangelista, https://gicocarlo.me/\
-Will post the current date
-\
-<code>.date today</code>
-
-# joke.py
-by Abdur-Rahmaan Janhangeer, pythonmembers.club\
-sends a random joke on request
-\
-<code>.joke</code>
-
-# roll.py
-by Glenn Toms\
-Will roll dice in the form of 1d4, 10d6 and return total.
-\
-<code>.roll \<\<dice>></code>
-
-# maths.py
-by Abdur-Rahmaan Janhangeer, pythonmembers.club\
-some maths related commands
-\
-<code>.sin \<number></code>
-
-# channeljoin.py
-by Marcelo Benesciutti\
-Bot Will join a given channel in the server
-\
-<code>.channeljoin channel</code>
+<code>.google \<\<search term>></code>
 
 # greet.py
 by Abdur-Rahmaan Janhangeer, pythonmembers.club\
@@ -132,29 +75,23 @@ responds to .hi, demo of a basic plugin
 \
 <code>.hi</code>
 
-# mail.py
-by Tanner Fry\
-Will allow the user to send an email while in the chat
-\
-<code>.mail \<To email address> .body \<Text for the body of your email> .subject \<Text of subject for email></code>
-
-# weather.py
-by Gabriele Ron\
-A plugin to get the weather of a location
-\
-<code>.weather \<city> \<country code></code>
-
-# news.py
-by Angelo Giacco\
-Gets the top 10 headlines around the world from bbc world news
-\
-<code>.news</code>
-
-# google.py
+# hangman.py
 by Justin Walker\
-Returns the first three links from a google search.
+Plays game of hangman
 \
-<code>.google \<\<search term>></code>
+<code>.hangman start</code>
+
+# help.py
+by Eduardo Moraes de Mello, https://github.com/edumello\
+Show link with all the functionalities of the bot.
+\
+<code>.help</code>
+
+# horoscope.py
+by Angelo Giacco\
+Returns your daily horoscope based on your star sign
+\
+<code>.horoscope \<\<starsign>></code>
 
 # installed_modules.py
 by Abdur-Rahmaan Janhangeer, pythonmembers.club\
@@ -162,35 +99,87 @@ checks if all listed in requirements.txt installed
 \
 <code>.installed</code>
 
-# converter.py
+# joins.py
+by Gico Carlo Evangelista, https://gicocarlo.me/\
+Greets everyone who joins the channel
+\
+
+# joke.py
+by Abdur-Rahmaan Janhangeer, pythonmembers.club\
+sends a random joke on request
+\
+<code>.joke</code>
+
+# log.py
+by Gico Carlo Evangelista, https://gicocarlo.me/\
+Logs the chat into a log.txt file
+\
+
+# mail.py
+by Tanner Fry\
+Will allow the user to send an email while in the chat
+\
+<code>.mail \<To email address> .body \<Text for the body of your email> .subject \<Text of subject for email></code>
+
+# maths.py
+by Abdur-Rahmaan Janhangeer, pythonmembers.club\
+some maths related commands
+\
+<code>.sin \<number></code>
+
+# memo.py
+by Abdur-Rahmaan Janhangeer, pythonmembers.club\
+responds to .memo, demo of a basic memory plugin
+\
+<code>.memo add \<key> \<value></code>
+
+# monopoly.py
+by Angelo Giacco\
+Play monopoly
+\
+<code>.monopoly create</code>
+
+# news.py
 by Angelo Giacco\
 Gets the top 10 headlines around the world from bbc world news
 \
-<code>.convert \<\<base currency code>> \<\<target currency code>> \<\<amount>></code>
+<code>.news</code>
 
-# calc.py
-by Abdur-Rahmaan Janhangeer, pythonmembers.club\
-evaluates maths expressions in the format supported by py
+# password_generator.py
+by Nishant, JPMorgan Chase & Co.\
+sends different type of passwords
 \
-<code>.calc \<maths expression></code>
+<code>.passgen \<\<length>></code>
 
-# age.py
-by Justin Walker\
-Given birthday it returns your age.
+# quote.py
+by German Corpaz\
+Sends a random quote on request
 \
-<code>.age \<\<day>> \<\<month>> \<\<year>></code>
+<code>.quote</code>
+
+# riddle.py
+by Angelo Giacco\
+Returns a riddle or whether guess at the answer was correct or not.
+\
+<code>.riddle</code>
+
+# roll.py
+by Glenn Toms\
+Will roll dice in the form of 1d4, 10d6 and return total.
+\
+<code>.roll \<\<dice>></code>
+
+# russian_roulette.py
+by Angelo Giacco\
+In the original russian roulette, you have a one sixth chance of committing
+\
+<code>.russian_roulette</code>
 
 # selfTrivia.py
 by Angel Jimenez\
 Returns a private trivia question
 \
 <code>.selfTrivia</code>
-
-# caesar_cipher.py
-by Kyle Galloway\
-encrypts and decrypts using a caesar cipher
-\
-<code>.caesar_cipher \<message></code>
 
 # send_message.py
 by Justin Walker\
@@ -226,25 +215,3 @@ by Gabriele Ron, [Website](https://Macr0Nerd.github.io)\
 sends a wikipedia article on request based off of a search or random query
 \
 <code>.wiki \<command> \<topic></code>
-
-# converter.py
-by Angelo Giacco\
-converts a currency with default amount of 1
-\
-<code>.converter \<base currency> \<target currency> \<amount></code>
-\
-or to get help on currencies supported:
-\
-<code>.converter \<help></code>
-
-# russian_roulette.py
-by Angelo Giacco\
-may or may not kick you off the channel\
-<code>.russian_roulette </code>
-
-# monopoly.py
-by Angelo Giacco\
-Bringing the world's most divisive game to honeybot!\
-<code>.monopoly \<\<command>></code>\
-The command can be any of the following: create, join, start, roll, buy, pass, info, help or leave.\
-Optionally, info can be followed by a player name to find more about the player, a property's name to find out more about it or it can be followed by 'rolls' to find out about the possible outcomes for each amount you might roll.

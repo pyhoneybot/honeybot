@@ -29,7 +29,7 @@ class Plugin:
          'snake', 'lion', 'rebel', 'patriot', 'flower', 'popsicle', 'sun', 'failure']
         return '{}{}'.format(random.choice(p1), random.choice(p2))
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             # if '!~' in info['prefix']:
                 # print(info)

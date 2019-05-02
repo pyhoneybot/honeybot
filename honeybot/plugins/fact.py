@@ -26,7 +26,7 @@ class Plugin:
     def __fact():
         return random.choice(FACT_LIST)
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             if info['command'] == 'PRIVMSG' and info['args'][1] == '.fact':
                 methods['send'](info['address'], Plugin.__fact())

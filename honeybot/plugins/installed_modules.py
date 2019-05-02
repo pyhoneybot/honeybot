@@ -19,12 +19,12 @@ class Plugin:
     def __init__(self):
         pass
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             # if '!~' in info['prefix']:
                 # print(info)
             if info['command'] == 'PRIVMSG' and info['args'][1] == '.installed':
-                reqs = info['required_modules']
+                reqs = bot_info['required_modules']
                 not_found = []
                 for module in reqs:
                     try:

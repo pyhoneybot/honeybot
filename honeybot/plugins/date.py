@@ -29,7 +29,7 @@ class Plugin:
         year =  curr_date.strftime("%Y")
         return 'Today is {} {}, {}'.format(month,day,year)
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             if info['command'] == 'PRIVMSG' and info['args'][1] == '.date today':
                 methods['send'](info['address'], Plugin.__date())

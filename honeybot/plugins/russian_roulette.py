@@ -38,7 +38,7 @@ class Plugin:
         else:
             return "You survived..."
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             if info['command'] == 'PRIVMSG' and info['args'][1] == '.russian_roulette':
                 methods['send'](info['address'], Plugin.risk(self, incoming, methods, info))

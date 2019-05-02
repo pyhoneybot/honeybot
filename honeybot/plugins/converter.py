@@ -56,7 +56,7 @@ class Plugin:
             converted = "{}{}".format(part1,part2)
             return str(amount)+ base_cur +" is equal to "+converted+target_cur
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             msgs = info['args'][1:][0].split()
             if info['command'] == 'PRIVMSG' and msgs[0] == '.convert':

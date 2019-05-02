@@ -9,6 +9,9 @@ import sys
 
 connect_config = configparser.ConfigParser()
 connect_config.read('settings/CONNECT.conf')
+
+memory_reader = configparser.ConfigParser()
+
 plugins = []
 
 logger = logging.getLogger('bot_core')
@@ -33,8 +36,6 @@ class Bot_core(object):
         self.sp_command = 'hbot'
         self.plugins = []
 
-        
-
     '''
     STRINGS
     '''
@@ -57,7 +58,7 @@ class Bot_core(object):
     def pong_return(self, domain):
         return 'PONG :{}\r\n'.format(domain)
 
-    def info(self, s):
+    def message_info(self, s):
         def prevent_none(x):
             if x is None:
                 return ''
@@ -82,19 +83,25 @@ class Bot_core(object):
                 address = args[0]
             else:
                 address = prefix.split('!~')[0]
+            user = prefix.split('!')[0]
             # return prefix, command, args, address
             return {
                     'prefix': prevent_none(prefix),
                     'command': prevent_none(command),
                     'args': ['' if e is None else e for e in args],
                     'address': prevent_none(address),
-                    'bot_name': prevent_none(self.name),
-                    'bot_special_command': self.sp_command,
-                    'required_modules': self.required_modules
+                    'user': prevent_none(user)
                     }
         except Exception as e:
             logger.error(e)
 
+    def bot_info(self):
+        return {
+            'name': self.name,
+            'special_command': self.sp_command,
+            'required_modules': self.required_modules,
+            'owners': self.owners
+        }
     '''
     MESSAGE UTIL
     '''
@@ -142,19 +149,22 @@ class Bot_core(object):
         return {
                 'send_raw': self.send,
                 'send': self.send_target,
-                'join': self.join
+                'join': self.join,
+                'mem_add': self.memory_add_value,
+                'mem_rem': self.memory_remove_value,
+                'mem_fetch': self.memory_fetch_value
                 }
 
     def run_plugins(self, listfrom, incoming):
         '''
         incoming is the unparsed string. refer to test.py
         '''
-        #if self.info(incoming)['args'][1][0] == ".":
+        #if self.message_info(incoming)['args'][1][0] == ".":
             #print("\033[0;32mReceived!\033[0;0m")
 
         for plugin in listfrom:
             #print(f"\033[0;33mTrying {plugin}\033[0;0m")
-            plugin.run(self, incoming, self.methods(), self.info(incoming))
+            plugin.run(self, incoming, self.methods(), self.message_info(incoming), self.bot_info())
 
     def requirements(self):
         reqs = []
@@ -162,6 +172,24 @@ class Bot_core(object):
             reqs = f.read().split('\n')
         reqs = [m.split('==')[0] for m in reqs if m]
         return reqs
+
+    # TODO: classify methods according to APIs and have
+    # a memory API
+    def memory_add_value(self, memfile, section, key, value):
+        memory_reader.read('memory/{}.txt'.format(memfile))
+        memory_reader[section][key] = value
+        with open('memory/{}.txt'.format(memfile), 'w') as file:
+            memory_reader.write(file)
+
+    def memory_remove_value(self, memfile, section, key):
+        memory_reader.read('memory/{}.txt'.format(memfile))
+        memory_reader.remove_option(section, key)
+        with open('memory/{}.txt'.format(memfile), 'w') as file:
+            memory_reader.write(file)
+
+    def memory_fetch_value(self, memfile, section, key):
+        memory_reader.read('memory/{}.txt'.format(memfile))
+        return memory_reader[section][key]
     '''
     MESSAGE PARSING
     '''
@@ -235,7 +263,7 @@ class Bot_core(object):
             logger.warning(parts[1])
             self.send(self.pong_return(self.domain))
             self.send(self.pong_return(parts[1]))
-            self.irc.recv(2048).decode("UTF-8")
+
 
 if __name__ == '__main__':
     logging.basicConfig(
@@ -249,6 +277,9 @@ if __name__ == '__main__':
     # logger.warning("warn message")
     # logger.error("error message")
     # logger.critical("critical message")
-
-    x = Bot_core()
-    x.unregistered_run()
+    try:
+        x = Bot_core()
+        x.unregistered_run()
+    except KeyboardInterrupt:
+        print('interrupted')
+        sys.exit()

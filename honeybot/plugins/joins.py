@@ -15,7 +15,7 @@ class Plugin:
     def __init__(self):
         pass
 
-    def run(self, incoming, methods, info):
+    def run(self, incoming, methods, info, bot_info):
         try:
             # Parse the user ID from info['prefix']
             raw_user = info['prefix']
@@ -23,7 +23,7 @@ class Plugin:
             user = raw_user[0:user_index]
 
             # If someone joins and it is not the bot, greet user
-            bot_name = info['bot_name']
+            bot_name = bot_info['name']
             if info['command'] == 'JOIN' and user != bot_name:
 
                 # Greets joined user
