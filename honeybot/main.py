@@ -277,6 +277,9 @@ if __name__ == '__main__':
     # logger.warning("warn message")
     # logger.error("error message")
     # logger.critical("critical message")
-
-    x = Bot_core()
-    x.unregistered_run()
+    try:
+        x = Bot_core()
+        x.unregistered_run()
+    except KeyboardInterrupt:
+        print('interrupted')
+        sys.exit()
