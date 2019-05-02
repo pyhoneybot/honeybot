@@ -52,30 +52,17 @@ pluginDisplay::pluginDisplay() : plugPane(Gtk::ORIENTATION_VERTICAL), plugs(Gtk:
     }
 
     infile.close();
-    infile.open(path + "settings/STD_PLUGINS.conf");
-
-    while (getline(infile, strTemp)) { //Reading the standard plugins
-        stdPlugins.push_back(strTemp);
-    }
-
-    infile.close();
 
     get_list(); //Getting the selected plugins
 
     for (int i = 0; i < plugins.size(); ++i) { //Creating each CheckButton
         plugs.pack_start(butts[i]); //Adding it into view
 
-        strTemp = "User Plugin";
-
-        if (std::find(stdPlugins.begin(), stdPlugins.end(), plugins[i]) != stdPlugins.end()){
-            strTemp = "Standard Plugin"; //Checking if its a Standard Plugin
-        }
-
         if (std::find(selected.begin(), selected.end(), plugins[i]) != selected.end()){
             butts[i].set_active(true); //If its preselected than activate it
         }
 
-        butts[i].set_label(plugins[i] + " | " + strTemp); //Setting the label
+        butts[i].set_label(plugins[i]); //Setting the label
         butts[i].signal_toggled().connect( sigc::bind(sigc::mem_fun(*this, &pluginDisplay::alterCheck), butts[i].property_active(), plugins[i]) ); //Connecting the signal
     }
 
