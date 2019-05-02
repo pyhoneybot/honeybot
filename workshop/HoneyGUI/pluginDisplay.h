@@ -24,7 +24,6 @@ protected:
     std::string path; //The path to honeybot
     std::string checks; //The string to save all the selected plugins to for easy file writing
     std::vector<std::string> plugins; //All the available plugins
-    std::vector<std::string> stdPlugins; //Vector of standard plugins
     std::vector<std::string> selected; //Vector of the plugins INITIALLY selected
 
     Gtk::Alignment alignment1;
