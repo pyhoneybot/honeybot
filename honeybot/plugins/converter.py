@@ -4,7 +4,7 @@ Currency Converter Plugin
 [Author]
 Angelo Giacco
 [About]
-Gets the top 10 headlines around the world from bbc world news
+Converts currencies
 [Commands]
 >>> .convert <<base currency code>> <<target currency code>> <<amount>>
 returns the conversion: amount argument is optional with a default of 1
