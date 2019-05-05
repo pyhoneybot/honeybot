@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 ''' Change to your plugin file name below.
                     ↓↓↓↓  '''
-from plugins import monopoly as test_plugin
+from plugins import uptime as test_plugin
+import time
 
 
 test_plugin = test_plugin.Plugin
@@ -26,6 +27,10 @@ class Tester:
             'command': 'QUIT',
             'prefix': 'TestAccount!~TestIdentity@192.168.123.123'
             }
+        bot_info = {
+            'time': time.time() - 12561
+        }
+        #time.sleep(5)
 
         # Update info with MOCK data.
         if test_type == 'message':
@@ -42,7 +47,7 @@ class Tester:
             info['command'] = 'QUIT'
 
         # Run plugin with above details
-        test_plugin.run(self, incoming, methods, info)
+        test_plugin.run(self, incoming, methods, info, bot_info)
 
     def send(self, msg):
         print(msg)
@@ -68,7 +73,7 @@ if __name__ == "__main__":
             4.1 User quitting a channel
     '''
 
-    incoming_command_test = '.monopoly roll'
+    incoming_command_test = '.uptime'
 
     Tester('message', incoming_command_test)
     Tester('user_join', incoming_command_test)

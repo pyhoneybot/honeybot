@@ -198,6 +198,11 @@ A Google Translate plugin
 \
 <code>. Google Translator object.</code>
 
+# uptime.py
+by Nick Wiley, [Website](https://github.com/nickw409)
+A plugin to get the current uptime of the bot
+<code>.uptime</code>
+
 # username.py
 by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 generates random usernames, used for inspiration

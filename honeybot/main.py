@@ -6,6 +6,7 @@ import importlib
 import logging
 import socket
 import sys
+import time
 
 connect_config = configparser.ConfigParser()
 connect_config.read('settings/CONNECT.conf')
@@ -28,6 +29,7 @@ class Bot_core(object):
         self.friends = self.configfile_to_list('FRIENDS')
         self.autojoin_channels = self.configfile_to_list('AUTOJOIN_CHANNELS')
         self.required_modules = self.requirements()
+        self.time = time.time()
 
         self.irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.isListenOn = 1
@@ -100,7 +102,8 @@ class Bot_core(object):
             'name': self.name,
             'special_command': self.sp_command,
             'required_modules': self.required_modules,
-            'owners': self.owners
+            'owners': self.owners,
+            'time': self.time
         }
     '''
     MESSAGE UTIL

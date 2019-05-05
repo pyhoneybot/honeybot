@@ -36,6 +36,7 @@ selfTrivia.py
 send_message.py
 test.py
 translate.py
+uptime.py
 username.py
 weather.py
 wikipedia.py
