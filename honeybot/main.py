@@ -103,7 +103,8 @@ class Bot_core(object):
             'special_command': self.sp_command,
             'required_modules': self.required_modules,
             'owners': self.owners,
-            'time': self.time
+            'time': self.time,
+            'friends': self.friends
         }
     '''
     MESSAGE UTIL
