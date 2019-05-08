@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ''' Change to your plugin file name below.
                     ↓↓↓↓  '''
-from plugins import uptime as test_plugin
+from plugins import roman_numeral as test_plugin
 import time
 
 
@@ -10,7 +10,7 @@ test_plugin = test_plugin.Plugin
 
 class Tester:
 
-    def __init__(self, test_type='user_quit', command='.monopoly create'):
+    def __init__(self, test_type, command):
 
         # Same methods as HoneyBot, but these print to screen
         methods = {
@@ -73,8 +73,8 @@ if __name__ == "__main__":
             4.1 User quitting a channel
     '''
 
-    incoming_command_test = '.uptime'
+    incoming_command_test = '.roman 420'
 
     Tester('message', incoming_command_test)
-    Tester('user_join', incoming_command_test)
-    Tester('user_quit', incoming_command_test)
+    #Tester('user_join', incoming_command_test)
+    #Tester('user_quit', incoming_command_test)
