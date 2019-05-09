@@ -28,6 +28,12 @@ Bot Will join a given channel in the server
 \
 <code>.channeljoin channel</code>
 
+# comic.py
+by Miguel Boekhold\
+returns a random comic
+\
+<code>.comic</code>
+
 # converter.py
 by Angelo Giacco\
 Converts currencies
@@ -197,6 +203,11 @@ by Ahmed Deeb\
 A Google Translate plugin
 \
 <code>. Google Translator object.</code>
+
+# uptime.py
+by Nick Wiley, [Website](https://github.com/nickw409)
+A plugin to get the current uptime of the bot
+<code>.uptime</code>
 
 # username.py
 by Abdur-Rahmaan Janhangeer, pythonmembers.club\

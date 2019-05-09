@@ -42,6 +42,8 @@ int configDisplay::file_replace(std::string toReplace, std::string replaceWith, 
 
     filein2.close(); fileout2.close();
 
+    system("x=$(find ~/ -name \"honeybot\" | head -n 1); rm $x/honeybot/settings/temp.txt");
+
     return 0;
 }
 
