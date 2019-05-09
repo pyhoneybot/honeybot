@@ -17,6 +17,7 @@ horoscope.py
 __init__.py
 botsuite/__init__.py
 botsuite/kick.py
+botsuite/nick.py
 botsuite/ban.py
 botsuite/quit.py
 installed_modules.py
