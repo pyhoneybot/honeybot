@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 [quit.py]
-Kill Plugin
+Quit Plugin
 [Author]
 Angelo Giacco
 [About]
@@ -28,4 +28,4 @@ class Plugin:
                         methods["send"](info["address"],"Quit function requires .quit followed and can be followed by a message")
 
         except Exception as e:
-            print('woops kick plugin error', e)
+            print('woops quit plugin error', e)
