@@ -2,7 +2,7 @@ age.py
 bitcoin.py
 caesar_cipher.py
 calc.py
-botsuite/channeljoin.py
+channeljoin.py
 converter.py
 conv_sniff.py
 date.py
@@ -15,11 +15,10 @@ hangman.py
 help.py
 horoscope.py
 __init__.py
-botsuite/__init__.py
-botsuite/kick.py
-botsuite/nick.py
-botsuite/ban.py
-botsuite/quit.py
+kick.py
+nick.py
+ban.py
+quit.py
 installed_modules.py
 jcommand.py
 joins.py
