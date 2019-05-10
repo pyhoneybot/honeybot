@@ -7,7 +7,7 @@ Image search plugin
 Miguel Boekhold
 
 [About]
-Returns a random comic from xkcd related to the search arguments
+Returns a random comic from xkcd
 
 [Commands]
 >>> .comic
