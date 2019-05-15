@@ -20,7 +20,7 @@ class Hand(object):
     def show_hand(self):
         ''' show hand '''
 
-        return(" ".join([c.show_card() for c in self.__hand]))
+        return self.__hand
 
     def show_hand_obj(self):
         ''' show hand object '''
@@ -30,10 +30,21 @@ class Hand(object):
     def best_five(self, b):
         ''' best 5 out of 7 '''
 
-        hand_and_board = self.show_hand() + ' ' + b.flop1() + ' ' + b.flop2() + \
-        ' ' + b.flop3() + ' ' + b.turn() + ' ' + b.river()
+        try:
+            """
+            print(b.flop1())
+            print(b.flop2())
+            print(b.flop3())
+            print(b.turn())
+            print(b.river())
+            """
+            print(" ".join([c.show_card() for c in self.show_hand()]))
+            hand_and_board = self.show_hand()[0].show_card() + ' ' + self.show_hand()[1].show_card() +\
+            ' ' + b.flop1() + ' ' + b.flop2() + ' ' + b.flop3() + ' ' + b.turn() + ' ' + b.river()
 
-        return( " ".join([c for c in best5.test_best_hand(hand_and_board)]))
+            return(" ".join([c for c in best5.test_best_hand(hand_and_board)]))
+        except Exception:
+            return "error with non board object"
 
     def hand_strength(self, board):
         ''' hand strength '''

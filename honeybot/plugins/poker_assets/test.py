@@ -5,6 +5,7 @@ import deck
 import hand
 import player
 import pot
+#import game_init
 
 deck = deck.Deck()
 

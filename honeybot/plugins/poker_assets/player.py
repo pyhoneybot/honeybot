@@ -1,6 +1,5 @@
 ''' player class '''
 # pylint: disable=E1601
-import game_init #check if this might lead to a bug
 class Player(object):
     ''' player class '''
 

@@ -1,7 +1,6 @@
 ''' board class '''
 
 # pylint: disable=E1601
-
 class Board(object):
     ''' board class '''
 
@@ -15,6 +14,10 @@ class Board(object):
         self.__flop3 = board[2]
         self.__turn = board[3]
         self.__river = board[4]
+
+    def get_board(self):
+        '''return card objects of board'''
+        return self.__board
 
     def show_board(self):
         ''' show board '''
