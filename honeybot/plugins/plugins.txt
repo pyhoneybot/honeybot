@@ -15,10 +15,6 @@ hangman.py
 help.py
 horoscope.py
 __init__.py
-kick.py
-nick.py
-ban.py
-quit.py
 installed_modules.py
 jcommand.py
 joins.py
