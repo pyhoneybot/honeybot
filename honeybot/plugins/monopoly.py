@@ -44,14 +44,9 @@ shows information about a certain player
 shows information about a property
 """
 try:
-    from .monopoly_assets import *
+    from monopoly_assets import *
 except:
-    print("ASSETS MODULE NOT FOUND")
-
-try:
-    from .monopoly_player import *
-except:
-    print("PLAYER MODULE NOT FOUND")
+    print("ASSETS NOT FOUND")
 import random,sys,os
 
 class Plugin:
@@ -869,7 +864,7 @@ class Plugin:
     """
     RUN PLUGIN
     """
-    
+
     def run(self, incoming, methods, info, bot_info):
         try:
             if info['command'] == 'PRIVMSG':
