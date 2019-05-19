@@ -3,11 +3,12 @@
 class Player(object):
     ''' player class '''
 
-    def __init__(self, nr, chips):
+    def __init__(self, nr, chips, username):
         ''' player initialization '''
 
         self.__position_nr = nr
         self.__general_name = 'player' + str(nr)
+        self.__username = username
         self.__chips = chips
         self.__hand = []
         self.add_position(nr)
@@ -86,5 +87,11 @@ class Player(object):
             pass
 
     def bet(self, amount):
+        '''change game_init to the file where the game info is stored'''
         game_init.game[2].increase_pot(amount)
         self.decrease_chips(0)
+
+    def username(self):
+        '''show player's name'''
+
+        return self.__username

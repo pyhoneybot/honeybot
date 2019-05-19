@@ -61,3 +61,8 @@ class Hand(object):
         strength = evaluator.evaluate(bl, hl)
 
         return strength
+
+    def hand_total(self):
+        '''hand total for blackjack'''
+
+        return self.__card1.value() + self.__card2.value()

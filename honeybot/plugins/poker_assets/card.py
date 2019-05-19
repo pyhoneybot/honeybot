@@ -15,18 +15,23 @@ class Card(object):
 
         if self.__figure == 'A':
             self.__value = 14
+            self.__21_value = False
 
         elif self.__figure == 'K':
             self.__value = 13
+            self.__21_value = 10
 
         elif self.__figure == 'Q':
             self.__value = 12
+            self.__21_value = 10
 
         elif self.__figure == 'J':
             self.__value = 11
+            self.__21_value = 10
 
         elif self.__figure == 'T':
             self.__value = 10
+            self.__21_value = 10
 
         else:
             self.__value = int(self.__figure)
