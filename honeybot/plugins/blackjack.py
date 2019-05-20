@@ -22,13 +22,16 @@ get another card
 >>>.blackjack stand
 move on to next player
 
->>>.blackjack leave the game
+>>>.blackjack leave
+leave the game
 """
+import importlib
+card_imp = importlib.import_module('poker_assets.card','.')
+print(card_imp)
+deck_imp = importlib.import_module('plugins.poker_assets.deck','.')
+hand_imp = importlib.import_module('plugins.poker_assets.hand','.')
+player_imp = importlib.import_module('plugins.poker_assets.player','.')
 
-from poker_assets import card
-from poker_assets import deck
-from poker_assets import hand
-from poker_assets import player
 
 class Plugin():
 
