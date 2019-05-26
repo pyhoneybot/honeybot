@@ -44,12 +44,10 @@ shows information about a certain player
 shows information about a property
 """
 
-import random,sys,os,importlib
-
-sys.path.append('monopolyassets')
-from monopoly_player import *
-from monopoly_assets import *
-print("MONOPOLY IMPORTS NOT FOUND")
+import random,sys,os
+sys.path.append('plugins/monopoly_assets')
+import monopoly_player
+import monopoly_assets
 
 class Plugin:
     '''class variables'''

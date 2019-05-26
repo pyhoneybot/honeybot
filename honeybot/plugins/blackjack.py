@@ -25,13 +25,12 @@ move on to next player
 >>>.blackjack leave
 leave the game
 """
-import importlib
-card_imp = importlib.import_module('poker_assets.card','.')
-print(card_imp)
-deck_imp = importlib.import_module('plugins.poker_assets.deck','.')
-hand_imp = importlib.import_module('plugins.poker_assets.hand','.')
-player_imp = importlib.import_module('plugins.poker_assets.player','.')
-
+import random,sys,os
+sys.path.append('plugins/poker_assets')
+import deck
+import card
+import hand
+import player
 
 class Plugin():
 
