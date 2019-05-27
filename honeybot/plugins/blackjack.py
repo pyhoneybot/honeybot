@@ -72,8 +72,6 @@ class Plugin():
 
     def initGame(self,methods,info):
         '''create a new round'''
-
-        print("hit game")
         if not Plugin.bj_created:
             Plugin.player_lst = []
             name = info["prefix"].split("!")[0]

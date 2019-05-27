@@ -2,9 +2,11 @@
 
 # pylint: disable=E1601
 
-import deuces
-import best5
-import board
+#parts not necessary for blackjack but required for poker commented out
+
+#import deuces
+#import best5
+#import board
 import card
 
 class Hand(object):
@@ -26,18 +28,16 @@ class Hand(object):
         ''' show hand object '''
 
         return self.__hand
-
+    """
     def best_five(self, b):
         ''' best 5 out of 7 '''
 
         try:
-            """
             print(b.flop1())
             print(b.flop2())
             print(b.flop3())
             print(b.turn())
             print(b.river())
-            """
             print(" ".join([c.show_card() for c in self.show_hand()]))
             hand_and_board = self.show_hand()[0].show_card() + ' ' + self.show_hand()[1].show_card() +\
             ' ' + b.flop1() + ' ' + b.flop2() + ' ' + b.flop3() + ' ' + b.turn() + ' ' + b.river()
@@ -61,6 +61,7 @@ class Hand(object):
         strength = evaluator.evaluate(bl, hl)
 
         return strength
+    """
 
     def hand_total(self):
         '''hand total for blackjack'''
