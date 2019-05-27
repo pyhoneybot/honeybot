@@ -57,7 +57,7 @@ class Plugin():
         except Exception as e:
             print("woops, poker turn change error ",e)
 
-    def initPlayer(self,methods,info):
+    def initPlayer(methods,info):
         '''add a player to the round'''
 
         name = info["prefix"].split("!")[0]
@@ -70,7 +70,7 @@ class Plugin():
     COMMAND FUNCTIONS
     """
 
-    def initGame(self,methods,info):
+    def initGame(methods,info):
         '''create a new round'''
         if not Plugin.bj_created:
             Plugin.player_lst = []
@@ -83,7 +83,7 @@ class Plugin():
         else:
             methods["send"](info["address"],"A game already exists!")
 
-    def start(self,methods,info):
+    def start(methods,info):
         '''start the game'''
         Plugin.round_started = True
         Plugin.bj_created = True
