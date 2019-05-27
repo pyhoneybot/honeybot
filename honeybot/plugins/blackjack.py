@@ -39,6 +39,7 @@ class Plugin():
     dec_req = False
     turn = 0
     player_lst = []
+    starting_chips = 100
 
 
     def __init__(self):
@@ -75,7 +76,7 @@ class Plugin():
         if not Plugin.bj_created:
             Plugin.player_lst = []
             name = info["prefix"].split("!")[0]
-            Plugin.initPlayer()
+            Plugin.initPlayer(methods,info)
             Plugin.bj_created = True
             Plugin.round_started = False
             DECK = deck.Deck()
