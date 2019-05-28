@@ -53,7 +53,7 @@ print(hand2.show_hand_obj()[1].color())
 print(hand2.best_five(board))
 print(hand2.hand_strength(board))
 
-player1 = player.Player(1, 100)
+player1 = player.Player(1, 100, "yoink")
 
 player1.add_hand(hand1)
 print(player1.show_player_hand().show_hand())
@@ -66,7 +66,7 @@ print(player1.position_name())
 player1.add_position(4)
 print(player1.position_name())
 
-player2 = player.Player(2, 100)
+player2 = player.Player(2, 100, "yeet")
 
 player2.add_hand(hand2)
 print(player2.show_player_hand().show_hand())
