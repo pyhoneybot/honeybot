@@ -48,20 +48,20 @@ class Plugin():
     USEFUL FUNCTIONS
     """
 
-    def next_turn():
-        ''' increment turn and set to start if will cause index error '''
+    def next_turn(methods):
+        ''' increment turn and find winner if hitting and standing over '''
 
         try:
             Plugin.turn += 1
             if Plugin.turn == len(Plugin.player_lst):
-                Plugin.turn -= len(Plugin.player_lst)
-                #find winner
-                index,value = max([player.show_player_hand().hand_total() for player in Plugin.player_lst])
+                #all players have find winner
+                total_lst = [player.show_player_hand().hand_total() for player in Plugin.player_lst]
+                index,value = max(enumerate(total_lst))
                 Plugin.winner = Plugin.player_lst[index].get_name()
                 Plugin.bj_created = False
                 methods["send"](info["address"],"The winner is "+winner+"!")
         except Exception as e:
-            print("woops, poker turn change error ",e)
+            print("woops, blackjack turn change error ",e)
 
     def initPlayer(methods,info):
         ''' add a player to the round '''
@@ -89,6 +89,9 @@ class Plugin():
         cards = " ".join([card.show_card() for card in player.show_player_hand().show_hand_obj()])
         if total > 21:
             methods["send"](info["address"],"Your hand "+cards+" has a value of "+str(total)+" so you have been kicked out")
+            for p in Plugin.player_lst:
+                if p.get_name() == player.get_name():
+                    Plugin.player_lst.remove(p)
         elif total == 21:
             methods["send"](info["address"],"Your hand "+cards+" has a value of 21 so you have won!")
         else:
@@ -144,7 +147,7 @@ class Plugin():
         if Plugin.player_lst[Plugin.turn].get_name() == name:
             if Plugin.winner == None:
                 methods["send"](info["address"],info["prefix"].split("!")[0]+" has chosen not to pick another card!")
-                Plugin.next_turn()
+                Plugin.next_turn(methods)
             else:
                 methods["send"](info["address"],Plugin.winner+" has already won the game!")
         else:
