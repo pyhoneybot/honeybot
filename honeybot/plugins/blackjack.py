@@ -40,6 +40,7 @@ class Plugin():
     turn = 0
     player_lst = []
     starting_chips = 100
+    winner = None
 
 
     def __init__(self):
@@ -70,12 +71,18 @@ class Plugin():
         else:
             methods["send"](info["address"],"This round is full already")
 
+    def checkHand(methods,info,player):
+        '''check the value of a player's hand'''
+
+
+
     """
     COMMAND FUNCTIONS
     """
 
     def initGame(methods,info):
         '''create a new round'''
+
         if not Plugin.bj_created:
             Plugin.player_lst = []
             name = info["prefix"].split("!")[0]
@@ -89,19 +96,34 @@ class Plugin():
 
     def start(methods,info):
         '''start the game'''
+
         Plugin.round_started = True
         Plugin.bj_created = True
         Plugin.dec_req = True
         for player in Plugin.player_lst:
             player.add_hand(hand.Hand(DECK.make_hand()))
-            methods["send"](info["address"],"Showing hand of "+player.username())
+            methods["send"](info["address"],"Showing hand of "+player.get_name())
             total = player.show_hand_obj().hand_total()
             cards = ""
             for card in player.show_hand_obj():
-                cards += card.show_card()
+                cards += card.show_card()+ " "
             methods[send](info["address"],"Here is the hand:"+cards+" which have a total value of "+int(total))
+            if total == 21:
+                methods["send"](info["address"],player.get_name()+" has a hand worth 21 and so has won!")
+                Plugin.winner = player.get_name()
             #should send each user their hand
-        methods["send"](info["address"],"Here is the board of the game: "+BOARD.show_board())
+
+    def hit(methods,info):
+        name = info["prefix"].split("!")[0]
+        if Plugin.player_lst[turn].get_name() == name:
+            if Plugin.winner == None:
+                player_lst[turn].add_card_to_hand(deck.draw_random_card())
+                Plugin.checkHand(methods,info,player_lst[turn])
+            else:
+                methods["send"](info["address"],"The round is already over and has been won by "+Plugin.winner)
+        else:
+            methods["send"](info["address"],"It is not your turn!")
+
 
     """
     RUNNING PLUGIN
@@ -119,6 +141,11 @@ class Plugin():
                     Plugin.initPlayer(methods,info)
                 elif msgs[1] == "start":
                     Plugin.start(methods,info)
+                elif msgs[1] == "hit":
+                    Plugin.add_card(methods,info)
+                elif msgs[1] == "stand":
+                    Plugin.next_player(methods,info)
+                elif msgs[1] == "leave"
                 else:
                     methods["send"](info["address"],"invalid")
         except Exception as e:

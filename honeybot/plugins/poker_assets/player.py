@@ -91,7 +91,12 @@ class Player(object):
         game_init.game[2].increase_pot(amount)
         self.decrease_chips(0)
 
-    def username(self):
+    def get_name(self):
         '''show player's name'''
 
         return self.__username
+
+    def add_card_to_hand(self,deck):
+        '''add a card to the player's hand'''
+
+        self.__hand.append(card)
