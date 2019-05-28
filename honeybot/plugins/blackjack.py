@@ -63,7 +63,10 @@ class Plugin():
 
         name = info["prefix"].split("!")[0]
         if len(Plugin.player_lst) <= 5: #limit game to 6 players
-            Plugin.player_lst.append(player.Player(len(Plugin.player_lst),Plugin.starting_chips,name))
+            if not(name in Plugin.player_lst):
+                Plugin.player_lst.append(player.Player(len(Plugin.player_lst),Plugin.starting_chips,name))
+            else:
+                methods["send"](info["address"],"You are already in this round!")
         else:
             methods["send"](info["address"],"This round is full already")
 
