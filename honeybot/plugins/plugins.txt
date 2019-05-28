@@ -35,6 +35,7 @@ russian_roulette.py
 selfTrivia.py
 send_message.py
 test.py
+transfer-rumour.py
 translate.py
 uptime.py
 username.py
