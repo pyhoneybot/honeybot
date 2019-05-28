@@ -864,7 +864,7 @@ class Plugin:
     """
     RUN PLUGIN
     """
-
+    
     def run(self, incoming, methods, info, bot_info):
         try:
             if info['command'] == 'PRIVMSG':
