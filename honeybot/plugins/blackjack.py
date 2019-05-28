@@ -66,6 +66,7 @@ class Plugin():
         if len(Plugin.player_lst) <= 5: #limit game to 6 players
             if not(name in Plugin.player_lst):
                 Plugin.player_lst.append(player.Player(len(Plugin.player_lst),Plugin.starting_chips,name))
+                methods["send"](info["address"],name+" joined the game!")
             else:
                 methods["send"](info["address"],"You are already in this round!")
         else:
@@ -89,7 +90,7 @@ class Plugin():
             Plugin.initPlayer(methods,info)
             Plugin.bj_created = True
             Plugin.round_started = False
-            DECK = deck.Deck()
+            Plugin.DECK = deck.Deck()
             methods["send"](info["address"],name+" has started a game of blackjack! Use .blackjack join to join in!")
         else:
             methods["send"](info["address"],"A game already exists!")
@@ -101,13 +102,11 @@ class Plugin():
         Plugin.bj_created = True
         Plugin.dec_req = True
         for player in Plugin.player_lst:
-            player.add_hand(hand.Hand(DECK.make_hand()))
+            player.add_hand(hand.Hand(Plugin.DECK.make_hand()))
             methods["send"](info["address"],"Showing hand of "+player.get_name())
-            total = player.show_hand_obj().hand_total()
-            cards = ""
-            for card in player.show_hand_obj():
-                cards += card.show_card()+ " "
-            methods[send](info["address"],"Here is the hand:"+cards+" which have a total value of "+int(total))
+            total = player.show_player_hand().hand_total()
+            cards = " ".join([card.show_card() for card in player.show_player_hand().show_hand_obj()])
+            methods["send"](info["address"],"Here is the hand: "+cards+" which have a total value of "+str(total))
             if total == 21:
                 methods["send"](info["address"],player.get_name()+" has a hand worth 21 and so has won!")
                 Plugin.winner = player.get_name()
@@ -132,9 +131,7 @@ class Plugin():
     def run(self, incoming, methods, info, bot_info):
         try:
             msgs = info['args'][1:][0].split()
-            print(msgs)
             if info['command'] == 'PRIVMSG' and (msgs[0] == ".bj" or msgs[0] == ".21" or msgs[0] == ".blackjack"):
-                print("hit")
                 if msgs[1] == "create":
                     Plugin.initGame(methods,info)
                 elif msgs[1] == "join":
@@ -142,10 +139,12 @@ class Plugin():
                 elif msgs[1] == "start":
                     Plugin.start(methods,info)
                 elif msgs[1] == "hit":
-                    Plugin.add_card(methods,info)
+                    Plugin.hit(methods,info)
                 elif msgs[1] == "stand":
+                    methods["send"](info["address"],info["prefix"].split("!")[0]+" has chosen not to pick another card!")
                     Plugin.next_player(methods,info)
-                elif msgs[1] == "leave"
+                elif msgs[1] == "leave":
+                    Plugin.remove(methods,info)
                 else:
                     methods["send"](info["address"],"invalid")
         except Exception as e:

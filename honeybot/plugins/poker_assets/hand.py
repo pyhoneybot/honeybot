@@ -66,4 +66,4 @@ class Hand(object):
     def hand_total(self):
         '''hand total for blackjack'''
 
-        return self.__card1.value() + self.__card2.value()
+        return self.__card1.blackjack_value() + self.__card2.blackjack_value()

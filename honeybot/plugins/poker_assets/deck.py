@@ -100,7 +100,7 @@ class Deck(object):
         '''draw a random card'''
 
         random_number = random.randint(0, len(self.__deck) - 1)
-        return self.draw_by_number(random_number
+        return self.draw_by_number(random_number)
 
 
     def __len__(self):
