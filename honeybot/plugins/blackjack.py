@@ -56,10 +56,13 @@ class Plugin():
             if Plugin.turn == len(Plugin.player_lst):
                 #all players have find winner
                 total_lst = [player.show_player_hand().hand_total() for player in Plugin.player_lst]
-                index,value = max(enumerate(total_lst))
-                Plugin.winner = Plugin.player_lst[index].get_name()
+                index,value = max(list(enumerate(total_lst)), key=lambda x:x[1])
+                if total_lst.count(value) == 1:
+                    Plugin.winner = Plugin.player_lst[index].get_name()
+                    methods["send"](info["address"],"The winner is "+Plugin.winner+"!")
+                else:
+                    methods["send"](info["address"],"This round has ended in a draw!")
                 Plugin.bj_created = False
-                methods["send"](info["address"],"The winner is "+Plugin.winner+"!")
         except Exception as e:
             print("woops, blackjack turn change error ",e)
 
@@ -85,21 +88,24 @@ class Plugin():
     def checkHand(methods,info,player):
         ''' check the value of a player's hand '''
 
+        name = player.get_name()
         total = player.show_player_hand().hand_total()
         cards = " ".join([card.show_card() for card in player.show_player_hand().show_hand_obj()])
         if total > 21:
-            methods["send"](info["address"],"Your hand "+cards+" has a value of "+str(total)+" so you have been kicked out")
+            methods["send"](info["address"],name+"'s hand "+cards+" has a value of "+str(total)+" so you have been kicked out")
             for p in Plugin.player_lst:
-                if p.get_name() == player.get_name():
+                if p.get_name() == name:
                     Plugin.player_lst.remove(p)
             if len(Plugin.player_lst) == 1:
                 Plugin.winner = Plugin.player_lst[0].get_name()
                 methods["send"](info["address"],"The winner is "+Plugin.winner+"!")
+                Plugin.bj_created = False
         elif total == 21:
-            methods["send"](info["address"],"Your hand "+cards+" has a value of 21 so you have won!")
-            Plugin.winner = player.get_name()
+            methods["send"](info["address"],name+"'s hand "+cards+" has a value of 21 so you have won!")
+            Plugin.winner = name
+            Plugin.bj_created = False
         else:
-            methods["send"](info["address"],"Your hand "+cards+" has a value of "+str(total)+".")
+            methods["send"](info["address"],name+"'s hand "+cards+" has a value of "+str(total)+".")
 
     """
     COMMAND FUNCTIONS
@@ -109,12 +115,13 @@ class Plugin():
         ''' create a new round '''
 
         if not Plugin.bj_created:
+            Plugin.turn = 0
             Plugin.winner = None
             Plugin.player_lst = []
             name = info["prefix"].split("!")[0]
             Plugin.bj_created = True
-            Plugin.initPlayer(methods,info)
             Plugin.round_started = False
+            Plugin.initPlayer(methods,info)
             Plugin.DECK = deck.Deck()
             methods["send"](info["address"],name+" has started a game of blackjack! Use .blackjack join to join in!")
         else:
@@ -127,7 +134,6 @@ class Plugin():
         Plugin.bj_created = True
         for player in Plugin.player_lst:
             player.add_hand(hand.Hand(Plugin.DECK.make_hand()))
-            methods["send"](info["address"],"Showing hand of "+player.get_name())
             total = player.show_player_hand().hand_total()
             cards = " ".join([card.show_card() for card in player.show_player_hand().show_hand_obj()])
             Plugin.checkHand(methods,info,player)
@@ -136,14 +142,14 @@ class Plugin():
         ''' give player a new card '''
 
         name = info["prefix"].split("!")[0]
-        if Plugin.player_lst[Plugin.turn].get_name() == name:
-            if Plugin.winner == None:
+        if Plugin.winner == None:
+            if Plugin.player_lst[Plugin.turn].get_name() == name:
                 Plugin.player_lst[Plugin.turn].add_card_to_hand(Plugin.DECK.draw_random_card())
                 Plugin.checkHand(methods,info,Plugin.player_lst[Plugin.turn])
             else:
-                methods["send"](info["address"],"The round is already over and has been won by "+Plugin.winner)
+                methods["send"](info["address"],"It is not your turn!")
         else:
-            methods["send"](info["address"],"It is not your turn!")
+            methods["send"](info["address"],"The round is already over and has been won by "+Plugin.winner)
 
     def stand(methods,info):
         ''' player chooses not to get a new car '''
