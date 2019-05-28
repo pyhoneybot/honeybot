@@ -48,7 +48,7 @@ class Plugin():
     USEFUL FUNCTIONS
     """
 
-    def next_turn(methods):
+    def next_turn(methods,info):
         ''' increment turn and find winner if hitting and standing over '''
 
         try:
@@ -59,7 +59,7 @@ class Plugin():
                 index,value = max(enumerate(total_lst))
                 Plugin.winner = Plugin.player_lst[index].get_name()
                 Plugin.bj_created = False
-                methods["send"](info["address"],"The winner is "+winner+"!")
+                methods["send"](info["address"],"The winner is "+Plugin.winner+"!")
         except Exception as e:
             print("woops, blackjack turn change error ",e)
 
@@ -92,8 +92,12 @@ class Plugin():
             for p in Plugin.player_lst:
                 if p.get_name() == player.get_name():
                     Plugin.player_lst.remove(p)
+            if len(Plugin.player_lst) == 1:
+                Plugin.winner = Plugin.player_lst[0].get_name()
+                methods["send"](info["address"],"The winner is "+Plugin.winner+"!")
         elif total == 21:
             methods["send"](info["address"],"Your hand "+cards+" has a value of 21 so you have won!")
+            Plugin.winner = player.get_name()
         else:
             methods["send"](info["address"],"Your hand "+cards+" has a value of "+str(total)+".")
 
@@ -134,8 +138,8 @@ class Plugin():
         name = info["prefix"].split("!")[0]
         if Plugin.player_lst[Plugin.turn].get_name() == name:
             if Plugin.winner == None:
-                Plugin.player_lst[Plugin.turn].add_card_to_hand(deck.draw_random_card())
-                Plugin.checkHand(methods,info,player_lst[Plugin.turn])
+                Plugin.player_lst[Plugin.turn].add_card_to_hand(Plugin.DECK.draw_random_card())
+                Plugin.checkHand(methods,info,Plugin.player_lst[Plugin.turn])
             else:
                 methods["send"](info["address"],"The round is already over and has been won by "+Plugin.winner)
         else:
@@ -144,14 +148,18 @@ class Plugin():
     def stand(methods,info):
         ''' player chooses not to get a new car '''
         name = info["prefix"].split("!")[0]
-        if Plugin.player_lst[Plugin.turn].get_name() == name:
-            if Plugin.winner == None:
-                methods["send"](info["address"],info["prefix"].split("!")[0]+" has chosen not to pick another card!")
-                Plugin.next_turn(methods)
+        if Plugin.winner == None:
+            if Plugin.turn < len(Plugin.player_lst):
+                if Plugin.player_lst[Plugin.turn].get_name() == name:
+                    methods["send"](info["address"],info["prefix"].split("!")[0]+" has chosen not to pick another card!")
+                    Plugin.next_turn(methods,info)
+                else:
+                    methods["send"](info["address"],"It is not your turn!")
             else:
-                methods["send"](info["address"],Plugin.winner+" has already won the game!")
+                methods["send"](info["adress"],"something went wrong, please try restarting")
+                Plugin.bj_created = False
         else:
-            methods["send"](info["address"],"It is not your turn!")
+            methods["send"](info["address"],Plugin.winner+" has already won the game!")
 
     """
     RUNNING PLUGIN

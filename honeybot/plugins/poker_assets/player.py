@@ -96,7 +96,7 @@ class Player(object):
 
         return self.__username
 
-    def add_card_to_hand(self,deck):
+    def add_card_to_hand(self,card):
         '''add a card to the player's hand'''
-
-        self.__hand.append(card)
+        index = len(self.__hand.show_hand_obj())
+        self.__hand.show_hand_obj().append(card)
