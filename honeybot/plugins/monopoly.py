@@ -43,11 +43,11 @@ shows information about a certain player
 .monopoly info <<property>>
 shows information about a property
 """
-try:
-    from monopoly_assets import *
-except:
-    print("ASSETS NOT FOUND")
+
 import random,sys,os
+sys.path.append('plugins/monopoly_assets')
+import monopoly_player
+import monopoly_assets
 
 class Plugin:
     '''class variables'''

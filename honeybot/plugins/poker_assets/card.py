@@ -15,21 +15,27 @@ class Card(object):
 
         if self.__figure == 'A':
             self.__value = 14
+            self.__21_value = 11
 
         elif self.__figure == 'K':
             self.__value = 13
+            self.__21_value = 10
 
         elif self.__figure == 'Q':
             self.__value = 12
+            self.__21_value = 10
 
         elif self.__figure == 'J':
             self.__value = 11
+            self.__21_value = 10
 
         elif self.__figure == 'T':
             self.__value = 10
+            self.__21_value = 10
 
         else:
             self.__value = int(self.__figure)
+            self.__21_value = int(self.__figure)
 
     def show_card(self):
         ''' show card '''
@@ -53,3 +59,8 @@ class Card(object):
         ''' show value '''
 
         return self.__value
+
+    def blackjack_value(self):
+        ''' show value in the game of blackjack '''
+
+        return self.__21_value

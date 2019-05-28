@@ -96,6 +96,13 @@ class Deck(object):
 
         return hand
 
+    def draw_random_card(self):
+        ''' draw a random card '''
+
+        random_number = random.randint(0, len(self.__deck) - 1)
+        return self.draw_by_number(random_number)
+
+
     def __len__(self):
         '''return the number of cards in the deck '''
         return len(self.__deck)
