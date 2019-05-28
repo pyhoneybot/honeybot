@@ -92,6 +92,7 @@ who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was
 - 🔫 russian_roulette by [@AngeloGiacco](https://github.com/AngeloGiacco) - may or may not kick you off the channel
 - 🏨 monopoly by [@AngeloGiacco](https://github.com/AngeloGiacco) - Honeybot now supports the world's worst game!
 - ⚽️ transfer_rumour by [@AngeloGiacco](https://github.com/AngeloGiacco) - shows the day's transfer rumours
+- 🃏 blackjack/21 by [@AngeloGiacco](https://github.com/AngeloGiacco) - play 21 on honeybot!
 - 🎲 roll by [@GlennToms](https://github.com/GlennToms) - rolls a dice
 - ❓ help by [@edumello](https://github.com/edumello) - show link to plugin's information page
 - ✅ channeljoin by [@marceloyb](https://github.com/marceloyb) - join command for bot
