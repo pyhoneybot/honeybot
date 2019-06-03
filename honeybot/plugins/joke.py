@@ -69,7 +69,8 @@ class Plugin:
 'My wife yelled at me an said, "You haven\'t listened to anything I\'ve said!", which \
     I thought was an interesting way to start a conversation.',
 'I’d tell you a Fibonacci joke, but’s it’s probably as bad as the last two you’ve heard combined.',
-'What did the pirate say on his 80th birthday? AYE MATEY.'
+'What did the pirate say on his 80th birthday? AYE MATEY.',
+'It\'s hard to explain puns to kleptomaniacs because they always take things literally.'
 ]
 
         return '{}'.format(random.choice(jokes))
