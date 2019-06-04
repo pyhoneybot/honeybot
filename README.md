@@ -20,7 +20,7 @@ Psst. since i learnt py through this bot, we decided to keep a new-comers friend
 
 ## 📌 Contributing Countries
 
-🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳 🇬🇧 🇬🇬 🇧🇷 🇸🇽
+🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳 🇬🇧 🇬🇬 🇧🇷 🇸🇽 🇵🇱
 
 ## 📨 Follow the project on CodeTriage for updates!
 
@@ -98,7 +98,16 @@ who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was
 - ✅ channeljoin by [@marceloyb](https://github.com/marceloyb) - join command for bot
 - :page_with_curl: comic by [@mboekhold](https://github.com/mboekhold) - returns a random comic
 
-
+## Docker
+### Building Docker image
+Change SERVER, PORT and NICKNAME variables to match your preferences
+```
+docker build -t honeybot -f ./docker/Dockerfile .
+```
+### Running Docker image
+```
+docker run honeybot
+```
 ## 🔧 Plugins Development
 
 including it here. let's begin
