@@ -10,30 +10,26 @@ Divyanshu Mehta
 Extracts quotes and send random quote from Trailer Park Boys
 
 [Commands]
->>>.Quote <count>
+>>>.quote <count>
 """
-from bs4 import BeautifulSoup
-import urllib
-import random
-import sys
-
 class Plugin:
 
     def __init__(self):
         pass
     
-    def run():
-        #try:
-        data = urllib.urlopen("https://en.wikiquote.org/wiki/Trailer_Park_Boys").read()
+    def quote(self):
+        data = requests.get("https://en.wikiquote.org/wiki/Trailer_Park_Boys").text
         bs = BeautifulSoup(data,"lxml")
-
         quotes=[]
-
-        for i in bs.find_all('dl'):
-            quotes.append(i.text)
-        for i in range(int(sys.argv[1])):
-            print random.choice(quotes)
-            print ("--------------------------------------------------------------------------")
-   
-        except:
-           print "Check your internet Connection"
+        for quote in bs.find_all('dl'):
+            quotes.append(quote.text)
+        return random.choice(quotes)
+    
+    def run(self,incoming,methods,info,bot_info):
+        try:
+            msg = info['args'][1:]
+            if info['command'] == 'PRIVMSG' and msg[0]=='.quote':
+                for i in range(int(msg[1])):
+                    methods['send'](info['address'], Plugin.quote(self))
+        except Exception as e:
+            print ('Error:',e)
