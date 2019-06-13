@@ -6,7 +6,7 @@
 # 🍯 honeybot py
 
 ## 📮 About
-HoneyBot is a python-based IRC bot. (**python3**)
+HoneyBot is a python-based IRC bot. (**python3.7**)
 
 Feel free to contribute to the project!
 #
@@ -14,7 +14,7 @@ Feel free to contribute to the project!
 
 ## 🕹 Project Motivation
 Implementing the project in Java was weird, py's connect was sleek. Thus, the project stack was shifted over to Python.
-If you can think of any features, plugins, or functionality you wish to see in the project. Feel free to add it yourself, or create an issue detailing your ideas. We highly recommend you attempt to implement it yourself first and ask for help in our discord server!
+If you can think of any features, plugins, or functionality you wish to see in the project. Feel free to add it yourself, or create an issue detailing your ideas. We highly recommend you attempt to implement it yourself first and ask for help in our [discord server](https://discord.gg/E6zD4XT) !
 
 Psst. since i learnt py through this bot, we decided to keep a new-comers friendly policy. Feeling lost? Just ping.
 
@@ -55,6 +55,12 @@ who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was
  * 🛰️ keyword parameters
  * 🌵 password security with config file [disabled for now]
  * 🔌 now with plugins
+ 
+## :mountain: GUI clients
+
+GUI clients are used to manage plugins, launch bot as well as specify credentials.
+
+- [CPP client](https://github.com/pyhoneybot/cpp-client) by [@Macr0Nerd](https://github.com/Macr0Nerd)
 
 ## ⌚ Current Plugins
 
