@@ -1,1 +1,1 @@
-fork repo, run main.py in /honeybot/main.py
+fork repo, run run.py in /honeybot/run.py
