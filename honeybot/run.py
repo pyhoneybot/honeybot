@@ -1,4 +1,5 @@
 import logging
+import sys
 from main import Bot_core
 
 logging.basicConfig(
