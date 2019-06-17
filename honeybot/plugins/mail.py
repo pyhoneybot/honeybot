@@ -24,19 +24,17 @@ EX:// ".mail test@email.com .body testing body for honeybot email .subject testi
 import smtplib
 import string
 from email.mime.text import MIMEText
+import configparser
 
-#open config file for user credentials to email
-f = open("settings/email_config.conf")
-str = f.read()
-f.close()
+# open config file for user credentials to email
+email_config = configparser.ConfigParser()
+email_config.read('settings/email_config.conf')
 
-#split the read in words into a list, and pop them into their respective
-#variables
-test    = str.rsplit()
-USER    = test[test.index("Email:")+1]
-PASS    = test[test.index("Password:")+1]
-HOST    = test[test.index("Server:")+1]
-PORT    = test[test.index("Port:")+1]
+# save the read values into their respective variables
+USER    = email_config['Email']
+PASS    = email_config['Password']
+HOST    = email_config['SMTP Server']
+PORT    = email_config['SMTP Server Port']
 
 #used to tie into the body of what the user sends, if this is not at the
 #front of the message then the message will not appear in the email
@@ -59,7 +57,7 @@ class Plugin:
     #body is used to loop through the msgs list from the chat
     #and grab everything that was said after .body and before
     #.subject.
-    def body(BODY_INDEX,SUBJECT_INDEX, msgs):
+    def body(BODY_INDEX, SUBJECT_INDEX, msgs):
         i = BODY_INDEX+1
         while  i < SUBJECT_INDEX:
             if i == BODY_INDEX + 1:
