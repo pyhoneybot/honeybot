@@ -1,12 +1,14 @@
 import logging
 import sys
+
 from main import Bot_core
 
 logging.basicConfig(
-        level=logging.DEBUG,
-        format='%(asctime)s %(name)s %(levelname)s - %(message)s',
-        datefmt='%Y-%m-%d %H:%M:%S',
-    )
+    level=logging.DEBUG,
+    format='%(asctime)s %(name)s %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S',
+)
+
 
 # logger.debug("debug message")
 # logger.info("info message")
