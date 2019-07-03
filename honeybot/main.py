@@ -147,7 +147,7 @@ class Bot_core(object):
             try:
                 module = importlib.import_module('plugins.' + file)
             except ModuleNotFoundError as e:
-                logger.warning(f"module import error, skipped' {e} in {file}")
+                logger.warning("module import error, skipped' {e} in {file}")
             obj = module.Plugin
             list_to_add.append(obj)
 
@@ -251,7 +251,7 @@ class Bot_core(object):
 
                 if len(data) == 0:
                     try:
-                        logger.critical(f'<must handle reconnection - {len(data)}==0>')
+                        logger.critical('<must handle reconnection - {len(data)}==0>')
                         sys.exit()
                     except Exception as e:
                         logger.info(e)
@@ -262,13 +262,13 @@ class Bot_core(object):
     def registered_run(self):
         self.connect()
         self.identify()
-        self.greet()
+        #self.greet()
         self.load_plugins('PLUGINS')
         self.pull()
 
     def unregistered_run(self):
         self.connect()
-        self.greet()
+        #self.greet()
         self.load_plugins('PLUGINS')
         self.pull()
 

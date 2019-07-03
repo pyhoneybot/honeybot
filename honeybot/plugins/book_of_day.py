@@ -20,11 +20,11 @@ class Plugin:
 
     def book(self):
         headers = {'Accept' : 'application/json'}
-        r = requests.get('https://icanhazdadjoke.com', headers=headers)
+        r = requests.get('http://bookoftheday.org', headers=headers)
         soup = BeautifulSoup(r.text, 'html.parser')
         d = soup.find_all("div", {"class":"chpcs_foo_content"})
 
-        return d[0].a['href']
+        return str(d[0].a['href'])
 
     def run(self, incoming, methods, info, bot_info):
         try:
