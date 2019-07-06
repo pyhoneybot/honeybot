@@ -37,6 +37,7 @@ class Plugin:
                 links = []
                 for element_li in blog_links:
                     links.append(': '.join([element_li.text,element_li.links.pop()]))
+                # Return the links and comments separated by newlines
                 message = '\n'.join(links)
                 methods['send'](info['address'], message)
 
