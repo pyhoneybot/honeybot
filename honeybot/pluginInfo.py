@@ -5,7 +5,7 @@ script to generate plugins info
 import os
 import importlib.util
 
-directory = os.fsencode(__file__[:-13] + "/plugins")
+directory = "plugins/"
 
 def docFind(lines, att):
     hit = False

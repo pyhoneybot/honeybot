@@ -147,7 +147,7 @@ class Bot_core(object):
             try:
                 module = importlib.import_module('plugins.' + file)
             except ModuleNotFoundError as e:
-                logger.warning("module import error, skipped' {e} in {file}")
+                logger.warning(f"module import error, skipped' {e} in {file}")
             obj = module.Plugin
             list_to_add.append(obj)
 
@@ -214,19 +214,15 @@ class Bot_core(object):
     '''
     MESSAGE PARSING
     '''
-
     def core_commands_parse(self, incoming):
-
         '''
         PLUGINS
         '''
-
         self.run_plugins(self.plugins, incoming)
 
     '''
     BOT IRC FUNCTIONS
     '''
-
     def connect(self):
         self.irc.connect((self.server_url, self.port))
 
@@ -251,38 +247,36 @@ class Bot_core(object):
 
                 if len(data) == 0:
                     try:
-                        logger.critical('<must handle reconnection - {len(data)}==0>')
+                        logger.critical(f'<must handle reconnection - {len(data)}==0>')
                         sys.exit()
                     except Exception as e:
                         logger.info(e)
             except Exception as e:
                 logger.info(e)
 
-    # all in one for registered bot
-    def registered_run(self):
-        self.connect()
-        self.identify()
-        #self.greet()
-        self.load_plugins('PLUGINS')
-        self.pull()
-
-    def unregistered_run(self):
-        self.connect()
-        #self.greet()
-        self.load_plugins('PLUGINS')
-        self.pull()
-
     '''
     ONGOING REQUIREMENT/S
     '''
-
     def stay_alive(self, incoming):
         if not incoming:
             logger.critical('<must handle reconnection - incoming is not True>')
             sys.exit()
         parts = incoming.split(':')
         if parts[0].strip().lower() == 'ping':
-            # if self.domain in parts[1]:
             logger.warning(parts[1])
             self.send(self.pong_return(self.domain))
             self.send(self.pong_return(parts[1]))
+
+    # all in one for registered bot
+    def registered_run(self):
+        self.connect()
+        self.identify()
+        self.greet()
+        self.load_plugins('PLUGINS')
+        self.pull()
+
+    def unregistered_run(self):
+        self.connect()
+        self.greet()
+        self.load_plugins('PLUGINS')
+        self.pull()
