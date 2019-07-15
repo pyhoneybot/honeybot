@@ -272,7 +272,7 @@ server_url = chat.freenode.net
 port = 6667
 name = appinventormuBot
 ~~~
-- run main.py
+- run run.py
 
 ## 🔌 Todo Plugins
 - [x] 💐 humour
