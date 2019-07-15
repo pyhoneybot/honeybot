@@ -26,7 +26,7 @@ Psst. since i learnt py through this bot, we decided to keep a new-comers friend
 
 get issues delivered in your inbox.
 
-[![Open Source Helpers](https://www.codetriage.com/abdur-rahmaanj/honeybot/badges/users.svg)](https://www.codetriage.com/abdur-rahmaanj/honeybot)
+[![Open Source Helpers](https://www.codetriage.com/pyhoneybot/honeybot/badges/users.svg)](https://www.codetriage.com/pyhoneybot/honeybot)
 
 ## Discord
 https://discord.gg/E6zD4XT
