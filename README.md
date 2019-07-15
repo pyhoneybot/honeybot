@@ -146,7 +146,7 @@ class Plugin:
         except Exception as e:
             print('woops plugin error ', e)
 ```
-we see three parameters being passed to the run method ```, incoming, methods, info)```
+we see four parameters being passed to the run method ```, incoming, methods, info, bot_info)```
 
 #### parameter1: incoming
 
@@ -170,7 +170,7 @@ but, for most uses, ```send``` allows you to send a message to an address ```met
 
 ```join``` allows you to join a channel by ```methods['join']('<channel name>')```
 
-#### parameter3: info
+#### parameter3: info (meaning message info)
 
 for a normal run, info produces
 ```python
@@ -182,6 +182,32 @@ for a normal run, info produces
 }
 ```
 hence if you want messages, ```messages = info['args'][1:]``` or the first word if you want to check for command will be ```info['args'][1]```
+
+**use example**
+
+- the command info is used in the join channel plugin to detect a join command and greet the user who just joined
+
+### bot info
+
+bot_info returns info about the bot
+
+```python
+        return {
+            'name': self.name,
+            'special_command': self.sp_command,
+            'required_modules': self.required_modules,
+            'owners': self.owners,
+            'time': self.time,
+            'friends': self.friends
+        }
+```
+
+so that in run method you can access those. 
+
+**use example**
+
+- For example, the time info is used in the uptime plugin by minussing it from the current time to get time bot has been running.
+- The required modules is used in the installed plugin to determine what required plugin the bot runner did not install
 
 #### wrapping up
 
@@ -196,7 +222,36 @@ if message received == .hi:
     send(address, message)
 ```
 
-#
+## ⚡ Quickstart
+
+- specify your details in [CONNECT.conf](https://github.com/pyhoneybot/honeybot/blob/master/honeybot/settings/CONNECT.conf) (already included)
+~~~
+[INFO]
+
+server_url = chat.freenode.net
+port = 6667
+name = appinventormuBot
+~~~
+- run run.py
+
+## 💻 Seeing The Bot In Action
+
+Get an IRC client
+
+- Web: [Kiwiirc](https://kiwiirc.com) (easy)
+- Desktop: [Hexchat](https://hexchat.github.io)
+- Android: [Revolution IRC](https://hexchat.github.io)
+
+configure
+
+```
+port: 6667
+url: chat.freenode.net
+```
+
+then join channel ```#ltch```
+
+you should see the bot as hbot ... or as it's name is in [settings](https://github.com/pyhoneybot/honeybot/blob/master/honeybot/settings/CONNECT.conf)
 
 ## 📃 Contributing Guide
 
@@ -261,18 +316,6 @@ git remote add upstream git://github.com/Abdur-rahmaanJ/honeybot.git
 git fetch upstream
 git pull upstream master
 ```
-
-## ⚡ Quickstart
-
-- specify your details in CONNECT.conf (already included)
-~~~
-[INFO]
-
-server_url = chat.freenode.net
-port = 6667
-name = appinventormuBot
-~~~
-- run run.py
 
 ## 🔌 Todo Plugins
 - [x] 💐 humour
