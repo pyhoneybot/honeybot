@@ -1,7 +1,0 @@
-[VALUES]
-a = 1
-c = 3
-q = 1
-w = 7
-flower = hibiscus
-
