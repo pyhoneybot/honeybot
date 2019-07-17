@@ -1,0 +1,831 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>HoneyBot Plugins &#8212; HoneyBot 5.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="HoneyBot Main" href="main.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="honeybot-plugins">
+<h1>HoneyBot Plugins<a class="headerlink" href="#honeybot-plugins" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-plugins.abbreviation">
+<span id="abbreviation"></span><h2>Abbreviation<a class="headerlink" href="#module-plugins.abbreviation" title="Permalink to this headline">¶</a></h2>
+<p>[abbreviation.py]
+Abbreviation Plugin</p>
+<p>[Author]
+Erin Moon, Sourav Dutta</p>
+<p>[About]
+responds to .def lol</p>
+<p>[Commands]
+&gt;&gt;&gt; .def lol
+returns lots of love</p>
+</div>
+<div class="section" id="module-plugins.age">
+<span id="age"></span><h2>Age<a class="headerlink" href="#module-plugins.age" title="Permalink to this headline">¶</a></h2>
+<p>[age.py]
+Age Plugin</p>
+<p>[Author]
+Justin Walker</p>
+<p>[About]
+Given birthday it returns your age.</p>
+<p>[Commands]
+&gt;&gt;&gt; .age &lt;&lt;day&gt;&gt; &lt;&lt;month&gt;&gt; &lt;&lt;year&gt;&gt;
+returns age in yr/mo/day format.</p>
+</div>
+<div class="section" id="module-plugins.bitcoin">
+<span id="bitcoin"></span><h2>Bitcoin<a class="headerlink" href="#module-plugins.bitcoin" title="Permalink to this headline">¶</a></h2>
+<p>[bitcoin.py]
+Bitcoin Price Checking Plugin</p>
+<p>[Author]
+Gabriele Ron</p>
+<p>[Website]
+<a class="reference external" href="https://Macr0Nerd.github.io">https://Macr0Nerd.github.io</a></p>
+<p>[About]
+Checks the current price for Bitcoin through the Legacy Coin Market Cap API
+TODO: Update API to new Coin Market Cap API</p>
+<p>[Commands]
+&gt;&gt;&gt; .btc
+returns current value of bitcoin</p>
+</div>
+<div class="section" id="blackjack">
+<h2>Blackjack<a class="headerlink" href="#blackjack" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-plugins.book_of_day">
+<span id="book-of-day"></span><h2>Book of Day<a class="headerlink" href="#module-plugins.book_of_day" title="Permalink to this headline">¶</a></h2>
+<p>[book_of_day.py]
+Book of the Day Plugin
+[Author]
+Schoberg, UMD
+[About]
+using bookoftheday.org, get the title and link of the book of the day
+[Commands]
+&gt;&gt;&gt; .bookoftheday
+<a class="reference external" href="https://bookoftheday.org/fleishman-is-in-trouble-taffy-brodesser-akner/">https://bookoftheday.org/fleishman-is-in-trouble-taffy-brodesser-akner/</a></p>
+</div>
+<div class="section" id="module-plugins.caesar_cipher">
+<span id="caesar-cipher"></span><h2>Caesar cipher<a class="headerlink" href="#module-plugins.caesar_cipher" title="Permalink to this headline">¶</a></h2>
+<p>[calc.py]
+Caesar Cipher plugin</p>
+<p>[Author]
+Kyle Galloway</p>
+<p>[About]
+encrypts and decrypts using a caesar cipher</p>
+<p>[Commands]
+&gt;&gt;&gt; .caesar_cipher &lt;message&gt;
+returns the encrypted version of message</p>
+</div>
+<div class="section" id="module-plugins.calc">
+<span id="calc"></span><h2>Calc<a class="headerlink" href="#module-plugins.calc" title="Permalink to this headline">¶</a></h2>
+<p>[calc.py]
+Maths Operation Plugin</p>
+<p>[Author]
+Abdur-Rahmaan Janhangeer, pythonmembers.club</p>
+<p>[About]
+evaluates maths expressions in the format supported by py</p>
+<p>[Commands]
+&gt;&gt;&gt; .calc &lt;maths expression&gt;
+returns evaluated expression</p>
+</div>
+<div class="section" id="module-plugins.channeljoin">
+<span id="channel-join"></span><h2>Channel Join<a class="headerlink" href="#module-plugins.channeljoin" title="Permalink to this headline">¶</a></h2>
+<p>[channeljoin.py]
+Join Plugin</p>
+<p>[Author]
+Marcelo Benesciutti</p>
+<p>[About]
+Bot Will join a given channel in the server</p>
+<p>[Commands]
+&gt;&gt;&gt; .channeljoin channel
+bot joins the given channel</p>
+</div>
+<div class="section" id="module-plugins.comic">
+<span id="comic"></span><h2>Comic<a class="headerlink" href="#module-plugins.comic" title="Permalink to this headline">¶</a></h2>
+<p>[comic.py]
+Image search plugin</p>
+<p>[Author]
+Miguel Boekhold</p>
+<p>[About]
+Returns a random comic from xkcd</p>
+<p>[Commands]
+&gt;&gt;&gt; .comic
+returns a url of a random comic</p>
+</div>
+<div class="section" id="module-plugins.conv_sniff">
+<span id="conv-sniff"></span><h2>Conv sniff<a class="headerlink" href="#module-plugins.conv_sniff" title="Permalink to this headline">¶</a></h2>
+<p>[conv_sniff.py]
+Conversation Sniffer Plugin</p>
+<p>[Author]
+Abdur-Rahmaan Janhangeer, pythonmembers.club</p>
+<p>[About]
+senses conversation topic with sensitivity set by user, also supports 
+word-specific sensing</p>
+<dl class="class">
+<dt id="plugins.conv_sniff.Plugin">
+<em class="property">class </em><code class="sig-prename descclassname">plugins.conv_sniff.</code><code class="sig-name descname">Plugin</code><a class="headerlink" href="#plugins.conv_sniff.Plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>checkin 
+L checks in list
+S checks in string</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-plugins.converter">
+<span id="converter"></span><h2>Converter<a class="headerlink" href="#module-plugins.converter" title="Permalink to this headline">¶</a></h2>
+<p>[converter.py]
+Currency Converter Plugin
+[Author]
+Angelo Giacco
+[About]
+Converts currencies
+[Commands]
+&gt;&gt;&gt; .convert &lt;&lt;base currency code&gt;&gt; &lt;&lt;target currency code&gt;&gt; &lt;&lt;amount&gt;&gt;
+returns the conversion: amount argument is optional with a default of 1
+.convert help
+shows a list of currencies supported</p>
+</div>
+<div class="section" id="module-plugins.dadjoke">
+<span id="dadjoke"></span><h2>Dadjoke<a class="headerlink" href="#module-plugins.dadjoke" title="Permalink to this headline">¶</a></h2>
+<p>[dadjoke.py]
+Dad joke plugin
+[Author]
+moffetma Oregon State University CS
+[About]
+Sends a random “dad joke” from icanhazdadjoke.com
+[Commands]
+&gt;&gt;&gt; .dadjoke
+Have you heard of the band 1023MB? They haven’t got a gig yet.</p>
+</div>
+<div class="section" id="module-plugins.date">
+<span id="date"></span><h2>Date<a class="headerlink" href="#module-plugins.date" title="Permalink to this headline">¶</a></h2>
+<p>[date.py]
+Date Plugin</p>
+<p>[Author]
+Gico Carlo Evangelista, <a class="reference external" href="https://gicocarlo.me/">https://gicocarlo.me/</a></p>
+<p>[About]
+Will post the current date</p>
+<p>[Commands]
+&gt;&gt;&gt; .date today
+returns the current date</p>
+</div>
+<div class="section" id="module-plugins.debug">
+<span id="debug"></span><h2>Debug<a class="headerlink" href="#module-plugins.debug" title="Permalink to this headline">¶</a></h2>
+<p>[debug.py]
+Debug plugin : Un</p>
+<p>[Author]
+Abdur-Rahmaan Janhangeer, pythonmembers.club</p>
+<p>[About]
+prints all parameters passed to bot</p>
+<p>[Commands]
+&gt;&gt;&gt; .debug
+prints some parameters</p>
+</div>
+<div class="section" id="module-plugins.dictionary">
+<span id="dictionary"></span><h2>Dictionary<a class="headerlink" href="#module-plugins.dictionary" title="Permalink to this headline">¶</a></h2>
+<p>[dictionary.py]
+Dictionary Plugin</p>
+<p>[Author]
+Nishant, JPMorgan Chase &amp; Co.</p>
+<p>[About]
+sends the meaning of the word
+requires PyDictionary to be installed
+can use pip -&gt; “pip install PyDictionary”</p>
+<p>[Commands]
+&gt;&gt;&gt; .dictionary &lt;&lt;word&gt;&gt;
+returns meaning of the word specified</p>
+</div>
+<div class="section" id="module-plugins.fact">
+<span id="fact"></span><h2>Fact<a class="headerlink" href="#module-plugins.fact" title="Permalink to this headline">¶</a></h2>
+<p>[fact.py]
+Fact Plugin</p>
+<p>[Author]
+Justin Walker</p>
+<p>[About]
+Returns a random fact.
+Facts sourced from Mental Floss 
+<a class="reference external" href="http://mentalfloss.com/article/55443/101-amazing-facts">http://mentalfloss.com/article/55443/101-amazing-facts</a></p>
+<p>[Commands]
+&gt;&gt;&gt; .fact
+returns random fact</p>
+</div>
+<div class="section" id="module-plugins.google">
+<span id="google"></span><h2>Google<a class="headerlink" href="#module-plugins.google" title="Permalink to this headline">¶</a></h2>
+<p>[googleSearch.py]
+Google Search Plugin</p>
+<p>[Author]
+Justin Walker</p>
+<p>[About]
+Returns the first three links from a google search.</p>
+<p>[Commands]
+&gt;&gt;&gt; .google &lt;&lt;search term&gt;&gt;
+returns search links</p>
+</div>
+<div class="section" id="module-plugins.greet">
+<span id="greet"></span><h2>Greet<a class="headerlink" href="#module-plugins.greet" title="Permalink to this headline">¶</a></h2>
+<p>[greet.py]
+Greet Plugin</p>
+<p>[Author]
+Abdur-Rahmaan Janhangeer, pythonmembers.club</p>
+<p>[About]
+responds to .hi, demo of a basic plugin</p>
+<p>[Commands]
+&gt;&gt;&gt; .hi
+returns hoo</p>
+</div>
+<div class="section" id="module-plugins.hangman">
+<span id="hangman"></span><h2>Hangman<a class="headerlink" href="#module-plugins.hangman" title="Permalink to this headline">¶</a></h2>
+<p>[hangman.py]
+Hangman Game Plugin</p>
+<p>[Author]
+Justin Walker</p>
+<p>[About]
+Plays game of hangman</p>
+<p>[Commands]
+&gt;&gt;&gt; .hangman start
+Starts hangman game and returns game screen.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">.</span><span class="n">hangman</span> <span class="n">guess</span> <span class="o">&lt;&lt;</span><span class="n">word</span> <span class="ow">or</span> <span class="n">letter</span><span class="o">&gt;&gt;</span>
+<span class="go">Submits word or letter guess and returns game screen.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-plugins.help">
+<span id="help"></span><h2>Help<a class="headerlink" href="#module-plugins.help" title="Permalink to this headline">¶</a></h2>
+<p>[help.py]
+Help Plugin</p>
+<p>[Author]
+Eduardo Moraes de Mello, <a class="reference external" href="https://github.com/edumello">https://github.com/edumello</a></p>
+<p>[About]
+Show link with all the functionalities of the bot.</p>
+<p>[Commands]
+&gt;&gt;&gt; .help 
+returns link of plugins informations</p>
+</div>
+<div class="section" id="module-plugins.horoscope">
+<span id="horoscope"></span><h2>Horoscope<a class="headerlink" href="#module-plugins.horoscope" title="Permalink to this headline">¶</a></h2>
+<p>[horoscope.py]
+Horoscope Plugin</p>
+<p>[Author]
+Angelo Giacco</p>
+<p>[About]
+Returns your daily horoscope based on your star sign
+you can also enter your month and date of birth to automatically find your starsign
+enter month and date as number</p>
+<p>[Commands]
+&gt;&gt;&gt; .horoscope &lt;&lt;starsign&gt;&gt;
+returns horoscope for starsign</p>
+<p>.horoscope &lt;&lt;month&gt;&gt; &lt;&lt;day&gt;&gt;
+returns horoscope for starsign of day entered</p>
+</div>
+<div class="section" id="module-plugins.installed_modules">
+<span id="installed-modules"></span><h2>Installed Modules<a class="headerlink" href="#module-plugins.installed_modules" title="Permalink to this headline">¶</a></h2>
+<p>[installed_module.py]
+Installation checker</p>
+<p>[Author]
+Abdur-Rahmaan Janhangeer, pythonmembers.club</p>
+<p>[About]
+checks if all listed in requirements.txt installed</p>
+<p>[Commands]
+&gt;&gt;&gt; .installed</p>
+</div>
+<div class="section" id="module-plugins.joins">
+<span id="joins"></span><h2>Joins<a class="headerlink" href="#module-plugins.joins" title="Permalink to this headline">¶</a></h2>
+<p>[joins.py]
+Joins Plugin</p>
+<p>[Author]
+Gico Carlo Evangelista, <a class="reference external" href="https://gicocarlo.me/">https://gicocarlo.me/</a></p>
+<p>[About]
+Greets everyone who joins the channel</p>
+</div>
+<div class="section" id="module-plugins.joke">
+<span id="joke"></span><h2>Joke<a class="headerlink" href="#module-plugins.joke" title="Permalink to this headline">¶</a></h2>
+<p>[joke.py]
+Joke Plugin</p>
+<p>[Author]
+Abdur-Rahmaan Janhangeer, pythonmembers.club</p>
+<p>[About]
+sends a random joke on request</p>
+<p>[Commands]
+&gt;&gt;&gt; .joke
+returns a random joke</p>
+</div>
+<div class="section" id="module-plugins.log">
+<span id="log"></span><h2>Log<a class="headerlink" href="#module-plugins.log" title="Permalink to this headline">¶</a></h2>
+<p>[log.py]
+Log Plugin</p>
+<p>[Author]
+Gico Carlo Evangelista, <a class="reference external" href="https://gicocarlo.me/">https://gicocarlo.me/</a></p>
+<p>[About]
+Logs the chat into a log.txt file</p>
+</div>
+<div class="section" id="mail">
+<h2>Mail<a class="headerlink" href="#mail" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-plugins.maths">
+<span id="maths"></span><h2>Maths<a class="headerlink" href="#module-plugins.maths" title="Permalink to this headline">¶</a></h2>
+<p>[maths.py]
+Miscellaneous Maths Operations Plugin</p>
+<p>[Author]
+Abdur-Rahmaan Janhangeer, pythonmembers.club</p>
+<p>[About]
+some maths related commands</p>
+<p>[Commands]
+&gt;&gt;&gt; .sin &lt;number&gt;
+returns sine of number</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">.</span><span class="n">cos</span> <span class="o">&lt;</span><span class="n">number</span><span class="o">&gt;</span>
+<span class="go">returns cosine of number</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">.</span><span class="n">tan</span> <span class="o">&lt;</span><span class="n">number</span><span class="o">&gt;</span>
+<span class="go">returns tangent of number</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">.</span><span class="n">rand</span> <span class="o">&lt;</span><span class="n">number1</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">number2</span><span class="o">&gt;</span>
+<span class="go">returns number between number1 and number2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-plugins.memo">
+<span id="memo"></span><h2>Memo<a class="headerlink" href="#module-plugins.memo" title="Permalink to this headline">¶</a></h2>
+<p>[memo.py]
+Memory Use Illustration Plugin</p>
+<p>[Author]
+Abdur-Rahmaan Janhangeer, pythonmembers.club</p>
+<p>[About]
+responds to .memo, demo of a basic memory plugin</p>
+<p>[Commands]
+&gt;&gt;&gt; .memo add &lt;key&gt; &lt;value&gt;
+&gt;&gt;&gt; .memo rem &lt;key&gt;
+&gt;&gt;&gt; .memo fetch &lt;key&gt;</p>
+</div>
+<div class="section" id="monopoly">
+<h2>Monopoly<a class="headerlink" href="#monopoly" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-plugins.news">
+<span id="news"></span><h2>news<a class="headerlink" href="#module-plugins.news" title="Permalink to this headline">¶</a></h2>
+<p>[news.py]
+Greet Plugin
+[Author]
+Angelo Giacco
+[About]
+Gets the top 10 headlines around the world from bbc world news
+[Commands]
+&gt;&gt;&gt; .news
+returns string of ten news headlines with newlines between</p>
+</div>
+<div class="section" id="module-plugins.password_generator">
+<span id="password-generator"></span><h2>Password Generator<a class="headerlink" href="#module-plugins.password_generator" title="Permalink to this headline">¶</a></h2>
+<p>[password_generator.py]
+Password Generator Plugin</p>
+<p>[Author]
+Nishant, JPMorgan Chase &amp; Co.</p>
+<p>[About]
+sends different type of passwords</p>
+<p>[Commands]
+&gt;&gt;&gt; .passgen &lt;&lt;length&gt;&gt;
+returns alphabetic password of specified length</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">.</span><span class="n">passgensecure</span> <span class="o">&lt;&lt;</span><span class="n">length</span><span class="o">&gt;&gt;</span>
+<span class="go">returns secure alphanumeric password of specified length</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">.</span><span class="n">passgenalphanum</span> <span class="o">&lt;&lt;</span><span class="n">length</span><span class="o">&gt;&gt;</span>
+<span class="go">returns alphanumeric password of specified length</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">.</span><span class="n">passgenspecialchar</span> <span class="o">&lt;&lt;</span><span class="n">length</span><span class="o">&gt;&gt;</span>
+<span class="go">returns universally accepted alphanumeric password with special characters of specified length where length &gt;= 4</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-plugins.pydocs">
+<span id="pydocs"></span><h2>Pydocs<a class="headerlink" href="#module-plugins.pydocs" title="Permalink to this headline">¶</a></h2>
+<p>[dictionary.py]
+Dictionary Plugin</p>
+<p>[Author]
+Milad H,</p>
+<p>[About]
+Searches the python documentatioin(pydocs) for the related keyword(s)
+and returns some of the relevant links</p>
+<p>[Commands]
+&gt;&gt;&gt; .pydocs &lt;keyword&gt;
+returns links in python documentation related to the keyword</p>
+</div>
+<div class="section" id="module-plugins.pynews">
+<span id="pynews"></span><h2>Pynews<a class="headerlink" href="#module-plugins.pynews" title="Permalink to this headline">¶</a></h2>
+<p>[pynews.py]
+Python news checking plugin</p>
+<p>[Author]
+Sam Deans</p>
+<p>[Github]
+&#64;sdeans0</p>
+<p>[About]
+Finds the top five news items on python.org and prints them to the IRC</p>
+<p>[Commands]
+&gt;&gt;&gt; .pynews
+returns the top 5 python.org news articles</p>
+</div>
+<div class="section" id="module-plugins.quote">
+<span id="quote"></span><h2>quote<a class="headerlink" href="#module-plugins.quote" title="Permalink to this headline">¶</a></h2>
+<p>[quote.py]
+Quotes Plugin</p>
+<p>[Author]
+German Corpaz</p>
+<p>[About]
+Sends a random quote on request</p>
+<p>[Commands]
+&gt;&gt;&gt; .quote
+returns a random quote</p>
+</div>
+<div class="section" id="module-plugins.repostats">
+<span id="repostats"></span><h2>Repostats<a class="headerlink" href="#module-plugins.repostats" title="Permalink to this headline">¶</a></h2>
+<p>[repostats.py]
+Repostats Plugin</p>
+<p>[Author]
+Shreyansh Sancheti</p>
+<p>[About]
+Gets the number of forks and stars for a given repo</p>
+<p>[Commands]
+&gt;&gt;&gt; .repostats url
+returns starcount stars | forkcount forks</p>
+</div>
+<div class="section" id="module-plugins.riddle">
+<span id="riddle"></span><h2>Riddle<a class="headerlink" href="#module-plugins.riddle" title="Permalink to this headline">¶</a></h2>
+<p>[riddle.py]
+Riddle Plugin</p>
+<p>[Author]
+Angelo Giacco</p>
+<p>[About]
+Returns a riddle or whether guess at the answer was correct or not.</p>
+<p>[Commands]
+&gt;&gt;&gt; .riddle
+returns a random riddle</p>
+<p>.riddle guess &lt;&lt;attempt&gt;&gt;
+returns whether the guess was correct or wrong</p>
+</div>
+<div class="section" id="module-plugins.roll">
+<span id="roll"></span><h2>Roll<a class="headerlink" href="#module-plugins.roll" title="Permalink to this headline">¶</a></h2>
+<p>[roll.py]
+Dice_Roll Plugin</p>
+<p>[Author]
+Glenn Toms</p>
+<p>[About]
+Will roll dice in the form of 1d4, 10d6 and return total.</p>
+<p>[Commands]
+&gt;&gt;&gt; .roll &lt;&lt;dice&gt;&gt;
+returns Total of dice</p>
+</div>
+<div class="section" id="module-plugins.roman_numeral">
+<span id="roman-numeral"></span><h2>Roman numeral<a class="headerlink" href="#module-plugins.roman_numeral" title="Permalink to this headline">¶</a></h2>
+<p>roman_numeral.py]
+Roman Numeral Converter Plugin</p>
+<p>[Author]
+Nick Wiley</p>
+<p>[About]
+Returns the roman numeral equivalent of the number inputted</p>
+<p>[Commands]
+&gt;&gt;&gt; .roman &lt;number&gt;
+returns number represented in roman numerals</p>
+</div>
+<div class="section" id="module-plugins.russian_roulette">
+<span id="russian-roulette"></span><h2>Russian Roulette<a class="headerlink" href="#module-plugins.russian_roulette" title="Permalink to this headline">¶</a></h2>
+<p>[russian_roulette.py]
+Russian Roulette Plugin</p>
+<p>[Author]
+Angelo Giacco</p>
+<p>[About]
+In the original russian roulette, you have a one sixth chance of committing
+suicide. In this version, you have a one sixth chance of being kicked from
+the channel. The bot will utilise the IRC command:
+KICK #channel nickname
+where #channel is the channel name and nicknames is the nickname of the user</p>
+<p>WARNING: BOT MUST BE CHANNEL OPERATOR!!!</p>
+<p>[Commands]
+&gt;&gt;&gt; .russian_roulette
+either returns a string saying you survived or kicks you off the channel</p>
+</div>
+<div class="section" id="module-plugins.selfTrivia">
+<span id="self-trivia"></span><h2>Self Trivia<a class="headerlink" href="#module-plugins.selfTrivia" title="Permalink to this headline">¶</a></h2>
+<p>[quote.py]
+Self Trivia Plugin</p>
+<p>[Author]
+Angel Jimenez</p>
+<p>[About]
+Returns a private trivia question</p>
+<p>[Commands]
+&gt;&gt;&gt; .selfTrivia
+returns a random question
+Currently working on adding multiple choice and a timer reveal.</p>
+</div>
+<div class="section" id="module-plugins.send_message">
+<span id="send-message"></span><h2>Send Message<a class="headerlink" href="#module-plugins.send_message" title="Permalink to this headline">¶</a></h2>
+<p>[send_message.py]
+Send Message Plugin</p>
+<p>[Author]
+Justin Walker</p>
+<p>[About]
+Sends a message to another channel.</p>
+<p>[Commands]
+&gt;&gt;&gt; .send #channel .u riceabove .m how are you?
+Sends a message to #channel like
+‘IronPenguin from #channel says to riceabove: how are you?’</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">.</span><span class="n">send</span> <span class="c1">#channel hi all</span>
+<span class="go">Sends a message to #channel like</span>
+<span class="go">&#39;IronPenguin from #channel says: hi all&#39;</span>
+</pre></div>
+</div>
+<p>Checks if user online first and says “User not online.”</p>
+</div>
+<div class="section" id="module-plugins.test">
+<span id="test"></span><h2>test<a class="headerlink" href="#module-plugins.test" title="Permalink to this headline">¶</a></h2>
+<p>[test.py]
+Test Plugin</p>
+<p>[Author]
+Abdur-Rahmaan Janhangeer, pythonmembers.club</p>
+<p>[About]
+tests run</p>
+</div>
+<div class="section" id="transfer-rumour">
+<h2>Transfer rumour<a class="headerlink" href="#transfer-rumour" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-plugins.translate">
+<span id="translate"></span><h2>translate<a class="headerlink" href="#module-plugins.translate" title="Permalink to this headline">¶</a></h2>
+<p>[translate.py]
+Translate Plugin
+[Author]
+Ahmed Deeb
+[About]
+A Google Translate plugin 
+[Commands]
+&gt;&gt;&gt; . Google Translator object.</p>
+<blockquote>
+<div><p>translator = Plugin()</p>
+<p>results1 = translator.translate(“Einen schönen Tag allerseits”)</p>
+<p># try 2 at a time
+results2 = translator.translate([“Einen schönen Tag allerseits”,</p>
+<blockquote>
+<div><p>“Ich nehme an”])</p>
+</div></blockquote>
+<p># try detect
+results3 = translator.detect(“Einen schönen Tag allerseits”)</p>
+<p># try to detect 2 at a time
+results4 = translator.detect([“Einen schönen Tag allerseits”,</p>
+<blockquote>
+<div><p>“Ich nehme an”])</p>
+</div></blockquote>
+</div></blockquote>
+<dl class="class">
+<dt id="plugins.translate.Plugin">
+<em class="property">class </em><code class="sig-prename descclassname">plugins.translate.</code><code class="sig-name descname">Plugin</code><a class="headerlink" href="#plugins.translate.Plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Google Translator object.</p>
+<p>translator = Plugin()</p>
+<p>results1 = translator.translate(“Einen schönen Tag allerseits”)</p>
+<p># try 2 at a time
+results2 = translator.translate([“Einen schönen Tag allerseits”,</p>
+<blockquote>
+<div><p>“Ich nehme an”])</p>
+</div></blockquote>
+<p># try detect
+results3 = translator.detect(“Einen schönen Tag allerseits”)</p>
+<p># try to detect 2 at a time
+results4 = translator.detect([“Einen schönen Tag allerseits”,</p>
+<blockquote>
+<div><p>“Ich nehme an”])</p>
+</div></blockquote>
+<dl class="method">
+<dt id="plugins.translate.Plugin.detect">
+<code class="sig-name descname">detect</code><span class="sig-paren">(</span><em class="sig-param">query</em><span class="sig-paren">)</span><a class="headerlink" href="#plugins.translate.Plugin.detect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to detect the language of a word, phrase, or list of either.</p>
+<dl class="simple">
+<dt>query<span class="classifier">str or iterable</span></dt><dd><p>Query or list of queries to translate</p>
+</dd>
+</dl>
+<p>List of dictionaries for each query</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="plugins.translate.Plugin.translate">
+<code class="sig-name descname">translate</code><span class="sig-paren">(</span><em class="sig-param">query</em>, <em class="sig-param">target='en'</em>, <em class="sig-param">source=''</em>, <em class="sig-param">_dirty=False</em><span class="sig-paren">)</span><a class="headerlink" href="#plugins.translate.Plugin.translate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate a query.</p>
+<dl class="simple">
+<dt>query<span class="classifier">str or iterable</span></dt><dd><p>Query or list of queries to translate</p>
+</dd>
+<dt>target<span class="classifier">str</span></dt><dd><p>Language to translate into.</p>
+</dd>
+<dt>source<span class="classifier">str, optional</span></dt><dd><p>Language of the source text, if known. Will be auto-detected
+if an empty string is passed.</p>
+</dd>
+<dt>dirty<span class="classifier">bool</span></dt><dd><p>This is not intended to be used by users. It is here to avoid
+infinite recursion if the query returns an error because the
+language can’t be detected.</p>
+</dd>
+</dl>
+<p>List of dictionaries for each query</p>
+<p>If the language can’t be detected for a word an attempt is made
+to detect the language of the word and resubmit the query. If a
+list of words to translate is given and an error is encountered,
+it is assumed that the list of words all have the same source language
+when resubmitted.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="plugins.translate.ZipCache">
+<em class="property">class </em><code class="sig-prename descclassname">plugins.translate.</code><code class="sig-name descname">ZipCache</code><span class="sig-paren">(</span><em class="sig-param">cache='.cache'</em><span class="sig-paren">)</span><a class="headerlink" href="#plugins.translate.ZipCache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-plugins.uptime">
+<span id="uptime"></span><h2>uptime<a class="headerlink" href="#module-plugins.uptime" title="Permalink to this headline">¶</a></h2>
+<p>[uptime.py]
+Uptime Plugin</p>
+<p>[Author]
+Nick Wiley</p>
+<p>[About]
+Returns how long the bot has been running for</p>
+<p>[Commands]
+&gt;&gt;&gt; .uptime
+returns the bot uptime</p>
+</div>
+<div class="section" id="module-plugins.username">
+<span id="username"></span><h2>username<a class="headerlink" href="#module-plugins.username" title="Permalink to this headline">¶</a></h2>
+<p>[username.py]
+Username Generator Plugin</p>
+<p>[Author]
+Abdur-Rahmaan Janhangeer, pythonmembers.club</p>
+<p>[About]
+generates random usernames, used for inspiration</p>
+<p>[Commands]
+&gt;&gt;&gt; .uname
+returns generated username</p>
+</div>
+<div class="section" id="module-plugins.weather">
+<span id="weather"></span><h2>weather<a class="headerlink" href="#module-plugins.weather" title="Permalink to this headline">¶</a></h2>
+<p>[weather.py]
+Weather Plugin
+[Author]
+Gabriele Ron
+[About]
+A plugin to get the weather of a location
+[Commands]
+&gt;&gt;&gt; .weather &lt;city&gt; &lt;country code&gt;
+returns the weather</p>
+</div>
+<div class="section" id="module-plugins.wikipedia">
+<span id="wikipedia"></span><h2>wikipedia<a class="headerlink" href="#module-plugins.wikipedia" title="Permalink to this headline">¶</a></h2>
+<p>[wikipedia.py]
+Wikipedia Plugin</p>
+<p>[Author]
+Gabriele Ron</p>
+<p>[About]
+sends a wikipedia article on request based off of a search or random query
+requires wikipedia library. Can use pip -&gt; “pip install wikipedia”</p>
+<p>[Website]
+<a class="reference external" href="https://Macr0Nerd.github.io">https://Macr0Nerd.github.io</a></p>
+<p>[Commands]
+&gt;&gt;&gt; .wiki &lt;command&gt; &lt;topic&gt;
+returns a wikipedia article</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">HoneyBot</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="main.html">HoneyBot Main</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">HoneyBot Plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.abbreviation">Abbreviation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.age">Age</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.bitcoin">Bitcoin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#blackjack">Blackjack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.book_of_day">Book of Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.caesar_cipher">Caesar cipher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.calc">Calc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.channeljoin">Channel Join</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.comic">Comic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.conv_sniff">Conv sniff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.converter">Converter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.dadjoke">Dadjoke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.date">Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.debug">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.dictionary">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.fact">Fact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.google">Google</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.greet">Greet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.hangman">Hangman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.help">Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.horoscope">Horoscope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.installed_modules">Installed Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.joins">Joins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.joke">Joke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.log">Log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mail">Mail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.maths">Maths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.memo">Memo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#monopoly">Monopoly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.news">news</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.password_generator">Password Generator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.pydocs">Pydocs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.pynews">Pynews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.quote">quote</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.repostats">Repostats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.riddle">Riddle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.roll">Roll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.roman_numeral">Roman numeral</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.russian_roulette">Russian Roulette</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.selfTrivia">Self Trivia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.send_message">Send Message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.test">test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transfer-rumour">Transfer rumour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.translate">translate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.uptime">uptime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.username">username</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.weather">weather</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-plugins.wikipedia">wikipedia</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="main.html" title="previous chapter">HoneyBot Main</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Abdur-rahmaanJ.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/plugins.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
