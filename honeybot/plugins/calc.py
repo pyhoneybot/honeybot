@@ -13,11 +13,16 @@ evaluates maths expressions in the format supported by py
 >>> .calc <maths expression>
 returns evaluated expression
 """
-from string import ascii_letters
-
+from math import *
 
 class Plugin:
     def __init__(self):
+        self.safe_functs = ['acos', 'asin', 'atan', 'atan2', 'ceil', 'cos',
+                 'cosh', 'degrees', 'e', 'exp', 'fabs', 'floor',
+                 'fmod', 'frexp', 'hypot', 'ldexp', 'log', 'log10',
+                 'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt',
+                 'tan', 'tanh']
+        self.safe_dict = dict([(k, locals().get(k, None)) for k in safe_functs])
         pass
 
     def run(self, incoming, methods, info, bot_info):
@@ -28,10 +33,8 @@ class Plugin:
                 if len(msgs) > 1:
                     if msgs[0] == '.calc':
                         expr = msgs[1]
-                        for c in ascii_letters:
-                            expr = '' + expr.replace(c, '')
                         methods['send'](info['address'], '{}'.format(
-                                eval(expr))
+                                eval(expr, {"__builtins__":None}, safe_dict))
                         )
         except Exception as e:
             print('woops plugin', __file__, e)
