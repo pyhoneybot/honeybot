@@ -6,5 +6,6 @@ Welcome to HoneyBot's documentation!
    
    main
    plugins
-
-.. include:: README.rst
+   
+This documentation is based on the GOOGLE Docstring Format
+.. Google Docstring: http://www.python.org/

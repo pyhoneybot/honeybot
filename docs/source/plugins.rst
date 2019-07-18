@@ -1,6 +1,5 @@
-HoneyBot Plugins
-****************
-
+Plugins
+*******
 Abbreviation
 ============
 .. automodule:: plugins.abbreviation
