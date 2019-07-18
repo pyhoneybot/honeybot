@@ -13,8 +13,7 @@ evaluates maths expressions in the format supported by py
 >>> .calc <maths expression>
 returns evaluated expression
 """
-from string import ascii_letters
-
+from math import *
 
 class Plugin:
     def __init__(self):
@@ -27,11 +26,20 @@ class Plugin:
             if info['command'] == 'PRIVMSG':
                 if len(msgs) > 1:
                     if msgs[0] == '.calc':
+                        safe_dict = {
+                                'acos':acos, 'asin':asin, 'atan':atan,
+                                'atan2':atan2, 'ceil':ceil, 'cos':cos,
+                                'cosh':cosh, 'degrees':degrees, 'e':e,
+                                'exp':exp, 'fabs':fabs, 'floor':floor,
+                                'fmod':fmod, 'frexp':frexp, 'hypot':hypot,
+                                'ldexp':ldexp, 'log':log, 'log10':log10,
+                                'modf':modf, 'pi':pi, 'pow':pow,
+                                'radians':radians, 'sin':sin, 'sinh':sinh,
+                                 'sqrt':sqrt, 'tan':tan, 'tanh':tanh
+                                }
                         expr = msgs[1]
-                        for c in ascii_letters:
-                            expr = '' + expr.replace(c, '')
                         methods['send'](info['address'], '{}'.format(
-                                eval(expr))
+                                eval(expr, {"__builtins__":None}, safe_dict))
                         )
-        except Exception as e:
-            print('woops plugin', __file__, e)
+        except Exception as ex:
+            print('woops plugin', __file__, ex)
