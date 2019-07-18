@@ -1,6 +1,0 @@
-plugins
-=======
-
-.. currentmodule:: main
-
-.. autodata:: plugins

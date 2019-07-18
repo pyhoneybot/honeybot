@@ -1,6 +1,0 @@
-logger
-======
-
-.. currentmodule:: main
-
-.. autodata:: logger
