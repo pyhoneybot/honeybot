@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>HoneyBot Plugins &#8212; HoneyBot 5.0.0 documentation</title>
+    <title>Plugins &#8212; HoneyBot 5.0.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -14,7 +14,7 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="HoneyBot Main" href="main.html" />
+    <link rel="prev" title="Main" href="main.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -31,8 +31,8 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="honeybot-plugins">
-<h1>HoneyBot Plugins<a class="headerlink" href="#honeybot-plugins" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="plugins">
+<h1>Plugins<a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-plugins.abbreviation">
 <span id="abbreviation"></span><h2>Abbreviation<a class="headerlink" href="#module-plugins.abbreviation" title="Permalink to this headline">¶</a></h2>
 <p>[abbreviation.py]
@@ -142,12 +142,12 @@ Conversation Sniffer Plugin</p>
 <p>[Author]
 Abdur-Rahmaan Janhangeer, pythonmembers.club</p>
 <p>[About]
-senses conversation topic with sensitivity set by user, also supports 
+senses conversation topic with sensitivity set by user, also supports
 word-specific sensing</p>
 <dl class="class">
 <dt id="plugins.conv_sniff.Plugin">
 <em class="property">class </em><code class="sig-prename descclassname">plugins.conv_sniff.</code><code class="sig-name descname">Plugin</code><a class="headerlink" href="#plugins.conv_sniff.Plugin" title="Permalink to this definition">¶</a></dt>
-<dd><p>checkin 
+<dd><p>checkin
 L checks in list
 S checks in string</p>
 </dd></dl>
@@ -225,7 +225,7 @@ Fact Plugin</p>
 Justin Walker</p>
 <p>[About]
 Returns a random fact.
-Facts sourced from Mental Floss 
+Facts sourced from Mental Floss
 <a class="reference external" href="http://mentalfloss.com/article/55443/101-amazing-facts">http://mentalfloss.com/article/55443/101-amazing-facts</a></p>
 <p>[Commands]
 &gt;&gt;&gt; .fact
@@ -280,7 +280,7 @@ Eduardo Moraes de Mello, <a class="reference external" href="https://github.com/
 <p>[About]
 Show link with all the functionalities of the bot.</p>
 <p>[Commands]
-&gt;&gt;&gt; .help 
+&gt;&gt;&gt; .help
 returns link of plugins informations</p>
 </div>
 <div class="section" id="module-plugins.horoscope">
@@ -576,7 +576,7 @@ Translate Plugin
 [Author]
 Ahmed Deeb
 [About]
-A Google Translate plugin 
+A Google Translate plugin
 [Commands]
 &gt;&gt;&gt; . Google Translator object.</p>
 <blockquote>
@@ -599,6 +599,7 @@ results4 = translator.detect([“Einen schönen Tag allerseits”,</p>
 <dt id="plugins.translate.Plugin">
 <em class="property">class </em><code class="sig-prename descclassname">plugins.translate.</code><code class="sig-name descname">Plugin</code><a class="headerlink" href="#plugins.translate.Plugin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Google Translator object.</p>
+<p class="rubric">Examples</p>
 <p>translator = Plugin()</p>
 <p>results1 = translator.translate(“Einen schönen Tag allerseits”)</p>
 <p># try 2 at a time
@@ -617,31 +618,43 @@ results4 = translator.detect([“Einen schönen Tag allerseits”,</p>
 <dt id="plugins.translate.Plugin.detect">
 <code class="sig-name descname">detect</code><span class="sig-paren">(</span><em class="sig-param">query</em><span class="sig-paren">)</span><a class="headerlink" href="#plugins.translate.Plugin.detect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Try to detect the language of a word, phrase, or list of either.</p>
-<dl class="simple">
-<dt>query<span class="classifier">str or iterable</span></dt><dd><p>Query or list of queries to translate</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>query</strong> (<em>str</em><em> or </em><em>iterable</em>) – Query or list of queries to translate</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List of dictionaries for each query</p>
 </dd>
 </dl>
-<p>List of dictionaries for each query</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="plugins.translate.Plugin.translate">
 <code class="sig-name descname">translate</code><span class="sig-paren">(</span><em class="sig-param">query</em>, <em class="sig-param">target='en'</em>, <em class="sig-param">source=''</em>, <em class="sig-param">_dirty=False</em><span class="sig-paren">)</span><a class="headerlink" href="#plugins.translate.Plugin.translate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Translate a query.</p>
-<dl class="simple">
-<dt>query<span class="classifier">str or iterable</span></dt><dd><p>Query or list of queries to translate</p>
-</dd>
-<dt>target<span class="classifier">str</span></dt><dd><p>Language to translate into.</p>
-</dd>
-<dt>source<span class="classifier">str, optional</span></dt><dd><p>Language of the source text, if known. Will be auto-detected
-if an empty string is passed.</p>
-</dd>
-<dt>dirty<span class="classifier">bool</span></dt><dd><p>This is not intended to be used by users. It is here to avoid
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>str</em><em> or </em><em>iterable</em>) – Query or list of queries to translate</p></li>
+<li><p><strong>target</strong> (<em>str</em>) – Language to translate into.</p></li>
+<li><p><strong>source</strong> (<em>str</em><em>, </em><em>optional</em>) – Language of the source text, if known. Will be auto-detected
+if an empty string is passed.</p></li>
+<li><p><strong>dirty</strong> (<em>bool</em>) – This is not intended to be used by users. It is here to avoid
 infinite recursion if the query returns an error because the
-language can’t be detected.</p>
+language can’t be detected.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List of dictionaries for each query</p>
 </dd>
 </dl>
-<p>List of dictionaries for each query</p>
+<p class="rubric">Notes</p>
 <p>If the language can’t be detected for a word an attempt is made
 to detect the language of the word and resubmit the query. If a
 list of words to translate is given and an error is encountered,
@@ -728,8 +741,8 @@ returns a wikipedia article</p>
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="main.html">HoneyBot Main</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">HoneyBot Plugins</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="main.html">Main</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Plugins</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-plugins.abbreviation">Abbreviation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-plugins.age">Age</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-plugins.bitcoin">Bitcoin</a></li>
@@ -786,7 +799,7 @@ returns a wikipedia article</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="main.html" title="previous chapter">HoneyBot Main</a></li>
+      <li>Previous: <a href="main.html" title="previous chapter">Main</a></li>
   </ul></li>
 </ul>
 </div>

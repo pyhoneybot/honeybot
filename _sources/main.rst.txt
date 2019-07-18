@@ -1,4 +1,4 @@
-HoneyBot Main
-*************
+Main
+****
+   
 .. automodule:: main
-   :members:

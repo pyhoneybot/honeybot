@@ -1,0 +1,6 @@
+memory_reader
+=============
+
+.. currentmodule:: main
+
+.. autodata:: memory_reader

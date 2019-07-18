@@ -1,0 +1,22 @@
+main
+====
+
+.. automodule:: main
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Bot_core
+   
+   
+
+   
+   
+   

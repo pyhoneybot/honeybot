@@ -1,0 +1,6 @@
+connect_config
+==============
+
+.. currentmodule:: main
+
+.. autodata:: connect_config
