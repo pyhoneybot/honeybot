@@ -24,9 +24,9 @@ Attributes:
         Either form is acceptable, but the two should not be mixed. Choose
         one convention to document module level variables and be consistent
         with it.
-    memory_reader (ConfigParser): Explains the memory reader, which I currently cant
-    pluggins (List): Dont exactly know what kind of list, but well
-    logger (Logger): Object that's used for logging
+    memory_reader (ConfigParser): TODO.
+    pluggins (List): TODO.
+    logger (Logger): TODO.
 
 .. _Google Python Style Guide:
    http://google.github.io/styleguide/pyguide.html
@@ -48,36 +48,34 @@ plugins = []
 # Start logger
 logger = logging.getLogger('bot_core')
 
-'''
+"""
 BOT CONNECTION SETUP
-'''
+"""
 
 class Bot_core(object):
     """
-    Core of the bot
+    Core of the bot.
 
-    Detailed Description
-    The init of a class is defined right after the class. You could choose
-    to do otherwise, I find it better to define in the class.
+    Detailed Description.
 
     Args:
         password (str): Password for the bot, defaults to ''
 
     Attributes:
-        server_url (str): String for the IRC Server
-        port (int): Port for the IRC Server
-        name (str): Name of the bot
-        owners (str[]): String list of owners
-        password (str): Password of the bot
-        friends (str[]): String list of friends
-        autojoin_channels (str[]): String list of autojoin_channels
-        required_modules (str[]): String list of required modules
-        time (time): Get the current time
-        irc (socket): socket for the IRC server
-        isListenOn (int): I dont know
-        domain (str): Server domain
-        sp_command (str): command string of the bot
-        plugins (str[]): List of plugins
+        server_url (str): String for the IRC Server.
+        port (int): Port for the IRC Server.
+        name (str): Name of the bot.
+        owners (list of str): String list of owners.
+        password (str): Password of the bot.
+        friends (list of str): String list of friends.
+        autojoin_channels (list of str): String list of autojoin_channels.
+        required_modules (list of str): String list of required modules.
+        time (time): Get the current time.
+        irc (socket): socket for the IRC server.
+        isListenOn (int): TODO.
+        domain (str): Server domain.
+        sp_command (str): command string of the bot.
+        plugins (lsit of str): List of plugins.
     """
 
     def __init__(self, password=''):
@@ -99,16 +97,16 @@ class Bot_core(object):
         self.sp_command = 'hbot'
         self.plugins = []
 
-    '''
+    """
     STRINGS
-    '''
+    """
 
     def set_nick_command(self):
         """
-        Get string for set nickname command
+        Get string for set nickname command.
 
         Returns:
-            str: The new nickname of the bot.
+            str: String for the set nick command.
 
         Examples:
             TODO
@@ -117,7 +115,7 @@ class Bot_core(object):
 
     def present_command(self):
         """
-        Get string for present command
+        Get string for present command.
 
         Returns:
             str: String for the present command.
@@ -130,7 +128,7 @@ class Bot_core(object):
 
     def identify_command(self):
         """
-        Get string for identify command
+        Get string for identify command.
 
         Returns:
             str: Command for the identify command.
@@ -142,10 +140,10 @@ class Bot_core(object):
 
     def join_channel_command(self, channel):
         """
-        Get string for join channel command
+        Get string for join channel command.
 
         Args:
-            channel (str): String of the channelname
+            channel (str): String of the channelname command.
 
         Returns:
             str: Command to join Channel.
@@ -157,11 +155,11 @@ class Bot_core(object):
 
     def specific_send_command(self, target, msg):
         """
-        Get string for specific send command
+        Get string for specific send command.
 
         Args:
-            target (str): String of the send_target
-            msg (str): String of the Message that's to be sent to target
+            target (str): String of the target that should receive the message.
+            msg (str): String of the Message that's to be sent to target.
 
         Returns:
             str: Command for messaging specific user.
@@ -173,10 +171,10 @@ class Bot_core(object):
 
     def pong_return(self, domain):
         """
-        Get string for Pong command
+        Get string for Pong command.
 
         Args:
-            domain(str): String of the current domain
+            domain(str): String of the current domain.
 
         Returns:
             str: Command for Pong.
@@ -186,13 +184,13 @@ class Bot_core(object):
         """
         return 'PONG :{}\r\n'.format(domain)
 
-    '''
+    """
     MESSAGE VALIDATION
-    '''
+    """
 
     def message_info(self, s):
         """
-        Get info of a message
+        Get info of a message.
 
         Args:
             s(str): TODO
@@ -211,7 +209,7 @@ class Bot_core(object):
                 x(any or None): TODO
 
             Returns:
-                Union of [x,''](any or str): returns x if x is not None else ''
+                Union of [x,''](any or str): returns x if x is not None else ''.
 
             Examples:
                 TODO
@@ -254,10 +252,10 @@ class Bot_core(object):
 
     def bot_info(self):
         """
-        Get bot info
+        Get bot info.
 
         Returns:
-            dict of {str: str}: TODO
+            dict of {str: str}: TODO.
 
         Examples:
             TODO
@@ -271,16 +269,16 @@ class Bot_core(object):
             'friends': self.friends
         }
 
-    '''
+    """
     MESSAGE UTIL
-    '''
+    """
 
     def send(self, msg):
         """
-        Send a message
+        Send a message.
 
         Args:
-            msg (str): The message that's to be sent
+            msg (str): The message that's to be sent.
 
         Examples:
             TODO
@@ -289,11 +287,11 @@ class Bot_core(object):
 
     def send_target(self, target, msg):
         """
-        Send a specific message to target
+        Send a specific message to target.
 
         Args:
-            target (str): The target that's to be messaged
-            msg (str): The message that's to be sent
+            target (str): The target that's to be messaged.
+            msg (str): The message that's to be sent.
 
         Examples:
             TODO
@@ -302,26 +300,26 @@ class Bot_core(object):
 
     def join(self, channel):
         """
-        Join a specific channel
+        Join a specific channel.
 
         Args:
-            channel (str): The channel the bot should join
+            channel (str): The channel the bot should join.
 
         Examples:
             TODO
         """
         self.send(self.join_channel_command(channel))
 
-    '''
+    """
     BOT UTIL
-    '''
+    """
 
     def load_plugins(self, plugins_to_load):
         """
-        Load plugins that are specified in the plugins list
+        Load plugins that are specified in the plugins list.
 
         Args:
-            plugins_to_load (list of str): List of plugins to load
+            plugins_to_load (list of str): List of plugins to load.
 
         Examples:
             TODO
@@ -347,13 +345,13 @@ class Bot_core(object):
 
     def configfile_to_list(self, filename):
         """
-        Turn specified configfile to a list
+        Turn specified configfile to a list.
 
         Args:
-            filenamae (str): Name of the file that should be converted
+            filenamae (str): Name of the file that should be converted.
 
         Returns:
-            elements (list of str): Elements of the configfile as strings
+            elements (list of str): Elements of the configfile as strings.
 
         Examples:
             TODO
@@ -366,10 +364,10 @@ class Bot_core(object):
 
     def methods(self):
         """
-        Return methods of the bot
+        Return methods of the bot.
 
         Returns:
-            dict of {str:str}: Dictionary of command names and strings
+            dict of {str:str}: Dictionary of command names and strings.
 
         Examples:
             TODO
@@ -385,7 +383,7 @@ class Bot_core(object):
 
     def run_plugins(self, listfrom, incoming):
         """
-        Runs the plugins
+        Runs the plugins.
 
         Args:
             listfrom (TODO): TODO
@@ -405,16 +403,16 @@ class Bot_core(object):
             # print(f"\033[0;33mTrying {plugin}\033[0;0m")
             plugin.run(self, incoming, self.methods(), self.message_info(incoming), self.bot_info())
 
-    '''
+    """
     SETUP REQUIREMENTS
-    '''
+    """
 
     def requirements(self):
         """
-        Return requirements of the bot
+        Return requirements of the bot.
 
         Returns:
-            reqs (list of str): List of the requirements
+            reqs (list of str): List of the requirements.
 
         Examples:
             TODO
@@ -472,7 +470,7 @@ class Bot_core(object):
             key (TODO): TODO
 
         Returns:
-            (str): Value of the key as a string
+            (str): Value of the key as a string.
 
         Examples:
             TODO
@@ -480,9 +478,9 @@ class Bot_core(object):
         memory_reader.read('memory/{}.txt'.format(memfile))
         return memory_reader[section][key]
 
-    '''
+    """
     MESSAGE PARSING
-    '''
+    """
     def core_commands_parse(self, incoming):
         """
         parse core commands.
@@ -521,7 +519,7 @@ class Bot_core(object):
 
     def greet(self):
         """
-        Greet the channel ? (TODO)
+        Greet the channel ? (TODO).
 
         Examples:
             TODO
@@ -556,9 +554,9 @@ class Bot_core(object):
             except Exception as e:
                 logger.info(e)
 
-    '''
+    """
     ONGOING REQUIREMENT/S
-    '''
+    """
     def stay_alive(self, incoming):
         """
         TODO
