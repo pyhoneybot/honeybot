@@ -20,7 +20,7 @@ Psst. since i learnt py through this bot, we decided to keep a new-comers friend
 
 ## 📌 Contributing Countries
 
-🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳 🇬🇧 🇬🇬 🇧🇷 🇸🇽 🇵🇱
+🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳 🇬🇧 🇬🇬 🇧🇷 🇸🇽 🇵🇱 🇩🇪
 
 ## 📨 Follow the project on CodeTriage for updates!
 
