@@ -17,12 +17,6 @@ from math import *
 
 class Plugin:
     def __init__(self):
-        self.safe_functs = ['acos', 'asin', 'atan', 'atan2', 'ceil', 'cos',
-                 'cosh', 'degrees', 'e', 'exp', 'fabs', 'floor',
-                 'fmod', 'frexp', 'hypot', 'ldexp', 'log', 'log10',
-                 'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt',
-                 'tan', 'tanh']
-        self.safe_dict = dict([(k, locals().get(k, None)) for k in safe_functs])
         pass
 
     def run(self, incoming, methods, info, bot_info):
@@ -32,9 +26,20 @@ class Plugin:
             if info['command'] == 'PRIVMSG':
                 if len(msgs) > 1:
                     if msgs[0] == '.calc':
+                        safe_dict = {
+                                'acos':acos, 'asin':asin, 'atan':atan,
+                                'atan2':atan2, 'ceil':ceil, 'cos':cos,
+                                'cosh':cosh, 'degrees':degrees, 'e':e,
+                                'exp':exp, 'fabs':fabs, 'floor':floor,
+                                'fmod':fmod, 'frexp':frexp, 'hypot':hypot,
+                                'ldexp':ldexp, 'log':log, 'log10':log10,
+                                'modf':modf, 'pi':pi, 'pow':pow,
+                                'radians':radians, 'sin':sin, 'sinh':sinh,
+                                 'sqrt':sqrt, 'tan':tan, 'tanh':tanh
+                                }
                         expr = msgs[1]
                         methods['send'](info['address'], '{}'.format(
                                 eval(expr, {"__builtins__":None}, safe_dict))
                         )
-        except Exception as e:
-            print('woops plugin', __file__, e)
+        except Exception as ex:
+            print('woops plugin', __file__, ex)
