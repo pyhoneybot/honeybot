@@ -43,7 +43,7 @@ saveBtn.grid(row=6, column=0)
 addBtn = Button(window, text="Add Plugin", width=10, command=clicked)
 addBtn.grid(row=2, column=0)
 
-label2 = Label(window, text="Editable PLUGINS.conf :")
+label2 = Label(window, text="Editable PLUGINS.conf file:")
 label2.grid(row=3,column=0)
 
 label3 = Label(window, text="Don't forget to hit save!")
