@@ -33,6 +33,8 @@ release = '5.0.0'
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon'
 ]
 
+add_module_names = False
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -41,9 +43,6 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
-autodoc_default_flags = ['members']
-autosummary_generate = True
-
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -51,7 +50,18 @@ autosummary_generate = True
 #
 html_theme = 'sphinx_rtd_theme'
 
+html_logo = '../../honeybot_logo.png'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+html_theme_options = {'logo_only': True}
+
+html_context = {
+    "display_github": True, # Integrate GitHub
+    "github_user": "Zernerus", # Username
+    "github_repo": "honeybot", # Repo name
+    "github_version": "master", # Version
+    "conf_py_path": "/docs/source/", # Path in the checkout to the docs root
+}
