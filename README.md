@@ -281,6 +281,13 @@ then he commits
 git add *
 git commit -m "added weather plugin"
 ```
+
+or
+
+```
+git commit -a -m "did this"
+```
+
 then he push to create a PR with the branch
 ```
 git push origin head
