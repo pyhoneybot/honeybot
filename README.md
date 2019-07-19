@@ -323,6 +323,7 @@ git pull upstream master
 - [x] ✉️ mail
 - [x] 🎛️ maths
 - [ ] 📥 pm when user online
+- [ ] Random Colour
 
 ## ☑ Allowing Plugins
 in PLUGINS.conf, add the plugin to allow on a new line !
