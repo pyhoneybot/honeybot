@@ -260,6 +260,18 @@ you should see the bot as hbot ... or as it's name is in [settings](https://gith
 
 **about PR**
 
+first clone the project
+
+```
+git clone https://github.com/pyhoneybot/honeybot.git
+```
+
+cd into the project
+
+```
+cd honeybot
+```
+
 different changes to different files. for example, someone making a weather plugin first he creates a new branch
 ```
 git checkout -b "weather-plugin"
@@ -273,6 +285,13 @@ then he push to create a PR with the branch
 ```
 git push origin head
 ```
+
+or
+
+```
+git push origin weather-plugin
+```
+
 now let us say he wants to work on another issue, adding a joke in the jokes plugin, he creates another branch
 ```
 git checkout -b "add-jokes"
