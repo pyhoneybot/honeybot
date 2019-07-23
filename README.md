@@ -258,6 +258,10 @@ you should see the bot as hbot ... or as it's name is in [settings](https://gith
 - don't forget to add your country flag here after accepted PR. i'll have to hunt it down on your profile if not.
 - make sure to follow PEP8
 
+**Documentation
+
+A small guide on how to contribute to the documentation of the project can be found [here](https://pyhoneybot.github.io/honeybot/documentation.html)
+
 **about PR**
 
 first clone the project
