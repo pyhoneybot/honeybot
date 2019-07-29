@@ -115,3 +115,4 @@ cmake-build-debug/
 honeybot/log/*
 # visual studio code settings
 .vscode/
+/.vs
