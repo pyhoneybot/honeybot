@@ -109,7 +109,8 @@ class Bot_core(object):
             str: String for the set nick command.
 
         Examples:
-            TODO
+            bot_core = Bot_core()
+			bot_core.set_nick_command()
         """
         return 'NICK ' + self.name + '\r\n'
 
