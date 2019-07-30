@@ -122,8 +122,7 @@ class Bot_core(object):
             str: String for the present command.
 
         Examples:
-            bot_core = Bot_core()
-			bot_core.present_command()
+            TODO
         """
         return 'USER ' + self.name + ' ' + self.name + ' ' + \
                self.name + ' : ' + self.name + ' IRC\r\n'
@@ -136,8 +135,7 @@ class Bot_core(object):
             str: Command for the identify command.
 
         Examples:
-            bot_core = Bot_core()
-			bot_core.identify_command()
+            TODO
         """
         return 'msg NickServ identify ' + self.password + ' \r\n'
 
@@ -152,11 +150,8 @@ class Bot_core(object):
             str: Command to join Channel.
 
         Examples:
-			channel_name_command = '<command_name>'
-            bot_core = Bot_core()
-			bot_core.join_channel_command(channel_name_command)
+            TODO
         """
-		
         return 'JOIN ' + channel + ' \r\n'
 
     def specific_send_command(self, target, msg):
@@ -171,10 +166,7 @@ class Bot_core(object):
             str: Command for messaging specific user.
 
         Examples:
-            target_name = '<target_name>'
-			str msg = 'I am a test message'
-            bot_core = Bot_core()
-			bot_core.specific_send_command(target_name, msg)
+            TODO
         """
         return "PRIVMSG " + target + " :" + msg + "\r\n"
 
@@ -189,9 +181,7 @@ class Bot_core(object):
             str: Command for Pong.
 
         Examples:
-            domain_name = '<current user domain>'
-			bot_core = Bot_core()
-			bot_core.pong_return(domain_name)
+            TODO
         """
         return 'PONG :{}\r\n'.format(domain)
 
@@ -204,36 +194,26 @@ class Bot_core(object):
         Get info of a message.
 
         Args:
-            s(str): Incoming message information
+            s(str): TODO
 
         Returns:
-            dict of {str: str}: interprets the incoming message and splits the message to get the following information out of the message viz 'prefix', 'command', 'args', 'address', 'user'. Then returns the information as a dictionary containing following information:
-			{
-				'prefix': <prefix_string_value>
-				'command': <command_string_value>
-				'args': <array_of_argument_strings>
-				'address': <target address to which the message was sent>
-				'user':<user name who sent the message>
-			}
+            dict of {str: str}: TODO
 
         Examples:
-            message = '<incoming message>'
-			bot_core = Bot_core()
-			bot_core.message_info(message)
+            TODO
         """
         def prevent_none(x):
             """
-            Processes the arguments for None values.
+            TODO
 
             Args:
-                x(any or None): can be any type of variable
+                x(any or None): TODO
 
             Returns:
                 Union of [x,''](any or str): returns x if x is not None else ''.
 
             Examples:
-                x = ['a', 'b']
-				prevent_none(message)
+                TODO
             """
             if x is None:
                 return ''
@@ -279,8 +259,7 @@ class Bot_core(object):
             dict of {str: str}: TODO.
 
         Examples:
-            bot_core = Bot_core()
-			bot_core.bot_info(message)
+            TODO
         """
         return {
             'name': self.name,
