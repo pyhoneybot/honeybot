@@ -116,3 +116,19 @@ honeybot/log/*
 # visual studio code settings
 .vscode/
 /.vs
+/test_plugin_script.py
+/test.py
+/settings/PLUGINS.conf
+/settings/OWNERS.conf
+/settings/FRIENDS.conf
+/settings/email_config.conf
+/settings/CONNECT.conf
+/settings/AUTOJOIN_CHANNELS.conf
+/settings
+/plugins_info.md
+/plugins
+/pluginInfo.py
+/memory
+/main.py
+/lab.py
+/.google-cookie
