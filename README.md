@@ -103,6 +103,7 @@ GUI clients are used to manage plugins, launch bot as well as specify credential
 - ❓ help by [@edumello](https://github.com/edumello) - show link to plugin's information page
 - ✅ channeljoin by [@marceloyb](https://github.com/marceloyb) - join command for bot
 - :page_with_curl: comic by [@mboekhold](https://github.com/mboekhold) - returns a random comic
+- 📝 todo by [@h-ranjan1110](https://github.com/h-ranjan1110) - Makes a to do list .
 
 ## Docker
 ### Building Docker image
