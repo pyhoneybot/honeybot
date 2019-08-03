@@ -112,7 +112,7 @@ class Bot_core(object):
             bot_core = Bot_core()
 			bot_core.set_nick_command()
         """
-        return 'NICK ' + self.name + '\r\n'
+        return 'NICK {0} \r\n'.format(self.name)
 
     def present_command(self):
         """
@@ -125,8 +125,7 @@ class Bot_core(object):
             bot_core = Bot_core()
 			bot_core.present_command()
         """
-        return 'USER ' + self.name + ' ' + self.name + ' ' + \
-               self.name + ' : ' + self.name + ' IRC\r\n'
+        return 'USER {0} {0} {0} : {0} IRC\r\n'.format(self.name)
 
     def identify_command(self):
         """
@@ -139,7 +138,7 @@ class Bot_core(object):
             bot_core = Bot_core()
 			bot_core.identify_command()
         """
-        return 'msg NickServ identify ' + self.password + ' \r\n'
+        return 'msg NickServ identify {0} \r\n'.format(self.password)
 
     def join_channel_command(self, channel):
         """
@@ -157,7 +156,7 @@ class Bot_core(object):
 			bot_core.join_channel_command(channel_name_command)
         """
 		
-        return 'JOIN ' + channel + ' \r\n'
+        return 'JOIN {0} \r\n'.format(channel)
 
     def specific_send_command(self, target, msg):
         """
@@ -176,7 +175,7 @@ class Bot_core(object):
             bot_core = Bot_core()
 			bot_core.specific_send_command(target_name, msg)
         """
-        return "PRIVMSG " + target + " :" + msg + "\r\n"
+        return "PRIVMSG {0} :{1}\r\n".format(target,msg)
 
     def pong_return(self, domain):
         """
