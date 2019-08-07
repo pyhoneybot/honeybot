@@ -334,16 +334,15 @@ So as not to reject a whole PR just because of some oddities. Reject only unneed
 ## 🥄 Updating fork
 
 Now, other changes are ongoing, what if you need the latest changes?
-
 ```
 git pull origin master
 ```
-helps if you cloned your own repo. What is you want to update your local copy of someone else repo?
-you do it like that
+helps if you cloned your own repo. What if you want to update your local copy of someone else's repo that you forked?
+You do it like that
 
 ```
 cd <your/local/cloned/repo/path/here>
-git remote add upstream git://github.com/Abdur-rahmaanJ/honeybot.git
+git remote add upstream https://github.com/pyhoneybot/honeybot.git
 git fetch upstream
 git pull upstream master
 ```
