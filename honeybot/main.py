@@ -234,10 +234,7 @@ class Bot_core(object):
                 x = ['a', 'b']
 				prevent_none(message)
             """
-            if x is None:
-                return ''
-            else:
-                return x
+            return x if x else ''
 
         try:
             prefix = ''
@@ -254,10 +251,7 @@ class Bot_core(object):
             else:
                 args = s.split()
             command = args.pop(0)
-            if '#' in args[0]:
-                address = args[0]
-            else:
-                address = prefix.split('!~')[0]
+            address = args[0] if '#' in args[0] else prefix.split('!~')[0]
             user = prefix.split('!')[0]
             # return prefix, command, args, address
             return {
