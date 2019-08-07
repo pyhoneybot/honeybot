@@ -355,7 +355,7 @@ class Bot_core(object):
             to_load = list(filter(lambda x: x != '', to_load))
         for file in to_load:
             try:
-                module = importlib.import_module('plugins.' + file)
+                module = importlib.import_module('plugins.{}'.format(file))
             except ModuleNotFoundError as e:
                 logger.warning(f"module import error, skipped' {e} in {file}")
             obj = module.Plugin
