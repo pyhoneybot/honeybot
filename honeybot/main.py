@@ -234,10 +234,7 @@ class Bot_core(object):
                 x = ['a', 'b']
 				prevent_none(message)
             """
-            if x is None:
-                return ''
-            else:
-                return x
+            return x if x else ''
 
         try:
             prefix = ''
