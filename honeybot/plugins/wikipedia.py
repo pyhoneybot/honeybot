@@ -29,16 +29,13 @@ class Plugin:
             # print(info)
         try:
             msgs = info['args'][1:][0].split()
-
             if info['command'] == 'PRIVMSG' and msgs[0] == '.wiki':
                 if msgs[1] == 'random':
                     print("You want the random article!")
-
                     article = wikipedia.page(wikipedia.random(1)).summary
                     methods['send'](info['address'], article)
                 elif msgs[1] == 'search':
                     print(f"You wanted {msgs[2]}")
-
                     article = wikipedia.page(msgs[2]).summary
                     methods['send'](info['address'], article)
         except Exception as e:
