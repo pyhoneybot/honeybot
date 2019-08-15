@@ -245,7 +245,7 @@ Get an IRC client
 
 - Web: [Kiwiirc](https://kiwiirc.com) (easy)
 - Desktop: [Hexchat](https://hexchat.github.io)
-- Android: [Revolution IRC](https://hexchat.github.io)
+- Android: [Revolution IRC](https://github.com/MCMrARM/revolution-irc)
 
 configure
 
