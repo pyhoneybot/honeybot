@@ -1,7 +1,9 @@
-***************
-How to document
-***************
+*************************
+Setting up Documentation
+*************************
 
+This How To focuses on setting up Sphinx in order to edit the HoneyBot documentation.
+You *don't* need to do this if you're simply adding a plugin.
 If you should have **any** questions feel free to ask on our discord_!
 
 For documentation HoneyBot uses a tool named sphinx_. Sphinx reads in
