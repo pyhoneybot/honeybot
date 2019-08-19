@@ -108,6 +108,7 @@ GUI clients are used to manage plugins, launch bot as well as specify credential
 - ✅ channeljoin by [@marceloyb](https://github.com/marceloyb) - join command for bot
 - :page_with_curl: comic by [@mboekhold](https://github.com/mboekhold) - returns a random comic
 - 📝 todo by [@h-ranjan1110](https://github.com/h-ranjan1110) - Makes a to do list .
+- 🎱 Magic 8 Ball [@ZakariaTalhami](https://github.com/ZakariaTalhami) - Answer questions using magic 8 ball
 
 ## Docker
 ### Building Docker image
