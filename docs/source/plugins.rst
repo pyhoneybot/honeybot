@@ -239,6 +239,11 @@ Joke
 .. automodule:: plugins.joke
    :members:
 
+Magic 8 Ball
+^^^^^^^^^^^^
+.. automodule:: plugins.magic_ball
+   :members:
+
 Monopoly
 ^^^^^^^^
 .. automodule:: plugins.monopoly
