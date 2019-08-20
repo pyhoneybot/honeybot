@@ -6,7 +6,7 @@
 # 🍯 honeybot py
 
 ## 📮 About
-HoneyBot is a python-based IRC bot. (**python3.7**)
+HoneyBot is a python-based IRC bot. (**python3.7**) | If you want to just run the bot, go to the [quick start section](https://github.com/pyhoneybot/honeybot#-quickstart)
 
 Feel free to contribute to the project!
 #
@@ -49,6 +49,10 @@ who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was
 [@mboekhold](https://github.com/mboekhold)
 
 > HoneyBot is a very friendly and welcoming community. They provided quick feedback and I would defenitely recommend this project to newcomers to give them that first boost on contributing to open source. HoneyBot helps you all the way there to issuing your first PR, step by step. I contributed a comic plugin, and I was thankful for meeting all the friendly and passionate people who are active in this community.
+
+[@Macr0Nerd](https://github.com/Macr0Nerd)
+
+> I came onto this project in October of 2018. At the time, my experience with open source was nil. I wasn't even sure I was good with python; I just happened to be better than everyone in class. Working on HoneyBot really opened my eyes to the power of community and programming, and has sent me on a path I don't wanna turn from. Just seeing how this project has evolved over the past year and how I've grown with it, I wouldn't trade it for the world. My name might not be on any of the recent plugins or doc strings, but I'll never forget that it'll always be tied to this project and a lot of the code. Also, I don't know if they'll check my commit so go look at the C++ Client! It's cool I promise! 
 
 ## ✂ Current Features
  * 🍬 OOP architecture
@@ -103,6 +107,8 @@ GUI clients are used to manage plugins, launch bot as well as specify credential
 - ❓ help by [@edumello](https://github.com/edumello) - show link to plugin's information page
 - ✅ channeljoin by [@marceloyb](https://github.com/marceloyb) - join command for bot
 - :page_with_curl: comic by [@mboekhold](https://github.com/mboekhold) - returns a random comic
+- 📝 todo by [@h-ranjan1110](https://github.com/h-ranjan1110) - Makes a to do list .
+- 🎱 Magic 8 Ball [@ZakariaTalhami](https://github.com/ZakariaTalhami) - Answer questions using magic 8 ball
 
 ## Docker
 ### Building Docker image
@@ -240,7 +246,7 @@ Get an IRC client
 
 - Web: [Kiwiirc](https://kiwiirc.com) (easy)
 - Desktop: [Hexchat](https://hexchat.github.io)
-- Android: [Revolution IRC](https://hexchat.github.io)
+- Android: [Revolution IRC](https://github.com/MCMrARM/revolution-irc)
 
 configure
 
@@ -258,7 +264,23 @@ you should see the bot as hbot ... or as it's name is in [settings](https://gith
 - don't forget to add your country flag here after accepted PR. i'll have to hunt it down on your profile if not.
 - make sure to follow PEP8
 
+**Documentation**
+
+A small guide on how to contribute to the documentation of the project can be found [here](https://pyhoneybot.github.io/honeybot/documentation.html)
+
 **about PR**
+
+first clone the project
+
+```
+git clone https://github.com/pyhoneybot/honeybot.git
+```
+
+cd into the project
+
+```
+cd honeybot
+```
 
 different changes to different files. for example, someone making a weather plugin first he creates a new branch
 ```
@@ -269,10 +291,24 @@ then he commits
 git add *
 git commit -m "added weather plugin"
 ```
+
+or
+
+```
+git commit -a -m "did this"
+```
+
 then he push to create a PR with the branch
 ```
 git push origin head
 ```
+
+or
+
+```
+git push origin weather-plugin
+```
+
 now let us say he wants to work on another issue, adding a joke in the jokes plugin, he creates another branch
 ```
 git checkout -b "add-jokes"
@@ -303,16 +339,15 @@ So as not to reject a whole PR just because of some oddities. Reject only unneed
 ## 🥄 Updating fork
 
 Now, other changes are ongoing, what if you need the latest changes?
-
 ```
 git pull origin master
 ```
-helps if you cloned your own repo. What is you want to update your local copy of someone else repo?
-you do it like that
+helps if you cloned your own repo. What if you want to update your local copy of someone else's repo that you forked?
+You do it like that
 
 ```
 cd <your/local/cloned/repo/path/here>
-git remote add upstream git://github.com/Abdur-rahmaanJ/honeybot.git
+git remote add upstream https://github.com/pyhoneybot/honeybot.git
 git fetch upstream
 git pull upstream master
 ```
@@ -323,6 +358,7 @@ git pull upstream master
 - [x] ✉️ mail
 - [x] 🎛️ maths
 - [ ] 📥 pm when user online
+- [ ] Random Colour
 
 ## ☑ Allowing Plugins
 in PLUGINS.conf, add the plugin to allow on a new line !

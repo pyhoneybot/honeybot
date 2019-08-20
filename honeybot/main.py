@@ -109,9 +109,10 @@ class Bot_core(object):
             str: String for the set nick command.
 
         Examples:
-            TODO
+            bot_core = Bot_core()
+			bot_core.set_nick_command()
         """
-        return 'NICK ' + self.name + '\r\n'
+        return 'NICK {0} \r\n'.format(self.name)
 
     def present_command(self):
         """
@@ -121,10 +122,10 @@ class Bot_core(object):
             str: String for the present command.
 
         Examples:
-            TODO
+            bot_core = Bot_core()
+			bot_core.present_command()
         """
-        return 'USER ' + self.name + ' ' + self.name + ' ' + \
-               self.name + ' : ' + self.name + ' IRC\r\n'
+        return 'USER {0} {0} {0} : {0} IRC\r\n'.format(self.name)
 
     def identify_command(self):
         """
@@ -134,9 +135,10 @@ class Bot_core(object):
             str: Command for the identify command.
 
         Examples:
-            TODO
+            bot_core = Bot_core()
+			bot_core.identify_command()
         """
-        return 'msg NickServ identify ' + self.password + ' \r\n'
+        return 'msg NickServ identify {0} \r\n'.format(self.password)
 
     def join_channel_command(self, channel):
         """
@@ -149,9 +151,12 @@ class Bot_core(object):
             str: Command to join Channel.
 
         Examples:
-            TODO
+			channel_name_command = '<command_name>'
+            bot_core = Bot_core()
+			bot_core.join_channel_command(channel_name_command)
         """
-        return 'JOIN ' + channel + ' \r\n'
+		
+        return 'JOIN {0} \r\n'.format(channel)
 
     def specific_send_command(self, target, msg):
         """
@@ -165,9 +170,12 @@ class Bot_core(object):
             str: Command for messaging specific user.
 
         Examples:
-            TODO
+            target_name = '<target_name>'
+			str msg = 'I am a test message'
+            bot_core = Bot_core()
+			bot_core.specific_send_command(target_name, msg)
         """
-        return "PRIVMSG " + target + " :" + msg + "\r\n"
+        return "PRIVMSG {0} :{1}\r\n".format(target,msg)
 
     def pong_return(self, domain):
         """
@@ -180,7 +188,9 @@ class Bot_core(object):
             str: Command for Pong.
 
         Examples:
-            TODO
+            domain_name = '<current user domain>'
+			bot_core = Bot_core()
+			bot_core.pong_return(domain_name)
         """
         return 'PONG :{}\r\n'.format(domain)
 
@@ -193,31 +203,38 @@ class Bot_core(object):
         Get info of a message.
 
         Args:
-            s(str): TODO
+            s(str): Incoming message information
 
         Returns:
-            dict of {str: str}: TODO
+            dict of {str: str}: interprets the incoming message and splits the message to get the following information out of the message viz 'prefix', 'command', 'args', 'address', 'user'. Then returns the information as a dictionary containing following information:
+			{
+				'prefix': <prefix_string_value>
+				'command': <command_string_value>
+				'args': <array_of_argument_strings>
+				'address': <target address to which the message was sent>
+				'user':<user name who sent the message>
+			}
 
         Examples:
-            TODO
+            message = '<incoming message>'
+			bot_core = Bot_core()
+			bot_core.message_info(message)
         """
         def prevent_none(x):
             """
-            TODO
+            Processes the arguments for None values.
 
             Args:
-                x(any or None): TODO
+                x(any or None): can be any type of variable
 
             Returns:
                 Union of [x,''](any or str): returns x if x is not None else ''.
 
             Examples:
-                TODO
+                x = ['a', 'b']
+				prevent_none(message)
             """
-            if x is None:
-                return ''
-            else:
-                return x
+            return x if x else ''
 
         try:
             prefix = ''
@@ -234,10 +251,7 @@ class Bot_core(object):
             else:
                 args = s.split()
             command = args.pop(0)
-            if '#' in args[0]:
-                address = args[0]
-            else:
-                address = prefix.split('!~')[0]
+            address = args[0] if '#' in args[0] else prefix.split('!~')[0]
             user = prefix.split('!')[0]
             # return prefix, command, args, address
             return {
@@ -258,7 +272,8 @@ class Bot_core(object):
             dict of {str: str}: TODO.
 
         Examples:
-            TODO
+            bot_core = Bot_core()
+			bot_core.bot_info(message)
         """
         return {
             'name': self.name,
@@ -334,7 +349,7 @@ class Bot_core(object):
             to_load = list(filter(lambda x: x != '', to_load))
         for file in to_load:
             try:
-                module = importlib.import_module('plugins.' + file)
+                module = importlib.import_module('plugins.{}'.format(file))
             except ModuleNotFoundError as e:
                 logger.warning(f"module import error, skipped' {e} in {file}")
             obj = module.Plugin
