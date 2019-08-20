@@ -208,12 +208,12 @@ class Bot_core(object):
         Returns:
             dict of {str: str}: interprets the incoming message and splits the message to get the following information out of the message viz 'prefix', 'command', 'args', 'address', 'user'. Then returns the information as a dictionary containing following information:
 			{
-				'prefix': <prefix_string_value>
-				'command': <command_string_value>
-				'args': <array_of_argument_strings>
-				'address': <target address to which the message was sent>
-				'user':<user name who sent the message>
-			}
+				'prefix': <prefix_string_value>\
+				'command': <command_string_value>\
+				'args': <array_of_argument_strings>\
+				'address': <target address to which the message was sent>\
+				'user':<user name who sent the message>\
+			} 
 
         Examples:
             message = '<incoming message>'

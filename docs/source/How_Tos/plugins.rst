@@ -54,7 +54,7 @@ hence if you want messages, *messages = info['args'][1:]* or the first word if y
 
 .. rubric:: use example
 
-    the command info is used in the join channel plugin to detect a join command and greet the user who just joined
+the command info is used in the join channel plugin to detect a join command and greet the user who just joined
 
 .. rubric:: bot info
 
@@ -75,8 +75,8 @@ so that in run method you can access those.
 
 .. rubric:: use example
 
-    For example, the time info is used in the uptime plugin by minussing it from the current time to get time bot has been running.
-    The required modules is used in the installed plugin to determine what required plugin the bot runner did not install
+For example, the time info is used in the uptime plugin by minussing it from the current time to get time bot has been running.
+The required modules is used in the installed plugin to determine what required plugin the bot runner did not install
 
 .. rubric:: wrapping up
 

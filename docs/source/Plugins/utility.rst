@@ -34,8 +34,7 @@ Google
 
 Mail
 ^^^^
-.. automodule:: plugins.mail
-   :members:
+TODO
 
 Maths
 ^^^^^
@@ -74,8 +73,7 @@ Wikipedia
 
 Translate
 ^^^^^^^^^
-.. automodule:: plugins.translate
-   :members:
+TODO
 
 Send Message
 ^^^^^^^^^^^^

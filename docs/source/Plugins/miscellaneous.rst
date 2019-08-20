@@ -69,8 +69,7 @@ Roman numeral
 
 Transfer rumour
 ^^^^^^^^^^^^^^^
-.. automodule:: plugins.transfer-rumour
-   :members:
+TODO
 
 Self Trivia
 ^^^^^^^^^^^

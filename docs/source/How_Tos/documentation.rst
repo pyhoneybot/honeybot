@@ -22,6 +22,7 @@ named **'html'** and a new branch from master, the name should match the
 contribution (for example *'Docs_how_to'*).
 
 Your folder structure needs to look as follows:
+
 ::
   <any_folder>
     ├── honeybot-docs
