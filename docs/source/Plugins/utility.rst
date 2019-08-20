@@ -73,8 +73,7 @@ Wikipedia
 
 Translate
 ^^^^^^^^^
-.. automodule:: plugins.translate
-   :members:
+TODO
 
 Send Message
 ^^^^^^^^^^^^
