@@ -28,6 +28,7 @@ different changes to different files. for example, someone making a weather plug
 then he commits
 
 .. code-block::
+
    git add *
    git commit -m "added weather plugin"
 
@@ -72,12 +73,14 @@ now he wants to fix his weather plugin, he changes branch
 works, then commit
 
 .. code-block::
+
    git add *
    git commit -m "fixed <issue>"
 
 then a PR
 
 .. code-block::
+
    git push origin head
 
 .. rubric:: parameter2: Why all these?
