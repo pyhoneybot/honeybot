@@ -34,8 +34,7 @@ Google
 
 Mail
 ^^^^
-.. automodule:: plugins.mail
-   :members:
+TODO
 
 Maths
 ^^^^^

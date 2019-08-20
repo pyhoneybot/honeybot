@@ -4,8 +4,7 @@ Fun
 
 Blackjack
 ^^^^^^^^^
-.. automodule:: plugins.blackjack
-   :members:
+TODO
 
 Comic
 ^^^^^
@@ -39,8 +38,7 @@ Magic 8 Ball
 
 Monopoly
 ^^^^^^^^
-.. automodule:: plugins.monopoly
-   :members:
+TODO
 
 Riddle
 ^^^^^^
