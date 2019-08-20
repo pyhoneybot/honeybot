@@ -7,5 +7,6 @@ Welcome to HoneyBot's documentation!
    plugins
    how_to
 
+Test
 This documentation is based on the GOOGLE Docstring Format
 .. Google Docstring: http://google.github.io/styleguide/pyguide.html
