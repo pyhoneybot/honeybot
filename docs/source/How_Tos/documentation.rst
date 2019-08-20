@@ -37,8 +37,8 @@ Once you're set up you can test if sphinx works properly by going to
 *<any_folder>/honeybot/docs*, opening a terminal and typing **'make html'**.
 This will take the rst files in *<any_folder>/honeybot/docs/source* and 'make'
 them into html in your html folder.
-Don't worry if it displays a few warnings, it's important however that you do
-get the message **'build succeeded'**
+If it shows any warning you'll have to fix them before committing, otherwise the documentation
+wont be automatically build once you push your changes to Github.
 
 Since I won't provide a full tutorial on how to write rst files here is a useful
 link:
