@@ -4,66 +4,72 @@ import os
 import inspect
 import configparser
 
-#Create a window with a title
+
 window = tk.Tk()
 window.geometry("650x670")
 window.title("Manager")
-    
-#Gets the system path for the manager file
-filePath = os.path.abspath(inspect.getfile(inspect.currentframe()))
-extenstion = filePath[-11]
-#gets the system path for the plugin folder
-pluginPath = filePath[0:filePath.index("manager.py")] + "plugins"
-#Switches to the config file dir
-configPath = filePath[0:filePath.index("manager.py")] + "settings" + extenstion + "PLUGINS.conf"
+
+current_path = os.path.split(os.path.abspath(__file__))[0]
+pluginPath = os.path.join(os.sep, current_path, 'plugins')
+configPath = os.path.join(os.sep, current_path, 'settings', 'PLUGINS.conf')
+
+
+def get_unique_text(text):
+    uniques = sorted(set([i.strip() for i in text.split('\n') if i]))
+    uniques_text = '\n'.join(uniques)
+    return uniques_text
+
 
 def saveFile():
-    s = tt.get(1.0,END)
-    f = open(configPath, 'wt')
-    f.write(s)
-    f.close()
+    text = tt.get(1.0,END)
+    unique_text = get_unique_text(text)
+    with open(configPath, 'w+') as f:
+        f.write(get_unique_text(unique_text))
+    tt.delete(1.0,END)
+    tt.insert(1.0, unique_text)
+
 
 def reorder():
     text = tt.get(1.0,END)
-    uniques = sorted(set([i.strip() for i in text.split('\n') if i]))
+    unique_text = get_unique_text(text)
     tt.delete(1.0,END)
-    tt.insert(1.0, '\n'.join(uniques))
+    tt.insert(1.0, unique_text)
+
 
 def getPlugins(dirName):
     listOfFile = os.listdir(dirName)
     return listOfFile   
+
 
 def clicked():
     selected = [listbox.get(pos) for pos in listbox.curselection()]
     for file in selected:
         tt.insert(END, file[:-3] + "\n")
 
-pluginList = getPlugins(pluginPath);
 
-MainLabel = Label(window, text="Select the plugins you wish to load and add them to the config file")
-MainLabel.grid(row=0, column=0)
+pluginList = getPlugins(pluginPath)
 
-saveBtn = Button(window, text="Save File", width=10, command=saveFile)
-saveBtn.grid(row=6, column=0)
+elements = [
+    [['MainLabel', Label(window, text="Select the plugins you wish to load and add them to the config file")]],
+    [['listbox', Listbox(window, width=60)]],
+    [['addBtn', Button(window, text="Add Plugin", width=10, command=clicked)]],
+    [['label2', Label(window, text="Editable PLUGINS.conf file:")]],
+    [['tt', Text(window, width= 80)]],
+    [['label3', Label(window, text="Don't forget to hit save!")]],
+    [['saveBtn', Button(window, text="Save File", width=10, command=saveFile)], 
+        ['reorderBtn', Button(window, text="Reorder", width=10, command=reorder)]]
+    ]
 
-reorderBtn = Button(window, text="Reorder", width=10, command=reorder)
-reorderBtn.grid(row=6, column=1)
+for row_i, row in enumerate(elements):
+    for col_i, col in enumerate(row):
+        var_name = col[0]
+        gui = col[1]
+        _g = globals()
+        _g[var_name] = gui
+        _g[var_name].grid(row=row_i, column=col_i)
 
-addBtn = Button(window, text="Add Plugin", width=10, command=clicked)
-addBtn.grid(row=2, column=0)
-
-label2 = Label(window, text="Editable PLUGINS.conf file:")
-label2.grid(row=3,column=0)
-
-label3 = Label(window, text="Don't forget to hit save!")
-label3.grid(row=5,column=0)
-
-tt = Text(window, width= 80)
-tt.grid(row=4,column=0)
 tt.insert(END, open(configPath).read())
 
-listbox = Listbox(window, width=60)
-listbox.grid(row=1, column=0)
 for name in pluginList:
     if(name[-2:] == "py"):
         listbox.insert(END, name)
