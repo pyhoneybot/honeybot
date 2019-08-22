@@ -3,7 +3,8 @@ import tkinter as tk
 import os
 import inspect
 import configparser
-
+import queue
+import threading
 
 window = tk.Tk()
 window.geometry("650x670")
@@ -47,6 +48,29 @@ def clicked():
         tt.insert(END, file[:-3] + "\n")
 
 
+rbot_thread = ''
+def run_bot():
+    global rbot_thread
+    def run_it():
+        exec(open('run.py').read())
+
+    rbot_thread = threading.Thread(target=run_it)
+    rbot_thread.start()
+    runBot.config(state="disabled")
+    stopBot.config(state="active")
+
+def stop_bot():
+    global rbot_thread
+    rbot_thread.terminate()
+    runBot.config(state="active")
+    stopBot.config(state="disabled")
+
+def exit_app(self):
+    if messagebox.askokcancel("Quit", "Really quit?"):
+        rbot_thread.terminate()
+        window.destroy()
+
+
 pluginList = getPlugins(pluginPath)
 
 elements = [
@@ -54,10 +78,12 @@ elements = [
     [['listbox', Listbox(window, width=60)]],
     [['addBtn', Button(window, text="Add Plugin", width=10, command=clicked)]],
     [['label2', Label(window, text="Editable PLUGINS.conf file:")]],
-    [['tt', Text(window, width= 80)]],
+    [['tt', Text(window, width=80)]],
     [['label3', Label(window, text="Don't forget to hit save!")]],
     [['saveBtn', Button(window, text="Save File", width=10, command=saveFile)], 
-        ['reorderBtn', Button(window, text="Reorder", width=10, command=reorder)]]
+        ['reorderBtn', Button(window, text="Reorder", width=10, command=reorder)]],
+    [['runBot', Button(window, text="RUN", width=10, command=run_bot)], 
+        ['stopBot', Button(window, text="STOP", width=10, command=stop_bot)]]
     ]
 
 for row_i, row in enumerate(elements):
@@ -66,7 +92,12 @@ for row_i, row in enumerate(elements):
         gui = col[1]
         _g = globals()
         _g[var_name] = gui
-        _g[var_name].grid(row=row_i, column=col_i)
+        if var_name in ['tt', 'listbox', 'addBtn']:
+            _g[var_name].grid(row=row_i, column=col_i, columnspan=2)
+            window.grid_columnconfigure(col_i, weight=1, uniform="foo")
+        else:
+            _g[var_name].grid(row=row_i, column=col_i,  sticky='NSEW')
+            window.grid_columnconfigure(col_i, weight=1, uniform="foo")
 
 tt.insert(END, open(configPath).read())
 
@@ -75,3 +106,4 @@ for name in pluginList:
         listbox.insert(END, name)
 
 window.mainloop()
+window.protocol('WM_DELETE_WINDOW', exit_app)

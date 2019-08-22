@@ -1,36 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Example Google style docstrings.
 
-This module demonstrates documentation as specified by the `Google Python
-Style Guide`_. Docstrings may extend over multiple lines. Sections are created
-with a section header and a colon followed by a block of indented text.
-
-Example:
-    Examples can be given using either the ``Example`` or ``Examples``
-    sections. Sections support any reStructuredText formatting, including
-    literal blocks::
-
-        $ python example_google.py
-
-    Section breaks are created by resuming unindented text. Section breaks
-    are also implicitly created anytime a new section starts.
-
-Attributes:
-    connect_config (ConfigParser): Module level variables may be documented in
-        either the ``Attributes`` section of the module docstring, or in an
-        inline docstring immediately following the variable.
-
-        Either form is acceptable, but the two should not be mixed. Choose
-        one convention to document module level variables and be consistent
-        with it.
-    memory_reader (ConfigParser): TODO.
-    pluggins (List): TODO.
-    logger (Logger): TODO.
-
-.. _Google Python Style Guide:
-   http://google.github.io/styleguide/pyguide.html
-"""
 import configparser
 import importlib
 import logging
@@ -52,31 +21,26 @@ logger = logging.getLogger('bot_core')
 BOT CONNECTION SETUP
 """
 
+class Command:
+    def set_nick(name):
+        return 'NICK {0} \r\n'.format(name)
+
+    def present(name):
+        return 'USER {0} {0} {0} : {0} IRC\r\n'.format(name)
+
+    def identify(password):
+        return 'msg NickServ identify {0} \r\n'.format(password)
+
+    def join_channel(channel):
+        return 'JOIN {0} \r\n'.format(channel)
+
+    def specific_send(target, msg):
+        return "PRIVMSG {0} :{1}\r\n".format(target, msg)
+
+    def pong_return(domain):
+        return 'PONG :{}\r\n'.format(domain)
+
 class Bot_core(object):
-    """
-    Core of the bot.
-
-    Detailed Description.
-
-    Args:
-        password (str): Password for the bot, defaults to ''
-
-    Attributes:
-        server_url (str): String for the IRC Server.
-        port (int): Port for the IRC Server.
-        name (str): Name of the bot.
-        owners (list of str): String list of owners.
-        password (str): Password of the bot.
-        friends (list of str): String list of friends.
-        autojoin_channels (list of str): String list of autojoin_channels.
-        required_modules (list of str): String list of required modules.
-        time (time): Get the current time.
-        irc (socket): socket for the IRC server.
-        isListenOn (int): TODO.
-        domain (str): Server domain.
-        sp_command (str): command string of the bot.
-        plugins (lsit of str): List of plugins.
-    """
 
     def __init__(self, password=''):
 
@@ -96,144 +60,12 @@ class Bot_core(object):
         self.domain = '.'.join(dom[-2:])
         self.sp_command = 'hbot'
         self.plugins = []
-
-    """
-    STRINGS
-    """
-
-    def set_nick_command(self):
-        """
-        Get string for set nickname command.
-
-        Returns:
-            str: String for the set nick command.
-
-        Examples:
-            bot_core = Bot_core()
-			bot_core.set_nick_command()
-        """
-        return 'NICK {0} \r\n'.format(self.name)
-
-    def present_command(self):
-        """
-        Get string for present command.
-
-        Returns:
-            str: String for the present command.
-
-        Examples:
-            bot_core = Bot_core()
-			bot_core.present_command()
-        """
-        return 'USER {0} {0} {0} : {0} IRC\r\n'.format(self.name)
-
-    def identify_command(self):
-        """
-        Get string for identify command.
-
-        Returns:
-            str: Command for the identify command.
-
-        Examples:
-            bot_core = Bot_core()
-			bot_core.identify_command()
-        """
-        return 'msg NickServ identify {0} \r\n'.format(self.password)
-
-    def join_channel_command(self, channel):
-        """
-        Get string for join channel command.
-
-        Args:
-            channel (str): String of the channelname command.
-
-        Returns:
-            str: Command to join Channel.
-
-        Examples:
-			channel_name_command = '<command_name>'
-            bot_core = Bot_core()
-			bot_core.join_channel_command(channel_name_command)
-        """
-		
-        return 'JOIN {0} \r\n'.format(channel)
-
-    def specific_send_command(self, target, msg):
-        """
-        Get string for specific send command.
-
-        Args:
-            target (str): String of the target that should receive the message.
-            msg (str): String of the Message that's to be sent to target.
-
-        Returns:
-            str: Command for messaging specific user.
-
-        Examples:
-            target_name = '<target_name>'
-			str msg = 'I am a test message'
-            bot_core = Bot_core()
-			bot_core.specific_send_command(target_name, msg)
-        """
-        return "PRIVMSG {0} :{1}\r\n".format(target,msg)
-
-    def pong_return(self, domain):
-        """
-        Get string for Pong command.
-
-        Args:
-            domain(str): String of the current domain.
-
-        Returns:
-            str: Command for Pong.
-
-        Examples:
-            domain_name = '<current user domain>'
-			bot_core = Bot_core()
-			bot_core.pong_return(domain_name)
-        """
-        return 'PONG :{}\r\n'.format(domain)
-
     """
     MESSAGE VALIDATION
     """
 
     def message_info(self, s):
-        """
-        Get info of a message.
-
-        Args:
-            s(str): Incoming message information
-
-        Returns:
-            dict of {str: str}: interprets the incoming message and splits the message to get the following information out of the message viz 'prefix', 'command', 'args', 'address', 'user'. Then returns the information as a dictionary containing following information:
-			{
-				'prefix': <prefix_string_value>\
-				'command': <command_string_value>\
-				'args': <array_of_argument_strings>\
-				'address': <target address to which the message was sent>\
-				'user':<user name who sent the message>\
-			} 
-
-        Examples:
-            message = '<incoming message>'
-			bot_core = Bot_core()
-			bot_core.message_info(message)
-        """
         def prevent_none(x):
-            """
-            Processes the arguments for None values.
-
-            Args:
-                x(any or None): can be any type of variable
-
-            Returns:
-                Union of [x,''](any or str): returns x if x is not None else ''.
-
-            Examples:
-                x = ['a', 'b']
-				prevent_none(message)
-            """
             return x if x else ''
 
         try:
@@ -265,16 +97,6 @@ class Bot_core(object):
             logger.error(e)
 
     def bot_info(self):
-        """
-        Get bot info.
-
-        Returns:
-            dict of {str: str}: TODO.
-
-        Examples:
-            bot_core = Bot_core()
-			bot_core.bot_info(message)
-        """
         return {
             'name': self.name,
             'special_command': self.sp_command,
@@ -289,41 +111,13 @@ class Bot_core(object):
     """
 
     def send(self, msg):
-        """
-        Send a message.
-
-        Args:
-            msg (str): The message that's to be sent.
-
-        Examples:
-            TODO
-        """
         self.irc.send(bytes(msg, "UTF-8"))
 
     def send_target(self, target, msg):
-        """
-        Send a specific message to target.
-
-        Args:
-            target (str): The target that's to be messaged.
-            msg (str): The message that's to be sent.
-
-        Examples:
-            TODO
-        """
-        self.send(self.specific_send_command(target, msg))
+        self.send(Command.specific_send(target, msg))
 
     def join(self, channel):
-        """
-        Join a specific channel.
-
-        Args:
-            channel (str): The channel the bot should join.
-
-        Examples:
-            TODO
-        """
-        self.send(self.join_channel_command(channel))
+        self.send(Command.join_channel(channel))
 
     """
     BOT UTIL
@@ -359,18 +153,6 @@ class Bot_core(object):
         logger.info('Loaded plugins...')
 
     def configfile_to_list(self, filename):
-        """
-        Turn specified configfile to a list.
-
-        Args:
-            filenamae (str): Name of the file that should be converted.
-
-        Returns:
-            elements (list of str): Elements of the configfile as strings.
-
-        Examples:
-            TODO
-        """
         elements = []
         with open('settings/{}.conf'.format(filename)) as f:
             elements = f.read().split('\n')
@@ -378,15 +160,6 @@ class Bot_core(object):
         return elements
 
     def methods(self):
-        """
-        Return methods of the bot.
-
-        Returns:
-            dict of {str:str}: Dictionary of command names and strings.
-
-        Examples:
-            TODO
-        """
         return {
             'send_raw': self.send,
             'send': self.send_target,
@@ -397,22 +170,9 @@ class Bot_core(object):
         }
 
     def run_plugins(self, listfrom, incoming):
-        """
-        Runs the plugins.
-
-        Args:
-            listfrom (TODO): TODO
-            incoming (TODO): TODO
-
-        Examples:
-            TODO
-        """
-
         '''
         incoming is the unparsed string. refer to test.py
         '''
-        # if self.message_info(incoming)['args'][1][0] == ".":
-        # print("\033[0;32mReceived!\033[0;0m")
 
         for plugin in listfrom:
             # print(f"\033[0;33mTrying {plugin}\033[0;0m")
@@ -423,15 +183,6 @@ class Bot_core(object):
     """
 
     def requirements(self):
-        """
-        Return requirements of the bot.
-
-        Returns:
-            reqs (list of str): List of the requirements.
-
-        Examples:
-            TODO
-        """
         reqs = []
         with open('../requirements.txt') as f:
             reqs = f.read().split('\n')
@@ -441,55 +192,18 @@ class Bot_core(object):
     # TODO: classify methods according to APIs and have
     # a memory API
     def memory_add_value(self, memfile, section, key, value):
-        """
-        add value into memory.
-
-        Args:
-            memfile (TODO): TODO
-            section (TODO): TODO
-            key (TODO): TODO
-            value (TODO): TODO
-
-        Examples:
-            TODO
-        """
         memory_reader.read('memory/{}.txt'.format(memfile))
         memory_reader[section][key] = value
         with open('memory/{}.txt'.format(memfile), 'w') as file:
             memory_reader.write(file)
 
     def memory_remove_value(self, memfile, section, key):
-        """
-        remove value from memory.
-
-        Args:
-            memfile (TODO): TODO
-            section (TODO): TODO
-            key (TODO): TODO
-
-        Examples:
-            TODO
-        """
         memory_reader.read('memory/{}.txt'.format(memfile))
         memory_reader.remove_option(section, key)
         with open('memory/{}.txt'.format(memfile), 'w') as file:
             memory_reader.write(file)
 
     def memory_fetch_value(self, memfile, section, key):
-        """
-        fetches value from memory.
-
-        Args:
-            memfile (TODO): TODO
-            section (TODO): TODO
-            key (TODO): TODO
-
-        Returns:
-            (str): Value of the key as a string.
-
-        Examples:
-            TODO
-        """
         memory_reader.read('memory/{}.txt'.format(memfile))
         return memory_reader[section][key]
 
@@ -497,60 +211,24 @@ class Bot_core(object):
     MESSAGE PARSING
     """
     def core_commands_parse(self, incoming):
-        """
-        parse core commands.
-
-        Args:
-            incoming (TODO): TODO
-
-        Examples:
-            TODO
-        """
-        '''
-        PLUGINS
-        '''
         self.run_plugins(self.plugins, incoming)
 
     '''
     BOT IRC FUNCTIONS
     '''
     def connect(self):
-        """
-        Connect to the IRC
-
-        Examples:
-            TODO
-        """
         self.irc.connect((self.server_url, self.port))
 
     def identify(self):
-        """
-        Identifies command.
-
-        Examples:
-            TODO
-        """
-        self.send(self.identify_command())
+        self.send(Command.identify(self.password))
 
     def greet(self):
-        """
-        Greet the channel ? (TODO).
-
-        Examples:
-            TODO
-        """
-        self.send(self.set_nick_command())
-        self.send(self.present_command())
+        self.send(Command.set_nick(self.name))
+        self.send(Command.present(self.name))
         for channel in self.autojoin_channels:
-            self.send(self.join_channel_command(channel))
+            self.send(Command.join_channel(channel))
 
     def pull(self):
-        """
-        TODO
-
-        Examples:
-            TODO
-        """
         while self.isListenOn:
             try:
                 data = self.irc.recv(2048)
@@ -573,15 +251,6 @@ class Bot_core(object):
     ONGOING REQUIREMENT/S
     """
     def stay_alive(self, incoming):
-        """
-        TODO
-
-        Args:
-            incoming (TODO): TODO
-
-        Examples:
-            TODO
-        """
         if not incoming:
             logger.critical('<must handle reconnection - incoming is not True>')
             sys.exit()
