@@ -10,26 +10,7 @@ Bot_core
 .. currentmodule:: main
 .. autoclass:: Bot_core
 
-Command String Output
-^^^^^^^^^^^^^^^^^^^^^
 
-   The section inhabits the functions of the Bot_core class which are responsible
-   for generating the command string and returning it to the function that actually
-   executes the command.
-
-   .. currentmodule:: main.Bot_core
-
-   .. automethod:: main.Bot_core.set_nick_command
-
-   .. automethod:: main.Bot_core.present_command
-
-   .. automethod:: main.Bot_core.identify_command
-
-   .. automethod:: main.Bot_core.join_channel_command
-
-   .. automethod:: main.Bot_core.specific_send_command
-
-   .. automethod:: main.Bot_core.pong_return
 
 Message Validation
 ^^^^^^^^^^^^^^^^^^
