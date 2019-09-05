@@ -4,6 +4,7 @@ blackjack.py
 caesar_cipher.py
 calc.py
 channeljoin.py
+cointoss.py
 converter.py
 conv_sniff.py
 date.py
