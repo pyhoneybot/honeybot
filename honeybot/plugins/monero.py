@@ -28,7 +28,7 @@ class Plugin:
             msgs = info['args'][1:][0].split()
             if info['command'] == 'PRIVMSG' and msgs[0] == '.xmr':
                 try:
-                    currency = msgs[1]
+                    currency = msgs[1].upper()
                 except:
                     currency = 'USD'
 
