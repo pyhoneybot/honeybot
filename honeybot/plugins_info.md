@@ -139,6 +139,11 @@ responds to .memo, demo of a basic memory plugin
 \
 <code>.memo add \<key> \<value></code>
 
+# monero.py
+by A. Eigenbrot\
+Lookup the price of Monero in any currency you want (including other cryptos). Defaults to USD\
+<code>.xmr \[\<currency>\]</code>
+
 # monopoly.py
 by Angelo Giacco\
 Play monopoly
