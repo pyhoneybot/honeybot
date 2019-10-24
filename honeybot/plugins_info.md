@@ -1,3 +1,9 @@
+# abbreviation.py
+by Erin Moon, Sourav Dutta\
+responds to .def lol
+\
+<code>.def lol</code>
+
 # age.py
 by Justin Walker\
 Given birthday it returns your age.
@@ -9,6 +15,18 @@ by Gabriele Ron, [Website](https://Macr0Nerd.github.io)\
 Checks the current price for Bitcoin through the Legacy Coin Market Cap API
 \
 <code>.btc</code>
+
+# blackjack.py
+by Angelo Giacco\
+Play blackjack
+\
+<code>>>>.blackjack create</code>
+
+# book_of_day.py
+by Schoberg, UMD\
+using bookoftheday.org, get the title and link of the book of the day
+\
+<code>.bookoftheday</code>
 
 # caesar_cipher.py
 by Kyle Galloway\
@@ -28,9 +46,14 @@ Bot Will join a given channel in the server
 \
 <code>.channeljoin channel</code>
 
+# cointoss.py
+by Shriram Bhat\
+Responds to .cointoss, Returns head or tail at random
+\
+
 # comic.py
 by Miguel Boekhold\
-returns a random comic
+Returns a random comic from xkcd
 \
 <code>.comic</code>
 
@@ -44,6 +67,18 @@ Converts currencies
 by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 senses conversation topic with sensitivity set by user, also supports
 \
+
+# country.py
+by Phil Beld\
+Show the capital of a given country.
+\
+<code>.country \<country></code>
+
+# dadjoke.py
+by moffetma Oregon State University CS\
+Sends a random "dad joke" from icanhazdadjoke.com
+\
+<code>.dadjoke</code>
 
 # date.py
 by Gico Carlo Evangelista, https://gicocarlo.me/\
@@ -121,6 +156,12 @@ by Gico Carlo Evangelista, https://gicocarlo.me/\
 Logs the chat into a log.txt file
 \
 
+# magic_ball.py
+by Zakaria Talhami\
+Fortune-telling for question using a magic 8 ball
+\
+<code>.8ball \<\<question>></code>
+
 # mail.py
 by Tanner Fry\
 Will allow the user to send an email while in the chat
@@ -143,7 +184,7 @@ responds to .memo, demo of a basic memory plugin
 by Angelo Giacco\
 Play monopoly
 \
-<code>.monopoly create</code>
+<code>>>>.monopoly create</code>
 
 # news.py
 by Angelo Giacco\
@@ -151,17 +192,53 @@ Gets the top 10 headlines around the world from bbc world news
 \
 <code>.news</code>
 
+# onthisday.py
+by Kenneth Gargan\
+Gets an interesting fact about today!
+\
+<code>.onthisday</code>
+
 # password_generator.py
 by Nishant, JPMorgan Chase & Co.\
 sends different type of passwords
 \
 <code>.passgen \<\<length>></code>
 
+# proverb.py
+by Sushant Kumar\
+sends a random proverb on request
+\
+<code>.proverb</code>
+
+# pydocs.py
+by Milad H,\
+Searches the python documentatioin(pydocs) for the related keyword(s)
+\
+<code>.pydocs \<keyword></code>
+
+# pynews.py
+by Sam Deans\
+Finds the top five news items on python.org and prints them to the IRC
+\
+<code>.pynews</code>
+
+# pypi.py
+by Donald Lieu\
+Searches for Python packages on pypi.org
+\
+<code>.pypi \<search term></code>
+
 # quote.py
 by German Corpaz\
 Sends a random quote on request
 \
 <code>.quote</code>
+
+# repostats.py
+by Shreyansh Sancheti\
+Gets the number of forks and stars for a given repo
+\
+<code>.repostats url</code>
 
 # riddle.py
 by Angelo Giacco\
@@ -174,6 +251,12 @@ by Glenn Toms\
 Will roll dice in the form of 1d4, 10d6 and return total.
 \
 <code>.roll \<\<dice>></code>
+
+# roman_numeral.py
+by Nick Wiley\
+Returns the roman numeral equivalent of the number inputted
+\
+<code>.roman \<number></code>
 
 # russian_roulette.py
 by Angelo Giacco\
@@ -198,6 +281,24 @@ by Abdur-Rahmaan Janhangeer, pythonmembers.club\
 tests run
 \
 
+# todo.py
+by Himanshu Ranjan, [Website](https://github.com/h-ranjan1110)\
+Todo list keeps all your pending task .
+\
+<code>>>>.todo add \<Your Task Here></code>
+
+# tpbquote.py
+by Divyanshu Mehta\
+Extracts quotes and send random quote from Trailer Park Boys
+\
+<code>>>>.quote \<count></code>
+
+# transfer-rumour.py
+by Angelo Giacco\
+Collects transfer rumours from BBC sport
+\
+<code>.transfer-rumour</code>
+
 # translate.py
 by Ahmed Deeb\
 A Google Translate plugin
@@ -205,8 +306,9 @@ A Google Translate plugin
 <code>. Google Translator object.</code>
 
 # uptime.py
-by Nick Wiley, [Website](https://github.com/nickw409)
-A plugin to get the current uptime of the bot
+by Nick Wiley\
+Returns how long the bot has been running for
+\
 <code>.uptime</code>
 
 # username.py
@@ -226,3 +328,4 @@ by Gabriele Ron, [Website](https://Macr0Nerd.github.io)\
 sends a wikipedia article on request based off of a search or random query
 \
 <code>.wiki \<command> \<topic></code>
+
