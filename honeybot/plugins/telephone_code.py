@@ -1228,7 +1228,7 @@ class Plugin:
                 "code": "ZW"
                 }
             ]
-        country_code = input_country.upper
+        country_code = input_country.upper()
         for i in range(len(d)):
             s = d[i]
             if s["code"] == country_code:
