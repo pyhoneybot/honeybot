@@ -20,7 +20,7 @@ Checks the current price for Bitcoin through the Legacy Coin Market Cap API
 by Angelo Giacco\
 Play blackjack
 \
-<code>>>>.blackjack create</code>
+<code>.blackjack create</code>
 
 # book_of_day.py
 by Schoberg, UMD\
@@ -334,3 +334,8 @@ sends a wikipedia article on request based off of a search or random query
 \
 <code>.wiki \<command> \<topic></code>
 
+# corona.py
+by Angelo Giacco\
+Get coronavirus pandemic information
+\
+<code>.corona \<optional country></code>

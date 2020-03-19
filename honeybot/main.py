@@ -145,7 +145,7 @@ class Bot_core(object):
             try:
                 module = importlib.import_module('plugins.{}'.format(file))
             except ModuleNotFoundError as e:
-                logger.warning(f"module import error, skipped' {e} in {file}")
+                logger.warning(f"module import error, skipped {e} in {file}")
             obj = module.Plugin
             list_to_add.append(obj)
 
