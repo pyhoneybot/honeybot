@@ -52,14 +52,14 @@ who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was
 
 [@Macr0Nerd](https://github.com/Macr0Nerd)
 
-> I came onto this project in October of 2018. At the time, my experience with open source was nil. I wasn't even sure I was good with python; I just happened to be better than everyone in class. Working on HoneyBot really opened my eyes to the power of community and programming, and has sent me on a path I don't wanna turn from. Just seeing how this project has evolved over the past year and how I've grown with it, I wouldn't trade it for the world. My name might not be on any of the recent plugins or doc strings, but I'll never forget that it'll always be tied to this project and a lot of the code. Also, I don't know if they'll check my commit so go look at the C++ Client! It's cool I promise! 
+> I came onto this project in October of 2018. At the time, my experience with open source was nil. I wasn't even sure I was good with python; I just happened to be better than everyone in class. Working on HoneyBot really opened my eyes to the power of community and programming, and has sent me on a path I don't wanna turn from. Just seeing how this project has evolved over the past year and how I've grown with it, I wouldn't trade it for the world. My name might not be on any of the recent plugins or doc strings, but I'll never forget that it'll always be tied to this project and a lot of the code. Also, I don't know if they'll check my commit so go look at the C++ Client! It's cool I promise!
 
 ## ✂ Current Features
  * 🍬 OOP architecture
  * 🛰️ keyword parameters
  * 🌵 password security with config file [disabled for now]
  * 🔌 now with plugins
- 
+
 ## :mountain: GUI clients
 
 GUI clients are used to manage plugins, launch bot as well as specify credentials.
@@ -103,6 +103,7 @@ GUI clients are used to manage plugins, launch bot as well as specify credential
 - 🏨 monopoly by [@AngeloGiacco](https://github.com/AngeloGiacco) - Honeybot now supports the world's worst game!
 - ⚽️ transfer_rumour by [@AngeloGiacco](https://github.com/AngeloGiacco) - shows the day's transfer rumours
 - 🃏 blackjack/21 by [@AngeloGiacco](https://github.com/AngeloGiacco) - play 21 on honeybot!
+- 🤒 corona by [@AngeloGiacco](https://github.com/AngeloGiacco) - get the latest news on coronavirus with honeybot!
 - 🎲 roll by [@GlennToms](https://github.com/GlennToms) - rolls a dice
 - ❓ help by [@edumello](https://github.com/edumello) - show link to plugin's information page
 - ✅ channeljoin by [@marceloyb](https://github.com/marceloyb) - join command for bot
@@ -208,7 +209,7 @@ bot_info returns info about the bot
         }
 ```
 
-so that in run method you can access those. 
+so that in run method you can access those.
 
 **use example**
 
