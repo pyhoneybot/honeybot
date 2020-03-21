@@ -49,7 +49,6 @@ class Plugin:
                 msg += string
             return msg
         else:
-            print(country)
             name_confusion = {"United Kingdom":"UK",
                               "United States":"USA",
                               "Uk":"UK",
@@ -87,7 +86,6 @@ class Plugin:
                               "result of the coronavirus pandemic. May they rest in peace."
                     else:
                         msg += "Fortunately nobody has died yet in "+name+" as a result of coronavirus."
-                    print(msg)
                     return msg
                     break
             else:
@@ -97,7 +95,6 @@ class Plugin:
     def run(self, incoming, methods, info, bot_info):
         try:
             msgs = info['args'][1:][0].split()
-            print(msgs)
             if info['command'] == 'PRIVMSG' and msgs[0] == '.corona':
                 if len(msgs) == 1:
                     headlines = Plugin.scrape(self,"global")
