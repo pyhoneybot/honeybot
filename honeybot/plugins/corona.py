@@ -109,8 +109,5 @@ class Plugin:
                     msg = Plugin.scrape(self,country_name)
                     methods['send'](info['address'], msg)
 
-            else:
-                print("whoops")
-
         except Exception as e:
             print('woops, corona plugin error', e)
