@@ -104,6 +104,7 @@ GUI clients are used to manage plugins, launch bot as well as specify credential
 - ⚽️ transfer_rumour by [@AngeloGiacco](https://github.com/AngeloGiacco) - shows the day's transfer rumours
 - 🃏 blackjack/21 by [@AngeloGiacco](https://github.com/AngeloGiacco) - play 21 on honeybot!
 - 🤒 corona by [@AngeloGiacco](https://github.com/AngeloGiacco) - get the latest news on coronavirus with honeybot!
+- 📖 diary by [@AngeloGiacco](https://github.com/AngeloGiacco) - keep a diary with honeybot
 - 🎲 roll by [@GlennToms](https://github.com/GlennToms) - rolls a dice
 - ❓ help by [@edumello](https://github.com/edumello) - show link to plugin's information page
 - ✅ channeljoin by [@marceloyb](https://github.com/marceloyb) - join command for bot
