@@ -49,7 +49,6 @@ class Plugin:
                 msg += string
             return msg
         else:
-            print(country)
             name_confusion = {"United Kingdom":"UK",
                               "United States":"USA",
                               "Uk":"UK",
@@ -97,7 +96,6 @@ class Plugin:
     def run(self, incoming, methods, info, bot_info):
         try:
             msgs = info['args'][1:][0].split()
-            print(msgs)
             if info['command'] == 'PRIVMSG' and msgs[0] == '.corona':
                 if len(msgs) == 1:
                     headlines = Plugin.scrape(self,"global")
@@ -108,9 +106,6 @@ class Plugin:
                     country_name = string.capwords(country_name)
                     msg = Plugin.scrape(self,country_name)
                     methods['send'](info['address'], msg)
-
-            else:
-                print("whoops")
 
         except Exception as e:
             print('woops, corona plugin error', e)

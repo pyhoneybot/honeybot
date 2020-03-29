@@ -24,12 +24,10 @@ class Plugin:
 
     def get_riddle(self,command="show", words = ""):
         if command == "show":
-            print("show")
             self.r = Riddle()
             message = self.r.riddle
             return message
         elif command == "guess":
-            print("guess")
             try:
                 message = self.r.guess_answer(words)
                 self.r = None
@@ -37,7 +35,6 @@ class Plugin:
             except:
                 return "first create a riddle by entering .riddle"
         else:
-            print("else")
             return "riddle plugin error"
 
     def run(self, incoming, methods, info, bot_info):
@@ -88,4 +85,3 @@ class Riddle:
         else:
             message = guess + " is wrong! The correct answer is "+self.riddles_dict[self.riddle]
         return message
-
