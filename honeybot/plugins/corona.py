@@ -32,7 +32,7 @@ class Plugin:
         data = doc.find_all("td")
         if country == "global":
             most_affected = [] #each element is an array as follows [country,cases,deaths]
-            for index in range(0,37,9):
+            for index in range(0,45,11):
                 most_affected.append([str(data[index].text),str(data[index+1].text),str(data[index+3].text.strip())])
             today = str(datetime.date.today())
             msg = "The latest coronavirus pandemic figures as of "+today+" show "+\
@@ -69,7 +69,7 @@ class Plugin:
                           }
             if country  in name_confusion:
                 country = name_confusion[country]
-            for index in range(0,len(data)-9,9):
+            for index in range(0,len(data)-11,11):
                 name = data[index].text
                 if data[index].text == country:
                     today = str(datetime.date.today())
