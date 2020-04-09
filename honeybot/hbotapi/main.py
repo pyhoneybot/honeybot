@@ -159,11 +159,12 @@ class Bot_core(object):
         for plugin in self.plugins:
             P = getattr(plugin, 'Plugin')
             # print(f"\033[0;33mTrying {plugin}\033[0;0m")
-
+            print(self.plugins)
             incoming = incoming
             methods = self.methods()
             info = self.message_info(incoming)
             bot_info = self.bot_info()
+
             P.run(incoming, methods, info, bot_info)
 
     """
