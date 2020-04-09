@@ -133,7 +133,7 @@ class Bot_core(object):
         Examples:
             TODO
         """
-        list_to_add = self.plugins
+
         logger.info('Loading plugins...')
 
         to_load = []
@@ -142,14 +142,14 @@ class Bot_core(object):
             to_load = f.read().split('\n')
             to_load = list(filter(lambda x: x != '', to_load))
         for file in to_load:
+            print('loading plugin:', file)
             try:
                 module = importlib.import_module('plugins.{}'.format(file))
             except ModuleNotFoundError as e:
                 logger.warning(f"module import error, skipped' {e} in {file}")
-            obj = module.Plugin
-            list_to_add.append(obj)
+            obj = module
+            self.plugins.append(obj)
 
-        self.plugins = list_to_add
         logger.info('Loaded plugins...')
 
     def configfile_to_list(self, filename):
@@ -169,14 +169,15 @@ class Bot_core(object):
             'mem_fetch': self.memory_fetch_value
         }
 
-    def run_plugins(self, listfrom, incoming):
+    def run_plugins(self, incoming):
         '''
         incoming is the unparsed string. refer to test.py
         '''
 
-        for plugin in listfrom:
+        for plugin in self.plugins:
+            P = getattr(plugin, 'Plugin')
             # print(f"\033[0;33mTrying {plugin}\033[0;0m")
-            plugin.run(self, incoming, self.methods(), self.message_info(incoming), self.bot_info())
+            P.run(incoming, self.methods(), self.message_info(incoming), self.bot_info())
 
     """
     SETUP REQUIREMENTS
@@ -211,7 +212,7 @@ class Bot_core(object):
     MESSAGE PARSING
     """
     def core_commands_parse(self, incoming):
-        self.run_plugins(self.plugins, incoming)
+        self.run_plugins(incoming)
 
     '''
     BOT IRC FUNCTIONS

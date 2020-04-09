@@ -4,6 +4,8 @@ import logging
 import sys
 
 from main import Bot_core
+from hbotapi.utils import print_connect_settings
+from hbotapi.utils import print_honeybot_manifesto
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -17,6 +19,8 @@ logging.basicConfig(
 # logger.warning("warn message")
 # logger.error("error message")
 # logger.critical("critical message")
+print_honeybot_manifesto()
+print_connect_settings()
 try:
     x = Bot_core()
     x.unregistered_run()
