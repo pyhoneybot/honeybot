@@ -19,8 +19,9 @@ class Plugin:
     def __init__(self):
         pass
 
-    def run(self, incoming, methods, info, bot_info):
-        
+    @staticmethod
+    def run(incoming, methods, info, bot_info):
+
         try:
             # if '!~' in info['prefix']:
                 # print(info)
@@ -28,3 +29,5 @@ class Plugin:
                 methods['send'](info['address'], 'hooo')
         except Exception as e:
             print('woops plug', e)
+
+
