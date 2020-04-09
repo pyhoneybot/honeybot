@@ -267,10 +267,6 @@ you should see the bot as hbot ... or as it's name is in [settings](https://gith
 - don't forget to add your country flag here after accepted PR. i'll have to hunt it down on your profile if not.
 - make sure to follow PEP8
 
-**Documentation**
-
-A small guide on how to contribute to the documentation of the project can be found [here](https://pyhoneybot.github.io/honeybot/documentation.html)
-
 **about PR**
 
 first clone the project
@@ -335,9 +331,28 @@ then a PR
 ```
 git push origin head
 ```
+
 **Why all these?**
 
 So as not to reject a whole PR just because of some oddities. Reject only unneeded part.
+
+**Updating the Documentation**
+
+If you created a new plugin you should add your plugin to the documentation.
+To do this, go into your cloned honeybot repo and then into the directory *docs/source/Plugins* .
+Depending on the type of plugin write this into the development, fun, miscellaneous or utility RST file:
+
+```rst
+   
+   <Plugin-Name>
+   ^^^^^^^^^^^^^
+   .. automodule:: plugins.<your-plugin-filename>
+      :members:
+```
+	  
+This allows sphinx to automatically pull the docstrings from the code of your plugin and parse them accordingly.
+
+A small guide on how to further contribute to the documentation of the project can be found [here](https://pyhoneybot.github.io/honeybot/How_Tos/documentation.html)
 
 ## 🥄 Updating fork
 
