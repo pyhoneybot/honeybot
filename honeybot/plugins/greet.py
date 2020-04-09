@@ -19,8 +19,8 @@ class Plugin:
     def __init__(self):
         pass
 
-    @staticmethod
-    def run(incoming, methods, info, bot_info):
+    
+    def run(self, incoming, methods, info, bot_info):
 
         try:
             # if '!~' in info['prefix']:
