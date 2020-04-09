@@ -18,8 +18,8 @@ sys.path.insert(0, os.path.abspath('../../honeybot'))
 # -- Project information -----------------------------------------------------
 
 project = 'HoneyBot'
-copyright = '2019, Abdur-rahmaanJ'
-author = 'Abdur-rahmaanJ'
+copyright = '2020, @Abdur-RahmaanJ & PyHoneybot Team'
+author = '@Abdur-RahmaanJ & PyHoneybot Team'
 
 # The full version, including alpha/beta/rc tags
 release = '5.0.0'

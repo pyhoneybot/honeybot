@@ -1,6 +1,6 @@
 import unittest
 import configparser
-from main import Bot_core as Bot
+from hbotapi.main import Bot_core as Bot
 '''
 ':appinv!c5e342c5@gateway/web/cgi-irc/kiwiirc.com/ip.200.200.22.200 PRIVMSG ##bottestingmu :ef'
 {
