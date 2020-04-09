@@ -2,7 +2,7 @@
 Main
 ****
 
-.. automodule:: main
+.. automodule:: hbotapi.main
 
 Bot_core
 --------
