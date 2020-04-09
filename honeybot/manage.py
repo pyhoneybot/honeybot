@@ -4,7 +4,7 @@ import logging
 import sys
 import argparse
 
-from main import Bot_core
+from hbotapi.main import Bot_core
 from hbotapi.print import print_connect_settings
 from hbotapi.print import print_honeybot_manifesto
 from hbotapi.generate import gen_pluginsinfo

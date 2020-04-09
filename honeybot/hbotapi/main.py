@@ -7,6 +7,12 @@ import socket
 import sys
 import time
 
+from hbotapi import commands
+from hbotapi.utils import prevent_none
+from hbotapi.utils import configfile_to_list
+from hbotapi.utils import get_requirements
+from hbotapi import memory
+
 connect_config = configparser.ConfigParser()
 connect_config.read('settings/CONNECT.conf')
 
@@ -21,25 +27,6 @@ logger = logging.getLogger('bot_core')
 BOT CONNECTION SETUP
 """
 
-class Command:
-    def set_nick(name):
-        return 'NICK {0} \r\n'.format(name)
-
-    def present(name):
-        return 'USER {0} {0} {0} : {0} IRC\r\n'.format(name)
-
-    def identify(password):
-        return 'msg NickServ identify {0} \r\n'.format(password)
-
-    def join_channel(channel):
-        return 'JOIN {0} \r\n'.format(channel)
-
-    def specific_send(target, msg):
-        return "PRIVMSG {0} :{1}\r\n".format(target, msg)
-
-    def pong_return(domain):
-        return 'PONG :{}\r\n'.format(domain)
-
 class Bot_core(object):
 
     def __init__(self, password=''):
@@ -47,11 +34,11 @@ class Bot_core(object):
         self.server_url = connect_config['INFO']['server_url']
         self.port = int(connect_config['INFO']['port'])
         self.name = connect_config['INFO']['name']
-        self.owners = self.configfile_to_list('OWNERS')
+        self.owners = configfile_to_list('OWNERS')
         self.password = password
-        self.friends = self.configfile_to_list('FRIENDS')
-        self.autojoin_channels = self.configfile_to_list('AUTOJOIN_CHANNELS')
-        self.required_modules = self.requirements()
+        self.friends = configfile_to_list('FRIENDS')
+        self.autojoin_channels = configfile_to_list('AUTOJOIN_CHANNELS')
+        self.required_modules = get_requirements()
         self.time = time.time()
 
         self.irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -65,9 +52,9 @@ class Bot_core(object):
     """
 
     def message_info(self, s):
-        def prevent_none(x):
-            return x if x else ''
-
+        '''
+        s : incoming
+        '''
         try:
             prefix = ''
             trailing = []
@@ -106,6 +93,16 @@ class Bot_core(object):
             'friends': self.friends
         }
 
+    def methods(self):
+        return {
+            'send_raw': self.send,
+            'send': self.send_target,
+            'join': self.join,
+            'mem_add': memory.add_value,
+            'mem_rem': memory.remove_value,
+            'mem_fetch': memory.fetch_value
+        }
+
     """
     MESSAGE UTIL
     """
@@ -114,10 +111,10 @@ class Bot_core(object):
         self.irc.send(bytes(msg, "UTF-8"))
 
     def send_target(self, target, msg):
-        self.send(Command.specific_send(target, msg))
+        self.send(commands.specific_send(target, msg))
 
     def join(self, channel):
-        self.send(Command.join_channel(channel))
+        self.send(commands.join_channel(channel))
 
     """
     BOT UTIL
@@ -146,28 +143,13 @@ class Bot_core(object):
             try:
                 module = importlib.import_module('plugins.{}'.format(file))
             except ModuleNotFoundError as e:
-                logger.warning(f"module import error, skipped' {e} in {file}")
+                logger.warning(f"{file}: module import error, skipped' {e}")
             obj = module
             self.plugins.append(obj)
 
         logger.info('Loaded plugins...')
 
-    def configfile_to_list(self, filename):
-        elements = []
-        with open('settings/{}.conf'.format(filename)) as f:
-            elements = f.read().split('\n')
-            elements = list(filter(lambda x: x != '', elements))
-        return elements
-
-    def methods(self):
-        return {
-            'send_raw': self.send,
-            'send': self.send_target,
-            'join': self.join,
-            'mem_add': self.memory_add_value,
-            'mem_rem': self.memory_remove_value,
-            'mem_fetch': self.memory_fetch_value
-        }
+    
 
     def run_plugins(self, incoming):
         '''
@@ -177,36 +159,12 @@ class Bot_core(object):
         for plugin in self.plugins:
             P = getattr(plugin, 'Plugin')
             # print(f"\033[0;33mTrying {plugin}\033[0;0m")
-            P.run(incoming, self.methods(), self.message_info(incoming), self.bot_info())
 
-    """
-    SETUP REQUIREMENTS
-    """
-
-    def requirements(self):
-        reqs = []
-        with open('../requirements.txt') as f:
-            reqs = f.read().split('\n')
-        reqs = [m.split('==')[0] for m in reqs if m]
-        return reqs
-
-    # TODO: classify methods according to APIs and have
-    # a memory API
-    def memory_add_value(self, memfile, section, key, value):
-        memory_reader.read('memory/{}.txt'.format(memfile))
-        memory_reader[section][key] = value
-        with open('memory/{}.txt'.format(memfile), 'w') as file:
-            memory_reader.write(file)
-
-    def memory_remove_value(self, memfile, section, key):
-        memory_reader.read('memory/{}.txt'.format(memfile))
-        memory_reader.remove_option(section, key)
-        with open('memory/{}.txt'.format(memfile), 'w') as file:
-            memory_reader.write(file)
-
-    def memory_fetch_value(self, memfile, section, key):
-        memory_reader.read('memory/{}.txt'.format(memfile))
-        return memory_reader[section][key]
+            incoming = incoming
+            methods = self.methods()
+            info = self.message_info(incoming)
+            bot_info = self.bot_info()
+            P.run(incoming, methods, info, bot_info)
 
     """
     MESSAGE PARSING
@@ -221,13 +179,13 @@ class Bot_core(object):
         self.irc.connect((self.server_url, self.port))
 
     def identify(self):
-        self.send(Command.identify(self.password))
+        self.send(commands.identify(self.password))
 
     def greet(self):
-        self.send(Command.set_nick(self.name))
-        self.send(Command.present(self.name))
+        self.send(commands.set_nick(self.name))
+        self.send(commands.present(self.name))
         for channel in self.autojoin_channels:
-            self.send(Command.join_channel(channel))
+            self.send(commands.join_channel(channel))
 
     def pull(self):
         while self.isListenOn:
@@ -257,18 +215,12 @@ class Bot_core(object):
             sys.exit()
         parts = incoming.split(':')
         if parts[0].strip().lower() == 'ping':
-            logger.warning(parts[1])
-            self.send(self.pong_return(self.domain))
-            self.send(self.pong_return(parts[1]))
+            logger.warning('ping detected from: {}'.format(parts[1]))
+            self.send(commands.pong_return(self.domain))
+            self.send(commands.pong_return(parts[1]))
 
     # all in one for registered bot
     def registered_run(self):
-        """
-        TODO
-
-        Examples:
-            TODO
-        """
         self.connect()
         self.identify()
         self.greet()
@@ -276,12 +228,6 @@ class Bot_core(object):
         self.pull()
 
     def unregistered_run(self):
-        """
-        TODO
-
-        Examples:
-            TODO
-        """
         self.connect()
         self.greet()
         self.load_plugins('PLUGINS')
