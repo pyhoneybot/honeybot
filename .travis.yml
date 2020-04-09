@@ -11,3 +11,7 @@ script:
 
 after_success:
     - travis-sphinx deploy
+
+branches:
+  only:
+  - master
