@@ -22,9 +22,8 @@ class Plugin:
     def run(self, incoming, methods, info, bot_info):
         try:
             # if '!~' in info['prefix']:
-                # print(info)
-            if info['command'] == 'PRIVMSG' and info['args'][1] == '.debug':
-                methods['send'](info['address'], info['prefix'])
+            # print(info)
+            if info["command"] == "PRIVMSG" and info["args"][1] == ".debug":
+                methods["send"](info["address"], info["prefix"])
         except Exception as e:
-            print('woops plug', e)
-
+            print("woops plug", e)

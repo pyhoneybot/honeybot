@@ -1,5 +1,4 @@
-
-''' game initialization '''
+""" game initialization """
 
 # pylint: disable=E1601, W0612
 
@@ -10,14 +9,16 @@ import hand
 import player
 import pot
 
+
 def init_players(nr_of_players, starting_chips):
-    ''' players initialization '''
+    """ players initialization """
 
     PLAYERS = [player.Player(i, starting_chips) for i in range(nr_of_players)]
     return PLAYERS
 
+
 def init_game(players, round):
-    ''' table initialization '''
+    """ table initialization """
 
     DECK = deck.Deck()
     BOARD = board.Board(DECK.make_board())
@@ -30,9 +31,12 @@ def init_game(players, round):
 
     for i in range(len(PLAYERS)):
 
-        PLAYERS[i].add_position((len(PLAYERS) * round + (i - (round - 1))) % len(PLAYERS))
+        PLAYERS[i].add_position(
+            (len(PLAYERS) * round + (i - (round - 1))) % len(PLAYERS)
+        )
 
     return DECK, BOARD, POT, PLAYERS
+
 
 players = init_players(6, 100)
 game = init_game(players, 9)
@@ -53,8 +57,15 @@ for player in players:
 
     print(player.general_name())
 
-    print(player.general_name(), player.show_player_hand().show_hand()[0].show_card(), \
-        player.show_player_hand().show_hand()[1].show_card(), player.chips(), player.position_nr(), \
-        player.position_name(), player.show_player_hand().hand_strength(board), str(player.show_player_hand().best_five(board)))
+    print(
+        player.general_name(),
+        player.show_player_hand().show_hand()[0].show_card(),
+        player.show_player_hand().show_hand()[1].show_card(),
+        player.chips(),
+        player.position_nr(),
+        player.position_name(),
+        player.show_player_hand().hand_strength(board),
+        str(player.show_player_hand().best_five(board)),
+    )
 
 print(len(deck.show_deck()))

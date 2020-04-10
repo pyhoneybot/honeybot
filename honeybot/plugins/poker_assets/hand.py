@@ -1,33 +1,35 @@
-''' hand class '''
+""" hand class """
 
 # pylint: disable=E1601
 
-#parts not necessary for blackjack but required for poker commented out
+# parts not necessary for blackjack but required for poker commented out
 
-#import deuces
-#import best5
-#import board
+# import deuces
+# import best5
+# import board
 import card
 
+
 class Hand(object):
-    ''' hand class '''
+    """ hand class """
 
     def __init__(self, hand):
-        ''' hand initialization '''
+        """ hand initialization """
 
         self.__hand = hand
         self.__card1 = hand[0]
         self.__card2 = hand[1]
 
     def show_hand(self):
-        ''' show hand '''
+        """ show hand """
 
         return self.__hand
 
     def show_hand_obj(self):
-        ''' show hand object '''
+        """ show hand object """
 
         return self.__hand
+
     """
     def best_five(self, b):
         ''' best 5 out of 7 '''
@@ -64,7 +66,7 @@ class Hand(object):
     """
 
     def hand_total(self):
-        '''hand total for blackjack'''
+        """hand total for blackjack"""
 
         total = 0
         for card in self.__hand:

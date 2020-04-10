@@ -1,7 +1,7 @@
 import configparser
 
 
-ascii_message = '''
+ascii_message = """
             _  _                   _         _   
   _ __ _  _| || |___ _ _  ___ _  _| |__  ___| |_ 
  | '_ \ || | __ / _ \ ' \/ -_) || | '_ \/ _ \  _|
@@ -9,20 +9,23 @@ ascii_message = '''
  |_|   |__/                   |__/               
  github.com/pyhoneybot/honeybot
  ~ IRC bot with awesome plugins
-'''
+"""
+
+
 def print_honeybot_manifesto():
     print(ascii_message)
 
+
 def print_connect_settings():
-    settings_path = 'settings/CONNECT.conf'
+    settings_path = "settings/CONNECT.conf"
     connect_config = configparser.ConfigParser()
     connect_config.read(settings_path)
-    server_url = connect_config['INFO']['server_url']
-    port = connect_config['INFO']['port']
-    name = connect_config['INFO']['name']
+    server_url = connect_config["INFO"]["server_url"]
+    port = connect_config["INFO"]["port"]
+    name = connect_config["INFO"]["name"]
 
-    print('connecting with settings:')
-    print('server url:', server_url)
-    print('port:', port)
-    print('username:', name)
+    print("connecting with settings:")
+    print("server url:", server_url)
+    print("port:", port)
+    print("username:", name)
     print()

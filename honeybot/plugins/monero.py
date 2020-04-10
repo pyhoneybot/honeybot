@@ -19,29 +19,32 @@ Examples: USD, EUR, BTC, GBP
 from requests import Session
 import json
 
+
 class Plugin:
     def __init__(self):
         pass
 
     def run(self, incoming, methods, info, bot_info):
         try:
-            msgs = info['args'][1:][0].split()
-            if info['command'] == 'PRIVMSG' and msgs[0] == '.xmr':
+            msgs = info["args"][1:][0].split()
+            if info["command"] == "PRIVMSG" and msgs[0] == ".xmr":
                 try:
                     currency = msgs[1].upper()
                 except:
-                    currency = 'USD'
+                    currency = "USD"
 
                 api_url = "https://min-api.cryptocompare.com/data/price"
-                params = {'fsym': 'XMR', 'tsyms': currency}
+                params = {"fsym": "XMR", "tsyms": currency}
 
                 session = Session()
-                headers = {'Accepts': 'application/json'}
+                headers = {"Accepts": "application/json"}
                 session.headers.update(headers)
 
                 result = session.get(api_url, params=params)
                 data = json.loads(result.text)
-                methods['send'](info['address'], '{} {}'.format(data[currency], currency))
+                methods["send"](
+                    info["address"], "{} {}".format(data[currency], currency)
+                )
 
         except Exception as e:
-            print('woops! monero plugin error:', e)
+            print("woops! monero plugin error:", e)

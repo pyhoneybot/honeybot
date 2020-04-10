@@ -93,18 +93,72 @@ import urllib.parse
 import gzip
 import json
 from httplib2 import FileCache, Http
-from urllib.request import HTTPRedirectHandler, HTTPDefaultErrorHandler, HTTPError, build_opener, urlparse
+from urllib.request import (
+    HTTPRedirectHandler,
+    HTTPDefaultErrorHandler,
+    HTTPError,
+    build_opener,
+    urlparse,
+)
 
 # Hard-coded variables ###
 
-api = 'YOUR-API-KEY-GOES-HERE'
+api = "YOUR-API-KEY-GOES-HERE"
 
-languages = ["af", "sq", "ar", "be", "bg", "ca", "zh-CN", "zh-TW", "hr",
-             "cs", "da", "nl", "en", "et", "tl", "fi", "fr", "gl", "de",
-             "el", "iw", "hi", "hu", "is", "id", "ga", "it", "ja", "ko",
-             "lv", "lt", "mk", "ms", "mt", "no", "fa", "pl", "pt", "ro",
-             "ru", "sr", "sk", "sl", "es", "sw", "sv", "th", "tr", "uk",
-             "vi", "cy", "yi"]
+languages = [
+    "af",
+    "sq",
+    "ar",
+    "be",
+    "bg",
+    "ca",
+    "zh-CN",
+    "zh-TW",
+    "hr",
+    "cs",
+    "da",
+    "nl",
+    "en",
+    "et",
+    "tl",
+    "fi",
+    "fr",
+    "gl",
+    "de",
+    "el",
+    "iw",
+    "hi",
+    "hu",
+    "is",
+    "id",
+    "ga",
+    "it",
+    "ja",
+    "ko",
+    "lv",
+    "lt",
+    "mk",
+    "ms",
+    "mt",
+    "no",
+    "fa",
+    "pl",
+    "pt",
+    "ro",
+    "ru",
+    "sr",
+    "sk",
+    "sl",
+    "es",
+    "sw",
+    "sv",
+    "th",
+    "tr",
+    "uk",
+    "vi",
+    "cy",
+    "yi",
+]
 
 
 def _validate_language(lang):
@@ -117,7 +171,7 @@ def _validate_language(lang):
 
 
 def save_cached_key(path, value):
-    f = gzip.open(path, 'wb')
+    f = gzip.open(path, "wb")
     f.write(value)
     f.close()
 
@@ -130,7 +184,7 @@ def load_cached_key(key):
 
 
 class ZipCache(FileCache):
-    def __init__(self, cache='.cache'):  # TODO: allow user configurable?
+    def __init__(self, cache=".cache"):  # TODO: allow user configurable?
         super(ZipCache, self).__init__(cache)
 
     def get(self, key):
@@ -160,14 +214,12 @@ class DefaultErrorHandler(HTTPDefaultErrorHandler):
 
 class RedirectHandler(HTTPRedirectHandler):
     def http_error_301(self, req, fp, code, msg, headers):
-        result = HTTPRedirectHandler.http_error_301(self, req, fp, code,
-                                                    msg, headers)
+        result = HTTPRedirectHandler.http_error_301(self, req, fp, code, msg, headers)
         result.status = code
         return result
 
     def http_error_302(self, req, fp, code, msg, headers):
-        result = HTTPRedirectHandler.http_error_302(self, req, fp, code,
-                                                    msg, headers)
+        result = HTTPRedirectHandler.http_error_302(self, req, fp, code, msg, headers)
         result.status = code
         return result
 
@@ -199,10 +251,9 @@ class Plugin(object):
 
     def __init__(self):
         # NOTE: caching is done on etag not expiry
-        self.cache_control = 'max-age=' + str(7 * 24 * 60 * 60)
+        self.cache_control = "max-age=" + str(7 * 24 * 60 * 60)
         self.connection = Http(ZipCache())
-        self._opener = build_opener(DefaultErrorHandler,
-                                    RedirectHandler)
+        self._opener = build_opener(DefaultErrorHandler, RedirectHandler)
         self.base_url = "https://www.googleapis.com/language/translate/v2/"
 
     def _urlencode(self, params):
@@ -213,18 +264,18 @@ class Plugin(object):
         return params
 
     def _build_uri(self, extra_url, params):
-        params = [('key', api)] + params
+        params = [("key", api)] + params
         params = self._urlencode(params)
         url = "%s?%s" % (urlparse.urljoin(self.base_url, extra_url), params)
         if len(url) > 2000:  # for GET requests only, POST is 5K
-            raise ValueError("Query is too long. URL can only be 2000 "
-                             "characters")
+            raise ValueError("Query is too long. URL can only be 2000 " "characters")
         return url
 
     def _fetch_data(self, url):
         connection = self.connection
-        resp, content = connection.request(url, headers={'user-agent': api,
-                                                         'cache-control': self.cache_control})
+        resp, content = connection.request(
+            url, headers={"user-agent": api, "cache-control": self.cache_control}
+        )
         # DEBUG
         # if resp.fromcache:
         #   print "Using from the cache"
@@ -232,9 +283,9 @@ class Plugin(object):
 
     def _sanitize_query(self, query):
         if isinstance(query, (list, tuple)):
-            query = zip('q' * len(query), map(urllib.quote, query))
+            query = zip("q" * len(query), map(urllib.quote, query))
         else:
-            query = [('q', urllib.quote(query))]
+            query = [("q", urllib.quote(query))]
         return query
 
     def _decode_json(self, response):
@@ -244,12 +295,12 @@ class Plugin(object):
         json_data = json.loads(response)
         try:
             data = json_data["data"]
-            if 'translations' in data:
-                return data['translations']
-            elif 'detections' in data:
-                return data['detections']
-        except :
-            if 'error' in json_data:
+            if "translations" in data:
+                return data["translations"]
+            elif "detections" in data:
+                return data["detections"]
+        except:
+            if "error" in json_data:
                 return json_data["error"]
 
     def detect(self, query):
@@ -266,7 +317,7 @@ class Plugin(object):
         List of dictionaries for each query
         """
         query = self._sanitize_query(query)
-        url = self._build_uri(extra_url='detect/', params=query)
+        url = self._build_uri(extra_url="detect/", params=query)
         content = self._fetch_data(url)
         # going to have json, decode it first
         return self._decode_json(content)
@@ -306,7 +357,7 @@ class Plugin(object):
         except:
             raise ValueError("target language %s is not valid" % target)
         newquery = self._sanitize_query(query)
-        params = [('key', api), ('target', target)]
+        params = [("key", api), ("target", target)]
         if source:
             try:
                 assert _validate_language(target)
@@ -319,10 +370,10 @@ class Plugin(object):
         results = self._decode_json(content)
 
         if "errors" in results and not _dirty:
-            if results['message'] == 'Bad language pair: {0}':
+            if results["message"] == "Bad language pair: {0}":
                 # try to detect language and resubmit query
                 source = self.detect(query)
-                source = source[0]['language']
+                source = source[0]["language"]
                 return self.translate(query, target, source, True)
 
         return results

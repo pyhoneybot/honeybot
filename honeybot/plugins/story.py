@@ -36,13 +36,13 @@ class Plugin:
 
         story_url = requests.get("http://www.read.gov/aesop/" + story + ".html")
         soup = BeautifulSoup(story_url.content, "html.parser")
-        texts = soup.find('div', {"id": "page"})
-        for paragraph in texts.findAll('p'):
+        texts = soup.find("div", {"id": "page"})
+        for paragraph in texts.findAll("p"):
             return str(paragraph.text)
 
     def run(self, incoming, methods, info, bot_info):
         try:
-            if info['command'] == 'PRIVMSG' and info['args'][1] == '.story':
-                methods['send'](info['address'], Plugin.story(self))
+            if info["command"] == "PRIVMSG" and info["args"][1] == ".story":
+                methods["send"](info["address"], Plugin.story(self))
         except Exception as e:
-            print('woops plugin error: ', e)
+            print("woops plugin error: ", e)

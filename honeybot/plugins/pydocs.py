@@ -23,13 +23,13 @@ class Plugin:
 
     def run(self, incoming, methods, info, bot_info):
         try:
-            msgs = info['args'][1:][0].split()
+            msgs = info["args"][1:][0].split()
 
-            if info['command'] == 'PRIVMSG' and msgs[0] == '.dictionary':
+            if info["command"] == "PRIVMSG" and msgs[0] == ".dictionary":
                 dict = PyDictionary()
                 word = str(msgs[1])
-                defin = dict.meaning(word)['Noun']
+                defin = dict.meaning(word)["Noun"]
                 for definition in defin:
-                    methods['send'](info['address'], definition)
+                    methods["send"](info["address"], definition)
         except Exception as e:
-            print('woops plug', e)
+            print("woops plug", e)

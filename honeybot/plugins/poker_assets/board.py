@@ -1,11 +1,11 @@
-''' board class '''
+""" board class """
 
 # pylint: disable=E1601
 class Board(object):
-    ''' board class '''
+    """ board class """
 
     def __init__(self, board):
-        ''' board initialization '''
+        """ board initialization """
 
         self.__board = board
         self.__flop = board[:3]
@@ -16,40 +16,40 @@ class Board(object):
         self.__river = board[4]
 
     def get_board(self):
-        '''return card objects of board'''
+        """return card objects of board"""
         return self.__board
 
     def show_board(self):
-        ''' show board '''
-        return(" ".join([c.show_card() for c in self.__board]))
+        """ show board """
+        return " ".join([c.show_card() for c in self.__board])
 
     def flop(self):
-        ''' show flop '''
+        """ show flop """
 
-        return(" ".join([c.show_card() for c in self.__flop]))
+        return " ".join([c.show_card() for c in self.__flop])
 
     def flop1(self):
-        ''' show flop1 '''
+        """ show flop1 """
 
         return self.__flop1.show_card()
 
     def flop2(self):
-        ''' show flop2 '''
+        """ show flop2 """
 
         return self.__flop2.show_card()
 
     def flop3(self):
-        ''' show flop3 '''
+        """ show flop3 """
 
         return self.__flop3.show_card()
 
     def turn(self):
-        ''' show turn '''
+        """ show turn """
 
         return self.__turn.show_card()
 
     def river(self):
-        ''' show river '''
+        """ show river """
 
         return self.__river.show_card()
 

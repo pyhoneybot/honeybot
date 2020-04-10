@@ -22,16 +22,14 @@ class Plugin:
 
     def run(self, incoming, methods, info, bot_info):
         try:
-            msgs = info['args'][1:][0].split()
+            msgs = info["args"][1:][0].split()
 
-            if info['command'] == 'PRIVMSG':
+            if info["command"] == "PRIVMSG":
                 if len(msgs) > 1:
-                    if msgs[0] == '.caesar_cipher':
+                    if msgs[0] == ".caesar_cipher":
                         expr = msgs[1]
                         encoded = codecs.encode(expr, "rot-13")
                         print(encoded)
-                        methods['send'](info['address'], '{}'.format(
-                                encoded)
-                        )
+                        methods["send"](info["address"], "{}".format(encoded))
         except Exception as e:
-            print('woops plugin', __file__, e)
+            print("woops plugin", __file__, e)

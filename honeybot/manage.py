@@ -11,28 +11,26 @@ from hbotapi.generate import gen_pluginsinfo
 
 logging.basicConfig(
     level=logging.DEBUG,
-    format='%(asctime)s %(name)s %(levelname)s - %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S',
+    format="%(asctime)s %(name)s %(levelname)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
 )
 
 
 parser = argparse.ArgumentParser()
-   
-parser.add_argument('botsetting', choices=['runbot', 'gen_pluginsinfo'])
+
+parser.add_argument("botsetting", choices=["runbot", "gen_pluginsinfo"])
 
 args = parser.parse_args()
 
-if args.botsetting == 'runbot':
+if args.botsetting == "runbot":
     print_honeybot_manifesto()
     print_connect_settings()
     try:
         x = Bot_core()
         x.unregistered_run()
     except KeyboardInterrupt:
-        print('interrupted')
+        print("interrupted")
         sys.exit()
 
-elif args.botsetting == 'gen_pluginsinfo':
+elif args.botsetting == "gen_pluginsinfo":
     gen_pluginsinfo()
-
-

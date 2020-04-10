@@ -1,20 +1,26 @@
-''' poker test '''
+""" poker test """
 
 import board
 import deck
 import hand
 import player
 import pot
-#import game_init
+
+# import game_init
 
 deck = deck.Deck()
 
 print(deck.show_deck())
 print(deck.nth_card(23))
-print(deck.nth_card(23).show_card(), deck.nth_card(23).figure(), deck.nth_card(23).color(), deck.nth_card(23).value())
+print(
+    deck.nth_card(23).show_card(),
+    deck.nth_card(23).figure(),
+    deck.nth_card(23).color(),
+    deck.nth_card(23).value(),
+)
 print(deck.draw_by_number(1).show_card())
 print(deck.show_deck())
-print(deck.draw_by_name('AS').show_card())
+print(deck.draw_by_name("AS").show_card())
 print(deck.show_deck())
 print(board.Board(deck.make_board()).show_board())
 print(hand.Hand(deck.make_hand()).show_hand())
@@ -90,15 +96,29 @@ print(POT.show_pot())
 POT.increase_pot(6)
 print(POT.show_pot())
 
-print(" ".join([c.show_card() for h in game_init.game[3] for c in h.show_player_hand().show_hand_obj()]))
+print(
+    " ".join(
+        [
+            c.show_card()
+            for h in game_init.game[3]
+            for c in h.show_player_hand().show_hand_obj()
+        ]
+    )
+)
 
 
-print(len(game_init.game[0])+len(game_init.game[1])+len(game_init.game[3])*2)
+print(len(game_init.game[0]) + len(game_init.game[1]) + len(game_init.game[3]) * 2)
 
 for player in game_init.game[3]:
-    print(player.general_name(), player.show_player_hand().show_hand(), player.chips(), \
-          player.position_nr(), player.position_name(), \
-          player.show_player_hand().hand_strength(board), player.show_player_hand().best_five(board))
+    print(
+        player.general_name(),
+        player.show_player_hand().show_hand(),
+        player.chips(),
+        player.position_nr(),
+        player.position_name(),
+        player.show_player_hand().hand_strength(board),
+        player.show_player_hand().best_five(board),
+    )
 
 game_init.game[0].show_deck()
 game_init.game[1].show_board()

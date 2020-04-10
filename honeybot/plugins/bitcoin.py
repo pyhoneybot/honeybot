@@ -20,6 +20,7 @@ returns current value of bitcoin
 
 import requests
 
+
 class Plugin:
     def __init__(self):
         self.api_url = "https://api.coinmarketcap.com/v1/ticker/bitcoin/"
@@ -27,12 +28,14 @@ class Plugin:
 
     def run(self, incoming, methods, info, bot_info):
         try:
-            #msgs = info['args'][1:][0].split()
+            # msgs = info['args'][1:][0].split()
 
-            if info['command'] == 'PRIVMSG' and info['args'][1] == '.btc':
-                response = requests.get("https://api.coinmarketcap.com/v1/ticker/bitcoin/")
+            if info["command"] == "PRIVMSG" and info["args"][1] == ".btc":
+                response = requests.get(
+                    "https://api.coinmarketcap.com/v1/ticker/bitcoin/"
+                )
                 response_json = response.json()
-                methods['send'](info['address'], "$" + response_json[0]['price_usd'])
+                methods["send"](info["address"], "$" + response_json[0]["price_usd"])
 
         except Exception as e:
-            print('woops plugin', __file__, e)
+            print("woops plugin", __file__, e)

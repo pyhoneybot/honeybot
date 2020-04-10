@@ -51,13 +51,15 @@ class Plugin:
 
     def run(self, incoming, methods, info, bot_info):
         try:
-            print('In the 8 ball area')
-            msgs = info['args'][1:][0].split()
-            if info['command'] == 'PRIVMSG' and (msgs[0] == '.8ball' or msgs[0] == '.magic8ball'):
+            print("In the 8 ball area")
+            msgs = info["args"][1:][0].split()
+            if info["command"] == "PRIVMSG" and (
+                msgs[0] == ".8ball" or msgs[0] == ".magic8ball"
+            ):
                 question = " ".join(msgs[1:])
-                if '?' in question:
-                    methods['send'](info['address'], Plugin.answer())
+                if "?" in question:
+                    methods["send"](info["address"], Plugin.answer())
                 else:
-                    methods['send'](info['address'], 'You must ask a question')
+                    methods["send"](info["address"], "You must ask a question")
         except Exception as e:
-            print('woops plug', e)
+            print("woops plug", e)

@@ -1,25 +1,27 @@
-''' deck class '''
+""" deck class """
 
 # pylint: disable=E1601, W0612
 
 import random
 import card
 
-class Deck(object):
-    ''' deck class '''
 
-    colors = ['C', 'D', 'H', 'S']
-    figures = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A']
+class Deck(object):
+    """ deck class """
+
+    colors = ["C", "D", "H", "S"]
+    figures = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"]
 
     i = 0
     for color in colors:
 
         for figure in figures:
 
-            locals()['card%s' % i] = card.Card(figure + color)
+            locals()["card%s" % i] = card.Card(figure + color)
             i += 1
+
     def __init__(self):
-        ''' deck initialization '''
+        """ deck initialization """
 
         self.__deck = []
         for color in self.colors:
@@ -29,21 +31,21 @@ class Deck(object):
                 self.__deck.append(card.Card(figure + color))
 
     def show_deck(self):
-        ''' show deck '''
+        """ show deck """
 
-        return(" ".join([c.show_card() for c in self.__deck]))
+        return " ".join([c.show_card() for c in self.__deck])
 
     def nth_card(self, n):
-        ''' show the n-th card from deck '''
+        """ show the n-th card from deck """
 
         try:
             return self.__deck[n]
         except BaseException:
-            print('Wrong index')
+            print("Wrong index")
             return card.Card("0X")
 
     def draw_by_number(self, nr):
-        ''' pick card from deck by nr '''
+        """ pick card from deck by nr """
 
         try:
             pick = self.__deck[nr]
@@ -53,11 +55,11 @@ class Deck(object):
             return pick
 
         except BaseException:
-            print('Wrong index')
+            print("Wrong index")
             return card.Card("0X")
 
     def draw_by_name(self, name):
-        ''' pick card from deck by name '''
+        """ pick card from deck by name """
 
         flag = 0
         for pick in self.__deck:
@@ -68,14 +70,14 @@ class Deck(object):
                 break
 
         if flag == 0:
-            print('Wrong name')
+            print("Wrong name")
             pass
 
         else:
             return pick
 
     def make_board(self):
-        ''' make a random board '''
+        """ make a random board """
 
         board = []
         for i in range(5):
@@ -86,7 +88,7 @@ class Deck(object):
         return board
 
     def make_hand(self):
-        ''' make a random hand '''
+        """ make a random hand """
 
         hand = []
         for i in range(2):
@@ -97,12 +99,11 @@ class Deck(object):
         return hand
 
     def draw_random_card(self):
-        ''' draw a random card '''
+        """ draw a random card """
 
         random_number = random.randint(0, len(self.__deck) - 1)
         return self.draw_by_number(random_number)
 
-
     def __len__(self):
-        '''return the number of cards in the deck '''
+        """return the number of cards in the deck """
         return len(self.__deck)

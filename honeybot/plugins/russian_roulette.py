@@ -21,26 +21,28 @@ either returns a string saying you survived or kicks you off the channel
 """
 import random
 
-class Plugin:
 
+class Plugin:
     def __init__(self):
         pass
 
     def risk(self, incoming, methods, info):
-        kill = True if random.random() < 0.2 else False #should the user be kicked
+        kill = True if random.random() < 0.2 else False  # should the user be kicked
         if kill:
             name = info["prefix"].split("!")[0]
             channel = info["address"]
-            kill_command = "KICK "+ channel + " " + name + " \r\n"
+            kill_command = "KICK " + channel + " " + name + " \r\n"
             methods["send_raw"](kill_command)
-            #code to quit the channel
+            # code to quit the channel
             return "Suicide is always a risk when playing russian roulette... RIP..."
         else:
             return "You survived..."
 
     def run(self, incoming, methods, info, bot_info):
         try:
-            if info['command'] == 'PRIVMSG' and info['args'][1] == '.russian_roulette':
-                methods['send'](info['address'], Plugin.risk(self, incoming, methods, info))
+            if info["command"] == "PRIVMSG" and info["args"][1] == ".russian_roulette":
+                methods["send"](
+                    info["address"], Plugin.risk(self, incoming, methods, info)
+                )
         except Exception as e:
-            print('woops russian roulette plugin error ', e)
+            print("woops russian roulette plugin error ", e)

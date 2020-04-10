@@ -22,8 +22,8 @@ class Plugin:
     def run(self, incoming, methods, info, bot_info):
 
         try:
-            if info['command'] == 'PRIVMSG' and info['args'][1] == '.help':
+            if info["command"] == "PRIVMSG" and info["args"][1] == ".help":
                 message = "Page with all functionalities and commands: https://github.com/Abdur-rahmaanJ/honeybot/blob/master/honeybot/plugins_info.md"
-                methods['send'](info['address'], message)
+                methods["send"](info["address"], message)
         except Exception as e:
-            print('woops plug', e)
+            print("woops plug", e)
