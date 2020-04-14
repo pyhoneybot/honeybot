@@ -241,7 +241,7 @@ server_url = chat.freenode.net
 port = 6667
 name = appinventormuBot
 ~~~
-- run run.py
+- run `python manage.py runbot`
 
 ## 💻 Seeing The Bot In Action
 
