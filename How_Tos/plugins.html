@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Plugin Development &mdash; HoneyBot 5.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Running the bot" href="setup_bot.html" />
+    <link rel="prev" title="Setting up Documentation" href="documentation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/honeybot_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../main.html">Main</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins.html">Plugins</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../how_to.html">How Tos</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">Setting up Documentation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Plugin Development</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="setup_bot.html">Running the bot</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">HoneyBot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../how_to.html">How Tos</a> &raquo;</li>
+        
+      <li>Plugin Development</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/pyhoneybot/honeybot/blob/master/docs/source/How_Tos/plugins.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="plugin-development">
+<h1>Plugin Development<a class="headerlink" href="#plugin-development" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>This How To should give you enough informations to be able to develop a plugin for HoneyBot.
+First of, we’ll take a look at the structure of a plugin:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">[greet.py]</span>
+<span class="sd">Greet Plugin</span>
+<span class="sd">[Author]</span>
+<span class="sd">Abdur-Rahmaan Janhangeer, pythonmembers.club</span>
+<span class="sd">[About]</span>
+<span class="sd">responds to .hi, demo of a basic plugin</span>
+<span class="sd">[Commands]</span>
+<span class="sd">&gt;&gt;&gt; .hi</span>
+<span class="sd">returns hoo</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">Plugin</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">incoming</span><span class="p">,</span> <span class="n">methods</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">bot_info</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;PRIVMSG&#39;</span> <span class="ow">and</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;args&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;.hi&#39;</span><span class="p">:</span>
+                <span class="n">methods</span><span class="p">[</span><span class="s1">&#39;send&#39;</span><span class="p">](</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;address&#39;</span><span class="p">],</span> <span class="s1">&#39;hooo&#39;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;woops plugin error &#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>we see four parameters being passed to the run method , incoming, methods, info, bot_info)</p>
+<p class="rubric">parameter1: incoming</p>
+<p>incoming is the raw line and is not used except if you are not satisfied with the already provided methods</p>
+<p class="rubric">parameter2: methods</p>
+<p>methods is a dictionary of methods to ease your life. a quick look at main.py reveals</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">methods</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="k">return</span> <span class="p">{</span>
+                                <span class="s1">&#39;send_raw&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">,</span>
+                                <span class="s1">&#39;send&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_target</span><span class="p">,</span>
+                                <span class="s1">&#39;join&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">join</span>
+                                <span class="p">}</span>
+</pre></div>
+</div>
+<p>where send_raw allows you to send in any string you want, thereby allowing you to implement any irc protocol from scratch</p>
+<p>but, for most uses, send allows you to send a message to an address <em>methods[‘send’](‘&lt;address&gt;’, ‘&lt;message&gt;’)</em>. using it in conjunction with info parameter allows you to send messages where it came from, in pm to the bot or in a channel. you can however hardcode the address.</p>
+<p>join allows you to join a channel by <em>methods[‘join’](‘&lt;channel name&gt;’)</em></p>
+<p class="rubric">parameter3: info</p>
+<p>for a normal run, info produces</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;appinv!c5e342c5@gateway/web/cgi-irc/kiwiirc.com/ip.200.200.22.200&#39;</span><span class="p">,</span>
+<span class="s1">&#39;command&#39;</span><span class="p">:</span> <span class="s1">&#39;PRIVMSG&#39;</span><span class="p">,</span>
+<span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="s1">&#39;##bottestingmu&#39;</span><span class="p">,</span>
+<span class="s1">&#39;args&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;##bottestingmu&#39;</span><span class="p">,</span> <span class="s1">&#39;ef&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>hence if you want messages, <em>messages = info[‘args’][1:]</em> or the first word if you want to check for command will be info[‘args’][1]</p>
+<p class="rubric">use example</p>
+<p>the command info is used in the join channel plugin to detect a join command and greet the user who just joined</p>
+<p class="rubric">bot info</p>
+<p>bot_info returns info about the bot</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+        <span class="s1">&#39;special_command&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">sp_command</span><span class="p">,</span>
+        <span class="s1">&#39;required_modules&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">required_modules</span><span class="p">,</span>
+        <span class="s1">&#39;owners&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">owners</span><span class="p">,</span>
+        <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span>
+        <span class="s1">&#39;friends&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">friends</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>so that in run method you can access those.</p>
+<p class="rubric">use example</p>
+<p>For example, the time info is used in the uptime plugin by minussing it from the current time to get time bot has been running.
+The required modules is used in the installed plugin to determine what required plugin the bot runner did not install</p>
+<p class="rubric">wrapping up</p>
+<p>hence</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;PRIVMSG&#39;</span> <span class="ow">and</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;args&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;.hi&#39;</span><span class="p">:</span>
+        <span class="n">methods</span><span class="p">[</span><span class="s1">&#39;send&#39;</span><span class="p">](</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;address&#39;</span><span class="p">],</span> <span class="s1">&#39;hooo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>from above means</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">message</span> <span class="n">received</span> <span class="o">==</span> <span class="o">.</span><span class="n">hi</span><span class="p">:</span>
+        <span class="n">send</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="setup_bot.html" class="btn btn-neutral float-right" title="Running the bot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="documentation.html" class="btn btn-neutral float-left" title="Setting up Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Abdur-rahmaanJ
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

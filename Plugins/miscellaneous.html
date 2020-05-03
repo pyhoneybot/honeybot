@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Miscellaneous &mdash; HoneyBot 5.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Utility" href="utility.html" />
+    <link rel="prev" title="Fun" href="fun.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/honeybot_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../main.html">Main</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../plugins.html">Plugins</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="development.html">Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fun.html">Fun</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Miscellaneous</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.abbreviation">Abbreviation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.age">Age</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.book_of_day">Book of Day</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.caesar_cipher">Caesar cipher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.conv_sniff">Conv sniff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.fact">Fact</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.greet">Greet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.news">News</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.pynews">Pynews</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.quote">Quote</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.repostats">Repostats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.roll">Roll</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.roman_numeral">Roman numeral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transfer-rumour">Transfer rumour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.selfTrivia">Self Trivia</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utility.html">Utility</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to.html">How Tos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">HoneyBot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../plugins.html">Plugins</a> &raquo;</li>
+        
+      <li>Miscellaneous</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/pyhoneybot/honeybot/blob/master/docs/source/Plugins/miscellaneous.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="miscellaneous">
+<h1>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-plugins.abbreviation">
+<span id="abbreviation"></span><h2>Abbreviation<a class="headerlink" href="#module-plugins.abbreviation" title="Permalink to this headline">¶</a></h2>
+<p>[abbreviation.py]
+Abbreviation Plugin</p>
+<p>[Author]
+Erin Moon, Sourav Dutta</p>
+<p>[About]
+responds to .def lol</p>
+<p>[Commands]
+&gt;&gt;&gt; .def lol
+returns lots of love</p>
+</div>
+<div class="section" id="module-plugins.age">
+<span id="age"></span><h2>Age<a class="headerlink" href="#module-plugins.age" title="Permalink to this headline">¶</a></h2>
+<p>[age.py]
+Age Plugin</p>
+<p>[Author]
+Justin Walker</p>
+<p>[About]
+Given birthday it returns your age.</p>
+<p>[Commands]
+&gt;&gt;&gt; .age &lt;&lt;day&gt;&gt; &lt;&lt;month&gt;&gt; &lt;&lt;year&gt;&gt;
+returns age in yr/mo/day format.</p>
+</div>
+<div class="section" id="module-plugins.book_of_day">
+<span id="book-of-day"></span><h2>Book of Day<a class="headerlink" href="#module-plugins.book_of_day" title="Permalink to this headline">¶</a></h2>
+<p>[book_of_day.py]
+Book of the Day Plugin
+[Author]
+Schoberg, UMD
+[About]
+using bookoftheday.org, get the title and link of the book of the day
+[Commands]
+&gt;&gt;&gt; .bookoftheday
+<a class="reference external" href="https://bookoftheday.org/fleishman-is-in-trouble-taffy-brodesser-akner/">https://bookoftheday.org/fleishman-is-in-trouble-taffy-brodesser-akner/</a></p>
+</div>
+<div class="section" id="module-plugins.caesar_cipher">
+<span id="caesar-cipher"></span><h2>Caesar cipher<a class="headerlink" href="#module-plugins.caesar_cipher" title="Permalink to this headline">¶</a></h2>
+<p>[calc.py]
+Caesar Cipher plugin</p>
+<p>[Author]
+Kyle Galloway</p>
+<p>[About]
+encrypts and decrypts using a caesar cipher</p>
+<p>[Commands]
+&gt;&gt;&gt; .caesar_cipher &lt;message&gt;
+returns the encrypted version of message</p>
+</div>
+<div class="section" id="module-plugins.conv_sniff">
+<span id="conv-sniff"></span><h2>Conv sniff<a class="headerlink" href="#module-plugins.conv_sniff" title="Permalink to this headline">¶</a></h2>
+<p>[conv_sniff.py]
+Conversation Sniffer Plugin</p>
+<p>[Author]
+Abdur-Rahmaan Janhangeer, pythonmembers.club</p>
+<p>[About]
+senses conversation topic with sensitivity set by user, also supports
+word-specific sensing</p>
+<dl class="py class">
+<dt id="plugins.conv_sniff.Plugin">
+<em class="property">class </em><code class="sig-name descname">Plugin</code><a class="headerlink" href="#plugins.conv_sniff.Plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>checkin
+L checks in list
+S checks in string</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-plugins.fact">
+<span id="fact"></span><h2>Fact<a class="headerlink" href="#module-plugins.fact" title="Permalink to this headline">¶</a></h2>
+<p>[fact.py]
+Fact Plugin</p>
+<p>[Author]
+Justin Walker</p>
+<p>[About]
+Returns a random fact.
+Facts sourced from Mental Floss
+<a class="reference external" href="http://mentalfloss.com/article/55443/101-amazing-facts">http://mentalfloss.com/article/55443/101-amazing-facts</a></p>
+<p>[Commands]
+&gt;&gt;&gt; .fact
+returns random fact</p>
+</div>
+<div class="section" id="module-plugins.greet">
+<span id="greet"></span><h2>Greet<a class="headerlink" href="#module-plugins.greet" title="Permalink to this headline">¶</a></h2>
+<p>[greet.py]
+Greet Plugin</p>
+<p>[Author]
+Abdur-Rahmaan Janhangeer, pythonmembers.club</p>
+<p>[About]
+responds to .hi, demo of a basic plugin</p>
+<p>[Commands]
+&gt;&gt;&gt; .hi
+returns hoo</p>
+</div>
+<div class="section" id="module-plugins.news">
+<span id="news"></span><h2>News<a class="headerlink" href="#module-plugins.news" title="Permalink to this headline">¶</a></h2>
+<p>[news.py]
+Greet Plugin
+[Author]
+Angelo Giacco
+[About]
+Gets the top 10 headlines around the world from bbc world news
+[Commands]
+&gt;&gt;&gt; .news
+returns string of ten news headlines with newlines between</p>
+</div>
+<div class="section" id="module-plugins.pynews">
+<span id="pynews"></span><h2>Pynews<a class="headerlink" href="#module-plugins.pynews" title="Permalink to this headline">¶</a></h2>
+<p>[pynews.py]
+Python news checking plugin</p>
+<p>[Author]
+Sam Deans</p>
+<p>[Github]
+&#64;sdeans0</p>
+<p>[About]
+Finds the top five news items on python.org and prints them to the IRC</p>
+<p>[Commands]
+&gt;&gt;&gt; .pynews
+returns the top 5 python.org news articles</p>
+</div>
+<div class="section" id="module-plugins.quote">
+<span id="quote"></span><h2>Quote<a class="headerlink" href="#module-plugins.quote" title="Permalink to this headline">¶</a></h2>
+<p>[quote.py]
+Quotes Plugin</p>
+<p>[Author]
+German Corpaz</p>
+<p>[About]
+Sends a random quote on request</p>
+<p>[Commands]
+&gt;&gt;&gt; .quote
+returns a random quote</p>
+</div>
+<div class="section" id="module-plugins.repostats">
+<span id="repostats"></span><h2>Repostats<a class="headerlink" href="#module-plugins.repostats" title="Permalink to this headline">¶</a></h2>
+<p>[repostats.py]
+Repostats Plugin</p>
+<p>[Author]
+Shreyansh Sancheti</p>
+<p>[About]
+Gets the number of forks and stars for a given repo</p>
+<p>[Commands]
+&gt;&gt;&gt; .repostats url
+returns starcount stars | forkcount forks</p>
+</div>
+<div class="section" id="module-plugins.roll">
+<span id="roll"></span><h2>Roll<a class="headerlink" href="#module-plugins.roll" title="Permalink to this headline">¶</a></h2>
+<p>[roll.py]
+Dice_Roll Plugin</p>
+<p>[Author]
+Glenn Toms</p>
+<p>[About]
+Will roll dice in the form of 1d4, 10d6 and return total.</p>
+<p>[Commands]
+&gt;&gt;&gt; .roll &lt;&lt;dice&gt;&gt;
+returns Total of dice</p>
+</div>
+<div class="section" id="module-plugins.roman_numeral">
+<span id="roman-numeral"></span><h2>Roman numeral<a class="headerlink" href="#module-plugins.roman_numeral" title="Permalink to this headline">¶</a></h2>
+<p>roman_numeral.py]
+Roman Numeral Converter Plugin</p>
+<p>[Author]
+Nick Wiley</p>
+<p>[About]
+Returns the roman numeral equivalent of the number inputted</p>
+<p>[Commands]
+&gt;&gt;&gt; .roman &lt;number&gt;
+returns number represented in roman numerals</p>
+</div>
+<div class="section" id="transfer-rumour">
+<h2>Transfer rumour<a class="headerlink" href="#transfer-rumour" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="module-plugins.selfTrivia">
+<span id="self-trivia"></span><h2>Self Trivia<a class="headerlink" href="#module-plugins.selfTrivia" title="Permalink to this headline">¶</a></h2>
+<p>[quote.py]
+Self Trivia Plugin</p>
+<p>[Author]
+Angel Jimenez</p>
+<p>[About]
+Returns a private trivia question</p>
+<p>[Commands]
+&gt;&gt;&gt; .selfTrivia
+returns a random question
+Currently working on adding multiple choice and a timer reveal.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="utility.html" class="btn btn-neutral float-right" title="Utility" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fun.html" class="btn btn-neutral float-left" title="Fun" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Abdur-rahmaanJ
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

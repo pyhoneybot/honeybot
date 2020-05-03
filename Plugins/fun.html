@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Fun &mdash; HoneyBot 5.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Miscellaneous" href="miscellaneous.html" />
+    <link rel="prev" title="Development" href="development.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/honeybot_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../main.html">Main</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../plugins.html">Plugins</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="development.html">Development</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Fun</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#blackjack">Blackjack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.comic">Comic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.dadjoke">Dadjoke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.hangman">Hangman</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.horoscope">Horoscope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.joke">Joke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.magic_ball">Magic 8 Ball</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#monopoly">Monopoly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.riddle">Riddle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.russian_roulette">Russian Roulette</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="miscellaneous.html">Miscellaneous</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utility.html">Utility</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to.html">How Tos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">HoneyBot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../plugins.html">Plugins</a> &raquo;</li>
+        
+      <li>Fun</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/pyhoneybot/honeybot/blob/master/docs/source/Plugins/fun.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fun">
+<h1>Fun<a class="headerlink" href="#fun" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="blackjack">
+<h2>Blackjack<a class="headerlink" href="#blackjack" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="module-plugins.comic">
+<span id="comic"></span><h2>Comic<a class="headerlink" href="#module-plugins.comic" title="Permalink to this headline">¶</a></h2>
+<p>[comic.py]
+Image search plugin</p>
+<p>[Author]
+Miguel Boekhold</p>
+<p>[About]
+Returns a random comic from xkcd</p>
+<p>[Commands]
+&gt;&gt;&gt; .comic
+returns a url of a random comic</p>
+</div>
+<div class="section" id="module-plugins.dadjoke">
+<span id="dadjoke"></span><h2>Dadjoke<a class="headerlink" href="#module-plugins.dadjoke" title="Permalink to this headline">¶</a></h2>
+<p>[dadjoke.py]
+Dad joke plugin
+[Author]
+moffetma Oregon State University CS
+[About]
+Sends a random “dad joke” from icanhazdadjoke.com
+[Commands]
+&gt;&gt;&gt; .dadjoke
+Have you heard of the band 1023MB? They haven’t got a gig yet.</p>
+</div>
+<div class="section" id="module-plugins.hangman">
+<span id="hangman"></span><h2>Hangman<a class="headerlink" href="#module-plugins.hangman" title="Permalink to this headline">¶</a></h2>
+<p>[hangman.py]
+Hangman Game Plugin</p>
+<p>[Author]
+Justin Walker</p>
+<p>[About]
+Plays game of hangman</p>
+<p>[Commands]
+&gt;&gt;&gt; .hangman start
+Starts hangman game and returns game screen.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">.</span><span class="n">hangman</span> <span class="n">guess</span> <span class="o">&lt;&lt;</span><span class="n">word</span> <span class="ow">or</span> <span class="n">letter</span><span class="o">&gt;&gt;</span>
+<span class="go">Submits word or letter guess and returns game screen.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-plugins.horoscope">
+<span id="horoscope"></span><h2>Horoscope<a class="headerlink" href="#module-plugins.horoscope" title="Permalink to this headline">¶</a></h2>
+<p>[horoscope.py]
+Horoscope Plugin</p>
+<p>[Author]
+Angelo Giacco</p>
+<p>[About]
+Returns your daily horoscope based on your star sign
+you can also enter your month and date of birth to automatically find your starsign
+enter month and date as number</p>
+<p>[Commands]
+&gt;&gt;&gt; .horoscope &lt;&lt;starsign&gt;&gt;
+returns horoscope for starsign</p>
+<p>.horoscope &lt;&lt;month&gt;&gt; &lt;&lt;day&gt;&gt;
+returns horoscope for starsign of day entered</p>
+</div>
+<div class="section" id="module-plugins.joke">
+<span id="joke"></span><h2>Joke<a class="headerlink" href="#module-plugins.joke" title="Permalink to this headline">¶</a></h2>
+<p>[joke.py]
+Joke Plugin</p>
+<p>[Author]
+Abdur-Rahmaan Janhangeer, pythonmembers.club</p>
+<p>[About]
+sends a random joke on request</p>
+<p>[Commands]
+&gt;&gt;&gt; .joke
+returns a random joke</p>
+</div>
+<div class="section" id="module-plugins.magic_ball">
+<span id="magic-8-ball"></span><h2>Magic 8 Ball<a class="headerlink" href="#module-plugins.magic_ball" title="Permalink to this headline">¶</a></h2>
+<p>[magic_ball.py]
+Magic 8 ball Plugin</p>
+<p>[Author]
+Zakaria Talhami</p>
+<p>[About]
+Fortune-telling for question using a magic 8 ball</p>
+<p>[Commands]
+&gt;&gt;&gt; .8ball &lt;&lt;question&gt;&gt;
+returns It is certain</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">.</span><span class="n">magic8ball</span> <span class="o">&lt;&lt;</span><span class="n">question</span><span class="o">&gt;&gt;</span>
+<span class="go">returns Very doubtful</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="monopoly">
+<h2>Monopoly<a class="headerlink" href="#monopoly" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="module-plugins.riddle">
+<span id="riddle"></span><h2>Riddle<a class="headerlink" href="#module-plugins.riddle" title="Permalink to this headline">¶</a></h2>
+<p>[riddle.py]
+Riddle Plugin</p>
+<p>[Author]
+Angelo Giacco</p>
+<p>[About]
+Returns a riddle or whether guess at the answer was correct or not.</p>
+<p>[Commands]
+&gt;&gt;&gt; .riddle
+returns a random riddle</p>
+<p>.riddle guess &lt;&lt;attempt&gt;&gt;
+returns whether the guess was correct or wrong</p>
+</div>
+<div class="section" id="module-plugins.russian_roulette">
+<span id="russian-roulette"></span><h2>Russian Roulette<a class="headerlink" href="#module-plugins.russian_roulette" title="Permalink to this headline">¶</a></h2>
+<p>[russian_roulette.py]
+Russian Roulette Plugin</p>
+<p>[Author]
+Angelo Giacco</p>
+<p>[About]
+In the original russian roulette, you have a one sixth chance of committing
+suicide. In this version, you have a one sixth chance of being kicked from
+the channel. The bot will utilise the IRC command:
+KICK #channel nickname
+where #channel is the channel name and nicknames is the nickname of the user</p>
+<p>WARNING: BOT MUST BE CHANNEL OPERATOR!!!</p>
+<p>[Commands]
+&gt;&gt;&gt; .russian_roulette
+either returns a string saying you survived or kicks you off the channel</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="miscellaneous.html" class="btn btn-neutral float-right" title="Miscellaneous" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="development.html" class="btn btn-neutral float-left" title="Development" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Abdur-rahmaanJ
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
