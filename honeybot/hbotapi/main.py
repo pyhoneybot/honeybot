@@ -47,6 +47,12 @@ class Bot_core(object):
         self.domain = ".".join(dom[-2:])
         self.sp_command = "hbot"
         self.plugins = []
+        self.core_plugins = [
+            'channeljoin',
+            'log',
+            'uptime',
+            'joins'
+        ]
 
     """
     MESSAGE VALIDATION
@@ -121,7 +127,7 @@ class Bot_core(object):
     BOT UTIL
     """
 
-    def load_plugins(self, plugins_to_load):
+    def load_plugins(self):
         """
         Load plugins that are specified in the plugins list.
 
@@ -135,18 +141,28 @@ class Bot_core(object):
         logger.info("Loading plugins...")
 
         to_load = []
-        plugs = "settings/{}.conf".format(plugins_to_load)
+        plugs = "settings/PLUGINS.conf"
         with open(plugs) as f:
             to_load = f.read().split("\n")
             to_load = list(filter(lambda x: x != "", to_load))
-        for file in to_load:
-            print("loading plugin:", file)
+
+        for folder in to_load:
+            print("loading plugin:", folder)
             try:
-                module = importlib.import_module("plugins.{}".format(file))
+                module = importlib.import_module("plugins.downloaded.{}.main".format(folder))
                 obj = module
                 self.plugins.append(obj)
             except ModuleNotFoundError as e:
-                logger.warning(f"{file}: module import error, skipped' {e}")
+                logger.warning(f"{folder}: module import error, skipped' {e}")
+
+        for folder in self.core_plugins:
+            print("loading plugin:", folder)
+            try:
+                module = importlib.import_module("plolderns.core.{}.main".format(folder))
+                obj = module
+                self.plugins.append(obj)
+            except ModuleNotFoundError as e:
+                logger.warning(f"{folder}: module import error, skipped' {e}")
 
         logger.info("Loaded plugins...")
 
@@ -227,11 +243,11 @@ class Bot_core(object):
         self.connect()
         self.identify()
         self.greet()
-        self.load_plugins("PLUGINS")
+        self.load_plugins()
         self.pull()
 
     def unregistered_run(self):
         self.connect()
         self.greet()
-        self.load_plugins("PLUGINS")
+        self.load_plugins()
         self.pull()
