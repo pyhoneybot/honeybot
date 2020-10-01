@@ -16,7 +16,7 @@ Feel free to contribute to the project!
 Implementing the project in Java was weird, py's connect was sleek. Thus, the project stack was shifted over to Python.
 If you can think of any features, plugins, or functionality you wish to see in the project. Feel free to add it yourself, or create an issue detailing your ideas. We highly recommend you attempt to implement it yourself first and ask for help in our [discord server](https://discord.gg/E6zD4XT) !
 
-Psst. since i learnt py through this bot, we decided to keep a new-comers friendly policy. Feeling lost? Just ping.
+Psst. Since I learnt py through this bot, we decided to keep a new-comers friendly policy. Feeling lost? Just ping.
 
 ## 📌 Contributing Countries
 
@@ -24,7 +24,7 @@ Psst. since i learnt py through this bot, we decided to keep a new-comers friend
 
 ## 📨 Follow the project on CodeTriage for updates!
 
-get issues delivered in your inbox.
+Get issues delivered in your inbox.
 
 [![Open Source Helpers](https://www.codetriage.com/pyhoneybot/honeybot/badges/users.svg)](https://www.codetriage.com/pyhoneybot/honeybot)
 
