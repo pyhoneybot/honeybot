@@ -4,5 +4,5 @@ wikipedia==1.4.0
 google==2.0.2
 beautifulsoup4==4.7.1
 deuces==0.2
-httplib2==0.18.0
+httplib2==0.19.0
 flightradar24==0.2
