@@ -1,5 +1,0 @@
-{
-	"plugins":[
-		"https://raw.githubusercontent.com/pyhoneybot/hbot-plugins/gh-pages/packages/stemmers/porter_test.zip"
-	]
-}
