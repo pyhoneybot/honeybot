@@ -1,6 +1,7 @@
-NAME = 'Abbreviation'
+
+NAME = 'abbreviation.py'
 ORIGINAL_AUTHORS = [
-    'Eric Moon'
+    'Erin Moon, Sourav Dutta'
 ]
 
 ABOUT = '''
@@ -11,3 +12,5 @@ COMMANDS = '''
 >>> .def lol
 returns lots of love
 '''
+
+WEBSITE = ''
