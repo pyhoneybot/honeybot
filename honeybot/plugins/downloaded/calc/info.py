@@ -1,5 +1,5 @@
 
-NAME = 'abbreviation.py'
+NAME = 'calc.py'
 ORIGINAL_AUTHORS = [
     'Abdur-Rahmaan Janhangeer, pythonmembers.club'
 ]
