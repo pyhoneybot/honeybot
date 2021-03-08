@@ -113,13 +113,19 @@ GUI clients are used to manage plugins, launch bot as well as specify credential
 - 📝 todo by [@h-ranjan1110](https://github.com/h-ranjan1110) - Makes a to do list .
 - 🎱 Magic 8 Ball [@ZakariaTalhami](https://github.com/ZakariaTalhami) - Answer questions using magic 8 ball
 
+## Normal run
+
+```python
+python manage.py runbot
+```
+
 ## Docker
-### Building Docker image
+** Building Docker image **
 Change SERVER, PORT and NICKNAME variables to match your preferences
 ```
 docker build -t honeybot -f ./docker/Dockerfile .
 ```
-### Running Docker image
+** Running Docker image **
 ```
 docker run honeybot
 ```
