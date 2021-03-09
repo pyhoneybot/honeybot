@@ -47,6 +47,11 @@ FACT_LIST = [
     + "necks from getting sunburnt."
     "In 2006, an Australian man tried to sell New Zealand on Ebay. The "
     + "price reached $3,000 before it was shut down.",
+    "Google's founders were willing to sell to excite for under $1 million in 1999--but excite turned them down.",
+    "There was a third Apple founder. Ronald Wayne sold his 10% stake for $800 in 1976.",
+    "Reed Hastings was inspired to start Netflix after racking up a $40 late fee on a VHS copy of Apollo 13.",
+    "During WWI, German measles were called 'Liberty Measles' and dachshunds became 'liberty hounds.'",
+    "A 2009 search for the loch ness monster came up empty. Scientists did find over 100,000 golf balls.",
     "In Japan, letting a sumo wrestler make your baby cry is considered "
     + "good luck.",
     "When three-letter airport codes became a standard, airports that "
