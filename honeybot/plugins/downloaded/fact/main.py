@@ -144,4 +144,7 @@ FACT_LIST = [
     + "scrub the latrine... Who screams at you for being late to work.",
     "In 1973, Mao Zedong told Henry Kissinger that China had an excess "
     + "of females and offered the U.S. 10 million Chinese woman.",
+    "Play-Doh started out as a wallpaper cleaner before the head of the", 
+    + "struggling company realized the non-toxic material made a good modeling clay for children and rebranded it.",
+    "Another term for the hashtag or pound sign is \"octothorpe\".",
 ]
