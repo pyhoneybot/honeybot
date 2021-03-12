@@ -154,5 +154,10 @@ FACT_LIST = [
     + "a real guy, while 20% thought Winston Churchill was not.",
     "Fredric Baur invented the Pringles can. When he passed away in 2008, "
     + "his ashes were buried in one.", 
+    "Italy has the most UNECO sites in the world",
+    "Space is completly silent",
+    "The sunset on Mars appears blue",
+    "In the early drafts of \"Star Wars: The Empire Strikes Back\", "
+    + "Yoda was named Buffy."
     
 ]
