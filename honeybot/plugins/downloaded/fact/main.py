@@ -146,7 +146,7 @@ FACT_LIST = [
     + "of females and offered the U.S. 10 million Chinese woman.",
     "Play-Doh started out as a wallpaper cleaner before the head of the " 
     + "struggling company realized the non-toxic material made a good "
-    + "children and rebranded it.",
+    + "modeling clay for children and rebranded it.",
     "Another term for the hashtag or pound sign is \"octothorpe\".",
     "If you start counting at one and spell out the numbers as you go, "
     + "you won't use the letter A until you reach 1,000.",
