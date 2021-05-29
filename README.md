@@ -113,11 +113,40 @@ GUI clients are used to manage plugins, launch bot as well as specify credential
 - 📝 todo by [@h-ranjan1110](https://github.com/h-ranjan1110) - Makes a to do list .
 - 🎱 Magic 8 Ball [@ZakariaTalhami](https://github.com/ZakariaTalhami) - Answer questions using magic 8 ball
 
-## Normal run
 
-```python
-python manage.py runbot
+## ⚡ Quickstart
+
+- specify your details in [CONNECT.conf](https://github.com/pyhoneybot/honeybot/blob/master/honeybot/settings/CONNECT.conf) (already included)
+~~~
+[INFO]
+
+server_url = chat.freenode.net
+port = 6667
+name = appinventormuBot
+~~~
+- run `python manage.py runbot`
+
+In settings/PLUGINS.conf listed plugins under plugins/downloaded will load. Plugins listed under plugins/core are auto loaded.
+
+## 💻 Seeing The Bot In Action
+
+Get an IRC client
+
+- Web: [Kiwiirc](https://kiwiirc.com) (easy)
+- Desktop: [Hexchat](https://hexchat.github.io)
+- Android: [Revolution IRC](https://github.com/MCMrARM/revolution-irc)
+
+configure
+
 ```
+port: 6667
+url: chat.freenode.net
+```
+
+then join channel ```#ltch```
+
+you should see the bot as hbot ... or as it's name is in [settings](https://github.com/pyhoneybot/honeybot/blob/master/honeybot/settings/CONNECT.conf)
+
 
 ## Docker
 ** Building Docker image **
@@ -137,18 +166,6 @@ a plugin has the following structure:
 
 ```python
 # -*- coding: utf-8 -*-
-"""
-[greet.py]
-Greet Plugin
-[Author]
-Abdur-Rahmaan Janhangeer, pythonmembers.club
-[About]
-responds to .hi, demo of a basic plugin
-[Commands]
->>> .hi
-returns hoo
-"""
-
 
 class Plugin:
     def __init__(self):
@@ -237,36 +254,7 @@ if message received == .hi:
     send(address, message)
 ```
 
-## ⚡ Quickstart
 
-- specify your details in [CONNECT.conf](https://github.com/pyhoneybot/honeybot/blob/master/honeybot/settings/CONNECT.conf) (already included)
-~~~
-[INFO]
-
-server_url = chat.freenode.net
-port = 6667
-name = appinventormuBot
-~~~
-- run `python manage.py runbot`
-
-## 💻 Seeing The Bot In Action
-
-Get an IRC client
-
-- Web: [Kiwiirc](https://kiwiirc.com) (easy)
-- Desktop: [Hexchat](https://hexchat.github.io)
-- Android: [Revolution IRC](https://github.com/MCMrARM/revolution-irc)
-
-configure
-
-```
-port: 6667
-url: chat.freenode.net
-```
-
-then join channel ```#ltch```
-
-you should see the bot as hbot ... or as it's name is in [settings](https://github.com/pyhoneybot/honeybot/blob/master/honeybot/settings/CONNECT.conf)
 
 ## 📃 Contributing Guide
 

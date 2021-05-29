@@ -158,7 +158,7 @@ class Bot_core(object):
         for folder in self.core_plugins:
             print("loading plugin:", folder)
             try:
-                module = importlib.import_module("plolderns.core.{}.main".format(folder))
+                module = importlib.import_module("plugins.core.{}.main".format(folder))
                 obj = module
                 self.plugins.append(obj)
             except ModuleNotFoundError as e:
