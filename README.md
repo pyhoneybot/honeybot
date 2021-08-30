@@ -116,15 +116,32 @@ GUI clients are used to manage plugins, launch bot as well as specify credential
 
 ## ⚡ Quickstart
 
-- specify your details in [CONNECT.conf](https://github.com/pyhoneybot/honeybot/blob/master/honeybot/settings/CONNECT.conf) (already included)
+setup
+
+```bash
+create venv
+activate venv
+python -m pip install honeybot
+
+```
+
+run
+
+```bash
+mkdir botx
+cd botx
+honeybot init
+honeybot run
+```
+
+in settings/CONNECT.conf
 ~~~
 [INFO]
 
-server_url = chat.freenode.net
+server_url = irc.libera.chat
 port = 6667
 name = appinventormuBot
 ~~~
-- run `python manage.py runbot`
 
 In settings/PLUGINS.conf listed plugins under plugins/downloaded will load. Plugins listed under plugins/core are auto loaded.
 
@@ -160,9 +177,7 @@ docker run honeybot
 ```
 ## 🔧 Plugins Development
 
-including it here. let's begin
-
-a plugin has the following structure:
+Each plugin has a folder named after it. In it there is a file called main.py. In each there is a class called Plugin.
 
 ```python
 # -*- coding: utf-8 -*-

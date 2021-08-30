@@ -3,11 +3,13 @@
 import logging
 import sys
 import argparse
+import os
 
-from honeybot.hbotapi.main import Bot_core
-from honeybot.hbotapi.print import print_connect_settings
-from honeybot.hbotapi.print import print_honeybot_manifesto
-from honeybot.hbotapi.generate import gen_pluginsinfo
+from honeybot.api.main import Bot_core
+from honeybot.api.print import print_connect_settings
+from honeybot.api.print import print_honeybot_manifesto
+from honeybot.api.generate import gen_pluginsinfo
+from honeybot.api.init import init 
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -18,15 +20,21 @@ logging.basicConfig(
 def main():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("botsetting", choices=["runbot", "gen_pluginsinfo"])
+    parser.add_argument("botsetting", choices=["run", "gen_pluginsinfo", "init"])
 
     args = parser.parse_args()
 
-    if args.botsetting == "runbot":
-        print_honeybot_manifesto()
-        print_connect_settings()
+    info = {
+        'cwd': os.getcwd(),
+        'settings_path': os.path.join(os.getcwd(), 'settings'),
+    }
+
+    print_honeybot_manifesto(info)
+    if args.botsetting == "run":
+        
+        print_connect_settings(info)
         try:
-            x = Bot_core()
+            x = Bot_core(info)
             x.unregistered_run()
         except KeyboardInterrupt:
             print("interrupted")
@@ -34,6 +42,9 @@ def main():
 
     elif args.botsetting == "gen_pluginsinfo":
         gen_pluginsinfo()
+
+    elif args.botsetting == "init":
+        init(info)
 
 if __name__ == '__main__':
     main()

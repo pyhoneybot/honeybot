@@ -6,15 +6,15 @@ import logging
 import socket
 import sys
 import time
+import os
+from pathlib import Path 
 
-from .hbotapi import commands
-from .hbotapi.utils import prevent_none
-from .hbotapi.utils import configfile_to_list
-from .hbotapi.utils import get_requirements
-from .hbotapi import memory
+from honeybot.api import commands
+from honeybot.api.utils import prevent_none
+from honeybot.api.utils import configfile_to_list
+from honeybot.api.utils import get_requirements
+from honeybot.api import memory
 
-connect_config = configparser.ConfigParser()
-connect_config.read("settings/CONNECT.conf")
 
 memory_reader = configparser.ConfigParser()
 
@@ -29,15 +29,18 @@ BOT CONNECTION SETUP
 
 
 class Bot_core(object):
-    def __init__(self, password=""):
-
+    def __init__(self, info, password=""):
+        connect_config = configparser.ConfigParser()
+        connect_config.read(os.path.join(info['settings_path'], 'CONNECT.conf'))
+        self.settings_path = info['settings_path']
+        self.root_path = info['cwd']
         self.server_url = connect_config["INFO"]["server_url"]
         self.port = int(connect_config["INFO"]["port"])
         self.name = connect_config["INFO"]["name"]
-        self.owners = configfile_to_list("OWNERS")
+        self.owners = configfile_to_list(info['settings_path'], "OWNERS")
         self.password = password
-        self.friends = configfile_to_list("FRIENDS")
-        self.autojoin_channels = configfile_to_list("AUTOJOIN_CHANNELS")
+        self.friends = configfile_to_list(info['settings_path'], "FRIENDS")
+        self.autojoin_channels = configfile_to_list(info['settings_path'], "AUTOJOIN_CHANNELS")
         self.required_modules = get_requirements()
         self.time = time.time()
 
@@ -137,11 +140,11 @@ class Bot_core(object):
         Examples:
             TODO
         """
-
+        
         logger.info("Loading plugins...")
 
         to_load = []
-        plugs = "settings/PLUGINS.conf"
+        plugs = os.path.join(self.settings_path, "PLUGINS.conf")
         with open(plugs) as f:
             to_load = f.read().split("\n")
             to_load = list(filter(lambda x: x != "", to_load))
@@ -149,6 +152,7 @@ class Bot_core(object):
         for folder in to_load:
             print("loading plugin:", folder)
             try:
+                sys.path.append(self.root_path)
                 module = importlib.import_module("plugins.downloaded.{}.main".format(folder))
                 obj = module
                 self.plugins.append(obj)

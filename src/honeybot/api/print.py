@@ -1,5 +1,5 @@
 import configparser
-
+import os
 
 ascii_message = """
             _  _                   _         _   
@@ -12,12 +12,12 @@ ascii_message = """
 """
 
 
-def print_honeybot_manifesto():
+def print_honeybot_manifesto(info):
     print(ascii_message)
 
 
-def print_connect_settings():
-    settings_path = "settings/CONNECT.conf"
+def print_connect_settings(info):
+    settings_path = os.path.join(info['settings_path'], "CONNECT.conf")
     connect_config = configparser.ConfigParser()
     connect_config.read(settings_path)
     server_url = connect_config["INFO"]["server_url"]

@@ -10,17 +10,22 @@ CURRENT_DIR = Path(__file__).parent
 sys.path.insert(0, str(CURRENT_DIR))  # for setuptools.build_meta
 
 
+try:
+    from src.honeybot import __version__
+except Exception as e:
+    pass
+
+
 def get_long_description() -> str:
     return (
         (CURRENT_DIR / "README.md").read_text(encoding="utf8")
-        + "\n\n"
-        + (CURRENT_DIR / "CHANGES.md").read_text(encoding="utf8")
     )
 
 
 
 setup(
     name="honeybot",
+    version=__version__,
     description="IRC bot with vast collection of plugins. First timers friendly",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
