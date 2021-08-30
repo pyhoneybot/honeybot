@@ -7,11 +7,11 @@ import socket
 import sys
 import time
 
-from hbotapi import commands
-from hbotapi.utils import prevent_none
-from hbotapi.utils import configfile_to_list
-from hbotapi.utils import get_requirements
-from hbotapi import memory
+from .hbotapi import commands
+from .hbotapi.utils import prevent_none
+from .hbotapi.utils import configfile_to_list
+from .hbotapi.utils import get_requirements
+from .hbotapi import memory
 
 connect_config = configparser.ConfigParser()
 connect_config.read("settings/CONNECT.conf")

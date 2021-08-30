@@ -6,6 +6,7 @@ __pycache__/
 # config files
 *.config
 *.cfg
+!setup.cfg
 
 # C extensions
 *.so
