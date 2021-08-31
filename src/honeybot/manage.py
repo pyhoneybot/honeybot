@@ -5,11 +5,15 @@ import sys
 import argparse
 import os
 
-from honeybot.api.main import Bot_core
-from honeybot.api.print import print_connect_settings
-from honeybot.api.print import print_honeybot_manifesto
-from honeybot.api.generate import gen_pluginsinfo
-from honeybot.api.init import init 
+try:
+    from honeybot.api.main import Bot_core
+    from honeybot.api.print import print_connect_settings
+    from honeybot.api.print import print_honeybot_manifesto
+    from honeybot.api.generate import gen_pluginsinfo
+    from honeybot.api.init import init 
+except Exception as e:
+    print(e)
+
 
 logging.basicConfig(
     level=logging.DEBUG,

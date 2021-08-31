@@ -39,7 +39,7 @@ setup(
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     package_data={
-        "honeybot": ["*.conf", "*.txt"]
+        "honeybot": ["settings/*.conf", "*.txt"]
     },
     python_requires=">=3.7.0",
     zip_safe=False,

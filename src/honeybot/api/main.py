@@ -9,11 +9,15 @@ import time
 import os
 from pathlib import Path 
 
-from honeybot.api import commands
-from honeybot.api.utils import prevent_none
-from honeybot.api.utils import configfile_to_list
-from honeybot.api.utils import get_requirements
-from honeybot.api import memory
+try:
+    from honeybot.api import commands
+    from honeybot.api.utils import prevent_none
+    from honeybot.api.utils import configfile_to_list
+    from honeybot.api.utils import get_requirements
+    from honeybot.api import memory
+except Exception as e:
+    raise e
+
 
 
 memory_reader = configparser.ConfigParser()

@@ -119,8 +119,10 @@ GUI clients are used to manage plugins, launch bot as well as specify credential
 setup
 
 ```bash
-create venv
-activate venv
+mkdir botx
+cd botx
+python -m venv venv
+venv\scripts\activate # or source venv/bin/activate for linux
 python -m pip install honeybot
 
 ```
@@ -128,8 +130,6 @@ python -m pip install honeybot
 run
 
 ```bash
-mkdir botx
-cd botx
 honeybot init
 honeybot run
 ```
