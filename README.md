@@ -1,3 +1,4 @@
+[![PyPI version](https://badge.fury.io/py/honeybot.svg)](https://badge.fury.io/py/honeybot)
 [![first-timers-only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](https://www.firsttimersonly.com/)
 ![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-pink.svg)
 ![Open Source Love](https://img.shields.io/badge/chat%20on-discord-green.svg)
