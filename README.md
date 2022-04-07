@@ -274,6 +274,8 @@ if message received == .hi:
 
 ## 📃 Contributing Guide
 
+<https://pyhoneybot.github.io/honeybot/How_Tos/contributing.html>
+
 - don't forget to add your country flag here after accepted PR. i'll have to hunt it down on your profile if not.
 - make sure to follow PEP8
 
@@ -389,6 +391,10 @@ git pull upstream master
 - [ ] Random Colour
 
 ## ☑ Allowing Plugins
+
+**Plugins available**
+<https://pyhoneybot.github.io/honeybot/plugins.html>
+
 in PLUGINS.conf, add the plugin to allow on a new line !
 ~~~
 calc
