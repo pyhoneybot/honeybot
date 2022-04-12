@@ -2,10 +2,13 @@
 """
 [dadjoke.py]
 Dad joke plugin
+
 [Author]
 moffetma Oregon State University CS
+
 [About]
 Sends a random "dad joke" from icanhazdadjoke.com
+
 [Commands]
 >>> .dadjoke
 Have you heard of the band 1023MB? They haven't got a gig yet.

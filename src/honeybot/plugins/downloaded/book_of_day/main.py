@@ -1,11 +1,13 @@
 """
-
 [book_of_day.py]
 Book of the Day Plugin
+
 [Author]
 Schoberg, UMD
+
 [About]
 using bookoftheday.org, get the title and link of the book of the day
+
 [Commands]
 >>> .bookoftheday
 https://bookoftheday.org/fleishman-is-in-trouble-taffy-brodesser-akner/

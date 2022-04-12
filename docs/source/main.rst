@@ -1,5 +1,5 @@
 ****
 Main
 ****
-.. automodule:: api.main
+.. automodule:: api
    :members:

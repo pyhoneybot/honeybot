@@ -12,7 +12,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../honeybot'))
+sys.path.insert(0, os.path.abspath('../../src/honeybot/'))
 
 
 # -- Project information -----------------------------------------------------

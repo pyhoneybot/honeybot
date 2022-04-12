@@ -30,7 +30,7 @@ Get issues delivered in your inbox.
 [![Open Source Helpers](https://www.codetriage.com/pyhoneybot/honeybot/badges/users.svg)](https://www.codetriage.com/pyhoneybot/honeybot)
 
 ## Discord
-https://discord.gg/E6zD4XT
+https://discordapp.com/invite/E6zD4XT
 
 ## :thought_balloon: Project Testimonials
 [@TannerFry](https://github.com/TannerFry)
@@ -158,12 +158,12 @@ configure
 
 ```
 port: 6667
-url: chat.freenode.net
+url: irc.libera.chat
 ```
 
 then join channel ```#ltch```
 
-you should see the bot as hbot ... or as it's name is in [settings](https://github.com/pyhoneybot/honeybot/blob/master/honeybot/settings/CONNECT.conf)
+you should see the bot as hbot ... or as it's name is in [settings](https://github.com/pyhoneybot/honeybot/blob/master/src/honeybot/settings/CONNECT.conf)
 
 
 ## Docker
@@ -202,7 +202,7 @@ we see four parameters being passed to the run method ```, incoming, methods, in
 
 #### parameter2: methods
 
-```methods``` is a dictionary of methods to ease your life. a quick look at [main.py](honeybot/main.py) reveals
+```methods``` is a dictionary of methods to ease your life. a quick look at [main.py](https://github.com/pyhoneybot/honeybot/blob/master/src/honeybot/api/main.py) reveals
 
 ```python
 def methods(self):
