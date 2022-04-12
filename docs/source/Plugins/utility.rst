@@ -4,32 +4,32 @@ Utility
 
 Calc
 ^^^^
-.. automodule:: plugins.calc
+.. automodule:: plugins.downloaded.calc.main
    :members:
 
 Bitcoin
 ^^^^^^^
-.. automodule:: plugins.bitcoin
+.. automodule:: plugins.downloaded.bitcoin.main
    :members:
 
 Converter
 ^^^^^^^^^
-.. automodule:: plugins.converter
+.. automodule:: plugins.downloaded.converter.main
    :members:
 
 Date
 ^^^^
-.. automodule:: plugins.date
+.. automodule:: plugins.downloaded.date.main
    :members:
 
 Dictionary
 ^^^^^^^^^^
-.. automodule:: plugins.dictionary
+.. automodule:: plugins.downloaded.dictionary.main
    :members:
 
 Google
 ^^^^^^
-.. automodule:: plugins.google
+.. automodule:: plugins.downloaded.google.main
    :members:
 
 Mail
@@ -38,37 +38,37 @@ TODO
 
 Maths
 ^^^^^
-.. automodule:: plugins.maths
+.. automodule:: plugins.downloaded.maths.main
    :members:
 
 Memo
 ^^^^
-.. automodule:: plugins.memo
+.. automodule:: plugins.downloaded.memo.main
    :members:
 
 Password Generator
 ^^^^^^^^^^^^^^^^^^
-.. automodule:: plugins.password_generator
+.. automodule:: plugins.downloaded.password_generator.main
    :members:
 
 Pydocs
 ^^^^^^
-.. automodule:: plugins.pydocs
+.. automodule:: plugins.downloaded.pydocs.main
    :members:
 
 Username
 ^^^^^^^^
-.. automodule:: plugins.username
+.. automodule:: plugins.downloaded.username.main
    :members:
 
 Weather
 ^^^^^^^
-.. automodule:: plugins.weather
+.. automodule:: plugins.downloaded.weather.main
    :members:
 
 Wikipedia
 ^^^^^^^^^
-.. automodule:: plugins.wikipedia
+.. automodule:: plugins.downloaded.wikipedia.main
    :members:
 
 Translate
@@ -77,5 +77,5 @@ TODO
 
 Send Message
 ^^^^^^^^^^^^
-.. automodule:: plugins.send_message
+.. automodule:: plugins.downloaded.send_message.main
    :members:

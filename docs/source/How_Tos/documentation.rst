@@ -45,7 +45,7 @@ link:
 rst_
 
 
-.. _sphinx: https://www.sphinx-doc.org/en/master/index.html
-.. _here: https://www.sphinx-doc.org/en/master/usage/installation.html#overview
-.. _discord: discord <https://discordapp.com/invite/E6zD4XT
-.. _rst: http://openalea.gforge.inria.fr/doc/openalea/doc/_build/html/source/sphinx/rest_syntax.html#
+.. _sphinx: https://www.sphinx-doc.org/en/master/
+.. _here: https://www.sphinx-doc.org/en/master/usage/quickstart.html
+.. _discord: https://discordapp.com/invite/E6zD4XT
+.. _rst: https://packagecontrol.io/packages/Restructured%20Text%20%28RST%29%20Snippets

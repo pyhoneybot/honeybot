@@ -4,40 +4,40 @@ Development
 
 Channel Join
 ^^^^^^^^^^^^
-.. automodule:: plugins.channeljoin
+.. automodule:: plugins.downloaded.channeljoin.main
    :members:
 
 Debug
 ^^^^^
-.. automodule:: plugins.debug
+.. automodule:: plugins.downloaded.debug.main
    :members:
 
 Help
 ^^^^
-.. automodule:: plugins.help
+.. automodule:: plugins.downloaded.help.main
    :members:
 
 Installed Modules
 ^^^^^^^^^^^^^^^^^
-.. automodule:: plugins.installed_modules
+.. automodule:: plugins.downloaded.installed_modules.main
    :members:
 
 Joins
 ^^^^^
-.. automodule:: plugins.joins
+.. automodule:: plugins.core.joins.main
    :members:
 
 Log
 ^^^^
-.. automodule:: plugins.log
+.. automodule:: plugins.core.log.main
    :members:
 
 Uptime
 ^^^^^^
-.. automodule:: plugins.uptime
+.. automodule:: plugins.core.uptime.main
    :members:
 
 Test
 ^^^^
-.. automodule:: plugins.test
+.. automodule:: plugins.downloaded.test.main
    :members:

@@ -2,10 +2,13 @@
 """
 [weather.py]
 Weather Plugin
+
 [Author]
 Gabriele Ron
+
 [About]
 A plugin to get the weather of a location
+
 [Commands]
 >>> .weather <city> <country code>
 returns the weather
