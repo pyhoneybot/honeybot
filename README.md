@@ -21,7 +21,7 @@ Psst. Since I learnt py through this bot, we decided to keep a new-comers friend
 
 ## 📌 Contributing Countries
 
-🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳 🇬🇧 🇬🇬 🇧🇷 🇸🇽 🇵🇱 🇩🇪
+🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳 🇬🇧 🇬🇬 🇧🇷 🇸🇽 🇵🇱 🇩🇪 🇮🇷
 
 ## 📨 Follow the project on CodeTriage for updates!
 
@@ -113,7 +113,7 @@ GUI clients are used to manage plugins, launch bot as well as specify credential
 - :page_with_curl: comic by [@mboekhold](https://github.com/mboekhold) - returns a random comic
 - 📝 todo by [@h-ranjan1110](https://github.com/h-ranjan1110) - Makes a to do list .
 - 🎱 Magic 8 Ball [@ZakariaTalhami](https://github.com/ZakariaTalhami) - Answer questions using magic 8 ball
-
+- 📜 poem [@mmdbalkhi](https://github.com/mmdbalkhi) - say a random poem with the given language('en' by default)
 
 ## ⚡ Quickstart
 
