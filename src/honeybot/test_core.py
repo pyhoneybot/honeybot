@@ -15,12 +15,15 @@ import time
 }
 """
 
-config = configparser.ConfigParser()
-config.read("settings/CONNECT.conf")
-print(config.sections())
 root = os.getcwd()
 settings = os.path.join(root, "settings")
 print(settings)
+dir_list = os.listdir(root)
+for item in dir_list:
+    print(item)
+config = configparser.ConfigParser()
+config.read("settings/CONNECT.conf")
+print(config.sections())
 info = {'settings_path': settings, 'cwd': root}
 # incoming
 incoming = ":appinv!c5e342c5@gateway/web/cgi-irc/kiwiirc.com/ip.200.200.22.200 PRIVMSG ##bottestingmu :ef"
