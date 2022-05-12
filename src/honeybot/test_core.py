@@ -15,6 +15,7 @@ import time
 }
 """
 
+# Setup info
 os.chdir("src/honeybot/")
 root = os.getcwd()
 settings = os.path.join(root, "settings")
