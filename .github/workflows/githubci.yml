@@ -40,6 +40,6 @@ jobs:
           pip install 'futures<3.0.0' honeybot 
       
       # Run core sanity tests
-      # - name: Run Tests
-      #   run: |
-      #     python src/honeybot/test_core.py
+      - name: Run Tests
+        run: |
+          python src/honeybot/test_core.py
