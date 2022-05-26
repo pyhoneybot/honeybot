@@ -12,7 +12,10 @@ class Tester:
     def __init__(self, test_type, command):
 
         # Same methods as HoneyBot, but these print to screen
-        methods = {"send_raw": self.send, "send": self.send_target, "join": self.join}
+        methods = {
+            "send_raw": self.send,
+            "send": self.send_target,
+            "join": self.join}
 
         # Set MOCK info for testing
         info = {
@@ -28,12 +31,14 @@ class Tester:
 
         # Update info with MOCK data.
         if test_type == "message":
-            incoming = f":TestAccount!~TestIdentity@192.168.123.123 PRIVMSG ##TestChannel :{command}"
+            incoming = f":TestAccount!~TestIdentity@192.168.123.123 \
+                PRIVMSG ##TestChannel :{command}"
             info["command"] = "PRIVMSG"
             info["args"] = [0, command]
 
         if test_type == "user_join":
-            incoming = ":TestAccount!~TestIdentity@192.168.123.123 JOIN ##TestChannel"
+            incoming = ":TestAccount!~TestIdentity@192.168.123.123 \
+                JOIN ##TestChannel"
             info["command"] = "JOIN"
 
         if test_type == "user_quit":

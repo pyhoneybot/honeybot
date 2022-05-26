@@ -1,3 +1,6 @@
+from main import memory_reader
+
+
 def add_value(memfile, section, key, value):
     memory_reader.read("memory/{}.txt".format(memfile))
     memory_reader[section][key] = value
