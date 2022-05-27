@@ -22,7 +22,9 @@ class Plugin:
         pass
 
     def __convert_time(start_time):
-        """"Calculates how long the bot has been running then formats the output"""
+        """
+        Calculates how long the bot has been running then formats the output
+        """
         current_time = time.time()
         uptime = current_time - start_time
         hrs = int(uptime / 3600)
@@ -38,6 +40,8 @@ class Plugin:
         try:
             if info["command"] == "PRIVMSG" and info["args"][1] == ".uptime":
                 start_time = bot_info["time"]
-                methods["send"](info["address"], Plugin.__convert_time(start_time))
+                methods["send"](
+                    info["address"],
+                    Plugin.__convert_time(start_time))
         except Exception as e:
             print("Plugin Error: ", e)

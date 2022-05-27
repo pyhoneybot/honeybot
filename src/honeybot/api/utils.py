@@ -3,6 +3,7 @@ import pkg_resources
 
 _package_name = 'honeybot'
 
+
 def prevent_none(x):
     return x if x else ""
 
