@@ -2,11 +2,11 @@ import configparser
 import os
 
 ascii_message = """
-            _  _                   _         _   
-  _ __ _  _| || |___ _ _  ___ _  _| |__  ___| |_ 
+            _  _                   _         _
+  _ __ _  _| || |___ _ _  ___ _  _| |__  ___| |_
  | '_ \ || | __ / _ \ ' \/ -_) || | '_ \/ _ \  _|
  | .__/\_, |_||_\___/_||_\___|\_, |_.__/\___/\__|
- |_|   |__/                   |__/               
+ |_|   |__/                   |__/
  github.com/pyhoneybot/honeybot
  ~ IRC bot with awesome plugins
 """

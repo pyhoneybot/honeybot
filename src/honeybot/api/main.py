@@ -7,7 +7,7 @@ import socket
 import sys
 import time
 import os
-from pathlib import Path 
+# from pathlib import Path
 
 try:
     from honeybot.api import commands
@@ -17,7 +17,6 @@ try:
     from honeybot.api import memory
 except Exception as e:
     raise e
-
 
 
 memory_reader = configparser.ConfigParser()
@@ -35,7 +34,9 @@ BOT CONNECTION SETUP
 class Bot_core(object):
     def __init__(self, info, password=""):
         connect_config = configparser.ConfigParser()
-        connect_config.read(os.path.join(info['settings_path'], 'CONNECT.conf'))
+        connect_config.read(os.path.join(
+            info['settings_path'],
+            'CONNECT.conf'))
         self.settings_path = info['settings_path']
         self.root_path = info['cwd']
         self.server_url = connect_config["INFO"]["server_url"]
@@ -44,7 +45,9 @@ class Bot_core(object):
         self.owners = configfile_to_list(info['settings_path'], "OWNERS")
         self.password = password
         self.friends = configfile_to_list(info['settings_path'], "FRIENDS")
-        self.autojoin_channels = configfile_to_list(info['settings_path'], "AUTOJOIN_CHANNELS")
+        self.autojoin_channels = configfile_to_list(
+            info['settings_path'],
+            "AUTOJOIN_CHANNELS")
         self.required_modules = get_requirements()
         self.time = time.time()
 
@@ -144,7 +147,7 @@ class Bot_core(object):
         Examples:
             TODO
         """
-        
+
         logger.info("Loading plugins...")
 
         to_load = []
@@ -157,7 +160,8 @@ class Bot_core(object):
             print("loading plugin:", folder)
             try:
                 sys.path.append(self.root_path)
-                module = importlib.import_module("plugins.downloaded.{}.main".format(folder))
+                module = importlib.import_module(
+                    "plugins.downloaded.{}.main".format(folder))
                 obj = module
                 self.plugins.append(obj)
             except ModuleNotFoundError as e:
@@ -166,7 +170,8 @@ class Bot_core(object):
         for folder in self.core_plugins:
             print("loading plugin:", folder)
             try:
-                module = importlib.import_module("plugins.core.{}.main".format(folder))
+                module = importlib.import_module(
+                    "plugins.core.{}.main".format(folder))
                 obj = module
                 self.plugins.append(obj)
             except ModuleNotFoundError as e:
@@ -225,7 +230,8 @@ class Bot_core(object):
 
                 if len(data) == 0:
                     try:
-                        logger.critical(f"<must handle reconnection - {len(data)}==0>")
+                        logger.critical(
+                            f"<must handle reconnection - {len(data)}==0>")
                         sys.exit()
                     except Exception as e:
                         logger.info(e)
@@ -238,7 +244,8 @@ class Bot_core(object):
 
     def stay_alive(self, incoming):
         if not incoming:
-            logger.critical("<must handle reconnection - incoming is not True>")
+            logger.critical(
+                "<must handle reconnection - incoming is not True>")
             sys.exit()
         parts = incoming.split(":")
         if parts[0].strip().lower() == "ping":

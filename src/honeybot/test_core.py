@@ -15,10 +15,12 @@ import time
 }
 """
 
-config = configparser.ConfigParser()
-config.read("settings/CONNECT.conf")
+# Setup info
+os.chdir("src/honeybot/")
 root = os.getcwd()
 settings = os.path.join(root, "settings")
+config = configparser.ConfigParser()
+config.read("settings/CONNECT.conf")
 info = {'settings_path': settings, 'cwd': root}
 # incoming
 incoming = ":appinv!c5e342c5@gateway/web/cgi-irc/kiwiirc.com/ip.200.200.22.200 PRIVMSG ##bottestingmu :ef"
@@ -54,10 +56,14 @@ class HoneybotTests(unittest.TestCase):
         self.assertEqual(bot.message_info(incoming)["command"], "PRIVMSG")
 
     def test_info_address(self):
-        self.assertEqual(bot.message_info(incoming)["address"], "##bottestingmu")
+        self.assertEqual(
+            bot.message_info(incoming)["address"],
+            "##bottestingmu")
 
     def test_info_args(self):
-        self.assertEqual(bot.message_info(incoming)["args"], ["##bottestingmu", "ef"])
+        self.assertEqual(
+            bot.message_info(incoming)["args"],
+            ["##bottestingmu", "ef"])
 
 
 """
