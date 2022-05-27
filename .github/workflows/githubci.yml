@@ -37,7 +37,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install 'futures<3.0.0' honeybot 
+          pip install 'futures<3.0.0' honeybot
+          pip install flake8
       
       # Run core PEP8 style check
       - name: Core PEP8 style check
