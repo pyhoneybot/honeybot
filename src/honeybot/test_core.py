@@ -56,10 +56,14 @@ class HoneybotTests(unittest.TestCase):
         self.assertEqual(bot.message_info(incoming)["command"], "PRIVMSG")
 
     def test_info_address(self):
-        self.assertEqual(bot.message_info(incoming)["address"], "##bottestingmu")
+        self.assertEqual(
+            bot.message_info(incoming)["address"],
+            "##bottestingmu")
 
     def test_info_args(self):
-        self.assertEqual(bot.message_info(incoming)["args"], ["##bottestingmu", "ef"])
+        self.assertEqual(
+            bot.message_info(incoming)["args"],
+            ["##bottestingmu", "ef"])
 
 
 """
