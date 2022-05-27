@@ -39,6 +39,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install 'futures<3.0.0' honeybot 
       
+      # Run core PEP8 style check
+      - name: Core PEP8 style check
+        run: |
+          flake8 --config=setup.cfg src/honeybot/
+      
       # Run core sanity tests
       - name: Run Tests
         run: |
