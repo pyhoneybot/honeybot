@@ -1,10 +1,8 @@
 from tkinter import *
 import tkinter as tk
 import os
-import inspect
-import configparser
-import queue
 import threading
+import subprocess as sp
 
 window = tk.Tk()
 window.geometry("650x670")
@@ -55,7 +53,7 @@ def run_bot():
     global rbot_thread
 
     def run_it():
-        exec(open("run.py").read())
+        sp.run(["python", "run.py"])
 
     rbot_thread = threading.Thread(target=run_it)
     rbot_thread.start()
