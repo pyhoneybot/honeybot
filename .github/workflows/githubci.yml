@@ -48,7 +48,7 @@ jobs:
       # Run core security checks
       - name: Core security checks
         run: |
-          bandit -ll -r . -x .git,.github,.idea,__pycache__,venv,./src/honeybot/plugins/downloaded/*
+          bandit -ll -r . -x .git,.github,.idea,__pycache__,venv,workshop,src/honeybot/plugins/downloaded/*
       
       # Run core sanity tests
       - name: Run Tests
