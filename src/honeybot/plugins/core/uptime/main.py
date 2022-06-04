@@ -36,7 +36,7 @@ class Plugin:
         msg = "Bot has been up for {0} hr, {1} min, and {2} sec.".format(hrs, mins, sec)
         return msg
 
-    def run(self, incoming, methods, info, bot_info):
+    def run(self, methods, info, bot_info):
         try:
             if info["command"] == "PRIVMSG" and info["args"][1] == ".uptime":
                 start_time = bot_info["time"]
