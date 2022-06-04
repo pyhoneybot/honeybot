@@ -15,7 +15,7 @@ class Plugin:
     def __init__(self):
         pass
 
-    def run(self, incoming, methods, info, bot_info):
+    def run(self, methods, info, bot_info):
         try:
             # Parse the user ID from info['prefix']
             raw_user = info["prefix"]
