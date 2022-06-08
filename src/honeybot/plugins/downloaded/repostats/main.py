@@ -17,7 +17,6 @@ returns starcount stars | forkcount forks
 
 import requests
 import bs4 as bs
-import urllib.request
 from urllib.parse import urlparse
 
 
@@ -27,7 +26,7 @@ class Plugin:
 
     def repostats(self, url):
         try:
-            source = urllib.request.urlopen(url).read()
+            source = requests.get(url).text
             soup = bs.BeautifulSoup(source, "lxml")
             u = urlparse(url).path
             username = u.rpartition("/")[0]
