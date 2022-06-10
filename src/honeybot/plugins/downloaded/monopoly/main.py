@@ -320,7 +320,10 @@ class Plugin:
             print(num_util)
             calc_string = asset.rents[num_util] + " " + str(move_amount)
             print(calc_string)
-            return eval(calc_string)
+            return eval(
+                calc_string, {"__builtins__": None},
+                {"str": str, "int": int, "float": float}
+            )
 
         elif isinstance(asset, Railroad):
             num_rail = len(
