@@ -7,7 +7,7 @@
 # import deuces
 # import best5
 # import board
-import card
+# import card
 
 
 class Hand(object):
@@ -41,8 +41,9 @@ class Hand(object):
             print(b.turn())
             print(b.river())
             print(" ".join([c.show_card() for c in self.show_hand()]))
-            hand_and_board = self.show_hand()[0].show_card() + ' ' + self.show_hand()[1].show_card() +\
-            ' ' + b.flop1() + ' ' + b.flop2() + ' ' + b.flop3() + ' ' + b.turn() + ' ' + b.river()
+            hand_and_board = self.show_hand()[0].show_card() + ' ' +\
+            self.show_hand()[1].show_card() + ' ' + b.flop1() + ' ' +\
+            b.flop2() + ' ' + b.flop3() + ' ' + b.turn() + ' ' + b.river()
 
             return(" ".join([c for c in best5.test_best_hand(hand_and_board)]))
         except Exception:
@@ -53,11 +54,16 @@ class Hand(object):
 
         evaluator = deuces.Evaluator()
         b5 = self.best_five(board)
-        h1 = b5[:2].replace('S', 's').replace('H', 'h').replace('D', 'd').replace('C', 'c')
-        h2 = b5[3:5].replace('S', 's').replace('H', 'h').replace('D', 'd').replace('C', 'c')
-        b1 = b5[6:8].replace('S', 's').replace('H', 'h').replace('D', 'd').replace('C', 'c')
-        b2 = b5[9:11].replace('S', 's').replace('H', 'h').replace('D', 'd').replace('C', 'c')
-        b3 = b5[12:14].replace('S', 's').replace('H', 'h').replace('D', 'd').replace('C', 'c')
+        h1 = b5[:2].replace('S', 's').replace('H', 'h').replace('D', 'd')\
+            .replace('C', 'c')
+        h2 = b5[3:5].replace('S', 's').replace('H', 'h').replace('D', 'd')\
+            .replace('C', 'c')
+        b1 = b5[6:8].replace('S', 's').replace('H', 'h').replace('D', 'd')\
+            .replace('C', 'c')
+        b2 = b5[9:11].replace('S', 's').replace('H', 'h').replace('D', 'd')\
+            .replace('C', 'c')
+        b3 = b5[12:14].replace('S', 's').replace('H', 'h').replace('D', 'd')\
+            .replace('C', 'c')
         hl = [deuces.Card.new(h1), deuces.Card.new(h2)]
         bl = [deuces.Card.new(b1), deuces.Card.new(b2), deuces.Card.new(b3)]
         strength = evaluator.evaluate(bl, hl)

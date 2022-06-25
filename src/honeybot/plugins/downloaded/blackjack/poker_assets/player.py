@@ -1,5 +1,9 @@
 """ player class """
 # pylint: disable=E1601
+
+import game_init
+
+
 class Player(object):
     """ player class """
 
