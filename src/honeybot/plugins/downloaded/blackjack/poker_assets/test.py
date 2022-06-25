@@ -5,6 +5,7 @@ import deck
 import hand
 import player
 import pot
+import game_init
 
 # import game_init
 
@@ -109,15 +110,15 @@ print(
 
 print(len(game_init.game[0]) + len(game_init.game[1]) + len(game_init.game[3]) * 2)
 
-for player in game_init.game[3]:
+for play in game_init.game[3]:
     print(
-        player.general_name(),
-        player.show_player_hand().show_hand(),
-        player.chips(),
-        player.position_nr(),
-        player.position_name(),
-        player.show_player_hand().hand_strength(board),
-        player.show_player_hand().best_five(board),
+        play.general_name(),
+        play.show_player_hand().show_hand(),
+        play.chips(),
+        play.position_nr(),
+        play.position_name(),
+        play.show_player_hand().hand_strength(board),
+        play.show_player_hand().best_five(board),
     )
 
 game_init.game[0].show_deck()

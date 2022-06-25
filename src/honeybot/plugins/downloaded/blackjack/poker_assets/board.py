@@ -1,6 +1,8 @@
 """ board class """
 
 # pylint: disable=E1601
+
+
 class Board(object):
     """ board class """
 

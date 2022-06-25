@@ -13,7 +13,10 @@ class Card(object):
             1,
             2,
             3,
-        ]  # 0 is for a low: 2 3 4, 1 for a medium 4 5 6 7, 2 for a high 8 9 10, 3 for a suit J Q K A
+        ]  # 0 is for a low: 2 3 4,
+        # 1 for a medium 4 5 6 7,
+        # 2 for a high 8 9 10,
+        # 3 for a suit J Q K A
 
         self.__figure = card[0]
         self.__color = card[1].upper()

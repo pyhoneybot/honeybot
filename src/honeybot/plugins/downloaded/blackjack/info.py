@@ -1,4 +1,3 @@
-
 NAME = 'blackjack.py'
 ORIGINAL_AUTHORS = [
     'Angelo Giacco'
