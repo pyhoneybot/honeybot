@@ -5,7 +5,8 @@ class Player:
     def __init__(self, name):
         # name will be the nickname in the IRC server
         # pot is the amount of money the player starts with
-        # portfolio is an array with the indexes of the user's properties from the board spaces dict
+        # portfolio is an array with the indexes of the user's
+        # properties from the board spaces dict
         self.name = name
         self.pot = 1500
         self.portfolio = []
