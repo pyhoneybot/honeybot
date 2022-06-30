@@ -51,12 +51,12 @@ class Property(Space):
 
     def info(self):
         information = [
-            self.name
-            + " is a "
-            + self.color
-            + " property that costs "
-            + str(self.price)
-            + ".",
+            self.name +
+            " is a " +
+            self.color +
+            " property that costs " +
+            str(self.price) +
+            ".",
             "It currently has " + str(self.house_count) + " houses.",
             "With no houses rent is " + str(self.rents[0]) + ".",
             "With 1 house rent is " + str(self.rents[1]) + ".",
@@ -80,12 +80,12 @@ class Railroad(Space):
             self.name + " is a railroad that costs " + str(self.price) + ".",
             "If a player has one railroad only the rent is " + str(self.rents[1]) + ".",
             "If a player has two railroads the rent is " + str(self.rents[2]) + ".",
-            "If a player has three railroads only the rent is "
-            + str(self.rents[3])
-            + ".",
-            "If a player has four railroads only the rent is "
-            + str(self.rents[4])
-            + ".",
+            "If a player has three railroads only the rent is " +
+            str(self.rents[3]) +
+            ".",
+            "If a player has four railroads only the rent is " +
+            str(self.rents[4]) +
+            ".",
         ]
         return " ".join(information)
 
@@ -98,12 +98,12 @@ class Utility(Space):
 
     def info(self):
         return (
-            self.name
-            + " is a utility that costs "
-            + str(self.price)
-            + ". If you have "
-            + "one utility rent is four times the amount the player rolled on the dice or "
-            + "if you have two utilities the rent is ten times!"
+            self.name +
+            " is a utility that costs " +
+            str(self.price) +
+            ". If you have " +
+            "one utility rent is four times the amount the player rolled on the dice " +
+            "or if you have two utilities the rent is ten times!"
         )
 
 
@@ -150,9 +150,11 @@ board_spaces = [
     Property("Boardwalk", "Blue", 400, 50, 200, 600, 1400, 1700, 2000, 200),
 ]
 
-# chance_methods = [pay_all,reading_rail,move_to,go,railroad,get_outta_jail,jail,earn,fine,repairs,util,move_back_three]
-# in the following decks, the second value of the dictionaries in the array must be an iterable and not an int,
-# hence why you will see things like (50,) so that python keeps it as a tuple
+# chance_methods = [pay_all,reading_rail,move_to,go,railroad,get_outta_jail,
+# jail,earn,fine,repairs,util,move_back_three]
+# in the following decks, the second value of the dictionaries in the array
+# must be an iterable and not an int, hence why you will see things like (50,)
+# so that python keeps it as a tuple
 chance_deck = [
     {"You have been elected chairman of the board, pay each player $50": [0, (50,)]},
     {"Take a ride on the reading, if you pass GO collect $200": [1, ()]},
@@ -164,13 +166,15 @@ chance_deck = [
     },
     {"Advance to go, collect $200": [3, ()]},
     {
-        "Advance token to the nearest Railroad and pay owner Twice the Rental owed. If Railroad is unowned you may buy it from the bank": [
+        "Advance token to the nearest Railroad and pay owner Twice the Rental owed."
+        " If Railroad is unowned you may buy it from the bank": [
             4,
             (),
         ]
     },
     {
-        "Advance token to the nearest Railroad and pay owner Twice the Rental owed. If Railroad is unowned you may buy it from the bank": [
+        "Advance token to the nearest Railroad and pay owner Twice the Rental owed."
+        " If Railroad is unowned you may buy it from the bank": [
             4,
             (),
         ]
@@ -181,7 +185,8 @@ chance_deck = [
     {"Advance to Illinois Ave": [2, (board_spaces[24],)]},
     {"Pay poor tax of $15": [8, (15,)]},
     {
-        "Make general repairs on all your property. For each house pay $25, for each hotel $100": [
+        "Make general repairs on all your property. "
+        "For each house pay $25, for each hotel $100": [
             9,
             (25, 100),
         ]
@@ -194,7 +199,8 @@ chance_deck = [
     },
     {"Your building and loan matures. Collect $150": [7, (150,)]},
     {
-        "Advance token to nearest utility. If Unowned you may buy it from the bank. If owned throw dice and pay owner ten times the amount thrown.": [
+        "Advance token to nearest utility. If Unowned you may buy it from the bank. "
+        "If owned throw dice and pay owner ten times the amount thrown.": [
             10,
             (),
         ]

@@ -25,7 +25,8 @@ rolls two dice to see how far the user will move/if the user can leave the jail
 user purchases property if unowned, otherwise buys house
 
 >>>.monopoly pass
-user passes on the opportunity to buy a property if unowned, or on the opportunity to buy a house
+user passes on the opportunity to buy a property if unowned,
+or on the opportunity to buy a house
 
 >>>.monopoly leave
 user leaves the game
