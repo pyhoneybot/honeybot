@@ -13,7 +13,6 @@ returns flight information
 >>> .flight <<flight callsign>>
 """
 
-from datetime import datetime
 import flightradar24 as fr24
 
 
@@ -39,7 +38,8 @@ class Plugin:
                     if "errors" in flight:  # check for api error
                         methods["send"](
                             info["address"],
-                            "Invalid input! Callsign should not be more than 10 characters!",
+                            "Invalid input! Callsign " +
+                            "should not be more than 10 characters!",
                         )
 
                     else:
@@ -61,30 +61,32 @@ class Plugin:
                             ]["destination"]["position"]["region"]["city"]
                             methods["send"](
                                 info["address"],
-                                "Flight "
-                                + id
-                                + " is from "
-                                + origin
-                                + " to "
-                                + destination
-                                + ".",
+                                "Flight " +
+                                id +
+                                " is from " +
+                                origin +
+                                " to " +
+                                destination +
+                                ".",
                             )
 
                             total = 0
                             count = 0
                             for f in flight["result"]["response"][
                                 "data"
-                            ]:  # flight["result"]["response"]["data"] will hold a week long history of flights
+                            ]:  # flight["result"]["response"]["data"]
+                                # will hold a week long history of flights
                                 if f["status"]["live"]:
                                     methods["send"](
                                         info["address"],
-                                        "This flight is currently in the air. The following information is available:",
+                                        "This flight is currently in the air. " +
+                                        "The following information is available:",
                                     )
                                     methods["send"](
                                         info["address"], f["status"]["text"]
                                     )
 
-                                if f["time"]["other"]["duration"] != None:
+                                if f["time"]["other"]["duration"] is not None:
                                     total += f["time"]["other"]["duration"]
                                     count += 1
 
@@ -93,17 +95,17 @@ class Plugin:
                                 5 * round(float(avgDuration) / 5)
                             )  # round to nearest five
                             hours = 0
-                            while avg >= 60:
+                            while avgDuration >= 60:
                                 mins -= 60
                                 hours += 1
 
                             methods["send"](
                                 info["address"],
-                                "The flight has an average duration of "
-                                + str(hours)
-                                + ":"
-                                + str(mins)
-                                + ".",
+                                "The flight has an average duration of " +
+                                str(hours) +
+                                ":" +
+                                str(mins) +
+                                ".",
                             )
 
         except Exception as e:
