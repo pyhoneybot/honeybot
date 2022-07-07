@@ -13,7 +13,6 @@ returns flight information
 >>> .flight <<flight callsign>>
 """
 
-# from datetime import datetime
 import flightradar24 as fr24
 
 
