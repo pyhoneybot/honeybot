@@ -1,13 +1,13 @@
 # development of cointoss plugin for honeybot
 """
 [Toss.py]
-A plugin to toss a coin 
+A plugin to toss a coin
 
 [Author]
 Shriram Bhat
 
 [About]
-Responds to .cointoss, Returns head or tail at random 
+Responds to .cointoss, Returns head or tail at random
 
 [commands]
 >>> .cointoss

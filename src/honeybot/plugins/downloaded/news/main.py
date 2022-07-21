@@ -26,8 +26,8 @@ class Plugin:
         )  # gets the world news
         doc = BeautifulSoup(response.text, "html.parser")  # parses website
         headlines = doc.find_all("h3")  # finds headlines
-        # now headlines have a newline at the start and the end so we want to get rid of this
-        # hence the wierd indexes for headline.text
+        # now headlines have a newline at the start and the end so
+        # we want to get rid of thi hence the wierd indexes for headline.text
         # we also only want the first 10 headlines
         ten_headlines_text_list = [headline.text[:] for headline in headlines[:10]]
         return ten_headlines_text_list  # return the list as a string with newlines

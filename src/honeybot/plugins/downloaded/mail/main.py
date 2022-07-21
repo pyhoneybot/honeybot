@@ -17,12 +17,13 @@ email, your email password, SMTP server, and SMTP server port.
 See that document for more information.
 
 [Commands]
-.mail <To email address> .body <Text for the body of your email> .subject <Text of subject for email>
-EX:// ".mail test@email.com .body testing body for honeybot email .subject testing subject"
+.mail <To email address> .body <Text for the body of your email>
+ .subject <Text of subject for email>
+EX:// ".mail test@email.com .body testing body for honeybot email
+ .subject testing subject"
 
 """
 import smtplib
-import string
 from email.mime.text import MIMEText
 import configparser
 
@@ -113,7 +114,8 @@ class Plugin:
                     )  # fill the BODY string using the body function to extraxt the text
                     SUBJECT = Plugin.subject(
                         SUBJECT_INDEX, MAX_INDEX, msgs
-                    )  # fill the SUBJECT string using the subject function to extract the text
+                    )  # fill the SUBJECT string using the
+                    # subject function to extract the text
 
                     MSG = MIMEText(
                         text + BODY, "html"
@@ -123,7 +125,8 @@ class Plugin:
                     MSG["To"] = TO  # Fills the TO field with the TO string
                     Plugin.__email(
                         HOST, PORT, USER, PASS, TO, MSG
-                    )  # Passes paramters needed to __email to be able to start up connection to SMTP server and send message
+                    )  # Passes paramters needed to __email to be able to
+                    # start up connection to SMTP server and send message
 
         except Exception as e:
             print("\n*error*\nwoops plugin", __file__, e, "\n")

@@ -64,9 +64,9 @@ class Plugin:
                 else:
                     methods["send"](
                         info["address"],
-                        "Command input error. Needs to be '.send "
-                        + "#channel message' or '.send #channel .u "
-                        + "username .m message'.",
+                        "Command input error. Needs to be '.send " +
+                        "#channel message' or '.send #channel .u " +
+                        "username .m message'.",
                     )
         except Exception as e:
             print("woops plugin error: ", e)

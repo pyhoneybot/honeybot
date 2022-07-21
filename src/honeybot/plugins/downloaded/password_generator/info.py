@@ -19,7 +19,8 @@ returns secure alphanumeric password of specified length
 returns alphanumeric password of specified length
 
 >>> .passgenspecialchar <<length>>
-returns universally accepted alphanumeric password with special characters of specified length where length >= 4
+returns universally accepted alphanumeric password
+with special characters of specified length where length >= 4
 '''
 
 WEBSITE = ''

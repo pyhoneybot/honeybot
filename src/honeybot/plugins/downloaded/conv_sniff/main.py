@@ -7,15 +7,16 @@ Conversation Sniffer Plugin
 Abdur-Rahmaan Janhangeer, pythonmembers.club
 
 [About]
-senses conversation topic with sensitivity set by user, also supports 
+senses conversation topic with sensitivity set by user, also supports
 word-specific sensing
 """
+
 import random
 
 
 class Plugin:
     """
-    checkin 
+    checkin
     L checks in list
     S checks in string
     """

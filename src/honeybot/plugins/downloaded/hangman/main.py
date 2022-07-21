@@ -34,10 +34,10 @@ class Plugin:
         if command.lower() == "start":
             self.class_hangman = Hangman()
             msg = (
-                "Welcome to hangman! "
-                + "You may use command 'start' to start new game  "
-                + "or 'guess ---' with a word or letter to play."
-                + self.class_hangman.display_screen()
+                "Welcome to hangman! " +
+                "You may use command 'start' to start new game  " +
+                "or 'guess ---' with a word or letter to play." +
+                self.class_hangman.display_screen()
             )
         elif command.lower() == "guess":
             if len(word.strip()) > 1:
@@ -197,7 +197,7 @@ class Hangman:
         else:
             self.display_message = "'{0}' was incorrect. ".format(
                 wordGuess
-            ) + "You have {1} guesses remaining.".format(wordGuess, self.guessCount)
+            ) + "You have {0} guesses remaining.".format(self.guessCount)
 
     # check_win determines if the user has guessed the entire word after each
     # guess. If the user hasn't won, they lost one of their guesses.
@@ -208,11 +208,11 @@ class Hangman:
             if letter == "-":
                 win = False
 
-        if win == True:
+        if win is True:
             self.display = "'{0}' is correct. You win!".format(self.gameWord)
             self.display_message = (
-                " You had {0} guesses remaining.".format(self.guessCount)
-                + "\nUse 'start' command to try again."
+                " You had {0} guesses remaining.".format(self.guessCount) +
+                "\nUse 'start' command to try again."
             )
             self.endGame = True
             self.endMessage = self.display + self.display_message
@@ -226,9 +226,9 @@ class Hangman:
         self.guessCount -= 1
         if self.guessCount == 0:
             self.endMessage = (
-                "You have no more guesses.\n"
-                + "The correct word was '{0}'.\n".format(self.gameWord)
-                + "You lose. Use start command to try again"
+                "You have no more guesses.\n" +
+                "The correct word was '{0}'.\n".format(self.gameWord) +
+                "You lose. Use start command to try again"
             )
             self.endGame = True
         else:
@@ -240,7 +240,7 @@ class Hangman:
     # state.
 
     def display_screen(self):
-        if self.endGame == False:
+        if self.endGame is False:
             return self.display + self.display_message
         else:
             return self.endMessage
@@ -255,4 +255,4 @@ def test_them(plugin, msg):
     methods = {"send": send}
     msg = msg
     info = {"args": [None, msg], "command": "PRIVMSG", "address": "That place"}
-    plug.run("", methods, info)
+    plugin.run("", methods, info)

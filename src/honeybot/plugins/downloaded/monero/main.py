@@ -12,7 +12,8 @@ Checks the current price for Monero via the cryptocompare.com API
 
 [Commands]
 >>> .xmr [currency]
-returns current value of Monero in the currency specified (default is USD). Currency must be a 3-letter capital string.
+returns current value of Monero in the currency specified (default is USD).
+Currency must be a 3-letter capital string.
 Examples: USD, EUR, BTC, GBP
 """
 
@@ -30,7 +31,7 @@ class Plugin:
             if info["command"] == "PRIVMSG" and msgs[0] == ".xmr":
                 try:
                     currency = msgs[1].upper()
-                except:
+                except IndexError:
                     currency = "USD"
 
                 api_url = "https://min-api.cryptocompare.com/data/price"

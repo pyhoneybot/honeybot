@@ -20,10 +20,13 @@ returns secure alphanumeric password of specified length
 returns alphanumeric password of specified length
 
 >>> .passgenspecialchar <<length>>
-returns universally accepted alphanumeric password with special characters of specified length where length >= 4
+returns universally accepted alphanumeric password with
+special characters of specified length where length >= 4
 """
 
-import string, random, secrets
+import string
+import random
+import secrets
 
 
 class Plugin:
