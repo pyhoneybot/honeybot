@@ -40,17 +40,17 @@ jobs:
           pip install 'futures<3.0.0' honeybot
           pip install flake8 bandit
       
-      # Run core PEP8 style check
+      # Run PEP8 style check
       - name: Core PEP8 style check
         run: |
           flake8 --config=setup.cfg src/honeybot/
       
-      # Run core security checks
+      # Run security checks
       - name: Core security checks
         run: |
           bandit -ll -r . -x "./.git,./.github,./.idea,/__pycache__,/venv,./workshop,./src/honeybot/plugins/downloaded/calc/main.py,./src/honeybot/plugins/downloaded/monopoly/main.py"
       
-      # Run core sanity tests
+      # Run sanity tests
       - name: Run Tests
         run: |
           python src/honeybot/test_core.py
