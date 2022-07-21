@@ -34,8 +34,9 @@ class Plugin:
                     else:
                         methods["send"](
                             info["address"],
-                            "only bot owners can execute this function, "
-                            + "make sure your IRC nickname is in the settings/OWNERS.conf file",
+                            "only bot owners can execute this function, " +
+                            "make sure your IRC nickname is in the " +
+                            "settings/OWNERS.conf file",
                         )
 
         except Exception as e:

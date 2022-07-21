@@ -46,9 +46,9 @@ class Plugin:
         elif num >= 400:
             num -= 400
             return (
-                roman_numerals[11]
-                + roman_numerals[12]
-                + Plugin.__convert_roman_numeral(self, num)
+                roman_numerals[11] +
+                roman_numerals[12] +
+                Plugin.__convert_roman_numeral(self, num)
             )
         elif num >= 100:
             num -= 100
@@ -56,9 +56,9 @@ class Plugin:
         elif num >= 90:
             num -= 90
             return (
-                roman_numerals[9]
-                + roman_numerals[11]
-                + Plugin.__convert_roman_numeral(self, num)
+                roman_numerals[9] +
+                roman_numerals[11] +
+                Plugin.__convert_roman_numeral(self, num)
             )
         elif num >= 50:
             num -= 50
@@ -66,9 +66,9 @@ class Plugin:
         elif num >= 40:
             num -= 40
             return (
-                roman_numerals[9]
-                + roman_numerals[10]
-                + Plugin.__convert_roman_numeral(self, num)
+                roman_numerals[9] +
+                roman_numerals[10] +
+                Plugin.__convert_roman_numeral(self, num)
             )
         elif num > 10:
             num -= 10

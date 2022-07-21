@@ -16,8 +16,10 @@ See that document for more information.
 '''
 
 COMMANDS = '''
-.mail <To email address> .body <Text for the body of your email> .subject <Text of subject for email>
-EX:// ".mail test@email.com .body testing body for honeybot email .subject testing subject"
+.mail <To email address> .body <Text for the body of your email>
+ .subject <Text of subject for email>
+EX:// ".mail test@email.com .body testing body for honeybot email
+ .subject testing subject"
 '''
 
 WEBSITE = ''

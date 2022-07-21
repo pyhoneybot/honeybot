@@ -5,7 +5,7 @@ ORIGINAL_AUTHORS = [
     'UMD'
 ]
 
-ABOUT = '''
+ABOUT = '''book_of_day
 Using bookoftheday.org, get the title and link of the book of the day
 '''
 

@@ -10,7 +10,7 @@ Eduardo Moraes de Mello, https://github.com/edumello
 Show link with all the functionalities of the bot.
 
 [Commands]
->>> .help 
+>>> .help
 returns link of plugins informations
 """
 
@@ -23,7 +23,9 @@ class Plugin:
 
         try:
             if info["command"] == "PRIVMSG" and info["args"][1] == ".help":
-                message = "Page with all functionalities and commands: https://github.com/Abdur-rahmaanJ/honeybot/blob/master/honeybot/plugins_info.md"
+                message = "Page with all functionalities and commands: " \
+                          "https://github.com/Abdur-rahmaanJ/" \
+                          "honeybot/blob/master/honeybot/plugins_info.md"
                 methods["send"](info["address"], message)
         except Exception as e:
             print("woops plug", e)

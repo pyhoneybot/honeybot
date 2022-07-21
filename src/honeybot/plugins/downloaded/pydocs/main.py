@@ -4,7 +4,7 @@
 Dictionary Plugin
 
 [Author]
-Milad H, 
+Milad H,
 
 [About]
 Searches the python documentatioin(pydocs) for the related keyword(s)
@@ -15,6 +15,7 @@ and returns some of the relevant links
 >>> .pydocs <keyword>
 returns links in python documentation related to the keyword
 """
+from PyDictionary import PyDictionary
 
 
 class Plugin:

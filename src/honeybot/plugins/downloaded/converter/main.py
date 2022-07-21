@@ -82,7 +82,7 @@ class Plugin:
     def help(self, methods, info):
         methods["send"](info["address"], "showing supported currencies")
         currency_lists = [
-            Plugin.currencies[5 * i : 5 * i + 5]
+            Plugin.currencies[5 * i: 5 * i + 5]
             for i in range(0, math.ceil(len(Plugin.currencies) / 5))
         ]
         for currency_list in currency_lists:
@@ -99,19 +99,20 @@ class Plugin:
         base_cur = base_cur.upper()
         target_cur = target_cur.upper()
         if base_cur not in Plugin.currencies or target_cur not in Plugin.currencies:
-            return "one of the currencies is invalid. enter .converter help to see supported currencies"
+            return "one of the currencies is invalid. " \
+                   "enter .converter help to see supported currencies"
         elif not (is_number(amount)):
             return "invalid amount entered, it must be a number. default is 1"
         else:
             base_url = "https://www.x-rates.com/calculator/?"
             url = (
-                base_url
-                + "from="
-                + base_cur
-                + "&to="
-                + target_cur
-                + "&amount="
-                + str(amount)
+                base_url +
+                "from=" +
+                base_cur +
+                "&to=" +
+                target_cur +
+                "&amount=" +
+                str(amount)
             )
             page = requests.get(url)
             soup = BeautifulSoup(page.text, "html.parser")

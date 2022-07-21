@@ -3,10 +3,13 @@
 """
 [translate.py]
 Translate Plugin
+
 [Author]
 Ahmed Deeb
+
 [About]
-A Google Translate plugin 
+A Google Translate plugin
+
 [Commands]
 >>> . Google Translator object.
 
@@ -26,9 +29,7 @@ A Google Translate plugin
     # try to detect 2 at a time
     results4 = translator.detect(["Einen schönen Tag allerseits",
                                      "Ich nehme an"])
-   
-"""
-"""
+
 You need to fill in your API key from google below. Note that querying
 supported languages is not implemented.
 
@@ -167,7 +168,7 @@ def _validate_language(lang):
     return False
 
 
-### Custom G-Zipped Cache ###
+# Custom G-Zipped Cache #
 
 
 def save_cached_key(path, value):
@@ -202,7 +203,7 @@ class ZipCache(FileCache):
         save_cached_key(cacheFullPath, value)
 
 
-### Error Handlers ###
+# Error Handlers #
 
 
 class DefaultErrorHandler(HTTPDefaultErrorHandler):
@@ -224,7 +225,7 @@ class RedirectHandler(HTTPRedirectHandler):
         return result
 
 
-### Translator Class ###
+# Translator Class #
 
 
 class Plugin(object):
@@ -299,7 +300,7 @@ class Plugin(object):
                 return data["translations"]
             elif "detections" in data:
                 return data["detections"]
-        except:
+        except Exception:
             if "error" in json_data:
                 return json_data["error"]
 
@@ -354,14 +355,14 @@ class Plugin(object):
         """
         try:
             assert _validate_language(target)
-        except:
+        except ValueError:
             raise ValueError("target language %s is not valid" % target)
         newquery = self._sanitize_query(query)
         params = [("key", api), ("target", target)]
         if source:
             try:
                 assert _validate_language(target)
-            except:
+            except ValueError:
                 raise ValueError("source language %s is not valid" % target)
             params += ["source", source]
         params += newquery

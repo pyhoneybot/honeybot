@@ -21,8 +21,10 @@ class Plugin:
         pass
 
     def gen_uname(self):
-        """Return a string containing a randomly-generated username based on an adjectives list 
-        (p1) and a noun list (p2)"""
+        """
+        Return a string containing a randomly-generated username based
+        on an adjectives list (p1) and a noun list (p2)
+        """
         p1 = [
             "hopeful",
             "young",

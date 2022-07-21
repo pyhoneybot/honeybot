@@ -70,7 +70,9 @@ class Plugin:
                 return True
 
     def get_record(self, date):
-        """check if there is a diary entry for a certain date and return it if there is """
+        """
+        check if there is a diary entry for a certain date and return it if there is
+        """
         date = Plugin.today_yesterday(self, date)
         path = "diary/" + date
         if not os.path.exists(path):
@@ -88,7 +90,8 @@ class Plugin:
         """ check if entry exists and if it does delete it """
         path = Plugin.get_path(self, time)
         if not os.path.exists(path):
-            return "There is no diary entry for that date. Check the date is entered correctly!"
+            return "There is no diary entry for that date. " \
+                   "Check the date is entered correctly!"
         else:
             os.remove(path)
             return "Entry deleted successfully!"

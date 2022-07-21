@@ -60,7 +60,8 @@ class Plugin:
                             if int(msgs[1]) >= int(msgs[2]):
                                 methods["send"](
                                     info["address"],
-                                    ".rand requires two integers that are not equal and the first must be biggest",
+                                    ".rand requires two integers that are not "
+                                    "equal and the first must be biggest",
                                 )
                             else:
                                 rand = random.randint(int(msgs[1]), int(msgs[2]))

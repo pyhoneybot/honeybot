@@ -39,10 +39,10 @@ class Plugin:
             print(len(msgs))
             if info["command"] == "PRIVMSG" and msgs[0] == ".age":
                 if (
-                    len(msgs) == 4
-                    and len(msgs[1]) < 3
-                    and len(msgs[2]) < 3
-                    and len(msgs[3]) == 4
+                    len(msgs) == 4 and
+                    len(msgs[1]) < 3 and
+                    len(msgs[2]) < 3 and
+                    len(msgs[3]) == 4
                 ):
                     day = int(msgs[1])
                     mo = int(msgs[2])

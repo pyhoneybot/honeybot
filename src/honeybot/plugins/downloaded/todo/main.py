@@ -32,7 +32,6 @@ This will delete all the task in the list.
 sends messages explaining how to use the todo plugin
 """
 
-import requests
 import os
 
 if not os.path.exists("todo.txt"):
