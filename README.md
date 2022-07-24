@@ -3,7 +3,7 @@
 ![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-pink.svg)
 ![Made in Moris](https://img.shields.io/badge/Made%20in-Moris-green.svg)
 
-# 🍯 honeybot py [ [docs](https://pyhoneybot.github.io/honeybot/) ] [ [Maintainer Needed](https://github.com/pyhoneybot/honeybot/issues/101) ]
+🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳 🇬🇧 🇬🇬 🇧🇷 🇸🇽 🇵🇱 🇩🇪
 
 ## 📮 About
 HoneyBot is a python-based IRC bot. (**python3.7**) | If you want to just run the bot, go to the [quick start section](https://github.com/pyhoneybot/honeybot#-quickstart)
@@ -17,10 +17,6 @@ Implementing the project in Java was weird, py's connect was sleek. Thus, the pr
 If you can think of any features, plugins, or functionality you wish to see in the project. Feel free to add it yourself, or create an issue detailing your ideas. We highly recommend you attempt to implement it yourself first and ask for help in our [discord server](https://discord.gg/E6zD4XT) !
 
 Psst. Since I learnt py through this bot, we decided to keep a new-comers friendly policy. Feeling lost? Just ping.
-
-## 📌 Contributing Countries
-
-🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳 🇬🇧 🇬🇬 🇧🇷 🇸🇽 🇵🇱 🇩🇪
 
 ## 📨 Follow the project on CodeTriage for updates!
 
