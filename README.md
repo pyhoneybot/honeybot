@@ -1,3 +1,5 @@
+<div align="center">
+
 [![PyPI version](https://badge.fury.io/py/honeybot.svg)](https://badge.fury.io/py/honeybot)
 [![First Timers Only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg)](https://www.firsttimersonly.com/)
 ![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-pink.svg)
@@ -5,9 +7,13 @@
 
 🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳 🇬🇧 🇬🇬 🇧🇷 🇸🇽 🇵🇱 🇩🇪
 
+</div>
+<div align="center">
 
 [![Open Source Helpers](https://www.codetriage.com/pyhoneybot/honeybot/badges/users.svg)](https://www.codetriage.com/pyhoneybot/honeybot)
 [![Discord](https://img.shields.io/badge/chat%20on-discord-green.svg)](https://discordapp.com/invite/E6zD4XT)
+
+</div>
 
 ## 📮 About
 HoneyBot is a python-based IRC bot. (**python3.7**) | If you want to just run the bot, go to the [quick start section](https://github.com/pyhoneybot/honeybot#-quickstart)
