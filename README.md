@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="https://github.com/pyhoneybot/honeybot/blob/master/honeybot_real.png" width="64" />
+
 [![PyPI version](https://badge.fury.io/py/honeybot.svg)](https://badge.fury.io/py/honeybot)
 [![First Timers Only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg)](https://www.firsttimersonly.com/)
 ![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-pink.svg)
@@ -19,8 +21,6 @@
 HoneyBot is a python-based IRC bot. (**python3.7**) | If you want to just run the bot, go to the [quick start section](https://github.com/pyhoneybot/honeybot#-quickstart)
 
 Feel free to contribute to the project!
-#
-![alt text](honeybot_real.png "honeybot logo")
 
 ## 🕹 Project Motivation
 Implementing the project in Java was weird, py's connect was sleek. Thus, the project stack was shifted over to Python.
