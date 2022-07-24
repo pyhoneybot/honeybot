@@ -5,6 +5,10 @@
 
 🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳 🇬🇧 🇬🇬 🇧🇷 🇸🇽 🇵🇱 🇩🇪
 
+
+[![Open Source Helpers](https://www.codetriage.com/pyhoneybot/honeybot/badges/users.svg)](https://www.codetriage.com/pyhoneybot/honeybot)
+[![Discord](https://img.shields.io/badge/chat%20on-discord-green.svg)](https://discordapp.com/invite/E6zD4XT)
+
 ## 📮 About
 HoneyBot is a python-based IRC bot. (**python3.7**) | If you want to just run the bot, go to the [quick start section](https://github.com/pyhoneybot/honeybot#-quickstart)
 
@@ -21,11 +25,6 @@ Psst. Since I learnt py through this bot, we decided to keep a new-comers friend
 ## 📨 Follow the project on CodeTriage for updates!
 
 Get issues delivered in your inbox.
-
-[![Open Source Helpers](https://www.codetriage.com/pyhoneybot/honeybot/badges/users.svg)](https://www.codetriage.com/pyhoneybot/honeybot)
-
-## Discord
-https://discordapp.com/invite/E6zD4XT
 
 ## :thought_balloon: Project Testimonials
 [@TannerFry](https://github.com/TannerFry)
