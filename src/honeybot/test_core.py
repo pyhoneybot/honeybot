@@ -1,7 +1,7 @@
 import unittest
 import configparser
 import traceback
-from honeybot.src.honeybot.api.main import Bot_core as Bot
+from honeybot.honeybot.src.honeybot.api.main import Bot_core as Bot
 import os
 import time
 
