@@ -1,3 +1,5 @@
+# 🍯 honeybot py [ [docs](https://pyhoneybot.github.io/honeybot/) ] [ [Maintainer Needed](https://github.com/pyhoneybot/honeybot/issues/101) ]
+
 <div align="center">
 
 <img src="https://github.com/pyhoneybot/honeybot/blob/master/honeybot_real.png" width="64" />
@@ -18,11 +20,13 @@
 </div>
 
 ## 📮 About
+
 HoneyBot is a python-based IRC bot. (**python3.7**) | If you want to just run the bot, go to the [quick start section](https://github.com/pyhoneybot/honeybot#-quickstart)
 
 Feel free to contribute to the project!
 
 ## 🕹 Project Motivation
+
 Implementing the project in Java was weird, py's connect was sleek. Thus, the project stack was shifted over to Python.
 If you can think of any features, plugins, or functionality you wish to see in the project. Feel free to add it yourself, or create an issue detailing your ideas. We highly recommend you attempt to implement it yourself first and ask for help in our [discord server](https://discord.gg/E6zD4XT) !
 
@@ -33,10 +37,11 @@ Psst. Since I learnt py through this bot, we decided to keep a new-comers friend
 Get issues delivered in your inbox.
 
 ## ✂ Current Features
- * 🍬 OOP architecture
- * 🛰️ keyword parameters
- * 🌵 password security with config file [disabled for now]
- * 🔌 now with plugins
+
+- 🍬 OOP architecture
+- 🛰️ keyword parameters
+- 🌵 password security with config file [disabled for now]
+- 🔌 now with plugins
 
 ## :mountain: GUI clients
 
@@ -91,7 +96,6 @@ GUI clients are used to manage plugins, launch bot as well as specify credential
 - 📝 todo by [@h-ranjan1110](https://github.com/h-ranjan1110) - Makes a to do list .
 - 🎱 Magic 8 Ball [@ZakariaTalhami](https://github.com/ZakariaTalhami) - Answer questions using magic 8 ball
 
-
 ## ⚡ Quickstart
 
 setup
@@ -113,13 +117,14 @@ honeybot run
 ```
 
 in settings/CONNECT.conf
-~~~
+
+```
 [INFO]
 
 server_url = irc.libera.chat
 port = 6667
 name = appinventormuBot
-~~~
+```
 
 In settings/PLUGINS.conf listed plugins under plugins/downloaded will load. Plugins listed under plugins/core are auto loaded.
 
@@ -138,21 +143,25 @@ port: 6667
 url: irc.libera.chat
 ```
 
-then join channel ```#ltch```
+then join channel `#ltch`
 
 you should see the bot as hbot ... or as it's name is in [settings](https://github.com/pyhoneybot/honeybot/blob/master/src/honeybot/settings/CONNECT.conf)
 
-
 ## Docker
+
 ** Building Docker image **
 Change SERVER, PORT and NICKNAME variables to match your preferences
+
 ```
 docker build -t honeybot -f ./docker/Dockerfile .
 ```
+
 ** Running Docker image **
+
 ```
 docker run honeybot
 ```
+
 ## 🔧 Plugins Development
 
 Each plugin has a folder named after it. In it there is a file called main.py. In each there is a class called Plugin.
@@ -171,15 +180,16 @@ class Plugin:
         except Exception as e:
             print('woops plugin error ', e)
 ```
-we see four parameters being passed to the run method ```, incoming, methods, info, bot_info)```
+
+we see four parameters being passed to the run method `, incoming, methods, info, bot_info)`
 
 #### parameter1: incoming
 
-```incoming``` is the raw line and is not used except if you are not satisfied with the already provided methods
+`incoming` is the raw line and is not used except if you are not satisfied with the already provided methods
 
 #### parameter2: methods
 
-```methods``` is a dictionary of methods to ease your life. a quick look at [main.py](https://github.com/pyhoneybot/honeybot/blob/master/src/honeybot/api/main.py) reveals
+`methods` is a dictionary of methods to ease your life. a quick look at [main.py](https://github.com/pyhoneybot/honeybot/blob/master/src/honeybot/api/main.py) reveals
 
 ```python
 def methods(self):
@@ -189,15 +199,17 @@ def methods(self):
                 'join': self.join
                 }
 ```
-where ```send_raw``` allows you to send in any string you want, thereby allowing you to implement any irc protocol from scratch
 
-but, for most uses, ```send``` allows you to send a message to an address ```methods['send']('<address>', '<message>')```. using it in conjunction with info parameter allows you to send messages where it came from, in pm to the bot or in a channel. you can however hardcode the address.
+where `send_raw` allows you to send in any string you want, thereby allowing you to implement any irc protocol from scratch
 
-```join``` allows you to join a channel by ```methods['join']('<channel name>')```
+but, for most uses, `send` allows you to send a message to an address `methods['send']('<address>', '<message>')`. using it in conjunction with info parameter allows you to send messages where it came from, in pm to the bot or in a channel. you can however hardcode the address.
+
+`join` allows you to join a channel by `methods['join']('<channel name>')`
 
 #### parameter3: info (meaning message info)
 
 for a normal run, info produces
+
 ```python
 {
 'prefix': 'appinv!c5e342c5@gateway/web/cgi-irc/kiwiirc.com/ip.200.200.22.200',
@@ -206,7 +218,8 @@ for a normal run, info produces
 'args': ['##bottestingmu', 'ef']
 }
 ```
-hence if you want messages, ```messages = info['args'][1:]``` or the first word if you want to check for command will be ```info['args'][1]```
+
+hence if you want messages, `messages = info['args'][1:]` or the first word if you want to check for command will be `info['args'][1]`
 
 **use example**
 
@@ -237,17 +250,18 @@ so that in run method you can access those.
 #### wrapping up
 
 hence
+
 ```python
 if info['command'] == 'PRIVMSG' and info['args'][1] == '.hi':
     methods['send'](info['address'], 'hooo')
 ```
+
 from above means
+
 ```
 if message received == .hi:
     send(address, message)
 ```
-
-
 
 ## 📃 Contributing Guide
 
@@ -271,10 +285,13 @@ cd honeybot
 ```
 
 different changes to different files. for example, someone making a weather plugin first he creates a new branch
+
 ```
 git checkout -b "weather-plugin"
 ```
+
 then he commits
+
 ```
 git add *
 git commit -m "added weather plugin"
@@ -287,6 +304,7 @@ git commit -a -m "did this"
 ```
 
 then he push to create a PR with the branch
+
 ```
 git push origin head
 ```
@@ -298,25 +316,34 @@ git push origin weather-plugin
 ```
 
 now let us say he wants to work on another issue, adding a joke in the jokes plugin, he creates another branch
+
 ```
 git checkout -b "add-jokes"
 ```
+
 after, same as before
+
 ```
 git add *
 git commit -m "added some jokes"
 git push origin head
 ```
+
 now he wants to fix his weather plugin, he changes branch
+
 ```
 git checkout weather-plugin
 ```
+
 works, then commit
+
 ```
 git add *
 git commit -m "fixed <issue>"
 ```
+
 then a PR
+
 ```
 git push origin head
 ```
@@ -328,17 +355,17 @@ So as not to reject a whole PR just because of some oddities. Reject only unneed
 **Updating the Documentation**
 
 If you created a new plugin you should add your plugin to the documentation.
-To do this, go into your cloned honeybot repo and then into the directory *docs/source/Plugins* .
+To do this, go into your cloned honeybot repo and then into the directory _docs/source/Plugins_ .
 Depending on the type of plugin write this into the development, fun, miscellaneous or utility RST file:
 
 ```rst
-   
+
    <Plugin-Name>
    ^^^^^^^^^^^^^
    .. automodule:: plugins.<your-plugin-filename>
       :members:
 ```
-	  
+
 This allows sphinx to automatically pull the docstrings from the code of your plugin and parse them accordingly.
 
 A small guide on how to further contribute to the documentation of the project can be found [here](https://pyhoneybot.github.io/honeybot/How_Tos/documentation.html)
@@ -346,9 +373,11 @@ A small guide on how to further contribute to the documentation of the project c
 ## 🥄 Updating fork
 
 Now, other changes are ongoing, what if you need the latest changes?
+
 ```
 git pull origin master
 ```
+
 helps if you cloned your own repo. What if you want to update your local copy of someone else's repo that you forked?
 You do it like that
 
@@ -360,6 +389,7 @@ git pull upstream master
 ```
 
 ## 🔌 Todo Plugins
+
 - [x] 💐 humour
 - [x] 🌨️ weather
 - [x] ✉️ mail
@@ -373,10 +403,12 @@ git pull upstream master
 <https://pyhoneybot.github.io/honeybot/plugins.html>
 
 in PLUGINS.conf, add the plugin to allow on a new line !
-~~~
+
+```
 calc
 username
-~~~
+```
+
 ## :thought_balloon: Project Testimonials
 
 [@TannerFry](https://github.com/TannerFry)
@@ -402,8 +434,11 @@ username
 > I came onto this project in October of 2018. At the time, my experience with open source was nil. I wasn't even sure I was good with python; I just happened to be better than everyone in class. Working on HoneyBot really opened my eyes to the power of community and programming, and has sent me on a path I don't wanna turn from. Just seeing how this project has evolved over the past year and how I've grown with it, I wouldn't trade it for the world. My name might not be on any of the recent plugins or doc strings, but I'll never forget that it'll always be tied to this project and a lot of the code. Also, I don't know if they'll check my commit so go look at the C++ Client! It's cool I promise!
 
 ## 📧 Contact
+
 ### Email
+
 - Abdur-Rahmaan Janhangeer | arj.python@gmail.com
 
 ## 🖊 Credits
+
 [@arwinneil](https://github.com/arwinneil) for opensource and madeinmoris badges
