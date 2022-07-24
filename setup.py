@@ -44,7 +44,7 @@ setup(
     python_requires=">=3.7.0",
     zip_safe=False,
     install_requires=[
-        "PyDictionary==,1.5.2",
+        "PyDictionary==1.5.2",
         "requests==2.21.0",
         "wikipedia==1.4.0",
         "google==2.0.2",
