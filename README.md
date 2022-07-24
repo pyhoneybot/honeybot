@@ -441,4 +441,4 @@ username
 
 ## 🖊 Credits
 
-[@arwinneil](https://github.com/arwinneil) for opensource and madeinmoris badges
+- [@arwinneil](https://github.com/arwinneil), "Open Source" and "Made In Moris" badges
