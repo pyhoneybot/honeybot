@@ -1,4 +1,4 @@
-from .main import memory_reader
+from main import memory_reader
 
 
 def add_value(memfile, section, key, value):
