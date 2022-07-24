@@ -1,7 +1,7 @@
 import unittest
 import configparser
 import traceback
-from api.main import Bot_core as Bot
+# from api.main import Bot_core as Bot
 import os
 import time
 
@@ -18,6 +18,8 @@ import time
 # Setup info
 os.chdir("src/honeybot/")
 root = os.getcwd()
+# PATH
+print("PATH: " + root)
 settings = os.path.join(root, "settings")
 config = configparser.ConfigParser()
 config.read("settings/CONNECT.conf")
