@@ -47,50 +47,52 @@ GUI clients are used to manage plugins, launch bot as well as specify credential
 
 ## ⌚ Current Plugins
 
-- 💎 bitcoin by [@Macr0Nerd](https://github.com/Macr0Nerd) - get price of bitcoin
-- ⏲ caesar cipher by [@kylegalloway](https://github.com/kylegalloway) - encode your text
-- 🔢 calc by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - evaluates maths expressions
-- 📐 maths by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - sin cos and the like
-- 🍃 conv sniff by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - set triggers like how many times a word occur for one or more words and send response
-- ❄ greet by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - demo plugin
-- ⛓ installed_modules by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - checks dependencies installed
-- 🕶 joke by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ), [@colbyjayallen](https://github.com/colbyjayallen) - get random joke
-- ❓ self Trivia by [@ajimenezUCLA](https://github.com/ajimenezUCLA) - random trivia
-- 💢 username by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ), [@sseryani](https://github.com/sseryani) - username generator
-- 📜 quotes by [@German-Corpaz](https://github.com/German-Corpaz) - inspirational quotes
-- 📖 dictionary by [@iamnishant14](https://github.com/iamnishant14) - returns meaning of word
-- 🔣 password generator by [@iamnishant14](https://github.com/iamnishant14) - the name tells it all
-- 🐜 debug by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - prints all parameters passed to bot
-- 📚 wikipedia by [@Macr0Nerd](https://github.com/Macr0Nerd) - returns a wikipedia article
-- 🗿 translate by [@a-deeb](https://github.com/a-deeb) - google translate plugin
-- 📑 test by [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ) - runs tests
-- ⛅️ weather by [@Macr0Nerd](https://github.com/Macr0Nerd) - returns weather info for a given location
-- ✉️ mail by [@TannerFry](https://github.com/TannerFry) - send emails within the chat
-- 🕴️ hangman by [@JustinWalker4179](https://github.com/justinwalker4179) - play hangman in the chat
-- 🎂 age by [@JustinWalker4179](https://github.com/justinwalker4179) - takes in birthday and outputs age
-- ✔️ fact by [@JustinWalker4179](https://github.com/justinwalker4179) - returns a random fact
-- 🔍 google by [@JustinWalker4179](https://github.com/justinwalker4179) - returns three search results from google
-- 📮 send message by [@JustinWalker4179](https://github.com/justinwalker4179) - sends a message to another channel
-- 📝 log by [@RiceAbove](https://github.com/RiceAbove) - logs the chat into a log file
-- 🚪 joins by [@RiceAbove](https://github.com/RiceAbove) - greets everyone who joins the channel
-- 📅 date by [@RiceAbove](https://github.com/RiceAbove) - posts the current date
-- 🕵️‍ riddle by [@AngeloGiacco](https://github.com/AngeloGiacco) - returns a random riddle
-- 🗞 news by [@AngeloGiacco](https://github.com/AngeloGiacco) - gets the top 10 headlines from bbc world news
-- 📝 horoscope by [@AngeloGiacco](https://github.com/AngeloGiacco) - gets your daily horoscope for your starsign
-- 💵 currency converter by [@AngeloGiacco](https://github.com/AngeloGiacco) - converts currencies
-- 🔫 russian_roulette by [@AngeloGiacco](https://github.com/AngeloGiacco) - may or may not kick you off the channel
-- 🏨 monopoly by [@AngeloGiacco](https://github.com/AngeloGiacco) - Honeybot now supports the world's worst game!
-- ⚽️ transfer_rumour by [@AngeloGiacco](https://github.com/AngeloGiacco) - shows the day's transfer rumours
-- 🃏 blackjack/21 by [@AngeloGiacco](https://github.com/AngeloGiacco) - play 21 on honeybot!
-- 🤒 corona by [@AngeloGiacco](https://github.com/AngeloGiacco) - get the latest news on coronavirus with honeybot!
-- 📖 diary by [@AngeloGiacco](https://github.com/AngeloGiacco) - keep a diary with honeybot
-- 🛩 flight by [@AngeloGiacco](https://github.com/AngeloGiacco) - gets flight info from flightradar24
-- 🎲 roll by [@GlennToms](https://github.com/GlennToms) - rolls a dice
-- ❓ help by [@edumello](https://github.com/edumello) - show link to plugin's information page
-- ✅ channeljoin by [@marceloyb](https://github.com/marceloyb) - join command for bot
-- :page_with_curl: comic by [@mboekhold](https://github.com/mboekhold) - returns a random comic
-- 📝 todo by [@h-ranjan1110](https://github.com/h-ranjan1110) - Makes a to do list .
-- 🎱 Magic 8 Ball [@ZakariaTalhami](https://github.com/ZakariaTalhami) - Answer questions using magic 8 ball
+| Plugin                 | Description                                                                           | Contributor                                                                                              |
+| ---------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| 💎 bitcoin             | Get price of bitcoin                                                                  | [@Macr0Nerd](https://github.com/Macr0Nerd)                                                               |
+| ⏲ caesar cipher        | Encode your text                                                                      | [@kylegalloway](https://github.com/kylegalloway)                                                         |
+| 🔢 calc                | Evaluates maths expressions                                                           | [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ)                                                     |
+| 📐 maths               | Trigonometry & random number generator                                                | [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ)                                                     |
+| 🍃 conv sniff          | Set triggers like how many times a word occur for one or more words and send response | [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ)                                                     |
+| ❄ greet                | Demo plugin                                                                           | [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ)                                                     |
+| ⛓ installed_modules    | Checks dependencies installed                                                         | [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ)                                                     |
+| 🕶 joke                 | Get random joke                                                                       | [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ), [@colbyjayallen](https://github.com/colbyjayallen) |
+| ❓ self Trivia         | Random trivia                                                                         | [@ajimenezUCLA](https://github.com/ajimenezUCLA)                                                         |
+| 💢 username            | Username generator                                                                    | [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ), [@sseryani](https://github.com/sseryani)           |
+| 📜 quotes              | Inspirational quotes                                                                  | [@German-Corpaz](https://github.com/German-Corpaz)                                                       |
+| 📖 dictionary          | Returns meaning of word                                                               | [@iamnishant14](https://github.com/iamnishant14)                                                         |
+| 🔣 password generator  | The name tells it all                                                                 | [@iamnishant14](https://github.com/iamnishant14)                                                         |
+| 🐜 debug               | Prints all parameters passed to bot                                                   | [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ)                                                     |
+| 📚 wikipedia           | Returns a wikipedia article                                                           | [@Macr0Nerd](https://github.com/Macr0Nerd)                                                               |
+| 🗿 translate           | Google translate plugin                                                               | [@a-deeb](https://github.com/a-deeb)                                                                     |
+| 📑 test                | Runs tests                                                                            | [@Abdur-rahmaanJ](https://github.com/Abdur-rahmaanJ)                                                     |
+| ⛅️ weather            | Returns weather info for a given location                                             | [@Macr0Nerd](https://github.com/Macr0Nerd)                                                               |
+| ✉️ mail                | Send emails within the chat                                                           | [@TannerFry](https://github.com/TannerFry)                                                               |
+| 🕴️ hangman             | Play hangman in the chat                                                              | [@JustinWalker4179](https://github.com/justinwalker4179)                                                 |
+| 🎂 age                 | Takes in birthday and outputs age                                                     | [@JustinWalker4179](https://github.com/justinwalker4179)                                                 |
+| ✔️ fact                | Returns a random fact                                                                 | [@JustinWalker4179](https://github.com/justinwalker4179)                                                 |
+| 🔍 google              | Returns three search results from google                                              | [@JustinWalker4179](https://github.com/justinwalker4179)                                                 |
+| 📮 send message        | Sends a message to another channel                                                    | [@JustinWalker4179](https://github.com/justinwalker4179)                                                 |
+| 📝 log                 | Logs the chat into a log file                                                         | [@RiceAbove](https://github.com/RiceAbove)                                                               |
+| 🚪 joins               | Greets everyone who joins the channel                                                 | [@RiceAbove](https://github.com/RiceAbove)                                                               |
+| 📅 date                | Posts the current date                                                                | [@RiceAbove](https://github.com/RiceAbove)                                                               |
+| 🕵️‍ riddle             | Returns a random riddle                                                               | [@AngeloGiacco](https://github.com/AngeloGiacco)                                                         |
+| 🗞 news                 | Gets the top 10 headlines from bbc world news                                         | [@AngeloGiacco](https://github.com/AngeloGiacco)                                                         |
+| 📝 horoscope           | Gets your daily horoscope for your starsign                                           | [@AngeloGiacco](https://github.com/AngeloGiacco)                                                         |
+| 💵 currency converter  | Converts currencies                                                                   | [@AngeloGiacco](https://github.com/AngeloGiacco)                                                         |
+| 🔫 russian_roulette    | May or may not kick you off the channel                                               | [@AngeloGiacco](https://github.com/AngeloGiacco)                                                         |
+| 🏨 monopoly            | Honeybot now supports the world's worst game!                                         | [@AngeloGiacco](https://github.com/AngeloGiacco)                                                         |
+| ⚽️ transfer_rumour    | Shows the day's transfer rumours                                                      | [@AngeloGiacco](https://github.com/AngeloGiacco)                                                         |
+| 🃏 blackjack/21        | Play 21 on honeybot!                                                                  | [@AngeloGiacco](https://github.com/AngeloGiacco)                                                         |
+| 🤒 corona              | Get the latest news on coronavirus with honeybot!                                     | [@AngeloGiacco](https://github.com/AngeloGiacco)                                                         |
+| 📖 diary               | Keep a diary with honeybot                                                            | [@AngeloGiacco](https://github.com/AngeloGiacco)                                                         |
+| 🛩 flight               | Gets flight info from flightradar24                                                   | [@AngeloGiacco](https://github.com/AngeloGiacco)                                                         |
+| 🎲 roll                | Rolls a dice                                                                          | [@GlennToms](https://github.com/GlennToms)                                                               |
+| ❓ help                | Show link to plugin's information page                                                | [@edumello](https://github.com/edumello)                                                                 |
+| ✅ channeljoin         | Join command for bot                                                                  | [@marceloyb](https://github.com/marceloyb)                                                               |
+| :page_with_curl: comic | Returns a random comic                                                                | [@mboekhold](https://github.com/mboekhold)                                                               |
+| 📝 todo                | Makes a to do list                                                                    | [@h-ranjan1110](https://github.com/h-ranjan1110)                                                         |
+| 🎱 Magic 8 Ball        | Answer questions using magic 8 ball                                                   | [@ZakariaTalhami](https://github.com/ZakariaTalhami)                                                     |
 
 ## ⚡ Quickstart
 
