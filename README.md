@@ -32,10 +32,6 @@ If you can think of any features, plugins, or functionality you wish to see in t
 
 Psst. Since I learnt py through this bot, we decided to keep a new-comers friendly policy. Feeling lost? Just ping.
 
-## 📨 Follow the project on CodeTriage for updates!
-
-Get issues delivered in your inbox.
-
 ## ✂ Current Features
 
 - 🍬 OOP architecture
