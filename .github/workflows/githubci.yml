@@ -49,7 +49,7 @@ jobs:
       # Run security checks
       - name: Security checks
         run: |
-          bandit -ll -r . -x "./.git,./.github,./.idea,/__pycache__,/venv,./workshop,./src/honeybot/plugins/downloaded/calc/main.py,./src/honeybot/plugins/downloaded/monopoly/main.py,./honeybot/plugins/downloaded/calc/main.py,./honeybot/plugins/downloaded/monopoly/main.py"
+          bandit -ll -r . -x "./.git,./.github,./.idea,/__pycache__,/venv,./workshop,./src/honeybot/plugins/downloaded/calc/main.py,./src/honeybot/plugins/downloaded/monopoly/main.py,./plugins/downloaded/calc/main.py,./plugins/downloaded/monopoly/main.py"
       
       # Run sanity tests
       - name: Run Tests
