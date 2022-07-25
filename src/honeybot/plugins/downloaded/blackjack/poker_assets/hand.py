@@ -4,7 +4,7 @@
 
 # parts not necessary for blackjack but required for poker commented out
 
-# import deuces
+# import deuces "deuces==0.2",
 # import best5
 # import board
 # import card
