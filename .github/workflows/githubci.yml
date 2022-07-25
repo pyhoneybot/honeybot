@@ -6,9 +6,11 @@ name: GitHub CI
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches-ignore:
+      - gh-pages
   pull_request:
-    branches: [ master ]
+    branches-ignore:
+      - gh-pages
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -32,7 +34,7 @@ jobs:
         # Runs sanity checks on each python version
         with:
           python-version: ${{ matrix.python-version }}
-      
+
       # Install dependencies
       - name: Install dependencies
         run: |
@@ -40,17 +42,17 @@ jobs:
           pip install 'futures<3.0.0'
           pip install .
           pip install flake8 bandit
-      
+
       # Run PEP8 style check
       - name: PEP8 style check
         run: |
           flake8 --config=setup.cfg src/honeybot/
-      
+
       # Run security checks
       - name: Security checks
         run: |
           bandit -ll -r . -x "./.git,./.github,./.idea,/__pycache__,/venv,./workshop,./src/honeybot/plugins/downloaded/calc/main.py,./src/honeybot/plugins/downloaded/monopoly/main.py,./build/lib/honeybot/plugins/downloaded/calc/main.py,./build/lib/honeybot/plugins/downloaded/monopoly/main.py"
-      
+
       # Run sanity tests
       - name: Run Tests
         run: |
