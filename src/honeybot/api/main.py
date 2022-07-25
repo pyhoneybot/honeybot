@@ -19,7 +19,7 @@ except Exception as e:
     raise e
 
 
-memory_reader = configparser.ConfigParser()
+
 
 plugins = []
 
