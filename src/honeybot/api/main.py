@@ -10,6 +10,7 @@ import os
 import pathlib
 import pkg_resources
 import setuptools
+import subprocess
 # from pathlib import Path
 
 try:
@@ -176,6 +177,20 @@ class Bot_core(object):
             except ModuleNotFoundError as e:
                 logger.warning(f"{folder}: module import error, skipped' {e}")
 
+            try:
+                req_path = os.path.join(self.info['cwd'], 'plugins', category_folder, folder, 'requirements.txt')
+                if os.path.exists(req_path):
+                    with pathlib.Path(req_path).open() as requirements_txt:
+                        install_requires = [
+                            str(requirement)
+                            for requirement
+                            in pkg_resources.parse_requirements(requirements_txt)
+                        ]
+                        print('installing', install_requires)
+                        subprocess.check_call([sys.executable, '-m', 'pip', 'install', *install_requires])
+            except Exception as e:
+                logger.debug(e)
+
     def load_plugins(self):
         """
         Load plugins that are specified in the plugins list.
@@ -189,10 +204,10 @@ class Bot_core(object):
 
         logger.info("Loading plugins...")
 
-        from_conf = os.path.join(self.settings_path, "PLUGINS.conf")
-        from_dir = os.path.join(self.info['plugins_path'], 'core')
-        self.load_plugins_from_folder('downloaded', from_conf=from_conf)
-        self.load_plugins_from_folder('core', from_dir=from_dir)
+        conf_path = os.path.join(self.settings_path, "PLUGINS.conf")
+        dir_path = os.path.join(self.info['plugins_path'], 'core')
+        self.load_plugins_from_folder('downloaded', from_conf=conf_path)
+        self.load_plugins_from_folder('core', from_dir=dir_path)
 
         logger.info("Loaded plugins")
         print('---')
