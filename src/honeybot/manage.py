@@ -33,6 +33,7 @@ def main():
     info = {
         'cwd': os.getcwd(),
         'settings_path': os.path.join(os.getcwd(), 'settings'),
+        'plugins_path': os.path.join(os.getcwd(), 'plugins'),
     }
 
     print_honeybot_manifesto(info)
