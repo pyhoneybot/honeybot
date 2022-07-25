@@ -7,6 +7,9 @@ import socket
 import sys
 import time
 import os
+import pathlib
+import pkg_resources
+import setuptools
 # from pathlib import Path
 
 try:
@@ -149,6 +152,30 @@ class Bot_core(object):
             print(key, self.info[key])
         print('-'*3)
 
+
+    def load_plugins_from_folder(self, category_folder, from_conf=None, from_dir=None):
+
+        if from_dir is not None:
+            to_load = [f for f in os.listdir(from_dir) if self.is_valid_plug_name(f)]
+        elif from_conf is not None:
+            to_load = []
+            plugs = from_conf
+            with open(plugs) as f:
+                to_load = f.read().split("\n")
+                to_load = list(filter(lambda x: x != "", to_load))
+
+        print('Loading', category_folder)
+        for folder in to_load:
+            print("loading plugin:", folder)
+            try:
+                sys.path.append(self.root_path)
+                module = importlib.import_module(
+                    "plugins.{}.{}.main".format(category_folder, folder))
+                obj = module
+                self.plugins.append(obj)
+            except ModuleNotFoundError as e:
+                logger.warning(f"{folder}: module import error, skipped' {e}")
+
     def load_plugins(self):
         """
         Load plugins that are specified in the plugins list.
@@ -162,40 +189,10 @@ class Bot_core(object):
 
         logger.info("Loading plugins...")
 
-        to_load = []
-        plugs = os.path.join(self.settings_path, "PLUGINS.conf")
-        with open(plugs) as f:
-            to_load = f.read().split("\n")
-            to_load = list(filter(lambda x: x != "", to_load))
-
-        for folder in to_load:
-            print("loading plugin:", folder)
-            try:
-                sys.path.append(self.root_path)
-                module = importlib.import_module(
-                    "plugins.downloaded.{}.main".format(folder))
-                obj = module
-                self.plugins.append(obj)
-            except ModuleNotFoundError as e:
-                logger.warning(f"{folder}: module import error, skipped' {e}")
-
-        print()
-        print('loading core plugins')
-        for folder in os.listdir(os.path.join(self.info['plugins_path'], 'core')):
-            if self.is_valid_plug_name(folder):
-                print("loading plugin:", folder)
-                try:
-                    module = importlib.import_module(
-                        "plugins.core.{}.main".format(folder))
-                    obj = module
-                    self.plugins.append(obj)
-                except ModuleNotFoundError as e:
-                    logger.warning(f"{folder}: module import error, skipped' {e}")
-            else:
-                if not folder.startswith('__'):
-                    logger.warning(f"{folder}: name not valid")
-
-            
+        from_conf = os.path.join(self.settings_path, "PLUGINS.conf")
+        from_dir = os.path.join(self.info['plugins_path'], 'core')
+        self.load_plugins_from_folder('downloaded', from_conf=from_conf)
+        self.load_plugins_from_folder('core', from_dir=from_dir)
 
         logger.info("Loaded plugins")
         print('---')
