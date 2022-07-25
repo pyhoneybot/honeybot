@@ -133,7 +133,7 @@ class Bot_core(object):
     """
     PLUGIN UTILS
     """
-    def is_valid_plug_name(self):
+    def is_valid_plug_name(self, name):
         if ((name.startswith('__')) or (name == "")):
             return False
 
@@ -147,7 +147,7 @@ class Bot_core(object):
         print('Run infos:')
         for key in self.info:
             print(key, self.info[key])
-            print('-'*3)
+        print('-'*3)
 
     def load_plugins(self):
         """
@@ -179,10 +179,10 @@ class Bot_core(object):
             except ModuleNotFoundError as e:
                 logger.warning(f"{folder}: module import error, skipped' {e}")
 
-
-        print('loading core plugin')
-        for folder in os.listdir(self.info['plugins_path']):
-            if is_valid_plug_name(folder):
+        print()
+        print('loading core plugins')
+        for folder in os.listdir(os.path.join(self.info['plugins_path'], 'core')):
+            if self.is_valid_plug_name(folder):
                 print("loading plugin:", folder)
                 try:
                     module = importlib.import_module(
@@ -192,11 +192,13 @@ class Bot_core(object):
                 except ModuleNotFoundError as e:
                     logger.warning(f"{folder}: module import error, skipped' {e}")
             else:
-                logger.warning(f"{folder}: name not valid' {e}")
+                if not folder.startswith('__'):
+                    logger.warning(f"{folder}: name not valid")
 
             
 
-        logger.info("Loaded plugins...")
+        logger.info("Loaded plugins")
+        print('---')
 
     def run_plugins(self, incoming):
         """

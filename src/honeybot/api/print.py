@@ -28,4 +28,4 @@ def print_connect_settings(info):
     print("server url:", server_url)
     print("port:", port)
     print("username:", name)
-    print()
+    print('-'*3)
