@@ -19,7 +19,7 @@ except Exception as e:
     raise e
 
 
-memory_reader = configparser.ConfigParser()
+
 
 plugins = []
 
@@ -33,20 +33,21 @@ BOT CONNECTION SETUP
 
 class Bot_core(object):
     def __init__(self, info, password=""):
+        self.info = info
         connect_config = configparser.ConfigParser()
         connect_config.read(os.path.join(
-            info['settings_path'],
+            self.info['settings_path'],
             'CONNECT.conf'))
-        self.settings_path = info['settings_path']
-        self.root_path = info['cwd']
+        self.settings_path = self.info['settings_path']
+        self.root_path = self.info['cwd']
         self.server_url = connect_config["INFO"]["server_url"]
         self.port = int(connect_config["INFO"]["port"])
         self.name = connect_config["INFO"]["name"]
-        self.owners = configfile_to_list(info['settings_path'], "OWNERS")
+        self.owners = configfile_to_list(self.info['settings_path'], "OWNERS")
         self.password = password
-        self.friends = configfile_to_list(info['settings_path'], "FRIENDS")
+        self.friends = configfile_to_list(self.info['settings_path'], "FRIENDS")
         self.autojoin_channels = configfile_to_list(
-            info['settings_path'],
+            self.info['settings_path'],
             "AUTOJOIN_CHANNELS")
         self.required_modules = get_requirements()
         self.time = time.time()
@@ -57,12 +58,7 @@ class Bot_core(object):
         self.domain = ".".join(dom[-2:])
         self.sp_command = "hbot"
         self.plugins = []
-        self.core_plugins = [
-            'channeljoin',
-            'log',
-            'uptime',
-            'joins'
-        ]
+        self.core_plugins = []
 
     """
     MESSAGE VALIDATION
@@ -133,9 +129,25 @@ class Bot_core(object):
     def join(self, channel):
         self.send(commands.join_channel(channel))
 
+
+    """
+    PLUGIN UTILS
+    """
+    def is_valid_plug_name(self, name):
+        if ((name.startswith('__')) or (name == "")):
+            return False
+
+        return True
+
     """
     BOT UTIL
     """
+
+    def print_running_infos(self):
+        print('Run infos:')
+        for key in self.info:
+            print(key, self.info[key])
+        print('-'*3)
 
     def load_plugins(self):
         """
@@ -167,17 +179,26 @@ class Bot_core(object):
             except ModuleNotFoundError as e:
                 logger.warning(f"{folder}: module import error, skipped' {e}")
 
-        for folder in self.core_plugins:
-            print("loading plugin:", folder)
-            try:
-                module = importlib.import_module(
-                    "plugins.core.{}.main".format(folder))
-                obj = module
-                self.plugins.append(obj)
-            except ModuleNotFoundError as e:
-                logger.warning(f"{folder}: module import error, skipped' {e}")
+        print()
+        print('loading core plugins')
+        for folder in os.listdir(os.path.join(self.info['plugins_path'], 'core')):
+            if self.is_valid_plug_name(folder):
+                print("loading plugin:", folder)
+                try:
+                    module = importlib.import_module(
+                        "plugins.core.{}.main".format(folder))
+                    obj = module
+                    self.plugins.append(obj)
+                except ModuleNotFoundError as e:
+                    logger.warning(f"{folder}: module import error, skipped' {e}")
+            else:
+                if not folder.startswith('__'):
+                    logger.warning(f"{folder}: name not valid")
 
-        logger.info("Loaded plugins...")
+            
+
+        logger.info("Loaded plugins")
+        print('---')
 
     def run_plugins(self, incoming):
         """
@@ -262,6 +283,7 @@ class Bot_core(object):
         self.pull()
 
     def unregistered_run(self):
+        self.print_running_infos()
         self.connect()
         self.greet()
         self.load_plugins()

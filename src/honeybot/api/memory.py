@@ -1,5 +1,6 @@
-from main import memory_reader
+import configparser
 
+memory_reader = configparser.ConfigParser()
 
 def add_value(memfile, section, key, value):
     memory_reader.read("memory/{}.txt".format(memfile))
