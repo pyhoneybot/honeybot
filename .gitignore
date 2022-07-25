@@ -133,3 +133,6 @@ honeybot/log/*
 /main.py
 /lab.py
 /.google-cookie
+
+
+testbot/
