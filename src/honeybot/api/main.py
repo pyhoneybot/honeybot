@@ -9,8 +9,8 @@ import time
 import os
 import pathlib
 import pkg_resources
-import setuptools
 import subprocess
+# import setuptools
 # from pathlib import Path
 
 try:
@@ -21,8 +21,6 @@ try:
     from honeybot.api import memory
 except Exception as e:
     raise e
-
-
 
 
 plugins = []
@@ -133,7 +131,6 @@ class Bot_core(object):
     def join(self, channel):
         self.send(commands.join_channel(channel))
 
-
     """
     PLUGIN UTILS
     """
@@ -151,8 +148,7 @@ class Bot_core(object):
         print('Run infos:')
         for key in self.info:
             print(key, self.info[key])
-        print('-'*3)
-
+        print('-' * 3)
 
     def load_plugins_from_folder(self, category_folder, from_conf=None, from_dir=None):
 
@@ -178,7 +174,8 @@ class Bot_core(object):
                 logger.warning(f"{folder}: module import error, skipped' {e}")
 
             try:
-                req_path = os.path.join(self.info['cwd'], 'plugins', category_folder, folder, 'requirements.txt')
+                req_path = os.path.join(self.info['cwd'], 'plugins',
+                                        category_folder, folder, 'requirements.txt')
                 if os.path.exists(req_path):
                     with pathlib.Path(req_path).open() as requirements_txt:
                         install_requires = [
@@ -187,7 +184,8 @@ class Bot_core(object):
                             in pkg_resources.parse_requirements(requirements_txt)
                         ]
                         print('installing', install_requires)
-                        subprocess.check_call([sys.executable, '-m', 'pip', 'install', *install_requires])
+                        subprocess.check_call([sys.executable, '-m', 'pip',
+                                               'install', *install_requires])
             except Exception as e:
                 logger.debug(e)
 
