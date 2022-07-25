@@ -52,6 +52,6 @@ jobs:
           bandit -ll -r . -x "./.git,./.github,./.idea,/__pycache__,/venv,./workshop,./src/honeybot/plugins/downloaded/calc/main.py,./src/honeybot/plugins/downloaded/monopoly/main.py,./build/lib/honeybot/plugins/downloaded/calc/main.py,./build/lib/honeybot/plugins/downloaded/monopoly/main.py"
       
       # Run sanity tests
-      # - name: Run Tests
-      #  run: |
-      #    python src/honeybot/test_core.py
+      - name: Run Tests
+        run: |
+          python src/honeybot/test_core.py
