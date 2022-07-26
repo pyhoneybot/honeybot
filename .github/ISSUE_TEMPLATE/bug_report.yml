@@ -21,26 +21,26 @@ body:
       label: What happened?
       description: Tell us more about the specific bug, you can also include screenshots.
       placeholder: |
-        Version: x.x.x \
-        Operating System: Linux/macOs/Win/Other \
+        Version: x.x.x 
+        Operating System: Linux/macOs/Win/Other 
         Steps:
-        1. \
-        2. \
-        3. \
-        4. \
-        Expected behavior: \
-        Additional information: \
+        1. 
+        2. 
+        3. 
+        4. 
+        Expected behavior: 
+        Additional information: 
         Screenshot:
       value: |
-        Version: x.x.x \
-        Operating System: Linux/macOs/Win/Other \
+        Version: x.x.x 
+        Operating System: Linux/macOs/Win/Other 
         Steps:
-        1. \
-        2. \
-        3. \
-        4. \
-        Expected behavior: \
-        Additional information: \
+        1. 
+        2. 
+        3. 
+        4. 
+        Expected behavior: 
+        Additional information: 
         Screenshot:
     validations:
       required: true
