@@ -23,25 +23,35 @@ body:
       placeholder: |
         Version: x.x.x 
         Operating System: Linux/macOs/Win/Other 
+
         Steps:
         1. 
         2. 
         3. 
         4. 
+
         Expected behavior: 
+
         Additional information: 
+
         Screenshot:
+
       value: |
         Version: x.x.x 
         Operating System: Linux/macOs/Win/Other 
+
         Steps:
         1. 
         2. 
         3. 
         4. 
+
         Expected behavior: 
+
         Additional information: 
+
         Screenshot:
+
     validations:
       required: true
   - type: textarea
