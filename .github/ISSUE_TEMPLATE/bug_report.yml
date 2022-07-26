@@ -22,7 +22,7 @@ body:
       description: Tell us more about the specific bug, you can also include screenshots.
       placeholder: |
         Version: x.x.x 
-        Operating System: Linux/macOs/Win/Other 
+        Operating System: Linux/macOS/Win/Other 
 
         Steps:
         1. 
