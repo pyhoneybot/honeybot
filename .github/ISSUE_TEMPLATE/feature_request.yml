@@ -8,9 +8,9 @@ body:
       value: |
         Thanks for taking the time to fill out this feature request!
   - type: textarea
-    id: report
+    id: suggestion
     attributes:
-      label: What happened?
+      label: Suggestion
       description: Tell us more about the your suggested feature.
       placeholder: |
         ## Is your feature request related to a problem?
