@@ -16,7 +16,7 @@ body:
     validations:
       required: false
   - type: textarea
-    id: what-happened
+    id: report
     attributes:
       label: What happened?
       description: Tell us more about the specific bug, you can also include screenshots.
