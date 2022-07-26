@@ -13,36 +13,36 @@ body:
       label: What happened?
       description: Tell us more about the specific bug, you can also include screenshots.
       placeholder: |
-        Version: x.x.x 
-        Operating System: Linux/macOS/Win/Other 
+        **Version**: x.x.x 
+        **Operating System**: Linux/macOS/Win/Other 
 
-        Steps:
+        #### **Steps**:
         1. 
         2. 
         3. 
         4. 
 
-        Expected behavior: 
+        #### **Expected behavior**: 
 
-        Additional information: 
+        #### **Additional information**: 
 
-        Screenshot:
+        #### **Screenshot**:
 
       value: |
-        Version: x.x.x 
-        Operating System: Linux/macOs/Win/Other 
+        **Version**: x.x.x 
+        **Operating System**: Linux/macOS/Win/Other 
 
-        Steps:
+        #### **Steps**:
         1. 
         2. 
         3. 
         4. 
 
-        Expected behavior: 
+        #### **Expected behavior**: 
 
-        Additional information: 
+        #### **Additional information**: 
 
-        Screenshot:
+        #### **Screenshot**:
 
     validations:
       required: true
