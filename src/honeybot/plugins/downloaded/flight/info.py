@@ -1,15 +1,12 @@
+NAME = "flight.py"
+ORIGINAL_AUTHORS = ["Angelo Giacco"]
 
-NAME = 'flight.py'
-ORIGINAL_AUTHORS = [
-    'Angelo Giacco'
-]
-
-ABOUT = '''
+ABOUT = """
 returns flight information
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .flight <<flight callsign>>
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

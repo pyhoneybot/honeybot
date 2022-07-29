@@ -11,22 +11,22 @@
 
 
 class Hand(object):
-    """ hand class """
+    """hand class"""
 
     def __init__(self, hand):
-        """ hand initialization """
+        """hand initialization"""
 
         self.__hand = hand
         self.__card1 = hand[0]
         self.__card2 = hand[1]
 
     def show_hand(self):
-        """ show hand """
+        """show hand"""
 
         return self.__hand
 
     def show_hand_obj(self):
-        """ show hand object """
+        """show hand object"""
 
         return self.__hand
 

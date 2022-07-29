@@ -51,14 +51,14 @@ class Plugin:
         if starsign not in signs:
             message = "That is not a valid star sign, check for typos"
         else:
-            basic_url = "https://www.horoscope.com/us/horoscopes/general" \
-                        "/horoscope-general-daily-today.aspx?sign="
+            basic_url = (
+                "https://www.horoscope.com/us/horoscopes/general"
+                "/horoscope-general-daily-today.aspx?sign="
+            )
             url = basic_url + signs[starsign]  # creates the url
             content = requests.get(url)  # gets the horoscope website
             doc = BeautifulSoup(content.text, "html.parser")  # parses website
-            message = doc.find_all("p")[
-                0
-            ].text  # the first p element of the website
+            message = doc.find_all("p")[0].text  # the first p element of the website
             # is the horoscope and we only want its text
         return message
 

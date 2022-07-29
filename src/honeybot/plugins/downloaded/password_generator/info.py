@@ -1,14 +1,11 @@
+NAME = "password_generator.py"
+ORIGINAL_AUTHORS = ["Nishant, JPMorgan Chase & Co."]
 
-NAME = 'password_generator.py'
-ORIGINAL_AUTHORS = [
-    'Nishant, JPMorgan Chase & Co.'
-]
-
-ABOUT = '''
+ABOUT = """
 sends different type of passwords
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .passgen <<length>>
 returns alphabetic password of specified length
 
@@ -21,6 +18,6 @@ returns alphanumeric password of specified length
 >>> .passgenspecialchar <<length>>
 returns universally accepted alphanumeric password
 with special characters of specified length where length >= 4
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

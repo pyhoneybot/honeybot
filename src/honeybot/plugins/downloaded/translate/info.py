@@ -1,14 +1,11 @@
+NAME = "translate.py"
+ORIGINAL_AUTHORS = ["Ahmed Deeb"]
 
-NAME = 'translate.py'
-ORIGINAL_AUTHORS = [
-    'Ahmed Deeb'
-]
-
-ABOUT = '''
+ABOUT = """
 A Google Translate plugin
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> . Google Translator object.
 
 Examples
@@ -27,6 +24,6 @@ results3 = translator.detect("Einen schönen Tag allerseits")
 # try to detect 2 at a time
 results4 = translator.detect(["Einen schönen Tag allerseits",
 "Ich nehme an"])
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

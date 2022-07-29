@@ -1,18 +1,15 @@
+NAME = "story.py"
+ORIGINAL_AUTHORS = ["Tuan Thai"]
 
-NAME = 'story.py'
-ORIGINAL_AUTHORS = [
-    'Tuan Thai'
-]
-
-ABOUT = '''
+ABOUT = """
 Sends a random story
 Sourced stories from
 http://www.read.gov/aesop/001.html
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .story
 returns random story
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

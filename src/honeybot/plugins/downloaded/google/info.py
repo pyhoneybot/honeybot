@@ -1,16 +1,13 @@
+NAME = "googlesearch.py"
+ORIGINAL_AUTHORS = ["Justin Walker"]
 
-NAME = 'googlesearch.py'
-ORIGINAL_AUTHORS = [
-    'Justin Walker'
-]
-
-ABOUT = '''
+ABOUT = """
 Returns the first three links from a google search.
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .google <<search term>>
 returns search links
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

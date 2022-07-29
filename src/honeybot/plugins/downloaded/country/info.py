@@ -1,16 +1,13 @@
+NAME = "countries.py"
+ORIGINAL_AUTHORS = ["Phil Beld"]
 
-NAME = 'countries.py'
-ORIGINAL_AUTHORS = [
-    'Phil Beld'
-]
-
-ABOUT = '''
+ABOUT = """
 Show the capital of a given country.
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .country <country>
 returns the associated capital
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

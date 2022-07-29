@@ -1,7 +1,7 @@
 import os
 import pkg_resources
 
-_package_name = 'honeybot'
+_package_name = "honeybot"
 
 
 def prevent_none(x):

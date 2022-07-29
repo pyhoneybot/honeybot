@@ -1,16 +1,13 @@
+NAME = "date.py"
+ORIGINAL_AUTHORS = ["Gico Carlo Evangelista, https://gicocarlo.me/"]
 
-NAME = 'date.py'
-ORIGINAL_AUTHORS = [
-    'Gico Carlo Evangelista, https://gicocarlo.me/'
-]
-
-ABOUT = '''
+ABOUT = """
 Will post the current date
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .date today
 returns the current date
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

@@ -1,15 +1,12 @@
+NAME = "quote.py"
+ORIGINAL_AUTHORS = ["Divyanshu Mehta"]
 
-NAME = 'quote.py'
-ORIGINAL_AUTHORS = [
-    'Divyanshu Mehta'
-]
-
-ABOUT = '''
+ABOUT = """
 Extracts quotes and send random quote from Trailer Park Boys
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>>.quote <count>
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

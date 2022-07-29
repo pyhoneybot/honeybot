@@ -4,10 +4,10 @@
 
 
 class Card(object):
-    """ card class """
+    """card class"""
 
     def __init__(self, card):
-        """ card initialization; Card('8s'), Card('QC') """
+        """card initialization; Card('8s'), Card('QC')"""
         values = [
             0,
             1,
@@ -47,7 +47,7 @@ class Card(object):
             self.__21_value = int(self.__figure)
 
     def show_card(self):
-        """ show card """
+        """show card"""
         if self.__card == "0X":
             print("This card does not exist, check your index!")
             pass
@@ -55,21 +55,21 @@ class Card(object):
             return self.__card
 
     def figure(self):
-        """ show figure """
+        """show figure"""
 
         return self.__figure
 
     def color(self):
-        """ show color """
+        """show color"""
 
         return self.__color
 
     def value(self):
-        """ show value """
+        """show value"""
 
         return self.__value
 
     def blackjack_value(self):
-        """ show value in the game of blackjack """
+        """show value in the game of blackjack"""
 
         return self.__21_value

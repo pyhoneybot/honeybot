@@ -1,16 +1,13 @@
+NAME = "roll.py"
+ORIGINAL_AUTHORS = ["Glenn Toms"]
 
-NAME = 'roll.py'
-ORIGINAL_AUTHORS = [
-    'Glenn Toms'
-]
-
-ABOUT = '''
+ABOUT = """
 Will roll dice in the form of 1d4, 10d6 and return total.
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .roll <<dice>>
 returns Total of dice
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

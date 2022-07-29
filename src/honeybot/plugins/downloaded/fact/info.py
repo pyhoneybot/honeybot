@@ -1,18 +1,15 @@
+NAME = "fact.py"
+ORIGINAL_AUTHORS = ["Justin Walker"]
 
-NAME = 'fact.py'
-ORIGINAL_AUTHORS = [
-    'Justin Walker'
-]
-
-ABOUT = '''
+ABOUT = """
 Returns a random fact.
 Facts sourced from Mental Floss
 http://mentalfloss.com/article/55443/101-amazing-facts
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .fact
 returns random fact
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

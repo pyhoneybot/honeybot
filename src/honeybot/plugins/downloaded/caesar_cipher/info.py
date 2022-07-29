@@ -1,16 +1,13 @@
+NAME = "Caesar Cipher"
+ORIGINAL_AUTHORS = ["Kyle Galloway"]
 
-NAME = 'Caesar Cipher'
-ORIGINAL_AUTHORS = [
-    'Kyle Galloway'
-]
-
-ABOUT = '''
+ABOUT = """
 encrypts and decrypts using a caesar cipher
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .caesar_cipher <message>
 returns the encrypted version of message
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

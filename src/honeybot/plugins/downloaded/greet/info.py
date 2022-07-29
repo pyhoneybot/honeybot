@@ -1,16 +1,13 @@
+NAME = "greet.py"
+ORIGINAL_AUTHORS = ["Abdur-Rahmaan Janhangeer, pythonmembers.club"]
 
-NAME = 'greet.py'
-ORIGINAL_AUTHORS = [
-    'Abdur-Rahmaan Janhangeer, pythonmembers.club'
-]
-
-ABOUT = '''
+ABOUT = """
 responds to .hi, demo of a basic plugin
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .hi
 returns hoo
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

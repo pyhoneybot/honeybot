@@ -24,16 +24,14 @@ logging.basicConfig(
 def main():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument(
-        "botsetting",
-        choices=["run", "gen_pluginsinfo", "init"])
+    parser.add_argument("botsetting", choices=["run", "gen_pluginsinfo", "init"])
 
     args = parser.parse_args()
 
     info = {
-        'cwd': os.getcwd(),
-        'settings_path': os.path.join(os.getcwd(), 'settings'),
-        'plugins_path': os.path.join(os.getcwd(), 'plugins'),
+        "cwd": os.getcwd(),
+        "settings_path": os.path.join(os.getcwd(), "settings"),
+        "plugins_path": os.path.join(os.getcwd(), "plugins"),
     }
 
     print_honeybot_manifesto(info)
@@ -54,5 +52,5 @@ def main():
         init(info)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

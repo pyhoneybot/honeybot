@@ -17,7 +17,7 @@ def print_honeybot_manifesto(info):
 
 
 def print_connect_settings(info):
-    settings_path = os.path.join(info['settings_path'], "CONNECT.conf")
+    settings_path = os.path.join(info["settings_path"], "CONNECT.conf")
     connect_config = configparser.ConfigParser()
     connect_config.read(settings_path)
     server_url = connect_config["INFO"]["server_url"]
@@ -28,4 +28,4 @@ def print_connect_settings(info):
     print("server url:", server_url)
     print("port:", port)
     print("username:", name)
-    print('-'*3)
+    print("-" * 3)

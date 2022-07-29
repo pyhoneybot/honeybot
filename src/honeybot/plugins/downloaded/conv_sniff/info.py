@@ -1,16 +1,13 @@
+NAME = "conv_sniff.py"
+ORIGINAL_AUTHORS = ["Abdur-Rahmaan Janhangeer, pythonmembers.club"]
 
-NAME = 'conv_sniff.py'
-ORIGINAL_AUTHORS = [
-    'Abdur-Rahmaan Janhangeer, pythonmembers.club'
-]
-
-ABOUT = '''
+ABOUT = """
 senses conversation topic with sensitivity set by user, also supports
 word-specific sensing
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

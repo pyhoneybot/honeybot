@@ -1,16 +1,13 @@
+NAME = "toss.py"
+ORIGINAL_AUTHORS = ["Shriram Bhat"]
 
-NAME = 'toss.py'
-ORIGINAL_AUTHORS = [
-    'Shriram Bhat'
-]
-
-ABOUT = '''
+ABOUT = """
 Responds to .cointoss, Returns head or tail at random
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .cointoss
 returns head/ tail
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""
