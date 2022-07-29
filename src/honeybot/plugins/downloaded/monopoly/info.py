@@ -1,14 +1,11 @@
+NAME = "monopoly.py"
+ORIGINAL_AUTHORS = ["Angelo Giacco"]
 
-NAME = 'monopoly.py'
-ORIGINAL_AUTHORS = [
-    'Angelo Giacco'
-]
-
-ABOUT = '''
+ABOUT = """
 Play monopoly
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>>.monopoly create
 creates monopoly
 
@@ -45,6 +42,6 @@ shows information about a certain player
 
 .monopoly info <<property>>
 shows information about a property
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

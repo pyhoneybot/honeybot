@@ -1,16 +1,13 @@
+NAME = "abbreviation.py"
+ORIGINAL_AUTHORS = ["Erin Moon, Sourav Dutta"]
 
-NAME = 'abbreviation.py'
-ORIGINAL_AUTHORS = [
-    'Erin Moon, Sourav Dutta'
-]
-
-ABOUT = '''
+ABOUT = """
 responds to .def lol
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .def lol
 returns lots of love
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

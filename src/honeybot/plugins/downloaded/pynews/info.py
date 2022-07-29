@@ -1,16 +1,13 @@
+NAME = "pynews.py"
+ORIGINAL_AUTHORS = ["Sam Deans"]
 
-NAME = 'pynews.py'
-ORIGINAL_AUTHORS = [
-    'Sam Deans'
-]
-
-ABOUT = '''
+ABOUT = """
 Finds the top five news items on python.org and prints them to the IRC
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .pynews
 returns the top 5 python.org news articles
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

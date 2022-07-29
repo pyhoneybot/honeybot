@@ -6,13 +6,13 @@ import itertools
 
 
 def best_hand(hand):
-    """ from a 7-card hand, return the best 5 card hand """
+    """from a 7-card hand, return the best 5 card hand"""
 
     return max(itertools.combinations(hand, 5), key=hand_rank)
 
 
 def hand_rank(hand):
-    """ return a value indicating the ranking of a hand """
+    """return a value indicating the ranking of a hand"""
 
     ranks = card_ranks(hand)
     if straight(ranks) and flush(hand):
@@ -52,7 +52,7 @@ def hand_rank(hand):
 
 
 def card_ranks(hand):
-    """ return a list of the ranks, sorted with higher first """
+    """return a list of the ranks, sorted with higher first"""
 
     ranks = ["--23456789TJQKA".index(r) for r, s in hand]
     ranks.sort(reverse=True)
@@ -61,14 +61,14 @@ def card_ranks(hand):
 
 
 def flush(hand):
-    """ return True if all the cards have the same suit """
+    """return True if all the cards have the same suit"""
 
     suits = [s for r, s in hand]
     return len(set(suits)) == 1
 
 
 def straight(ranks):
-    """ return True if the ordered ranks form a 5-card straight """
+    """return True if the ordered ranks form a 5-card straight"""
 
     return (max(ranks) - min(ranks) == 4) and len(set(ranks)) == 5
 
@@ -88,7 +88,7 @@ def kind(n, ranks):
 
 
 def two_pair(ranks):
-    """ if there are two pair here, return the two ranks of the two pairs, else None """
+    """if there are two pair here, return the two ranks of the two pairs, else None"""
 
     pair = kind(2, ranks)
     lowpair = kind(2, list(reversed(ranks)))

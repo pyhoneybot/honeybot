@@ -1,14 +1,11 @@
+NAME = "maths.py"
+ORIGINAL_AUTHORS = ["Abdur-Rahmaan Janhangeer, pythonmembers.club"]
 
-NAME = 'maths.py'
-ORIGINAL_AUTHORS = [
-    'Abdur-Rahmaan Janhangeer, pythonmembers.club'
-]
-
-ABOUT = '''
+ABOUT = """
 some maths related commands
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .sin <number>
 returns sine of number
 
@@ -20,6 +17,6 @@ returns tangent of number
 
 >>> .rand <number1> <number2>
 returns number between number1 and number2
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

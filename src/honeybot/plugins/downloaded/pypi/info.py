@@ -1,16 +1,13 @@
+NAME = "pypi.py"
+ORIGINAL_AUTHORS = ["Donald Lieu"]
 
-NAME = 'pypi.py'
-ORIGINAL_AUTHORS = [
-    'Donald Lieu'
-]
-
-ABOUT = '''
+ABOUT = """
 Searches for Python packages on pypi.org
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .pypi <search term>
 returns first 3 result links
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

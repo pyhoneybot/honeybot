@@ -1,14 +1,11 @@
+NAME = "send_message.py"
+ORIGINAL_AUTHORS = ["Justin Walker"]
 
-NAME = 'send_message.py'
-ORIGINAL_AUTHORS = [
-    'Justin Walker'
-]
-
-ABOUT = '''
+ABOUT = """
 Sends a message to another channel.
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .send #channel .u riceabove .m how are you?
 Sends a message to #channel like
 'IronPenguin from #channel says to riceabove: how are you?'
@@ -18,6 +15,6 @@ Sends a message to #channel like
 'IronPenguin from #channel says: hi all'
 
 Checks if user online first and says "User not online."
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

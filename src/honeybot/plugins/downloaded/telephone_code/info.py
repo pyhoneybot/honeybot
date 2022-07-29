@@ -1,16 +1,13 @@
+NAME = "countries.py"
+ORIGINAL_AUTHORS = ["Sarvesh Dubey"]
 
-NAME = 'countries.py'
-ORIGINAL_AUTHORS = [
-    'Sarvesh Dubey'
-]
-
-ABOUT = '''
+ABOUT = """
 Show the dialcode of a given country.
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .tel <country_code>
 returns the associated country telephone code
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

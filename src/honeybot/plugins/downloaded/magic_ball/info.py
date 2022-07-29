@@ -1,19 +1,16 @@
+NAME = "magic_ball.py"
+ORIGINAL_AUTHORS = ["Zakaria Talhami"]
 
-NAME = 'magic_ball.py'
-ORIGINAL_AUTHORS = [
-    'Zakaria Talhami'
-]
-
-ABOUT = '''
+ABOUT = """
 Fortune-telling for question using a magic 8 ball
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .8ball <<question>>
 returns It is certain
 
 >>> .magic8ball <<question>>
 returns Very doubtful
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

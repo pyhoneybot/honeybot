@@ -34,10 +34,10 @@ class Plugin:
         if command.lower() == "start":
             self.class_hangman = Hangman()
             msg = (
-                "Welcome to hangman! " +
-                "You may use command 'start' to start new game  " +
-                "or 'guess ---' with a word or letter to play." +
-                self.class_hangman.display_screen()
+                "Welcome to hangman! "
+                + "You may use command 'start' to start new game  "
+                + "or 'guess ---' with a word or letter to play."
+                + self.class_hangman.display_screen()
             )
         elif command.lower() == "guess":
             if len(word.strip()) > 1:
@@ -211,8 +211,8 @@ class Hangman:
         if win is True:
             self.display = "'{0}' is correct. You win!".format(self.gameWord)
             self.display_message = (
-                " You had {0} guesses remaining.".format(self.guessCount) +
-                "\nUse 'start' command to try again."
+                " You had {0} guesses remaining.".format(self.guessCount)
+                + "\nUse 'start' command to try again."
             )
             self.endGame = True
             self.endMessage = self.display + self.display_message
@@ -226,9 +226,9 @@ class Hangman:
         self.guessCount -= 1
         if self.guessCount == 0:
             self.endMessage = (
-                "You have no more guesses.\n" +
-                "The correct word was '{0}'.\n".format(self.gameWord) +
-                "You lose. Use start command to try again"
+                "You have no more guesses.\n"
+                + "The correct word was '{0}'.\n".format(self.gameWord)
+                + "You lose. Use start command to try again"
             )
             self.endGame = True
         else:

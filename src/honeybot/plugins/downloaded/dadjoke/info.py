@@ -1,16 +1,13 @@
+NAME = "dadjoke.py"
+ORIGINAL_AUTHORS = ["moffetma Oregon State University CS"]
 
-NAME = 'dadjoke.py'
-ORIGINAL_AUTHORS = [
-    'moffetma Oregon State University CS'
-]
-
-ABOUT = '''
+ABOUT = """
 Sends a random "dad joke" from icanhazdadjoke.com
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .dadjoke
 Have you heard of the band 1023MB? They haven't got a gig yet.
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

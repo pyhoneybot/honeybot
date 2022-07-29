@@ -27,7 +27,7 @@ import os
 from datetime import datetime, timedelta
 
 if not os.path.exists("diary"):
-    """ create diary folder"""
+    """create diary folder"""
 
     try:
         os.mkdir("diary")
@@ -55,7 +55,7 @@ class Plugin:
         return path
 
     def record(self, time, text):
-        """ adds to existing entry or creates new one"""
+        """adds to existing entry or creates new one"""
 
         path = Plugin.get_path(self, time)
         if not os.path.exists(path):
@@ -87,11 +87,13 @@ class Plugin:
             return [x.strip("\n") for x in entry]
 
     def delete(self, time):
-        """ check if entry exists and if it does delete it """
+        """check if entry exists and if it does delete it"""
         path = Plugin.get_path(self, time)
         if not os.path.exists(path):
-            return "There is no diary entry for that date. " \
-                   "Check the date is entered correctly!"
+            return (
+                "There is no diary entry for that date. "
+                "Check the date is entered correctly!"
+            )
         else:
             os.remove(path)
             return "Entry deleted successfully!"

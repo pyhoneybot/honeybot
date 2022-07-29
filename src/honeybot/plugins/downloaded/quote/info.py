@@ -1,16 +1,13 @@
+NAME = "quote.py"
+ORIGINAL_AUTHORS = ["German Corpaz"]
 
-NAME = 'quote.py'
-ORIGINAL_AUTHORS = [
-    'German Corpaz'
-]
-
-ABOUT = '''
+ABOUT = """
 Sends a random quote on request
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .quote
 returns a random quote
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

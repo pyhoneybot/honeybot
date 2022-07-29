@@ -1,16 +1,13 @@
+NAME = "repostats.py"
+ORIGINAL_AUTHORS = ["Shreyansh Sancheti"]
 
-NAME = 'repostats.py'
-ORIGINAL_AUTHORS = [
-    'Shreyansh Sancheti'
-]
-
-ABOUT = '''
+ABOUT = """
 Gets the number of forks and stars for a given repo
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .repostats url
 returns starcount stars | forkcount forks
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

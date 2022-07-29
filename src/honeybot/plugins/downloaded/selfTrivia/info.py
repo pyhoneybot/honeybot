@@ -1,17 +1,14 @@
+NAME = "Self Travia"
+ORIGINAL_AUTHORS = ["Angel Jimenez"]
 
-NAME = 'Self Travia'
-ORIGINAL_AUTHORS = [
-    'Angel Jimenez'
-]
-
-ABOUT = '''
+ABOUT = """
 Returns a private trivia question
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .selfTrivia
 returns a random question
 Currently working on adding multiple choice and a timer reveal.
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

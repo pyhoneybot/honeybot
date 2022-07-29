@@ -38,8 +38,8 @@ class Plugin:
                     if "errors" in flight:  # check for api error
                         methods["send"](
                             info["address"],
-                            "Invalid input! Callsign " +
-                            "should not be more than 10 characters!",
+                            "Invalid input! Callsign "
+                            + "should not be more than 10 characters!",
                         )
 
                     else:
@@ -61,13 +61,13 @@ class Plugin:
                             ]["destination"]["position"]["region"]["city"]
                             methods["send"](
                                 info["address"],
-                                "Flight " +
-                                id +
-                                " is from " +
-                                origin +
-                                " to " +
-                                destination +
-                                ".",
+                                "Flight "
+                                + id
+                                + " is from "
+                                + origin
+                                + " to "
+                                + destination
+                                + ".",
                             )
 
                             total = 0
@@ -79,8 +79,8 @@ class Plugin:
                                 if f["status"]["live"]:
                                     methods["send"](
                                         info["address"],
-                                        "This flight is currently in the air. " +
-                                        "The following information is available:",
+                                        "This flight is currently in the air. "
+                                        + "The following information is available:",
                                     )
                                     methods["send"](
                                         info["address"], f["status"]["text"]
@@ -101,11 +101,11 @@ class Plugin:
 
                             methods["send"](
                                 info["address"],
-                                "The flight has an average duration of " +
-                                str(hours) +
-                                ":" +
-                                str(mins) +
-                                ".",
+                                "The flight has an average duration of "
+                                + str(hours)
+                                + ":"
+                                + str(mins)
+                                + ".",
                             )
 
         except Exception as e:

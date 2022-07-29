@@ -40,8 +40,6 @@ class Plugin:
         try:
             if info["command"] == "PRIVMSG" and info["args"][1] == ".uptime":
                 start_time = bot_info["time"]
-                methods["send"](
-                    info["address"],
-                    Plugin.__convert_time(start_time))
+                methods["send"](info["address"], Plugin.__convert_time(start_time))
         except Exception as e:
             print("Plugin Error: ", e)

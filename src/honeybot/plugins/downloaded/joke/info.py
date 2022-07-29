@@ -1,16 +1,13 @@
+NAME = "joke.py"
+ORIGINAL_AUTHORS = ["Abdur-Rahmaan Janhangeer, pythonmembers.club"]
 
-NAME = 'joke.py'
-ORIGINAL_AUTHORS = [
-    'Abdur-Rahmaan Janhangeer, pythonmembers.club'
-]
-
-ABOUT = '''
+ABOUT = """
 sends a random joke on request
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .joke
 returns a random joke
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

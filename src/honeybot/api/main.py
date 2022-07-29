@@ -10,6 +10,7 @@ import os
 import pathlib
 import pkg_resources
 import subprocess
+
 # import setuptools
 # from pathlib import Path
 
@@ -37,20 +38,18 @@ class Bot_core(object):
     def __init__(self, info, password=""):
         self.info = info
         connect_config = configparser.ConfigParser()
-        connect_config.read(os.path.join(
-            self.info['settings_path'],
-            'CONNECT.conf'))
-        self.settings_path = self.info['settings_path']
-        self.root_path = self.info['cwd']
+        connect_config.read(os.path.join(self.info["settings_path"], "CONNECT.conf"))
+        self.settings_path = self.info["settings_path"]
+        self.root_path = self.info["cwd"]
         self.server_url = connect_config["INFO"]["server_url"]
         self.port = int(connect_config["INFO"]["port"])
         self.name = connect_config["INFO"]["name"]
-        self.owners = configfile_to_list(self.info['settings_path'], "OWNERS")
+        self.owners = configfile_to_list(self.info["settings_path"], "OWNERS")
         self.password = password
-        self.friends = configfile_to_list(self.info['settings_path'], "FRIENDS")
+        self.friends = configfile_to_list(self.info["settings_path"], "FRIENDS")
         self.autojoin_channels = configfile_to_list(
-            self.info['settings_path'],
-            "AUTOJOIN_CHANNELS")
+            self.info["settings_path"], "AUTOJOIN_CHANNELS"
+        )
         self.required_modules = get_requirements()
         self.time = time.time()
 
@@ -134,8 +133,9 @@ class Bot_core(object):
     """
     PLUGIN UTILS
     """
+
     def is_valid_plug_name(self, name):
-        if ((name.startswith('__')) or (name == "")):
+        if (name.startswith("__")) or (name == ""):
             return False
 
         return True
@@ -145,10 +145,10 @@ class Bot_core(object):
     """
 
     def print_running_infos(self):
-        print('Run infos:')
+        print("Run infos:")
         for key in self.info:
             print(key, self.info[key])
-        print('-' * 3)
+        print("-" * 3)
 
     def load_plugins_from_folder(self, category_folder, from_conf=None, from_dir=None):
 
@@ -161,31 +161,39 @@ class Bot_core(object):
                 to_load = f.read().split("\n")
                 to_load = list(filter(lambda x: x != "", to_load))
 
-        print('Loading', category_folder)
+        print("Loading", category_folder)
         for folder in to_load:
             print("loading plugin:", folder)
             try:
                 sys.path.append(self.root_path)
                 module = importlib.import_module(
-                    "plugins.{}.{}.main".format(category_folder, folder))
+                    "plugins.{}.{}.main".format(category_folder, folder)
+                )
                 obj = module
                 self.plugins.append(obj)
             except ModuleNotFoundError as e:
                 logger.warning(f"{folder}: module import error, skipped' {e}")
 
             try:
-                req_path = os.path.join(self.info['cwd'], 'plugins',
-                                        category_folder, folder, 'requirements.txt')
+                req_path = os.path.join(
+                    self.info["cwd"],
+                    "plugins",
+                    category_folder,
+                    folder,
+                    "requirements.txt",
+                )
                 if os.path.exists(req_path):
                     with pathlib.Path(req_path).open() as requirements_txt:
                         install_requires = [
                             str(requirement)
-                            for requirement
-                            in pkg_resources.parse_requirements(requirements_txt)
+                            for requirement in pkg_resources.parse_requirements(
+                                requirements_txt
+                            )
                         ]
-                        print('installing', install_requires)
-                        subprocess.check_call([sys.executable, '-m', 'pip',
-                                               'install', *install_requires])
+                        print("installing", install_requires)
+                        subprocess.check_call(
+                            [sys.executable, "-m", "pip", "install", *install_requires]
+                        )
             except Exception as e:
                 logger.debug(e)
 
@@ -203,12 +211,12 @@ class Bot_core(object):
         logger.info("Loading plugins...")
 
         conf_path = os.path.join(self.settings_path, "PLUGINS.conf")
-        dir_path = os.path.join(self.info['plugins_path'], 'core')
-        self.load_plugins_from_folder('downloaded', from_conf=conf_path)
-        self.load_plugins_from_folder('core', from_dir=dir_path)
+        dir_path = os.path.join(self.info["plugins_path"], "core")
+        self.load_plugins_from_folder("downloaded", from_conf=conf_path)
+        self.load_plugins_from_folder("core", from_dir=dir_path)
 
         logger.info("Loaded plugins")
-        print('---')
+        print("---")
 
     def run_plugins(self, incoming):
         """
@@ -261,8 +269,7 @@ class Bot_core(object):
 
                 if len(data) == 0:
                     try:
-                        logger.critical(
-                            f"<must handle reconnection - {len(data)}==0>")
+                        logger.critical(f"<must handle reconnection - {len(data)}==0>")
                         sys.exit()
                     except Exception as e:
                         logger.info(e)
@@ -275,8 +282,7 @@ class Bot_core(object):
 
     def stay_alive(self, incoming):
         if not incoming:
-            logger.critical(
-                "<must handle reconnection - incoming is not True>")
+            logger.critical("<must handle reconnection - incoming is not True>")
             sys.exit()
         parts = incoming.split(":")
         if parts[0].strip().lower() == "ping":

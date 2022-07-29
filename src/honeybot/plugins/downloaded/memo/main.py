@@ -28,9 +28,9 @@ class Plugin:
             if info["command"] == "PRIVMSG" and msgs[0] == ".memo" and msgs[1] == "rem":
                 methods["mem_rem"]("global", "VALUES", msgs[2])
             if (
-                info["command"] == "PRIVMSG" and
-                msgs[0] == ".memo" and
-                msgs[1] == "fetch"
+                info["command"] == "PRIVMSG"
+                and msgs[0] == ".memo"
+                and msgs[1] == "fetch"
             ):
                 try:
                     val = methods["mem_fetch"]("global", "VALUES", msgs[2])

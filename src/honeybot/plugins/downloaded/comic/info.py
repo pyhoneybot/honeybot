@@ -1,16 +1,13 @@
+NAME = "comic.py"
+ORIGINAL_AUTHORS = ["Miguel Boekhold"]
 
-NAME = 'comic.py'
-ORIGINAL_AUTHORS = [
-    'Miguel Boekhold'
-]
-
-ABOUT = '''
+ABOUT = """
 Returns a random comic from xkcd
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .comic
 returns a url of a random comic
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

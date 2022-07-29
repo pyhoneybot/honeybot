@@ -1,16 +1,13 @@
+NAME = "proverb.py"
+ORIGINAL_AUTHORS = ["Sushant Kumar"]
 
-NAME = 'proverb.py'
-ORIGINAL_AUTHORS = [
-    'Sushant Kumar'
-]
-
-ABOUT = '''
+ABOUT = """
 sends a random proverb on request
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .proverb
 returns a random proverb
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""
