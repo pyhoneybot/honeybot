@@ -44,12 +44,16 @@ jobs:
           pip install flake8 bandit
 
       # Run PEP8 style check
-      - name: PEP8 style check
-        run: |
-          flake8 --config=setup.cfg src/honeybot/
+      # - name: flake8 PEP8 style check
+      #  run: |
+      #    flake8 --config=setup.cfg src/honeybot/
+      
+      # Run PEP8 style check
+      # - name: black PEP8 style check
+      #  run: |
 
       # Run security checks
-      - name: Security checks
+      - name: bandit Security checks
         run: |
           bandit -ll -r . -x "./.git,./.github,./.idea,/__pycache__,/venv,./workshop,./src/honeybot/plugins/downloaded/calc/main.py,./src/honeybot/plugins/downloaded/monopoly/main.py,./build/lib/honeybot/plugins/downloaded/calc/main.py,./build/lib/honeybot/plugins/downloaded/monopoly/main.py"
 
