@@ -1,6 +1,6 @@
+import os
 import shutil
 from pathlib import Path  # noqa E402
-import os
 
 CURRENT_DIR = Path(__file__).parent
 MAIN_DIR = CURRENT_DIR.parent

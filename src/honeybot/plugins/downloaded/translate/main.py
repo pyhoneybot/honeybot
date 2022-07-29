@@ -89,18 +89,14 @@ Welsh 	    cy
 Yiddish 	yi
 """
 
-import os.path
-import urllib.parse
 import gzip
 import json
+import os.path
+import urllib.parse
+from urllib.request import (HTTPDefaultErrorHandler, HTTPError,
+                            HTTPRedirectHandler, build_opener, urlparse)
+
 from httplib2 import FileCache, Http
-from urllib.request import (
-    HTTPRedirectHandler,
-    HTTPDefaultErrorHandler,
-    HTTPError,
-    build_opener,
-    urlparse,
-)
 
 # Hard-coded variables ###
 

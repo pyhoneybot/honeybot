@@ -24,8 +24,8 @@ move on to next player
 """
 
 
-import poker_assets.deck
 import poker_assets.card
+import poker_assets.deck
 import poker_assets.hand
 import poker_assets.player
 

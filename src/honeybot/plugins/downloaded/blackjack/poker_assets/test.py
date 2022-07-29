@@ -2,10 +2,10 @@
 
 import board
 import deck
+import game_init
 import hand
 import player
 import pot
-import game_init
 
 # import game_init
 

@@ -16,10 +16,11 @@ returns global coronavirus information
 .corona <<country>>
 returns coronavirus information for a specific country
 """
-from bs4 import BeautifulSoup
-import requests
 import datetime
 import string
+
+import requests
+from bs4 import BeautifulSoup
 
 
 class Plugin:

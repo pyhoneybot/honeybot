@@ -24,9 +24,9 @@ returns universally accepted alphanumeric password with
 special characters of specified length where length >= 4
 """
 
-import string
 import random
 import secrets
+import string
 
 
 class Plugin:

@@ -14,9 +14,10 @@ Responds to .sysinfo, gets System Information of the host.
 returns General System Information, Boot Date and time, CPU information,
 Memory information, Disk Information and Network Information.
 """
-import psutil
 import platform
 from datetime import datetime
+
+import psutil
 
 
 class Plugin:

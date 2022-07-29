@@ -23,9 +23,9 @@ EX:// ".mail test@email.com .body testing body for honeybot email
  .subject testing subject"
 
 """
+import configparser
 import smtplib
 from email.mime.text import MIMEText
-import configparser
 
 # open config file for user credentials to email
 email_config = configparser.ConfigParser()

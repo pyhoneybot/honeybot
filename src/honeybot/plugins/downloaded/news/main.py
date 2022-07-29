@@ -12,8 +12,8 @@ Gets the top 10 headlines around the world from bbc world news
 >>> .news
 returns string of ten news headlines with newlines between
 """
-from bs4 import BeautifulSoup
 import requests
+from bs4 import BeautifulSoup
 
 
 class Plugin:

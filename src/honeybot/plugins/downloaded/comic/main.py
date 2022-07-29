@@ -14,8 +14,9 @@ Returns a random comic from xkcd
 returns a url of a random comic
 """
 
-import requests
 from random import randint
+
+import requests
 
 
 class Plugin:

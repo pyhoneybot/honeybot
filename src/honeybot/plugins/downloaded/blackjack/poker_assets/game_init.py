@@ -2,8 +2,8 @@
 
 # pylint: disable=E1601, W0612
 
-import deck
 import board
+import deck
 import hand
 import player
 import pot

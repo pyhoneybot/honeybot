@@ -69,25 +69,20 @@ __author__ = 'Abdur-Rahmaan Janhangeer'
 #.                                    imports                                    #
 #.################################################################################
 
-from tkinter import*
-
+import _thread  # unused
+import json
+import math
+import os
+import random
 import re
-
 import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from email.header import Header
-
-import _thread#unused
 import socket
 import time
-import os
-
 import urllib.request
-import json
-
-import random
-import math
+from email.header import Header
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from tkinter import *
 
 #from wordpress_xmlrpc import Client, WordPressPost
 #from wordpress_xmlrpc.methods import posts # NewPost
