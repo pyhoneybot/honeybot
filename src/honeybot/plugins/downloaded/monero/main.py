@@ -17,8 +17,9 @@ Currency must be a 3-letter capital string.
 Examples: USD, EUR, BTC, GBP
 """
 
-from requests import Session
 import json
+
+from requests import Session
 
 
 class Plugin:

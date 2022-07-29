@@ -14,8 +14,9 @@ returns the conversion: amount argument is optional with a default of 1
 .convert help
 shows a list of currencies supported
 """
-import requests
 import math
+
+import requests
 from bs4 import BeautifulSoup
 
 

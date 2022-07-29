@@ -47,8 +47,8 @@ shows information about a property
 
 import random
 
-import monopoly_assets.monopoly_player
 import monopoly_assets.monopoly_assets
+import monopoly_assets.monopoly_player
 
 
 class Plugin:

@@ -1,6 +1,6 @@
-import os
 import importlib
 import json
+import os
 
 BASE_DIR = "plugins/downloaded"
 STORE_DIR = "../../honeybot-store"

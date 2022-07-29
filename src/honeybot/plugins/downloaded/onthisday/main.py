@@ -11,10 +11,11 @@ Gets an interesting fact about today!
 returns fact's about today
 """
 
-import requests
 import datetime
 import json
 import random
+
+import requests
 
 # URL where we are getting the facts from:
 URL = "https://byabbe.se/on-this-day/"

@@ -3,23 +3,22 @@
 import configparser
 import importlib
 import logging
-import socket
-import sys
-import time
 import os
 import pathlib
-import pkg_resources
+import socket
 import subprocess
+import sys
+import time
+
+import pkg_resources
 
 # import setuptools
 # from pathlib import Path
 
 try:
-    from honeybot.api import commands
-    from honeybot.api.utils import prevent_none
-    from honeybot.api.utils import configfile_to_list
-    from honeybot.api.utils import get_requirements
-    from honeybot.api import memory
+    from honeybot.api import commands, memory
+    from honeybot.api.utils import (configfile_to_list, get_requirements,
+                                    prevent_none)
 except Exception as e:
     raise e
 

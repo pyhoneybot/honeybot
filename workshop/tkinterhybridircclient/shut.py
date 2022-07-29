@@ -4,22 +4,19 @@ __author__ = 'me'
 
 #me and david salinas #irc clent / tkinter dev is moxi
 
-import socket
-import tkinter
-from tkinter import *
-import time
-import os
-
-import urllib.request
 import json
-
-import threading
-import random
-import multiprocessing
-from multiprocessing import Queue
-import queue
-
 import math
+import multiprocessing
+import os
+import queue
+import random
+import socket
+import threading
+import time
+import tkinter
+import urllib.request
+from multiprocessing import Queue
+from tkinter import *
 
 localtime = time.asctime( time.localtime(time.time()) )
 key='put here your code'

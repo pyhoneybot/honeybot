@@ -7,24 +7,21 @@ __author__ = 'me' #Abdur-Rahmaan Janhangeer'
 #Honeybot's disparities in code style is because of a trying out of Python
 #see the features in the honeybotfeatures.txt 
 
-import socket
-import tkinter
-from tkinter import *
-import time
-import os
-import sys
-
-import urllib.request
 import json
-
-import threading
-import random
-import multiprocessing
-from multiprocessing import Queue
-import queue
-
 import math
+import multiprocessing
+import os
+import queue
+import random
+import socket
+import sys
+import threading
+import time
+import tkinter
+import urllib.request
 from datetime import datetime
+from multiprocessing import Queue
+from tkinter import *
 
 localtime = time.asctime( time.localtime(time.time()) )
 WUNDERGROUND_KEY=''

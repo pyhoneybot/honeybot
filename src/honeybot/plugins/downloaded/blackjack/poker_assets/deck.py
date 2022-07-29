@@ -3,6 +3,7 @@
 # pylint: disable=E1601, W0612
 
 import random
+
 import card
 
 
