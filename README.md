@@ -12,6 +12,7 @@
 [![First Timers Only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg)](https://www.firsttimersonly.com/)
 ![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-pink.svg)
 ![Made in Moris](https://img.shields.io/badge/Made%20in-Moris-green.svg)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/pyhoneybot/honeybot/badge)](https://api.securityscorecards.dev/projects/github.com/pyhoneybot/honeybot)
 
 🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳 🇬🇧 🇬🇬 🇧🇷 🇸🇽 🇵🇱 🇩🇪
 
