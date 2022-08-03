@@ -31,9 +31,7 @@ class Plugin:
             # msgs = info['args'][1:][0].split()
 
             if info["command"] == "PRIVMSG" and info["args"][1] == ".btc":
-                response = requests.get(
-                    "https://api.coinmarketcap.com/v1/ticker/bitcoin/"
-                )
+                response = requests.get("https://api.coinmarketcap.com/v1/ticker/bitcoin/")
                 response_json = response.json()
                 methods["send"](info["address"], "$" + response_json[0]["price_usd"])
 

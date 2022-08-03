@@ -108,15 +108,7 @@ class Plugin:
             return "invalid amount entered, it must be a number. default is 1"
         else:
             base_url = "https://www.x-rates.com/calculator/?"
-            url = (
-                base_url
-                + "from="
-                + base_cur
-                + "&to="
-                + target_cur
-                + "&amount="
-                + str(amount)
-            )
+            url = base_url + "from=" + base_cur + "&to=" + target_cur + "&amount=" + str(amount)
             page = requests.get(url)
             soup = BeautifulSoup(page.text, "html.parser")
 
@@ -130,13 +122,9 @@ class Plugin:
             msgs = info["args"][1:][0].split()
             if info["command"] == "PRIVMSG" and msgs[0] == ".convert":
                 if len(msgs) == 3:
-                    methods["send"](
-                        info["address"], Plugin.conv(self, msgs[1], msgs[2])
-                    )
+                    methods["send"](info["address"], Plugin.conv(self, msgs[1], msgs[2]))
                 elif len(msgs) == 4:
-                    methods["send"](
-                        info["address"], Plugin.conv(self, msgs[1], msgs[2], msgs[3])
-                    )
+                    methods["send"](info["address"], Plugin.conv(self, msgs[1], msgs[2], msgs[3]))
                 elif len(msgs) == 2 and msgs[1] == "help":
                     methods["send"](info["address"], Plugin.help(self, methods, info))
                 elif len(msgs) == 2 and msgs[1] != "help":
@@ -151,9 +139,7 @@ class Plugin:
                     )
                     methods["send"](info["address"], "or help")
                 elif len(msgs) == 1:
-                    methods["send"](
-                        info["address"], "converter plugin requires arguments:"
-                    )
+                    methods["send"](info["address"], "converter plugin requires arguments:")
                     methods["send"](
                         info["address"], "either two currencies with an optional amount"
                     )

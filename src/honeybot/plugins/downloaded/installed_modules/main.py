@@ -34,9 +34,7 @@ class Plugin:
                         print("not found:", module)
                         not_found.append(module)
                 if not_found:
-                    methods["send"](
-                        info["address"], "not found:{}".format("-".join(not_found))
-                    )
+                    methods["send"](info["address"], "not found:{}".format("-".join(not_found)))
                 else:
                     methods["send"](info["address"], "all required modules installed")
         except Exception as e:

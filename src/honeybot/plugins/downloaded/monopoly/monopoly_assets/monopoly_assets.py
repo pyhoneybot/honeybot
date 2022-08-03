@@ -51,12 +51,7 @@ class Property(Space):
 
     def info(self):
         information = [
-            self.name
-            + " is a "
-            + self.color
-            + " property that costs "
-            + str(self.price)
-            + ".",
+            self.name + " is a " + self.color + " property that costs " + str(self.price) + ".",
             "It currently has " + str(self.house_count) + " houses.",
             "With no houses rent is " + str(self.rents[0]) + ".",
             "With 1 house rent is " + str(self.rents[1]) + ".",
@@ -80,12 +75,8 @@ class Railroad(Space):
             self.name + " is a railroad that costs " + str(self.price) + ".",
             "If a player has one railroad only the rent is " + str(self.rents[1]) + ".",
             "If a player has two railroads the rent is " + str(self.rents[2]) + ".",
-            "If a player has three railroads only the rent is "
-            + str(self.rents[3])
-            + ".",
-            "If a player has four railroads only the rent is "
-            + str(self.rents[4])
-            + ".",
+            "If a player has three railroads only the rent is " + str(self.rents[3]) + ".",
+            "If a player has four railroads only the rent is " + str(self.rents[4]) + ".",
         ]
         return " ".join(information)
 

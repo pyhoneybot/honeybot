@@ -21,9 +21,7 @@ class Plugin:
         pass
 
     def news(self):
-        response = requests.get(
-            "https://www.bbc.co.uk/news/world"
-        )  # gets the world news
+        response = requests.get("https://www.bbc.co.uk/news/world")  # gets the world news
         doc = BeautifulSoup(response.text, "html.parser")  # parses website
         headlines = doc.find_all("h3")  # finds headlines
         # now headlines have a newline at the start and the end so

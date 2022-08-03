@@ -45,14 +45,12 @@ class Plugin:
             "He that falls in love with himself will have no rivals.",
             "Nothing is impossible, the word itself says 'I'm possible'!",
             "It is hard to fail, but it is worse never to have tried to succeed.",
-            "Don't judge each day by the harvest you reap "
-            + "but by the seeds that you plant.",
+            "Don't judge each day by the harvest you reap " + "but by the seeds that you plant.",
             "Do not dwell in the past, do not dream of the future, "
             + "concentrate the mind on the present moment.",
             "I’m a success today because I had a friend who believed in me "
             + "and I didn’t have the heart to let him down.",
-            "The only thing necessary for the triumph of evil "
-            + "is for good men to do nothing.",
+            "The only thing necessary for the triumph of evil " + "is for good men to do nothing.",
             "Love yourself first and everything else falls into line. "
             + "You really have to love yourself to get anything done in this world.",
             "One of the most beautiful qualities of true friendship "
@@ -75,15 +73,13 @@ class Plugin:
             "Do all things with love.",
             "The only impossible journey is the one you never begin.",
             "Blessed are the hearts that can bend; they shall never be broken.",
-            "It is our choices, that show what we truly are, "
-            + "far more than our abilities.",
+            "It is our choices, that show what we truly are, " + "far more than our abilities.",
             "Love isn't something you find. Love is something that finds you.",
             "Only put off until tomorrow what you are willing to die having left undone.",
             "In three words I can sum up everything I've learned about life: it goes on.",
             "If you want to be happy, be.",
             "Change your thoughts and you change your world.",
-            "Education is the most powerful weapon which "
-            + "you can use to change the world.",
+            "Education is the most powerful weapon which " + "you can use to change the world.",
             "Today you are you! That is truer than true! "
             + "There is no one alive who is you-er than you!",
             "The future belongs to those who believe in the beauty of their dreams.",

@@ -44,9 +44,7 @@ class Plugin:
 
                 result = session.get(api_url, params=params)
                 data = json.loads(result.text)
-                methods["send"](
-                    info["address"], "{} {}".format(data[currency], currency)
-                )
+                methods["send"](info["address"], "{} {}".format(data[currency], currency))
 
         except Exception as e:
             print("woops! monero plugin error:", e)

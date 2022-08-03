@@ -30,9 +30,7 @@ def init_game(players, round):
 
     for i in range(len(PLAYERS)):
 
-        PLAYERS[i].add_position(
-            (len(PLAYERS) * round + (i - (round - 1))) % len(PLAYERS)
-        )
+        PLAYERS[i].add_position((len(PLAYERS) * round + (i - (round - 1))) % len(PLAYERS))
 
     return DECK, BOARD, POT, PLAYERS
 

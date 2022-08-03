@@ -52,9 +52,7 @@ class Plugin:
 
             if info["command"] == "PRIVMSG" and info["args"][1] == ".sysinfo":
                 # System Information.
-                methods["send"](
-                    info["address"], "=" * 40 + "System Information" + "=" * 40
-                )
+                methods["send"](info["address"], "=" * 40 + "System Information" + "=" * 40)
                 uname = platform.uname()
                 methods["send"](info["address"], f"System: {uname.system}")
                 methods["send"](info["address"], f"Node Name: {uname.node}")
@@ -93,28 +91,20 @@ class Plugin:
                 cpufreq = psutil.cpu_freq()
                 methods["send"](info["address"], f"Max Frequency: {cpufreq.max:.2f}Mhz")
                 methods["send"](info["address"], f"Min Frequency: {cpufreq.min:.2f}Mhz")
-                methods["send"](
-                    info["address"], f"Current Frequency: {cpufreq.current:.2f}Mhz"
-                )
+                methods["send"](info["address"], f"Current Frequency: {cpufreq.current:.2f}Mhz")
                 # CPU usage.
                 methods["send"](info["address"], "CPU Usage Per Core:")
                 for i, percentage in enumerate(psutil.cpu_percent(percpu=True)):
                     methods["send"](info["address"], f"Core {i}: {percentage}%")
-                methods["send"](
-                    info["address"], f"Total CPU Usage: {psutil.cpu_percent()}%"
-                )
+                methods["send"](info["address"], f"Total CPU Usage: {psutil.cpu_percent()}%")
 
             if info["command"] == "PRIVMSG" and info["args"][1] == ".memoryinfo":
                 # Memory Information.
-                methods["send"](
-                    info["address"], "=" * 40 + "Memory Information" + "=" * 40
-                )
+                methods["send"](info["address"], "=" * 40 + "Memory Information" + "=" * 40)
                 # Get the memory details.
                 svmem = psutil.virtual_memory()
                 methods["send"](info["address"], f"Total: {self.get_size(svmem.total)}")
-                methods["send"](
-                    info["address"], f"Available: {self.get_size(svmem.available)}"
-                )
+                methods["send"](info["address"], f"Available: {self.get_size(svmem.available)}")
                 methods["send"](info["address"], f"Used: {self.get_size(svmem.used)}")
                 methods["send"](info["address"], f"Percentage: {svmem.percent}%")
                 methods["send"](info["address"], "=" * 20 + "SWAP" + "=" * 20)
@@ -127,9 +117,7 @@ class Plugin:
 
             if info["command"] == "PRIVMSG" and info["args"][1] == ".networkinfo":
                 # Network information
-                methods["send"](
-                    info["address"], "=" * 40 + "Network Information" + "=" * 40
-                )
+                methods["send"](info["address"], "=" * 40 + "Network Information" + "=" * 40)
                 # Get all network interfaces (virtual and physical).
                 if_addrs = psutil.net_if_addrs()
                 for interface_name, interface_addresses in if_addrs.items():
@@ -161,10 +149,7 @@ class Plugin:
                 # Disk Information
                 methods["send"](
                     info["address"],
-                    "=" * 40
-                    + "Disk Information"
-                    + "=" * 40
-                    + "\nPartitions and Usage:",
+                    "=" * 40 + "Disk Information" + "=" * 40 + "\nPartitions and Usage:",
                 )
                 # Get all disk partitions.
                 partitions = psutil.disk_partitions()

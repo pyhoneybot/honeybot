@@ -93,8 +93,13 @@ import gzip
 import json
 import os.path
 import urllib.parse
-from urllib.request import (HTTPDefaultErrorHandler, HTTPError,
-                            HTTPRedirectHandler, build_opener, urlparse)
+from urllib.request import (
+    HTTPDefaultErrorHandler,
+    HTTPError,
+    HTTPRedirectHandler,
+    build_opener,
+    urlparse,
+)
 
 from httplib2 import FileCache, Http
 

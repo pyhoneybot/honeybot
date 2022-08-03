@@ -39,8 +39,7 @@ FACT_LIST = [
     + "Instead, they played piano music."
     "Amelia Earhart and Eleanor Roosevelt once sneaked out of a White"
     + "House event, commandeered an airplane, and went on a joyride to Baltimore."
-    "The 100 folds in a chef's toque are said to represent 100 ways "
-    + "to cook an egg."
+    "The 100 folds in a chef's toque are said to represent 100 ways " + "to cook an egg."
     "The world’s oldest surviving piano is at the Metropolitan Museum of Art "
     + "in New York City. The instrument dates back to 1720, and was made by "
     + "an Italian man named Bartolomeo Cristofori."
@@ -50,16 +49,14 @@ FACT_LIST = [
     + "price reached $3,000 before it was shut down.",
     "Google's founders were willing to sell to excite for under $1 million"
     + " in 1999--but excite turned them down.",
-    "There was a third Apple founder. Ronald Wayne sold his 10% stake "
-    + "for $800 in 1976.",
+    "There was a third Apple founder. Ronald Wayne sold his 10% stake " + "for $800 in 1976.",
     "Reed Hastings was inspired to start Netflix after racking up a "
     + "$40 late fee on a VHS copy of Apollo 13.",
     "During WWI, German measles were called 'Liberty Measles' and "
     + "dachshunds became 'liberty hounds.'",
     "A 2009 search for the loch ness monster came up empty. "
     + "Scientists did find over 100,000 golf balls.",
-    "In Japan, letting a sumo wrestler make your baby cry is considered "
-    + "good luck.",
+    "In Japan, letting a sumo wrestler make your baby cry is considered " + "good luck.",
     "When three-letter airport codes became a standard, airports that "
     + "been using two letters simply added an X.",
     "The actor who was inside R2-D2 hated the guy who played C-3PO, "
@@ -95,8 +92,7 @@ FACT_LIST = [
     "12+1 = 11+2, and 'Twelve plus one' is an anagram of 'eleven plus " + "two'.",
     "At the height of Rin Tin Tin's fame, a chef prepared him a daily "
     + "steak lunch. Classical musicians played to aid his digestion.",
-    "The Arkansas school for the Deaf's nickname is the Leopards. The "
-    + "Deaf Leopards.",
+    "The Arkansas school for the Deaf's nickname is the Leopards. The " + "Deaf Leopards.",
     "If your dog's feet smell like corn chips, you're not alone. The term"
     + "'Frito feet' was coined to describe the scent.",
     "Barry Manilow did not write his hit 'I Write the Songs'.",
@@ -109,15 +105,13 @@ FACT_LIST = [
     "The medical term for ice cream headaches is Sphenopalatine " + "Ganglioneuralgia.",
     "After Leonardo Da Vinci's death, King Francis I of France hung "
     + "the 'Mona Lisa' in his bathroom.",
-    "Redondo Beach, CA adopted the Goodyear Blimp as the cit's official "
-    + "bird in 1983.",
+    "Redondo Beach, CA adopted the Goodyear Blimp as the cit's official " + "bird in 1983.",
     "In 2001, Beaver College changed its name to Arcadia in part because "
     + "anti-porn filters blocked access to the school's website.",
     "Quentin Tarantino played an Elvis impersonator on 'The Golden Girls'.",
     "Wendy's founder Dave Thomas dropped out of high school but picked "
     + "up his GED in 1993. His GED class voted him most likely to succeed.",
-    "Sleeping through winter is hibernation, while sleeping through "
-    + "summer is estivation.",
+    "Sleeping through winter is hibernation, while sleeping through " + "summer is estivation.",
     "In Qaddafi's compound, Libyan rebels found a photo album filled "
     + "with pictures of Condoleezza Rice.",
     "Marie Curie's notebooks are still radioactive. Researchers hoping "
@@ -126,8 +120,7 @@ FACT_LIST = [
     + "$1,000, and James Madison was on the $5,000.",
     "In 1999, the U.S. government paid the Zapruder family $16 million "
     + "for the film of JFK's assassination.",
-    "Janis Joplin left $2,500 in her will for her friends to 'Have a "
-    + "ball after I'm gone.",
+    "Janis Joplin left $2,500 in her will for her friends to 'Have a " + "ball after I'm gone.",
     "In the mid-1960's, Slumber Party Barbie came with a book called "
     + "'How to Lose Weight.' One of the tips was 'Don't Eat.'",
     "Ben & Jerry originally considered getting into the bagel business, "
@@ -141,8 +134,7 @@ FACT_LIST = [
     + "Ladies' for protection at an economic summit. She declined.",
     "Before Google launched Gmail, 'G-Mail' was the name of a free email "
     + "service offered by Garfield's website.",
-    "The final speech by Gregory Peck in 'To Kill a Mockingbird' was "
-    + "done in one take.",
+    "The final speech by Gregory Peck in 'To Kill a Mockingbird' was " + "done in one take.",
     "In 1980, Detroit presented Saddam Hussein with a key to the city.",
     "Crayola means 'oily chalk.' The name combines 'craie' (French for "
     + "'chalk') and 'ola'(short for 'oleaginous,' or 'oily').",
@@ -164,6 +156,5 @@ FACT_LIST = [
     "Italy has the most UNECO sites in the world",
     "Space is completly silent",
     "The sunset on Mars appears blue",
-    'In the early drafts of "Star Wars: The Empire Strikes Back", '
-    + "Yoda was named Buffy.",
+    'In the early drafts of "Star Wars: The Empire Strikes Back", ' + "Yoda was named Buffy.",
 ]

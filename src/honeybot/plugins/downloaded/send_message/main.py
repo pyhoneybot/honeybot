@@ -75,9 +75,7 @@ class Plugin:
         message = ""
         for word in msgs[2:]:
             message += word + " "
-        complete_message = "{0} from {1} says: {2}".format(
-            sender, sender_channel, message.rstrip()
-        )
+        complete_message = "{0} from {1} says: {2}".format(sender, sender_channel, message.rstrip())
         return complete_message
 
     def send_specific_message(msgs, recipient, sender, sender_channel):

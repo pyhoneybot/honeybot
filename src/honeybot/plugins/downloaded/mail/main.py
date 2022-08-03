@@ -105,9 +105,7 @@ class Plugin:
                     SUBJECT_INDEX = msgs.index(
                         ".subject"
                     )  # gets index for ".subject" used in body, and subject functions
-                    MAX_INDEX = len(
-                        msgs
-                    )  # gets max index to know the max indexing value
+                    MAX_INDEX = len(msgs)  # gets max index to know the max indexing value
 
                     BODY = Plugin.body(
                         BODY_INDEX, SUBJECT_INDEX, msgs

@@ -34,15 +34,11 @@ class Plugin:
                 # The news section is the first <div class='shrubbery'> in the page
                 # So get all the links in that section
                 news_links = (
-                    html.find("div", class_="shrubbery")
-                    .find("ul", class_="menu")
-                    .find_all("a")
+                    html.find("div", class_="shrubbery").find("ul", class_="menu").find_all("a")
                 )
                 # Iterate through the links, send each one to the chat with its
                 # associated title (a.contents[0])
                 for a in news_links:
-                    methods["send"](
-                        info["address"], ": ".join([a.contents[0], a["href"]])
-                    )
+                    methods["send"](info["address"], ": ".join([a.contents[0], a["href"]]))
         except Exception as e:
             print("woops plugin", __file__, e)

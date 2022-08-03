@@ -80,9 +80,7 @@ class Plugin:
         user = raw_user[0:user_index]
 
         if os.stat("todo.txt").st_size == 0:
-            methods["send"](
-                info["address"], "Awesome " + user + ". You Have No Task Pending!"
-            )
+            methods["send"](info["address"], "Awesome " + user + ". You Have No Task Pending!")
         else:
             methods["send"](info["address"], "Hi, " + user + ". These are your tasks.")
             with open("todo.txt", "r") as f:

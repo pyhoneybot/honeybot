@@ -43,9 +43,7 @@ class Plugin:
                     for link in Plugin.__google(term):
                         methods["send"](info["address"], link)
                 else:
-                    methods["send"](
-                        info["address"], "Input error. '.google search_term'."
-                    )
+                    methods["send"](info["address"], "Input error. '.google search_term'.")
 
         except Exception as e:
             print("woops plugin error: ", e)
