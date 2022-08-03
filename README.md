@@ -438,7 +438,7 @@ username
 
 > I came onto this project in October of 2018. At the time, my experience with open source was nil. I wasn't even sure I was good with python; I just happened to be better than everyone in class. Working on HoneyBot really opened my eyes to the power of community and programming, and has sent me on a path I don't wanna turn from. Just seeing how this project has evolved over the past year and how I've grown with it, I wouldn't trade it for the world. My name might not be on any of the recent plugins or doc strings, but I'll never forget that it'll always be tied to this project and a lot of the code. Also, I don't know if they'll check my commit so go look at the C++ Client! It's cool I promise!
 
-## 📧 Contact
+## 📧 Contact (Including vulnerabilities)
 
 ### Email
 
