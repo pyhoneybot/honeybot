@@ -39,8 +39,6 @@ class Plugin:
                     methods["send"](info["address"], "No results")
                 links = soup.find_all("a")
                 for i in range(num_results):
-                    methods["send"](
-                        info["address"], "https://pypi.org" + links[7 + i]["href"]
-                    )
+                    methods["send"](info["address"], "https://pypi.org" + links[7 + i]["href"])
         except Exception as e:
             print("woops plugin error ", e)

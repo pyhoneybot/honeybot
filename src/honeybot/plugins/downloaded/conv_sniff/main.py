@@ -65,9 +65,7 @@ class Plugin:
                                 )
                         elif self.topics[topic]["checkin"] == "S":
                             for word in msgs:
-                                meet = set(self.topics[topic]["elems"]).intersection(
-                                    set(word)
-                                )
+                                meet = set(self.topics[topic]["elems"]).intersection(set(word))
                                 occurs = self.topics[topic]["occurs"]
                                 if meet and len(meet) > occurs - 2:
                                     methods["send"](

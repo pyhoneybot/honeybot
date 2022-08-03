@@ -35,9 +35,7 @@ class Plugin:
         cases = doc.find_all(class_="maincounter-number")
         data = doc.find_all("td")
         if country == "global":
-            most_affected = (
-                []
-            )  # each element is an array as follows [country,cases,deaths]
+            most_affected = []  # each element is an array as follows [country,cases,deaths]
             for index in range(0, 45, 11):
                 most_affected.append(
                     [

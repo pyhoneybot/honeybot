@@ -58,9 +58,7 @@ class Plugin:
                         word = ""
                         if len(msgs) > 2:
                             word = msgs[2]
-                        methods["send"](
-                            info["address"], Plugin.hangman(self, command, word)
-                        )
+                        methods["send"](info["address"], Plugin.hangman(self, command, word))
         except Exception as e:
             print("woops plugin error", e)
 
@@ -154,9 +152,7 @@ class Hangman:
         print(self.gameWord)
         self.display = "-" * len(self.gameWord)
         self.guessCount = len(self.display) + 3
-        self.display_message = " You have {0} guesses remaining.".format(
-            self.guessCount
-        )
+        self.display_message = " You have {0} guesses remaining.".format(self.guessCount)
         self.endGame = False
         self.endMessage = "You shouldn't be able to see this."
 
@@ -232,9 +228,7 @@ class Hangman:
             )
             self.endGame = True
         else:
-            self.display_message = " You have {0} guesses remaining.".format(
-                self.guessCount
-            )
+            self.display_message = " You have {0} guesses remaining.".format(self.guessCount)
 
     # display_screen is to output what the user should see in the game's current
     # state.

@@ -8,8 +8,7 @@ try:
     from honeybot.api.generate import gen_pluginsinfo
     from honeybot.api.init import init
     from honeybot.api.main import Bot_core
-    from honeybot.api.print import (print_connect_settings,
-                                    print_honeybot_manifesto)
+    from honeybot.api.print import print_connect_settings, print_honeybot_manifesto
 except Exception as e:
     print(e)
 

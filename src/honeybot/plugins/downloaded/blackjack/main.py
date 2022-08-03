@@ -53,16 +53,11 @@ class Plugin:
             Plugin.turn += 1
             if Plugin.turn == len(Plugin.player_lst):
                 # all players have find winner
-                total_lst = [
-                    player.show_player_hand().hand_total()
-                    for player in Plugin.player_lst
-                ]
+                total_lst = [player.show_player_hand().hand_total() for player in Plugin.player_lst]
                 index, value = max(list(enumerate(total_lst)), key=lambda x: x[1])
                 if total_lst.count(value) == 1:
                     Plugin.winner = Plugin.player_lst[index].get_name()
-                    methods["send"](
-                        info["address"], "The winner is " + Plugin.winner + "!"
-                    )
+                    methods["send"](info["address"], "The winner is " + Plugin.winner + "!")
                 else:
                     methods["send"](info["address"], "This round has ended in a draw!")
                 Plugin.bj_created = False
@@ -76,9 +71,7 @@ class Plugin:
             if not Plugin.round_started:
                 name = info["prefix"].split("!")[0]
                 if len(Plugin.player_lst) <= 5:  # limit game to 6 players
-                    if not (
-                        name in [player.get_name() for player in Plugin.player_lst]
-                    ):
+                    if not (name in [player.get_name() for player in Plugin.player_lst]):
                         Plugin.player_lst.append(
                             poker_assets.player.Player(
                                 len(Plugin.player_lst), Plugin.starting_chips, name
@@ -86,9 +79,7 @@ class Plugin:
                         )
                         methods["send"](info["address"], name + " joined the game!")
                     else:
-                        methods["send"](
-                            info["address"], "You are already in this round!"
-                        )
+                        methods["send"](info["address"], "You are already in this round!")
                 else:
                     methods["send"](info["address"], "This round is full already")
             else:
@@ -105,10 +96,7 @@ class Plugin:
         name = player.get_name()
         total = player.show_player_hand().hand_total()
         cards = " ".join(
-            [
-                poker_assets.card.show_card()
-                for card in player.show_player_hand().show_hand_obj()
-            ]
+            [poker_assets.card.show_card() for card in player.show_player_hand().show_hand_obj()]
         )
         if total > 21:
             methods["send"](
@@ -158,8 +146,7 @@ class Plugin:
             Plugin.DECK = poker_assets.deck.Deck()
             methods["send"](
                 info["address"],
-                name + " has started a game of blackjack! "
-                "Use .blackjack join to join in!",
+                name + " has started a game of blackjack! " "Use .blackjack join to join in!",
             )
         else:
             methods["send"](info["address"], "A game already exists!")
@@ -186,9 +173,7 @@ class Plugin:
         name = info["prefix"].split("!")[0]
         if Plugin.winner is None:
             if Plugin.player_lst[Plugin.turn].get_name() == name:
-                Plugin.player_lst[Plugin.turn].add_card_to_hand(
-                    Plugin.DECK.draw_random_card()
-                )
+                Plugin.player_lst[Plugin.turn].add_card_to_hand(Plugin.DECK.draw_random_card())
                 Plugin.checkHand(methods, info, Plugin.player_lst[Plugin.turn])
             else:
                 methods["send"](info["address"], "It is not your turn!")
@@ -206,21 +191,16 @@ class Plugin:
                 if Plugin.player_lst[Plugin.turn].get_name() == name:
                     methods["send"](
                         info["address"],
-                        info["prefix"].split("!")[0]
-                        + " has chosen not to pick another card!",
+                        info["prefix"].split("!")[0] + " has chosen not to pick another card!",
                     )
                     Plugin.next_turn(methods, info)
                 else:
                     methods["send"](info["address"], "It is not your turn!")
             else:
-                methods["send"](
-                    info["adress"], "something went wrong, please try restarting"
-                )
+                methods["send"](info["adress"], "something went wrong, please try restarting")
                 Plugin.bj_created = False
         else:
-            methods["send"](
-                info["address"], Plugin.winner + " has already won the game!"
-            )
+            methods["send"](info["address"], Plugin.winner + " has already won the game!")
 
     """
     RUNNING PLUGIN

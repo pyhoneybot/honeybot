@@ -28,9 +28,7 @@ class Plugin:
         if months < 0 or (months == 0 and day < 0):
             years -= 1
 
-        msg = "You are {0}yrs. {1}mo. and {2} days old.".format(
-            years, abs(months), abs(days)
-        )
+        msg = "You are {0}yrs. {1}mo. and {2} days old.".format(years, abs(months), abs(days))
         return msg
 
     def run(self, incoming, methods, info, bot_info):
@@ -38,12 +36,7 @@ class Plugin:
             msgs = info["args"][1:][0].split()
             print(len(msgs))
             if info["command"] == "PRIVMSG" and msgs[0] == ".age":
-                if (
-                    len(msgs) == 4
-                    and len(msgs[1]) < 3
-                    and len(msgs[2]) < 3
-                    and len(msgs[3]) == 4
-                ):
+                if len(msgs) == 4 and len(msgs[1]) < 3 and len(msgs[2]) < 3 and len(msgs[3]) == 4:
                     day = int(msgs[1])
                     mo = int(msgs[2])
                     yr = int(msgs[3])

@@ -38,8 +38,7 @@ class Plugin:
                     if "errors" in flight:  # check for api error
                         methods["send"](
                             info["address"],
-                            "Invalid input! Callsign "
-                            + "should not be more than 10 characters!",
+                            "Invalid input! Callsign " + "should not be more than 10 characters!",
                         )
 
                     else:
@@ -53,21 +52,15 @@ class Plugin:
                             )
 
                         else:
-                            origin = flight["result"]["response"]["data"][0]["airport"][
-                                "origin"
+                            origin = flight["result"]["response"]["data"][0]["airport"]["origin"][
+                                "position"
+                            ]["region"]["city"]
+                            destination = flight["result"]["response"]["data"][0]["airport"][
+                                "destination"
                             ]["position"]["region"]["city"]
-                            destination = flight["result"]["response"]["data"][0][
-                                "airport"
-                            ]["destination"]["position"]["region"]["city"]
                             methods["send"](
                                 info["address"],
-                                "Flight "
-                                + id
-                                + " is from "
-                                + origin
-                                + " to "
-                                + destination
-                                + ".",
+                                "Flight " + id + " is from " + origin + " to " + destination + ".",
                             )
 
                             total = 0
@@ -82,18 +75,14 @@ class Plugin:
                                         "This flight is currently in the air. "
                                         + "The following information is available:",
                                     )
-                                    methods["send"](
-                                        info["address"], f["status"]["text"]
-                                    )
+                                    methods["send"](info["address"], f["status"]["text"])
 
                                 if f["time"]["other"]["duration"] is not None:
                                     total += f["time"]["other"]["duration"]
                                     count += 1
 
                             avgDuration = total / count
-                            mins = int(
-                                5 * round(float(avgDuration) / 5)
-                            )  # round to nearest five
+                            mins = int(5 * round(float(avgDuration) / 5))  # round to nearest five
                             hours = 0
                             while avgDuration >= 60:
                                 mins -= 60

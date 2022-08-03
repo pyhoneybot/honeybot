@@ -17,8 +17,7 @@ import pkg_resources
 
 try:
     from honeybot.api import commands, memory
-    from honeybot.api.utils import (configfile_to_list, get_requirements,
-                                    prevent_none)
+    from honeybot.api.utils import configfile_to_list, get_requirements, prevent_none
 except Exception as e:
     raise e
 

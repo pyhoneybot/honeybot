@@ -23,13 +23,10 @@ class Plugin:
 
     def trivia(self):
         questions = [
-            "Venetian painter Jacopo Robusti was "
-            + "better known by what name?",  # Tintoretto
-            "In what town was FDR's "
-            + '"Little White House" located?',  # Warm Springs, Georgia
+            "Venetian painter Jacopo Robusti was " + "better known by what name?",  # Tintoretto
+            "In what town was FDR's " + '"Little White House" located?',  # Warm Springs, Georgia
             "What is the middle color in a rainbow?",  # Green
-            "Who was the legendary Benedictine monk "
-            + "who invented champagne?",  # Dom Perignon
+            "Who was the legendary Benedictine monk " + "who invented champagne?",  # Dom Perignon
             "Great Whites and Hammerheads are what type of animals?",  # Sharks
             "In which year was Alaska sold " + "to the U.S.?",  # In the year 1867
             "Which famous nurse was known as “The Lady Of The Lamp”"
@@ -49,8 +46,7 @@ class Plugin:
             "By what name are the young of frogs and toads known?",  # Tadpoles
             "What is someone who shoes horses called?",  # A Farrier
             "Where would you find the Sea of Tranquility?",  # The Moon
-            "What item of clothing was named after its "
-            + "Scottish inventor?",  # A Mackintosh
+            "What item of clothing was named after its " + "Scottish inventor?",  # A Mackintosh
             "Who composed the Minute Waltz?",  # Frederic Chopin
             "Who was the first actor to have played the role of James Bond "
             + "in the movie series?",  # Sir Sean Connery
@@ -72,12 +68,10 @@ class Plugin:
             "What kind of weapon is a falchion?",  # A sword.
             "What is the capital city of Spain?",  # Madrid.
             "Which city is the Palace of Versailles nearest to?",  # Paris
-            "What is the antonym of the word "
-            + "‘synonym’?",  # Of course, it is ‘antonym’ itself!
+            "What is the antonym of the word " + "‘synonym’?",  # Of course, it is ‘antonym’ itself!
             "What is the oldest film ever made, and "
             + "when was it made?",  # Roundhay Garden Scene made in 1888.
-            "When was the first atomic bomb "
-            + "dropped?",  # It was dropped on August 6, 1945.
+            "When was the first atomic bomb " + "dropped?",  # It was dropped on August 6, 1945.
             "Who founded the first public library in the U.S.?",  # Benjamin Franklin.
             "Who is known as the Father of the Modern Olympics?",  # Pierre de Coubertin.
             "Which country is Prague in?",  # Czech Republic.
@@ -85,8 +79,7 @@ class Plugin:
             + "of 10 at the Olympics?",  # Nadia Comaneci.
             "Where would you find the world’s most ancient "
             + "forest?",  # Daintree Forest north of Cairns, Australia.
-            "If you suffer from arachnophobia, which animal "
-            + "are you scared of?",  # Spiders.
+            "If you suffer from arachnophobia, which animal " + "are you scared of?",  # Spiders.
             "Which famous ocean liner sank on her first voyage in 1912?",  # The Titanic.
             "Name the only heavyweight boxing champion to finish his career of 49 "
             + "fights without ever having been defeated?",  # Rocky Marciano.

@@ -42,16 +42,13 @@ class Plugin:
             "What do you call a fake noodle? An Impasta.",
             "Did you hear about the restaurant on the moon?"
             + " It had great food but no atmosphere.",
-            "Why do the put fences around grave yards?"
-            + " Because people are dying to get in.",
+            "Why do the put fences around grave yards?" + " Because people are dying to get in.",
             "How do you organize a party on Mars? You planet.",
             "Why do crabs never give to charity? Because they are shellfish.",
-            "What is the difference between an African and Indian Elephant?"
-            + " About 5000 miles.",
+            "What is the difference between an African and Indian Elephant?" + " About 5000 miles.",
             "I don't like to play soccer for money. I play it just for kicks.",
             "How many apples grow on a tree? All of them!",
-            "Did you hear the rumor about the butter?"
-            + " Well, I'm not going to spread it...",
+            "Did you hear the rumor about the butter?" + " Well, I'm not going to spread it...",
             "How does a penguin build his home? Igloos it together!",
             "How to make a tissue dance? Put a little boogie in it!",
             "If you saw a robbery at the Apple store, would you be an iWitness?",
