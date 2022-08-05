@@ -60,7 +60,7 @@ class Plugin:
                         expr = msgs[1]
                         methods["send"](
                             info["address"],
-                            "{}".format(eval(expr, {"__builtins__": None}, safe_dict)),
+                            "{}".format(eval(expr, {"__builtins__": None}, safe_dict)),  # nosec eval_used
                         )
         except Exception as ex:
             print("woops plugin", __file__, ex)
