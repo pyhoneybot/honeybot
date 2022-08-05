@@ -43,10 +43,10 @@ jobs:
           pip install .
           pip install black bandit isort toml tomli
 
-      # Run PEP8 style check
-      # - name: flake8 PEP8 style check
-      #  run: |
-      #    flake8 --config=setup.cfg src/honeybot/
+      # Run imports sort check
+      - name: isort imports sort
+        run: |
+          isort --check-only --settings-path ./pyproject.toml src/honeybot/plugins/downloaded/
       
       # Run PEP8 style check
       - name: black PEP8 style check
