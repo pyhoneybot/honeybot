@@ -41,7 +41,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install 'futures<3.0.0'
           pip install .
-          pip install black bandit isort
+          pip install black bandit isort toml tomli
 
       # Run PEP8 style check
       # - name: flake8 PEP8 style check
