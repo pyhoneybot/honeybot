@@ -49,8 +49,9 @@ jobs:
       #    flake8 --config=setup.cfg src/honeybot/
       
       # Run PEP8 style check
-      # - name: black PEP8 style check
-      #  run: |
+      - name: black PEP8 style check
+        run: |
+          black --check --verbose --config ./pyproject.toml src/honeybot/plugins/downloaded/
 
       # Run security checks
       - name: bandit Security checks
