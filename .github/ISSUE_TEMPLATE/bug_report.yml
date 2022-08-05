@@ -1,0 +1,62 @@
+name: Bug Report
+description: File a bug report
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: report
+    attributes:
+      label: What happened?
+      description: Tell us more about the specific bug, you can also include screenshots.
+      placeholder: |
+        **Version**: x.x.x 
+        **Operating System**: Linux/macOS/Win/Other 
+
+        #### **Steps**:
+        1. 
+        2. 
+        3. 
+        4. 
+
+        #### **Expected behavior**: 
+
+        #### **Additional information**: 
+
+        #### **Screenshot**:
+
+      value: |
+        **Version**: x.x.x 
+        **Operating System**: Linux/macOS/Win/Other 
+
+        #### **Steps**:
+        1. 
+        2. 
+        3. 
+        4. 
+
+        #### **Expected behavior**: 
+
+        #### **Additional information**: 
+
+        #### **Screenshot**:
+
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: python
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/pyhoneybot/honeybot/blob/master/CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

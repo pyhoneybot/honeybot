@@ -2,22 +2,22 @@
 
 # pylint: disable=E1601, W0612
 
-import deck
 import board
+import deck
 import hand
 import player
 import pot
 
 
 def init_players(nr_of_players, starting_chips):
-    """ players initialization """
+    """players initialization"""
 
     PLAYERS = [player.Player(i, starting_chips) for i in range(nr_of_players)]
     return PLAYERS
 
 
 def init_game(players, round):
-    """ table initialization """
+    """table initialization"""
 
     DECK = deck.Deck()
     BOARD = board.Board(DECK.make_board())
@@ -30,9 +30,7 @@ def init_game(players, round):
 
     for i in range(len(PLAYERS)):
 
-        PLAYERS[i].add_position(
-            (len(PLAYERS) * round + (i - (round - 1))) % len(PLAYERS)
-        )
+        PLAYERS[i].add_position((len(PLAYERS) * round + (i - (round - 1))) % len(PLAYERS))
 
     return DECK, BOARD, POT, PLAYERS
 

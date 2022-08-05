@@ -15,9 +15,10 @@ returns starcount stars | forkcount forks
 """
 
 
-import requests
-import bs4 as bs
 from urllib.parse import urlparse
+
+import bs4 as bs
+import requests
 
 
 class Plugin:

@@ -11,10 +11,11 @@ Gets an interesting fact about today!
 returns fact's about today
 """
 
-import requests
 import datetime
 import json
 import random
+
+import requests
 
 # URL where we are getting the facts from:
 URL = "https://byabbe.se/on-this-day/"
@@ -30,23 +31,23 @@ class Plugin:
                 # Make the request and include the month and day
                 dt = datetime.datetime.today()
                 r = requests.get(
-                    "https://byabbe.se/on-this-day/" +
-                    str(dt.month) +
-                    "/" +
-                    str(dt.day) +
-                    "/events.json"
+                    "https://byabbe.se/on-this-day/"
+                    + str(dt.month)
+                    + "/"
+                    + str(dt.day)
+                    + "/events.json"
                 )
 
                 events = json.loads(r.content)
                 # Pick out a random fact to print
                 randomChoice = random.choice(events["events"])
                 onthisday = (
-                    "On this day in" +
-                    randomChoice["year"] +
-                    "," +
-                    randomChoice["description"] +
-                    "Read more @" +
-                    randomChoice["wikipedia"][0]["wikipedia"]
+                    "On this day in"
+                    + randomChoice["year"]
+                    + ","
+                    + randomChoice["description"]
+                    + "Read more @"
+                    + randomChoice["wikipedia"][0]["wikipedia"]
                 )
                 methods["send"](info["address"], onthisday)
 

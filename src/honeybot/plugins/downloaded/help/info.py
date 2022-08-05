@@ -1,16 +1,13 @@
+NAME = "help.py"
+ORIGINAL_AUTHORS = ["Eduardo Moraes de Mello, https://github.com/edumello"]
 
-NAME = 'help.py'
-ORIGINAL_AUTHORS = [
-    'Eduardo Moraes de Mello, https://github.com/edumello'
-]
-
-ABOUT = '''
+ABOUT = """
 Show link with all the functionalities of the bot.
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .help
 returns link of plugins informations
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

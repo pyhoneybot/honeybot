@@ -16,10 +16,11 @@ returns global coronavirus information
 .corona <<country>>
 returns coronavirus information for a specific country
 """
-from bs4 import BeautifulSoup
-import requests
 import datetime
 import string
+
+import requests
+from bs4 import BeautifulSoup
 
 
 class Plugin:
@@ -34,9 +35,7 @@ class Plugin:
         cases = doc.find_all(class_="maincounter-number")
         data = doc.find_all("td")
         if country == "global":
-            most_affected = (
-                []
-            )  # each element is an array as follows [country,cases,deaths]
+            most_affected = []  # each element is an array as follows [country,cases,deaths]
             for index in range(0, 45, 11):
                 most_affected.append(
                     [
@@ -47,19 +46,19 @@ class Plugin:
                 )
             today = str(datetime.date.today())
             msg = (
-                "The latest coronavirus pandemic figures as of " +
-                today +
-                " show " +
-                " that there are currently " +
-                str(cases[0].text.strip()) +
-                " cases of " +
-                "coronavirus of which " +
-                str(cases[2].text.strip()) +
-                " have recovered. " +
-                "Unfortunately, " +
-                str(cases[1].text.strip()) +
-                " patients have died as a " +
-                "result of the coronavirus pandemic. May they rest in peace."
+                "The latest coronavirus pandemic figures as of "
+                + today
+                + " show "
+                + " that there are currently "
+                + str(cases[0].text.strip())
+                + " cases of "
+                + "coronavirus of which "
+                + str(cases[2].text.strip())
+                + " have recovered. "
+                + "Unfortunately, "
+                + str(cases[1].text.strip())
+                + " patients have died as a "
+                + "result of the coronavirus pandemic. May they rest in peace."
             )
             msg += "The most affected countries are the following: \n"
             for c in most_affected:
@@ -67,12 +66,12 @@ class Plugin:
                 total_cases = c[1]
                 deaths = c[2]
                 string = (
-                    country +
-                    " has " +
-                    total_cases +
-                    " confirmed cases that have led to " +
-                    deaths +
-                    " deaths. RIP \n"
+                    country
+                    + " has "
+                    + total_cases
+                    + " confirmed cases that have led to "
+                    + deaths
+                    + " deaths. RIP \n"
                 )
                 msg += string
             return msg
@@ -105,16 +104,16 @@ class Plugin:
                     deaths = data[index + 3].text
                     recovered = data[index + 5].text
                     msg = (
-                        "The latest coronavirus pandemic figures as of " +
-                        today +
-                        " for " +
-                        name +
-                        " show" +
-                        " that there are currently " +
-                        cases +
-                        " cases of coronavirus in " +
-                        name +
-                        "."
+                        "The latest coronavirus pandemic figures as of "
+                        + today
+                        + " for "
+                        + name
+                        + " show"
+                        + " that there are currently "
+                        + cases
+                        + " cases of coronavirus in "
+                        + name
+                        + "."
                     )
                     if recovered != " ":
                         msg += " Of these " + recovered + " have recovered. "
@@ -122,18 +121,18 @@ class Plugin:
                         msg += " None have recovered yet. "
                     if deaths != " ":
                         msg += (
-                            "Unfortunately, " +
-                            deaths.strip() +
-                            " patients in " +
-                            name +
-                            " have died as a " +
-                            "result of the coronavirus pandemic. May they rest in peace."
+                            "Unfortunately, "
+                            + deaths.strip()
+                            + " patients in "
+                            + name
+                            + " have died as a "
+                            + "result of the coronavirus pandemic. May they rest in peace."
                         )
                     else:
                         msg += (
-                            "Fortunately nobody has died yet in " +
-                            name +
-                            " as a result of coronavirus."
+                            "Fortunately nobody has died yet in "
+                            + name
+                            + " as a result of coronavirus."
                         )
                     return msg
                     break

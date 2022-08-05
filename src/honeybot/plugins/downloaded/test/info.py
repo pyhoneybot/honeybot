@@ -1,15 +1,12 @@
+NAME = "test.py"
+ORIGINAL_AUTHORS = ["Abdur-Rahmaan Janhangeer, pythonmembers.club"]
 
-NAME = 'test.py'
-ORIGINAL_AUTHORS = [
-    'Abdur-Rahmaan Janhangeer, pythonmembers.club'
-]
-
-ABOUT = '''
+ABOUT = """
 tests run
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

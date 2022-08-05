@@ -12,8 +12,9 @@ Extracts quotes and send random quote from Trailer Park Boys
 [Commands]
 >>>.quote <count>
 """
-import requests
 import random
+
+import requests
 from bs4 import BeautifulSoup
 
 

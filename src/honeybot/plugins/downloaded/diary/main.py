@@ -27,7 +27,7 @@ import os
 from datetime import datetime, timedelta
 
 if not os.path.exists("diary"):
-    """ create diary folder"""
+    """create diary folder"""
 
     try:
         os.mkdir("diary")
@@ -55,7 +55,7 @@ class Plugin:
         return path
 
     def record(self, time, text):
-        """ adds to existing entry or creates new one"""
+        """adds to existing entry or creates new one"""
 
         path = Plugin.get_path(self, time)
         if not os.path.exists(path):
@@ -87,11 +87,10 @@ class Plugin:
             return [x.strip("\n") for x in entry]
 
     def delete(self, time):
-        """ check if entry exists and if it does delete it """
+        """check if entry exists and if it does delete it"""
         path = Plugin.get_path(self, time)
         if not os.path.exists(path):
-            return "There is no diary entry for that date. " \
-                   "Check the date is entered correctly!"
+            return "There is no diary entry for that date. " "Check the date is entered correctly!"
         else:
             os.remove(path)
             return "Entry deleted successfully!"
@@ -105,9 +104,7 @@ class Plugin:
                 index = info["prefix"].find("!")
                 name = info["prefix"][:index]
                 if name not in owner:
-                    methods["send"](
-                        info["address"], "Access denied! You are not the owner!"
-                    )
+                    methods["send"](info["address"], "Access denied! You are not the owner!")
                 else:
 
                     if msgs[1].lower() == "delete":
@@ -145,17 +142,13 @@ class Plugin:
 
                     elif msgs[1].lower() == "help":
                         methods["send"](info["address"], "Try the following commands!")
-                        methods["send"](
-                            info["address"], ".diary record this is an example "
-                        )
+                        methods["send"](info["address"], ".diary record this is an example ")
                         methods["send"](
                             info["address"],
                             ".diary show today or .diary show 01-01-2000",
                         )
                         methods["send"](info["address"], ".diary delete")
-                        methods["send"](
-                            info["address"], "That's all there is to this plugin!"
-                        )
+                        methods["send"](info["address"], "That's all there is to this plugin!")
 
         except Exception as e:
             print("woops, diary plugin error", e)

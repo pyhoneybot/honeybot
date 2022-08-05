@@ -27,11 +27,7 @@ class Plugin:
                 methods["mem_add"]("global", "VALUES", msgs[2], msgs[3])
             if info["command"] == "PRIVMSG" and msgs[0] == ".memo" and msgs[1] == "rem":
                 methods["mem_rem"]("global", "VALUES", msgs[2])
-            if (
-                info["command"] == "PRIVMSG" and
-                msgs[0] == ".memo" and
-                msgs[1] == "fetch"
-            ):
+            if info["command"] == "PRIVMSG" and msgs[0] == ".memo" and msgs[1] == "fetch":
                 try:
                     val = methods["mem_fetch"]("global", "VALUES", msgs[2])
                     methods["send"](info["address"], val)

@@ -35,7 +35,7 @@ sends messages explaining how to use the todo plugin
 import os
 
 if not os.path.exists("todo.txt"):
-    """ Creating todo.txt is it is not already present. """
+    """Creating todo.txt is it is not already present."""
     todo = open("todo.txt", "w+")
     todo.close()
 
@@ -45,7 +45,7 @@ class Plugin:
         pass
 
     def get_help(info, methods):
-        """ help function to give information about commands."""
+        """help function to give information about commands."""
         methods["send"](
             info["address"],
             ".todo add  <Your Task Here> \
@@ -73,16 +73,14 @@ class Plugin:
         )
 
     def showlist(info, methods):
-        """ It prints the todo file on the screen """
+        """It prints the todo file on the screen"""
         # Parse the user ID from info['prefix']
         raw_user = info["prefix"]
         user_index = raw_user.find("!")
         user = raw_user[0:user_index]
 
         if os.stat("todo.txt").st_size == 0:
-            methods["send"](
-                info["address"], "Awesome " + user + ". You Have No Task Pending!"
-            )
+            methods["send"](info["address"], "Awesome " + user + ". You Have No Task Pending!")
         else:
             methods["send"](info["address"], "Hi, " + user + ". These are your tasks.")
             with open("todo.txt", "r") as f:
@@ -93,7 +91,7 @@ class Plugin:
                 count = count + 1
 
     def run(self, incoming, methods, info, bot_info):
-        """ Handling of requests from user."""
+        """Handling of requests from user."""
         try:
             msgs = info["args"][1:][0].split()
 

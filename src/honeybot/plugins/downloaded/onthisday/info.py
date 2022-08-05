@@ -1,16 +1,13 @@
+NAME = "onthisday.py"
+ORIGINAL_AUTHORS = ["Kenneth Gargan"]
 
-NAME = 'onthisday.py'
-ORIGINAL_AUTHORS = [
-    'Kenneth Gargan'
-]
-
-ABOUT = '''
+ABOUT = """
 Gets an interesting fact about today!
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .onthisday
 returns fact's about today
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

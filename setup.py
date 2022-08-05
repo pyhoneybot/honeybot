@@ -1,7 +1,8 @@
 # black inspired
-from setuptools import setup, find_packages
-import sys
 import os
+import sys
+
+from setuptools import find_packages, setup
 
 assert sys.version_info >= (3, 7, 0), "honeybot requires Python 3.7.0"
 from pathlib import Path  # noqa E402

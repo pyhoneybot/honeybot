@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
-import logging
-import sys
 import argparse
+import logging
 import os
+import sys
 
 try:
-    from honeybot.api.main import Bot_core
-    from honeybot.api.print import print_connect_settings
-    from honeybot.api.print import print_honeybot_manifesto
     from honeybot.api.generate import gen_pluginsinfo
     from honeybot.api.init import init
+    from honeybot.api.main import Bot_core
+    from honeybot.api.print import print_connect_settings, print_honeybot_manifesto
 except Exception as e:
     print(e)
 
@@ -24,16 +23,14 @@ logging.basicConfig(
 def main():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument(
-        "botsetting",
-        choices=["run", "gen_pluginsinfo", "init"])
+    parser.add_argument("botsetting", choices=["run", "gen_pluginsinfo", "init"])
 
     args = parser.parse_args()
 
     info = {
-        'cwd': os.getcwd(),
-        'settings_path': os.path.join(os.getcwd(), 'settings'),
-        'plugins_path': os.path.join(os.getcwd(), 'plugins'),
+        "cwd": os.getcwd(),
+        "settings_path": os.path.join(os.getcwd(), "settings"),
+        "plugins_path": os.path.join(os.getcwd(), "plugins"),
     }
 
     print_honeybot_manifesto(info)
@@ -54,5 +51,5 @@ def main():
         init(info)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

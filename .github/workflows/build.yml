@@ -41,17 +41,22 @@ jobs:
           python -m pip install --upgrade pip
           pip install 'futures<3.0.0'
           pip install .
-          pip install flake8 bandit
+          pip install black bandit isort toml tomli
 
-      # Run PEP8 style check
-      - name: PEP8 style check
+      # Run imports sort check
+      - name: isort imports sort
         run: |
-          flake8 --config=setup.cfg src/honeybot/
+          isort --check-only --settings-path ./pyproject.toml src/honeybot/plugins/downloaded/
+      
+      # Run PEP8 style check
+      - name: black PEP8 style check
+        run: |
+          black --check --verbose --config ./pyproject.toml src/honeybot/plugins/downloaded/
 
       # Run security checks
-      - name: Security checks
+      - name: bandit Security checks
         run: |
-          bandit -ll -r . -x "./.git,./.github,./.idea,/__pycache__,/venv,./workshop,./src/honeybot/plugins/downloaded/calc/main.py,./src/honeybot/plugins/downloaded/monopoly/main.py,./build/lib/honeybot/plugins/downloaded/calc/main.py,./build/lib/honeybot/plugins/downloaded/monopoly/main.py"
+          bandit -ll -c ./pyproject.toml -r src/honeybot/plugins/downloaded
 
       # Run sanity tests
       - name: Run Tests

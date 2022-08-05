@@ -1,18 +1,15 @@
+NAME = "dictionary.py"
+ORIGINAL_AUTHORS = ["Nishant, JPMorgan Chase & Co."]
 
-NAME = 'dictionary.py'
-ORIGINAL_AUTHORS = [
-    'Nishant, JPMorgan Chase & Co.'
-]
-
-ABOUT = '''
+ABOUT = """
 sends the meaning of the word
 requires PyDictionary to be installed
 can use pip -> "pip install PyDictionary"
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .dictionary <<word>>
 returns meaning of the word specified
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

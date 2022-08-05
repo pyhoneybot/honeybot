@@ -1,19 +1,16 @@
+NAME = "riddle.py"
+ORIGINAL_AUTHORS = ["Angelo Giacco"]
 
-NAME = 'riddle.py'
-ORIGINAL_AUTHORS = [
-    'Angelo Giacco'
-]
-
-ABOUT = '''
+ABOUT = """
 Returns a riddle or whether guess at the answer was correct or not.
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .riddle
 returns a random riddle
 
 .riddle guess <<attempt>>
 returns whether the guess was correct or wrong
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

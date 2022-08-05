@@ -1,16 +1,13 @@
+NAME = "transfer-rumour.py"
+ORIGINAL_AUTHORS = ["Angelo Giacco"]
 
-NAME = 'transfer-rumour.py'
-ORIGINAL_AUTHORS = [
-    'Angelo Giacco'
-]
-
-ABOUT = '''
+ABOUT = """
 Collects transfer rumours from BBC sport
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .transfer-rumour
 prints the top transfer rumour
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

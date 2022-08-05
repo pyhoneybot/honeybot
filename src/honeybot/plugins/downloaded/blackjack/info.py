@@ -1,13 +1,11 @@
-NAME = 'blackjack.py'
-ORIGINAL_AUTHORS = [
-    'Angelo Giacco'
-]
+NAME = "blackjack.py"
+ORIGINAL_AUTHORS = ["Angelo Giacco"]
 
-ABOUT = '''
+ABOUT = """
 Play blackjack
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>>.blackjack create
 creates blackjack game
 
@@ -22,4 +20,4 @@ get another card
 
 >>>.blackjack stand
 move on to next player
-'''
+"""

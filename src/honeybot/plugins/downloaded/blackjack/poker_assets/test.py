@@ -2,10 +2,10 @@
 
 import board
 import deck
+import game_init
 import hand
 import player
 import pot
-import game_init
 
 # import game_init
 
@@ -99,11 +99,7 @@ print(POT.show_pot())
 
 print(
     " ".join(
-        [
-            c.show_card()
-            for h in game_init.game[3]
-            for c in h.show_player_hand().show_hand_obj()
-        ]
+        [c.show_card() for h in game_init.game[3] for c in h.show_player_hand().show_hand_obj()]
     )
 )
 

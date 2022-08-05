@@ -24,9 +24,9 @@ returns universally accepted alphanumeric password with
 special characters of specified length where length >= 4
 """
 
-import string
 import random
 import secrets
+import string
 
 
 class Plugin:
@@ -39,15 +39,11 @@ class Plugin:
 
     def __passgenalphanum(password_length):
         password_characters = string.ascii_letters + string.digits + string.punctuation
-        return "".join(
-            random.choice(password_characters) for i in range(password_length)
-        )
+        return "".join(random.choice(password_characters) for i in range(password_length))
 
     def __passgensecure(password_length):
         password_characters = string.ascii_letters + string.digits + string.punctuation
-        return "".join(
-            secrets.choice(password_characters) for i in range(password_length)
-        )
+        return "".join(secrets.choice(password_characters) for i in range(password_length))
 
     def __passgenspecialchar(password_length):
         randomSource = string.ascii_letters + string.digits + string.punctuation
@@ -120,14 +116,10 @@ class Plugin:
                         methods["send"](info["address"], Plugin.__passgen(int(length)))
                     if msgs[0] == ".passgensecure":
                         length = msgs[1]
-                        methods["send"](
-                            info["address"], Plugin.__passgensecure(int(length))
-                        )
+                        methods["send"](info["address"], Plugin.__passgensecure(int(length)))
                     if msgs[0] == ".passgenalphanum":
                         length = msgs[1]
-                        methods["send"](
-                            info["address"], Plugin.__passgenalphanum(int(length))
-                        )
+                        methods["send"](info["address"], Plugin.__passgenalphanum(int(length)))
                     if msgs[0] == ".passgenspecialchar":
                         length = msgs[1]
                         if int(length) >= 4:
@@ -136,8 +128,6 @@ class Plugin:
                                 Plugin.__passgenspecialchar(int(length)),
                             )
                         else:
-                            raise Exception(
-                                "Length of password should be greater than 4."
-                            )
+                            raise Exception("Length of password should be greater than 4.")
         except Exception as e:
             print("woops plug", e)

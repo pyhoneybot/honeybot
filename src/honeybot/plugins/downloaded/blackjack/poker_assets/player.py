@@ -5,10 +5,10 @@ import game_init
 
 
 class Player(object):
-    """ player class """
+    """player class"""
 
     def __init__(self, nr, chips, username):
-        """ player initialization """
+        """player initialization"""
 
         self.__position_nr = nr
         self.__general_name = "player" + str(nr)
@@ -18,52 +18,52 @@ class Player(object):
         self.add_position(nr)
 
     def number(self):
-        """ show number """
+        """show number"""
 
         return self.__number
 
     def general_name(self):
-        """ general name """
+        """general name"""
 
         return self.__general_name
 
     def show_player_hand(self):
-        """ show hand """
+        """show hand"""
 
         return self.__hand
 
     def add_hand(self, hand):
-        """ adding hand to player """
+        """adding hand to player"""
 
         self.__hand = hand
 
     def chips(self):
-        """ show chips """
+        """show chips"""
 
         return self.__chips
 
     def increase_chips(self, win_chips):
-        """ winning money """
+        """winning money"""
 
         self.__chips = self.__chips + win_chips
 
     def decrease_chips(self, lost_chips):
-        """ losing money """
+        """losing money"""
 
         self.__chips = self.__chips - lost_chips
 
     def position_nr(self):
-        """ show position number """
+        """show position number"""
 
         return self.__position_nr
 
     def position_name(self):
-        """ show position name """
+        """show position name"""
 
         return self.__position_name
 
     def add_position(self, position_nr):
-        """ adding position """
+        """adding position"""
 
         if position_nr >= 0 and position_nr <= 5:
             self.__position_nr = position_nr

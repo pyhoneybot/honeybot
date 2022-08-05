@@ -1,16 +1,13 @@
+NAME = "news.py"
+ORIGINAL_AUTHORS = ["Angelo Giacco"]
 
-NAME = 'news.py'
-ORIGINAL_AUTHORS = [
-    'Angelo Giacco'
-]
-
-ABOUT = '''
+ABOUT = """
 Gets the top 10 headlines around the world from bbc world news
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .news
 returns string of ten news headlines with newlines between
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

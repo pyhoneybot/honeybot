@@ -1,14 +1,12 @@
-NAME = 'age.py'
+NAME = "age.py"
 
-ORIGINAL_AUTHORS = [
-    'Justin Walker'
-]
+ORIGINAL_AUTHORS = ["Justin Walker"]
 
-ABOUT = '''
+ABOUT = """
 Given birthday it returns your age.
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .age <<day>> <<month>> <<year>>
 returns age in yr/mo/day format.
-'''
+"""

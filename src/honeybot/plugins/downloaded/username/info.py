@@ -1,16 +1,13 @@
+NAME = "username.py"
+ORIGINAL_AUTHORS = ["Abdur-Rahmaan Janhangeer, pythonmembers.club"]
 
-NAME = 'username.py'
-ORIGINAL_AUTHORS = [
-    'Abdur-Rahmaan Janhangeer, pythonmembers.club'
-]
-
-ABOUT = '''
+ABOUT = """
 generates random usernames, used for inspiration
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .uname
 returns generated username
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

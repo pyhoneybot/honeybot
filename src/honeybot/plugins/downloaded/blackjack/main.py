@@ -24,8 +24,8 @@ move on to next player
 """
 
 
-import poker_assets.deck
 import poker_assets.card
+import poker_assets.deck
 import poker_assets.hand
 import poker_assets.player
 
@@ -47,22 +47,17 @@ class Plugin:
     """
 
     def next_turn(methods, info):
-        """ increment turn and find winner if hitting and standing over """
+        """increment turn and find winner if hitting and standing over"""
 
         try:
             Plugin.turn += 1
             if Plugin.turn == len(Plugin.player_lst):
                 # all players have find winner
-                total_lst = [
-                    player.show_player_hand().hand_total()
-                    for player in Plugin.player_lst
-                ]
+                total_lst = [player.show_player_hand().hand_total() for player in Plugin.player_lst]
                 index, value = max(list(enumerate(total_lst)), key=lambda x: x[1])
                 if total_lst.count(value) == 1:
                     Plugin.winner = Plugin.player_lst[index].get_name()
-                    methods["send"](
-                        info["address"], "The winner is " + Plugin.winner + "!"
-                    )
+                    methods["send"](info["address"], "The winner is " + Plugin.winner + "!")
                 else:
                     methods["send"](info["address"], "This round has ended in a draw!")
                 Plugin.bj_created = False
@@ -70,15 +65,13 @@ class Plugin:
             print("woops, blackjack turn change error ", e)
 
     def initPlayer(methods, info):
-        """ add a player to the round """
+        """add a player to the round"""
 
         if Plugin.bj_created:
             if not Plugin.round_started:
                 name = info["prefix"].split("!")[0]
                 if len(Plugin.player_lst) <= 5:  # limit game to 6 players
-                    if not (
-                            name in [player.get_name() for player in Plugin.player_lst]
-                    ):
+                    if not (name in [player.get_name() for player in Plugin.player_lst]):
                         Plugin.player_lst.append(
                             poker_assets.player.Player(
                                 len(Plugin.player_lst), Plugin.starting_chips, name
@@ -86,9 +79,7 @@ class Plugin:
                         )
                         methods["send"](info["address"], name + " joined the game!")
                     else:
-                        methods["send"](
-                            info["address"], "You are already in this round!"
-                        )
+                        methods["send"](info["address"], "You are already in this round!")
                 else:
                     methods["send"](info["address"], "This round is full already")
             else:
@@ -100,19 +91,22 @@ class Plugin:
             methods["send"](info["address"], "A game has not yet been created!")
 
     def checkHand(methods, info, player):
-        """ check the value of a player's hand """
+        """check the value of a player's hand"""
 
         name = player.get_name()
         total = player.show_player_hand().hand_total()
         cards = " ".join(
-            [poker_assets.card.show_card() for card in
-             player.show_player_hand().show_hand_obj()]
+            [poker_assets.card.show_card() for card in player.show_player_hand().show_hand_obj()]
         )
         if total > 21:
             methods["send"](
                 info["address"],
-                name + "'s hand " + cards + " has a value of " + str(total) +
-                " so you have been kicked out",
+                name
+                + "'s hand "
+                + cards
+                + " has a value of "
+                + str(total)
+                + " so you have been kicked out",
             )
             for p in Plugin.player_lst:
                 if p.get_name() == name:
@@ -139,7 +133,7 @@ class Plugin:
     """
 
     def initGame(methods, info):
-        """ create a new round """
+        """create a new round"""
 
         if not Plugin.bj_created:
             Plugin.turn = 0
@@ -152,14 +146,13 @@ class Plugin:
             Plugin.DECK = poker_assets.deck.Deck()
             methods["send"](
                 info["address"],
-                name + " has started a game of blackjack! "
-                       "Use .blackjack join to join in!",
+                name + " has started a game of blackjack! " "Use .blackjack join to join in!",
             )
         else:
             methods["send"](info["address"], "A game already exists!")
 
     def start(methods, info):
-        """ start the game """
+        """start the game"""
 
         Plugin.round_started = True
         Plugin.bj_created = True
@@ -167,20 +160,20 @@ class Plugin:
             player.add_hand(poker_assets.hand.Hand(Plugin.DECK.make_hand()))
             total = player.show_player_hand().hand_total()
             cards = " ".join(
-                [poker_assets.card.show_card() for card
-                 in player.show_player_hand().show_hand_obj()]
+                [
+                    poker_assets.card.show_card()
+                    for card in player.show_player_hand().show_hand_obj()
+                ]
             )
             Plugin.checkHand(methods, info, player)
 
     def hit(methods, info):
-        """ give player a new card """
+        """give player a new card"""
 
         name = info["prefix"].split("!")[0]
         if Plugin.winner is None:
             if Plugin.player_lst[Plugin.turn].get_name() == name:
-                Plugin.player_lst[Plugin.turn].add_card_to_hand(
-                    Plugin.DECK.draw_random_card()
-                )
+                Plugin.player_lst[Plugin.turn].add_card_to_hand(Plugin.DECK.draw_random_card())
                 Plugin.checkHand(methods, info, Plugin.player_lst[Plugin.turn])
             else:
                 methods["send"](info["address"], "It is not your turn!")
@@ -191,28 +184,23 @@ class Plugin:
             )
 
     def stand(methods, info):
-        """ player chooses not to get a new car """
+        """player chooses not to get a new car"""
         name = info["prefix"].split("!")[0]
         if Plugin.winner is None:
             if Plugin.turn < len(Plugin.player_lst):
                 if Plugin.player_lst[Plugin.turn].get_name() == name:
                     methods["send"](
                         info["address"],
-                        info["prefix"].split("!")[0] +
-                        " has chosen not to pick another card!",
+                        info["prefix"].split("!")[0] + " has chosen not to pick another card!",
                     )
                     Plugin.next_turn(methods, info)
                 else:
                     methods["send"](info["address"], "It is not your turn!")
             else:
-                methods["send"](
-                    info["adress"], "something went wrong, please try restarting"
-                )
+                methods["send"](info["adress"], "something went wrong, please try restarting")
                 Plugin.bj_created = False
         else:
-            methods["send"](
-                info["address"], Plugin.winner + " has already won the game!"
-            )
+            methods["send"](info["address"], Plugin.winner + " has already won the game!")
 
     """
     RUNNING PLUGIN
@@ -222,9 +210,9 @@ class Plugin:
         try:
             msgs = info["args"][1:][0].split()
             if (
-                    info["command"] == "PRIVMSG" and
-                    (msgs[0] == ".bj" or msgs[0] == ".21" or msgs[0] == ".blackjack") and
-                    len(msgs) == 2
+                info["command"] == "PRIVMSG"
+                and (msgs[0] == ".bj" or msgs[0] == ".21" or msgs[0] == ".blackjack")
+                and len(msgs) == 2
             ):
                 if msgs[1] == "create":
                     Plugin.initGame(methods, info)

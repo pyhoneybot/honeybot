@@ -23,9 +23,9 @@ EX:// ".mail test@email.com .body testing body for honeybot email
  .subject testing subject"
 
 """
+import configparser
 import smtplib
 from email.mime.text import MIMEText
-import configparser
 
 # open config file for user credentials to email
 email_config = configparser.ConfigParser()
@@ -105,9 +105,7 @@ class Plugin:
                     SUBJECT_INDEX = msgs.index(
                         ".subject"
                     )  # gets index for ".subject" used in body, and subject functions
-                    MAX_INDEX = len(
-                        msgs
-                    )  # gets max index to know the max indexing value
+                    MAX_INDEX = len(msgs)  # gets max index to know the max indexing value
 
                     BODY = Plugin.body(
                         BODY_INDEX, SUBJECT_INDEX, msgs

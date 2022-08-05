@@ -1,16 +1,13 @@
+NAME = "Roman Numeral Converter Plugin"
+ORIGINAL_AUTHORS = ["Nick Wiley"]
 
-NAME = 'Roman Numeral Converter Plugin'
-ORIGINAL_AUTHORS = [
-    'Nick Wiley'
-]
-
-ABOUT = '''
+ABOUT = """
 Returns the roman numeral equivalent of the number inputted
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .roman <number>
 returns number represented in roman numerals
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

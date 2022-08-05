@@ -1,16 +1,13 @@
+NAME = "channeljoin.py"
+ORIGINAL_AUTHORS = ["Marcelo Benesciutti"]
 
-NAME = 'channeljoin.py'
-ORIGINAL_AUTHORS = [
-    'Marcelo Benesciutti'
-]
-
-ABOUT = '''
+ABOUT = """
 Bot Will join a given channel in the server
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .channeljoin channel
 bot joins the given channel
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""

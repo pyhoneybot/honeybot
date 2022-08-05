@@ -40,18 +40,15 @@ class Plugin:
             "I tried to take a bite out of the fog, but I mist.",
             "What did the bodybuilder say when he ran out of protein powder? No whey.",
             "What do you call a fake noodle? An Impasta.",
-            "Did you hear about the restaurant on the moon?" +
-            " It had great food but no atmosphere.",
-            "Why do the put fences around grave yards?" +
-            " Because people are dying to get in.",
+            "Did you hear about the restaurant on the moon?"
+            + " It had great food but no atmosphere.",
+            "Why do the put fences around grave yards?" + " Because people are dying to get in.",
             "How do you organize a party on Mars? You planet.",
             "Why do crabs never give to charity? Because they are shellfish.",
-            "What is the difference between an African and Indian Elephant?" +
-            " About 5000 miles.",
+            "What is the difference between an African and Indian Elephant?" + " About 5000 miles.",
             "I don't like to play soccer for money. I play it just for kicks.",
             "How many apples grow on a tree? All of them!",
-            "Did you hear the rumor about the butter?" +
-            " Well, I'm not going to spread it...",
+            "Did you hear the rumor about the butter?" + " Well, I'm not going to spread it...",
             "How does a penguin build his home? Igloos it together!",
             "How to make a tissue dance? Put a little boogie in it!",
             "If you saw a robbery at the Apple store, would you be an iWitness?",
@@ -62,22 +59,22 @@ class Plugin:
             'I caught my wife yelling at the TV saying, "Don\'t go into the church you idiot!", \
     She was watching our wedding video again.',
             "When a woman is giving birth, she is literally kidding.",
-            "My wife yelled at me agai for having no sense of direction." +
-            " So I packed up my stuff and right.",
-            'My son asked, "Can I have a book mark?" and I burst into tears.' +
-            ' 11 years old and he still doesn\'t know my name in Brian.',
-            "If a child refuses to sleep during nap time," +
-            " are they guilty of resisting a rest?",
+            "My wife yelled at me agai for having no sense of direction."
+            + " So I packed up my stuff and right.",
+            'My son asked, "Can I have a book mark?" and I burst into tears.'
+            + " 11 years old and he still doesn't know my name in Brian.",
+            "If a child refuses to sleep during nap time,"
+            + " are they guilty of resisting a rest?",
             "Geology rocks, but Geography is where it's at.",
-            "Scientists were starting to get bored watching the Earth turn," +
-            " and so after 24 hours, they called it a day.",
+            "Scientists were starting to get bored watching the Earth turn,"
+            + " and so after 24 hours, they called it a day.",
             "My wife yelled at me an said, \"You haven't listened to anything I've said!\", which \
     I thought was an interesting way to start a conversation.",
-            "I’d tell you a Fibonacci joke, but’s it’s probably as bad" +
-            " as the last two you’ve heard combined.",
+            "I’d tell you a Fibonacci joke, but’s it’s probably as bad"
+            + " as the last two you’ve heard combined.",
             "What did the pirate say on his 80th birthday? AYE MATEY.",
-            "It's hard to explain puns to kleptomaniacs" +
-            " because they always take things literally.",
+            "It's hard to explain puns to kleptomaniacs"
+            + " because they always take things literally.",
         ]
 
         return "{}".format(random.choice(jokes))

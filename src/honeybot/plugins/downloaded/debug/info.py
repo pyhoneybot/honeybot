@@ -1,16 +1,13 @@
+NAME = "debug.py"
+ORIGINAL_AUTHORS = ["Abdur-Rahmaan Janhangeer, pythonmembers.club"]
 
-NAME = 'debug.py'
-ORIGINAL_AUTHORS = [
-    'Abdur-Rahmaan Janhangeer, pythonmembers.club'
-]
-
-ABOUT = '''
+ABOUT = """
 prints all parameters passed to bot
-'''
+"""
 
-COMMANDS = '''
+COMMANDS = """
 >>> .debug
 prints some parameters
-'''
+"""
 
-WEBSITE = ''
+WEBSITE = ""
