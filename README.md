@@ -8,14 +8,21 @@
 <img src="https://github.com/pyhoneybot/honeybot/blob/master/honeybot_real.png" width="64" />
 
 [![PyPI version](https://badge.fury.io/py/honeybot.svg)](https://badge.fury.io/py/honeybot)
-[![Master Build](https://github.com/pyhoneybot/honeybot/blob/master/.github/workflows/build.yml/badge.svg)](https://github.com/pyhoneybot/honeybot/blob/master/.github/workflows/build.yml)
 [![First Timers Only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg)](https://www.firsttimersonly.com/)
 ![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-pink.svg)
 ![Made in Moris](https://img.shields.io/badge/Made%20in-Moris-green.svg)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/6329/badge)](https://bestpractices.coreinfrastructure.org/projects/6329)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/pyhoneybot/honeybot/badge)](https://api.securityscorecards.dev/projects/github.com/pyhoneybot/honeybot)
 
+## Launching pyhoneybot Rewards
+ Contributed to pyhoneybot? Here is a big thank you from our community to you.
+ Claim your badge and showcase them with pride.
+ Let us inspire more folks !
 
+ ![pyhoneybot Badges](https://aviyel.com/assets/uploads/rewards/share/project/84/512/share.png)
+ ### **[Claim Now!](https://aviyel.com/projects/84/pyhoneybot/rewards)**
+
+<hr>
 🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳 🇬🇧 🇬🇬 🇧🇷 🇸🇽 🇵🇱 🇩🇪
 
 </div>
@@ -29,6 +36,8 @@
 ## 📮 About
 
 HoneyBot is a python-based IRC bot. (**python3.7**) | If you want to just run the bot, go to the [quick start section](https://github.com/pyhoneybot/honeybot#-quickstart)
+
+> HoneyBot is my first time collaborating to an open source project and I'm loving it. Before discovering HoneyBot, I was very intimidated on the idea of working with other people and had no idea what an IRC even was. Now I realize how much fun and rewarding it is to work together on a project with dedicated and friendly individuals. The documentation is easy to follow and everyone is super helpful. I highly recommend any new programmer who want to contribute on an open source project to try out HoneyBot. Personally I enjoy working on this project more than my own schoolwork. --[@RiceAbove](https://github.com/RiceAbove)
 
 Feel free to contribute to the project!
 
