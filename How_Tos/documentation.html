@@ -93,33 +93,58 @@ them as you can see in the actual documentation.</p>
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h2>
 <p>To generate the documentation you will need to have sphinx installed,
 click <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html">here</a> for a quick installation guide. <strong>Make sure you’ve installed the
-python 3 (new) version of sphinx and Read The Docs theme!</strong>.
-‘pip install sphinx sphinx_rtd_theme’.
-There’s no need to set up this tool with <strong>‘sphinx-quickstart’</strong> command, once there is a configuration already.</p>
-<p>Create a fork of our honeybot project and clone this:
-<strong>‘git clone https://github.com/&lt;YOU&gt;/honeybot.git’</strong>
-Then change the path <a class="reference external" href="https://github.com/pyhoneybot/honeybot/tree/master/docs/source">honeybot/docs/source/</a> and edit the <em>.rst</em> files there.
+python 3 (new) version of sphinx and Read The Docs theme!</strong>.</p>
+<p><strong>‘pip install sphinx sphinx_rtd_theme’</strong>.</p>
+<p>There’s no need to set up this tool with <strong>‘sphinx-quickstart’</strong> command, once there is a configuration already.</p>
+<p>Create a fork of our honeybot project and clone this:</p>
+<p><strong>‘git clone https://github.com/&lt;YOU&gt;/honeybot.git’</strong></p>
+<p>Then change the path <a class="reference external" href="https://github.com/pyhoneybot/honeybot/tree/master/docs/source">honeybot/docs/source/</a> and edit the <em>.rst</em> files there.
 These <em>.rst</em> files they are too on following paths: <a class="reference external" href="https://github.com/pyhoneybot/honeybot/tree/master/docs/source/How_Tos">honeybot/docs/source/How_Tos/</a> and <a class="reference external" href="https://github.com/pyhoneybot/honeybot/tree/master/docs/source/Plugins">honeybot/docs/source/Plugins/</a>.</p>
-<p>Next you’ll need to have the <strong>gh-pages</strong> branch from your fork cloned as a directory named <strong>‘html’</strong>, into your cloned repo:
-<strong>‘cd honeybot’</strong>
-<strong>‘git clone -b gh-pages https://github.com/&lt;YOU&gt;/honeybot.git html’</strong></p>
-<p>Your folder structure needs to look as follows:
-honeybot/           &lt;===== master fork repo
-├── docs
-│   └── source
-├── html            &lt;===== gh-pages fork repo
-├── src
-│   └── honeybot</p>
+<p>Next you’ll need to have the <strong>gh-pages</strong> branch from your fork cloned as a directory named <strong>‘html’</strong>, into your cloned repo:</p>
+<p><strong>‘cd honeybot’</strong></p>
+<p><strong>‘git clone -b gh-pages https://github.com/&lt;YOU&gt;/honeybot.git html’</strong></p>
+<p>Your folder structure needs to look as follows:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 77%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>honeybot/</p></th>
+<th class="head"><p>&lt;==== master fork repo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>├── docs</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p>└── source</p></td>
+</tr>
+<tr class="row-even"><td><p>├── html</p></td>
+<td><p>&lt;==== gh-pages fork repo</p></td>
+</tr>
+<tr class="row-odd"><td><p>├── src</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>└── honeybot</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="generating-docs">
 <h2>Generating docs<a class="headerlink" href="#generating-docs" title="Permalink to this heading"></a></h2>
-<p>Once you’re set up you can test if sphinx works properly in <a class="reference external" href="https://github.com/pyhoneybot/honeybot/tree/master/docs">honeybot/docs/</a> directory, by changing to ‘html’ folder, opening a terminal and typing <strong>‘sphinx-build ../docs/source/ .’</strong>. This will take the <em>.rst files in `honeybot/docs/source*`_ and ‘make’ them into html in html/ folder that contains the **gh-pages*</em> branch. If it shows any warning you’ll have to fix them before committing, otherwise the documentation wont be automatically build once you push your changes to Github.
-Next you can ‘add’ and ‘commit’ these changes into your fork by typing:
-<strong>git add * **
-**git commit -m “Commit message”</strong></p>
-<p>Finally, you can make a pull request by typing:
-<strong>git push origin gh-pages:gh-pages</strong>
-And this’ll create a PR in the <strong>gh-pages</strong> branch that’ll be analysed by someone in project.</p>
+<p>Once you’re set up you can test if sphinx works properly in <a class="reference external" href="https://github.com/pyhoneybot/honeybot/tree/master/docs">honeybot/docs/</a> directory, by changing to ‘html’ folder, opening a terminal and typing <strong>‘sphinx-build ../docs/source/ .’</strong>. This will take the <em>.rst files in `honeybot/docs/source*`_ and ‘make’ them into html in ‘html/’ folder that contains the **gh-pages*</em> branch. If it shows any warning you’ll have to fix them before committing, otherwise the documentation wont be automatically build once you push your changes to Github.
+Next you can ‘add’ and ‘commit’ these changes into your fork by typing:</p>
+<p><strong>git add *</strong></p>
+<p><strong>git commit -m “Commit message”</strong></p>
+<p>Finally, you can make a pull request by typing:</p>
+<p><strong>git push origin gh-pages:gh-pages</strong></p>
+<p>And this’ll create a PR in the <strong>gh-pages</strong> branch that’ll be analysed by someone in project.</p>
 <p>Since I won’t provide a full tutorial on how to write rst files here is a useful
 link:
 <a class="reference external" href="https://packagecontrol.io/packages/Restructured%20Text%20%28RST%29%20Snippets">rst</a></p>
