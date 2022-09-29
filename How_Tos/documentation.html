@@ -138,14 +138,19 @@ These <em>.rst</em> files they are too on following paths: <a class="reference e
 </section>
 <section id="generating-docs">
 <h2>Generating docs<a class="headerlink" href="#generating-docs" title="Permalink to this heading"></a></h2>
-<p>Once you’re set up you can test if sphinx works properly in <a class="reference external" href="https://github.com/pyhoneybot/honeybot/tree/master/docs">honeybot/docs/</a> directory, by changing to ‘html’ folder, opening a terminal and typing <strong>‘sphinx-build ../docs/source/ .’</strong>. This will take the <em>.rst files in `honeybot/docs/source*`_ and ‘make’ them into html in ‘html/’ folder that contains the **gh-pages*</em> branch. If it shows any warning you’ll have to fix them before committing, otherwise the documentation wont be automatically build once you push your changes to Github.
+<p>Once you’re set up you can test if sphinx works properly in <a class="reference external" href="https://github.com/pyhoneybot/honeybot/tree/master/docs">honeybot/docs/</a> directory, by changing to ‘html’ folder, opening a terminal and typing <strong>‘sphinx-build ../docs/source/ .’</strong>. This will take the <em>.rst</em> files in
+<a class="reference external" href="https://github.com/pyhoneybot/honeybot/tree/master/docs/source">honeybot/docs/source/</a> and ‘make’ them into html in ‘html/’ folder that contains the ‘gh-pages’ branch. If it shows any warning you’ll have to fix them before committing, otherwise the documentation wont be automatically build once you push your changes to Github.
 Next you can ‘add’ and ‘commit’ these changes into your fork by typing:</p>
 <p><strong>git add *</strong></p>
 <p><strong>git commit -m “Commit message”</strong></p>
 <p>Finally, you can make a pull request by typing:</p>
 <p><strong>git push origin gh-pages:gh-pages</strong></p>
 <p>And this’ll create a PR in the <strong>gh-pages</strong> branch that’ll be analysed by someone in project.</p>
-<p>Since I won’t provide a full tutorial on how to write rst files here is a useful
+<p>Later do you still need to push the master branch too. Because the <em>.rst</em> files are on this branch and were not go to the previus PR:</p>
+<p><strong>git add docs/source *</strong></p>
+<p><strong>git commit -m “Commit message”</strong></p>
+<p><strong>git push origin master</strong></p>
+<p>Since I won’t provide a full tutorial on how to write <em>.rst</em> files here is a useful
 link:
 <a class="reference external" href="https://packagecontrol.io/packages/Restructured%20Text%20%28RST%29%20Snippets">rst</a></p>
 </section>
