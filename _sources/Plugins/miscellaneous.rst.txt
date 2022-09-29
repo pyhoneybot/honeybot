@@ -4,67 +4,67 @@ Miscellaneous
 
 Abbreviation
 ^^^^^^^^^^^^
-.. automodule:: plugins.abbreviation
+.. automodule:: plugins.downloaded.abbreviation.main
    :members:
 
 Age
 ^^^^
-.. automodule:: plugins.age
+.. automodule:: plugins.downloaded.age.main
    :members:
 
 Book of Day
 ^^^^^^^^^^^
-.. automodule:: plugins.book_of_day
+.. automodule:: plugins.downloaded.book_of_day.main
    :members:
 
 Caesar cipher
 ^^^^^^^^^^^^^
-.. automodule:: plugins.caesar_cipher
+.. automodule:: plugins.downloaded.caesar_cipher.main
    :members:
 
 Conv sniff
 ^^^^^^^^^^
-.. automodule:: plugins.conv_sniff
+.. automodule:: plugins.downloaded.conv_sniff.main
    :members:
 
 Fact
 ^^^^
-.. automodule:: plugins.fact
+.. automodule:: plugins.downloaded.fact.main
    :members:
 
 Greet
 ^^^^^
-.. automodule:: plugins.greet
+.. automodule:: plugins.downloaded.greet.main
    :members:
 
 News
 ^^^^
-.. automodule:: plugins.news
+.. automodule:: plugins.downloaded.news.main
    :members:
 
 Pynews
 ^^^^^^
-.. automodule:: plugins.pynews
+.. automodule:: plugins.downloaded.pynews.main
    :members:
 
 Quote
 ^^^^^
-.. automodule:: plugins.quote
+.. automodule:: plugins.downloaded.quote.main
    :members:
 
 Repostats
 ^^^^^^^^^
-.. automodule:: plugins.repostats
+.. automodule:: plugins.downloaded.repostats.main
    :members:
 
 Roll
 ^^^^
-.. automodule:: plugins.roll
+.. automodule:: plugins.downloaded.roll.main
    :members:
 
 Roman numeral
 ^^^^^^^^^^^^^
-.. automodule:: plugins.roman_numeral
+.. automodule:: plugins.downloaded.roman_numeral.main
    :members:
 
 Transfer rumour
@@ -73,5 +73,5 @@ TODO
 
 Self Trivia
 ^^^^^^^^^^^
-.. automodule:: plugins.selfTrivia
+.. automodule:: plugins.downloaded.selfTrivia.main
    :members:
