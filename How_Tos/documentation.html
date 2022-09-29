@@ -1,70 +1,37 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Setting up Documentation &mdash; HoneyBot 5.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Plugin Development" href="plugins.html" />
     <link rel="prev" title="Contributing" href="contributing.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html">
-          
-
-          
-            
             <img src="../_static/honeybot_logo.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -72,17 +39,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../main.html">Main</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../plugins.html">Plugins</a></li>
@@ -99,161 +56,105 @@
 </li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">HoneyBot</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../how_to.html">How Tos</a> &raquo;</li>
-        
       <li>Setting up Documentation</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/pyhoneybot/honeybot/blob/master/docs/source/How_Tos/documentation.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="setting-up-documentation">
-<h1>Setting up Documentation<a class="headerlink" href="#setting-up-documentation" title="Permalink to this headline">¶</a></h1>
-<p>This How To focuses on setting up Sphinx in order to edit the HoneyBot documentation.
+             
+  <section id="setting-up-documentation">
+<h1>Setting up Documentation<a class="headerlink" href="#setting-up-documentation" title="Permalink to this heading"></a></h1>
+<p>This How To focuses on setting up <strong>Sphinx</strong> in order to edit the HoneyBot documentation.
 You <em>don’t</em> need to do this if you’re simply adding a plugin.
-If you should have <strong>any</strong> questions feel free to ask on our <a class="reference external" href="discord&lt;https://discordapp.com/invite/E6zD4XT">discord</a>!</p>
-<p>For documentation HoneyBot uses a tool named <a class="reference external" href="https://www.sphinx-doc.org/en/1.5/index.html_">sphinx</a>. Sphinx reads in
+If you should have <strong>any</strong> questions feel free to ask on our <a class="reference external" href="https://discordapp.com/invite/E6zD4XT">discord</a>!</p>
+<p>For documentation HoneyBot uses a tool named <a class="reference external" href="https://www.sphinx-doc.org/en/master/">sphinx</a>. Sphinx reads in
 the docstrings of functions, methods and classes and automatically parses
 them as you can see in the actual documentation.</p>
-<div class="section" id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h2>
 <p>To generate the documentation you will need to have sphinx installed,
-click <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/installation.html/en/1.5/index.html">here</a> for a quick installation guide. <strong>Make sure you’ve installed the
-python 3 (new) version of sphinx!</strong></p>
-<p>Furthermore you’ll need to have the <strong>gh-pages</strong> branch cloned as a directory
-named <strong>‘html’</strong> and a new branch from master, the name should match the
-contribution (for example <em>‘Docs_how_to’</em>).</p>
-<p>Your folder structure needs to look as follows:</p>
-<dl class="simple">
-<dt>::</dt><dd><dl class="simple">
-<dt>&lt;any_folder&gt;</dt><dd><p>├── honeybot-docs
-│   ├── html &lt;— gh-pages repo
-│
-├── honeybot &lt;—- Docs_how_to repo</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</div>
-<div class="section" id="generating-docs">
-<h2>Generating docs<a class="headerlink" href="#generating-docs" title="Permalink to this headline">¶</a></h2>
-<p>Once you’re set up you can test if sphinx works properly by going to
-<em>&lt;any_folder&gt;/honeybot/docs</em>, opening a terminal and typing <strong>‘make html’</strong>.
-This will take the rst files in <em>&lt;any_folder&gt;/honeybot/docs/source</em> and ‘make’
-them into html in your html folder.
-If it shows any warning you’ll have to fix them before committing, otherwise the documentation
-wont be automatically build once you push your changes to Github.</p>
+click <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html">here</a> for a quick installation guide. <strong>Make sure you’ve installed the
+python 3 (new) version of sphinx and Read The Docs theme!</strong>.
+‘pip install sphinx sphinx_rtd_theme’.
+There’s no need to set up this tool with <strong>‘sphinx-quickstart’</strong> command, once there is a configuration already.</p>
+<p>Create a fork of our honeybot project and clone this:
+<strong>‘git clone https://github.com/&lt;YOU&gt;/honeybot.git’</strong>
+Then change the path <a class="reference external" href="https://github.com/pyhoneybot/honeybot/tree/master/docs/source">honeybot/docs/source/</a> and edit the <em>.rst</em> files there.
+These <em>.rst</em> files they are too on following paths: <a class="reference external" href="https://github.com/pyhoneybot/honeybot/tree/master/docs/source/How_Tos">honeybot/docs/source/How_Tos/</a> and <a class="reference external" href="https://github.com/pyhoneybot/honeybot/tree/master/docs/source/Plugins">honeybot/docs/source/Plugins/</a>.</p>
+<p>Next you’ll need to have the <strong>gh-pages</strong> branch from your fork cloned as a directory named <strong>‘html’</strong>, into your cloned repo:
+<strong>‘cd honeybot’</strong>
+<strong>‘git clone -b gh-pages https://github.com/&lt;YOU&gt;/honeybot.git html’</strong></p>
+<p>Your folder structure needs to look as follows:
+honeybot/           &lt;===== master fork repo
+├── docs
+│   └── source
+├── html            &lt;===== gh-pages fork repo
+├── src
+│   └── honeybot</p>
+</section>
+<section id="generating-docs">
+<h2>Generating docs<a class="headerlink" href="#generating-docs" title="Permalink to this heading"></a></h2>
+<p>Once you’re set up you can test if sphinx works properly in <a class="reference external" href="https://github.com/pyhoneybot/honeybot/tree/master/docs">honeybot/docs/</a> directory, by changing to ‘html’ folder, opening a terminal and typing <strong>‘sphinx-build ../docs/source/ .’</strong>. This will take the <em>.rst files in `honeybot/docs/source*`_ and ‘make’ them into html in html/ folder that contains the **gh-pages*</em> branch. If it shows any warning you’ll have to fix them before committing, otherwise the documentation wont be automatically build once you push your changes to Github.
+Next you can ‘add’ and ‘commit’ these changes into your fork by typing:
+<strong>git add * **
+**git commit -m “Commit message”</strong></p>
+<p>Finally, you can make a pull request by typing:
+<strong>git push origin gh-pages:gh-pages</strong>
+And this’ll create a PR in the <strong>gh-pages</strong> branch that’ll be analysed by someone in project.</p>
 <p>Since I won’t provide a full tutorial on how to write rst files here is a useful
 link:
-<a class="reference external" href="http://openalea.gforge.inria.fr/doc/openalea/doc/_build/html/source/sphinx/rest_syntax.html#">rst</a></p>
-</div>
-</div>
+<a class="reference external" href="https://packagecontrol.io/packages/Restructured%20Text%20%28RST%29%20Snippets">rst</a></p>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="plugins.html" class="btn btn-neutral float-right" title="Plugin Development" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="contributing.html" class="btn btn-neutral float-left" title="Contributing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="contributing.html" class="btn btn-neutral float-left" title="Contributing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plugins.html" class="btn btn-neutral float-right" title="Plugin Development" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019, Abdur-rahmaanJ
-
-    </p>
+    <p>&#169; Copyright 2019, Abdur-rahmaanJ.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

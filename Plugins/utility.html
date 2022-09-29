@@ -1,70 +1,37 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Utility &mdash; HoneyBot 5.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="How Tos" href="../how_to.html" />
     <link rel="prev" title="Miscellaneous" href="miscellaneous.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html">
-          
-
-          
-            
             <img src="../_static/honeybot_logo.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -72,17 +39,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../main.html">Main</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../plugins.html">Plugins</a><ul class="current">
@@ -90,22 +47,22 @@
 <li class="toctree-l2"><a class="reference internal" href="fun.html">Fun</a></li>
 <li class="toctree-l2"><a class="reference internal" href="miscellaneous.html">Miscellaneous</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Utility</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#module-plugins.calc">Calc</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-plugins.bitcoin">Bitcoin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-plugins.converter">Converter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-plugins.date">Date</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-plugins.dictionary">Dictionary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-plugins.google">Google</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.calc.main">Calc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.bitcoin.main">Bitcoin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.converter.main">Converter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.date.main">Date</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.dictionary.main">Dictionary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.google.main">Google</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mail">Mail</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-plugins.maths">Maths</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-plugins.memo">Memo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-plugins.password_generator">Password Generator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-plugins.pydocs">Pydocs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-plugins.username">Username</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-plugins.weather">Weather</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-plugins.wikipedia">Wikipedia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.maths.main">Maths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.memo.main">Memo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.password_generator.main">Password Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.pydocs.main">Pydocs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.username.main">Username</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.weather.main">Weather</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.wikipedia.main">Wikipedia</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#translate">Translate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-plugins.send_message">Send Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.send_message.main">Send Message</a></li>
 </ul>
 </li>
 </ul>
@@ -113,76 +70,35 @@
 <li class="toctree-l1"><a class="reference internal" href="../how_to.html">How Tos</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">HoneyBot</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../plugins.html">Plugins</a> &raquo;</li>
-        
       <li>Utility</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/pyhoneybot/honeybot/blob/master/docs/source/Plugins/utility.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="utility">
-<h1>Utility<a class="headerlink" href="#utility" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-plugins.calc">
-<span id="calc"></span><h2>Calc<a class="headerlink" href="#module-plugins.calc" title="Permalink to this headline">¶</a></h2>
+             
+  <section id="utility">
+<h1>Utility<a class="headerlink" href="#utility" title="Permalink to this heading"></a></h1>
+<section id="module-plugins.downloaded.calc.main">
+<span id="calc"></span><h2>Calc<a class="headerlink" href="#module-plugins.downloaded.calc.main" title="Permalink to this heading"></a></h2>
 <p>[calc.py]
 Maths Operation Plugin</p>
 <p>[Author]
@@ -192,9 +108,9 @@ evaluates maths expressions in the format supported by py</p>
 <p>[Commands]
 &gt;&gt;&gt; .calc &lt;maths expression&gt;
 returns evaluated expression</p>
-</div>
-<div class="section" id="module-plugins.bitcoin">
-<span id="bitcoin"></span><h2>Bitcoin<a class="headerlink" href="#module-plugins.bitcoin" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-plugins.downloaded.bitcoin.main">
+<span id="bitcoin"></span><h2>Bitcoin<a class="headerlink" href="#module-plugins.downloaded.bitcoin.main" title="Permalink to this heading"></a></h2>
 <p>[bitcoin.py]
 Bitcoin Price Checking Plugin</p>
 <p>[Author]
@@ -207,23 +123,23 @@ TODO: Update API to new Coin Market Cap API</p>
 <p>[Commands]
 &gt;&gt;&gt; .btc
 returns current value of bitcoin</p>
-</div>
-<div class="section" id="module-plugins.converter">
-<span id="converter"></span><h2>Converter<a class="headerlink" href="#module-plugins.converter" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-plugins.downloaded.converter.main">
+<span id="converter"></span><h2>Converter<a class="headerlink" href="#module-plugins.downloaded.converter.main" title="Permalink to this heading"></a></h2>
 <p>[converter.py]
-Currency Converter Plugin
-[Author]
-Angelo Giacco
-[About]
-Converts currencies
-[Commands]
+Currency Converter Plugin</p>
+<p>[Author]
+Angelo Giacco</p>
+<p>[About]
+Converts currencies</p>
+<p>[Commands]
 &gt;&gt;&gt; .convert &lt;&lt;base currency code&gt;&gt; &lt;&lt;target currency code&gt;&gt; &lt;&lt;amount&gt;&gt;
 returns the conversion: amount argument is optional with a default of 1
 .convert help
 shows a list of currencies supported</p>
-</div>
-<div class="section" id="module-plugins.date">
-<span id="date"></span><h2>Date<a class="headerlink" href="#module-plugins.date" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-plugins.downloaded.date.main">
+<span id="date"></span><h2>Date<a class="headerlink" href="#module-plugins.downloaded.date.main" title="Permalink to this heading"></a></h2>
 <p>[date.py]
 Date Plugin</p>
 <p>[Author]
@@ -233,9 +149,9 @@ Will post the current date</p>
 <p>[Commands]
 &gt;&gt;&gt; .date today
 returns the current date</p>
-</div>
-<div class="section" id="module-plugins.dictionary">
-<span id="dictionary"></span><h2>Dictionary<a class="headerlink" href="#module-plugins.dictionary" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-plugins.downloaded.dictionary.main">
+<span id="dictionary"></span><h2>Dictionary<a class="headerlink" href="#module-plugins.downloaded.dictionary.main" title="Permalink to this heading"></a></h2>
 <p>[dictionary.py]
 Dictionary Plugin</p>
 <p>[Author]
@@ -247,9 +163,9 @@ can use pip -&gt; “pip install PyDictionary”</p>
 <p>[Commands]
 &gt;&gt;&gt; .dictionary &lt;&lt;word&gt;&gt;
 returns meaning of the word specified</p>
-</div>
-<div class="section" id="module-plugins.google">
-<span id="google"></span><h2>Google<a class="headerlink" href="#module-plugins.google" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-plugins.downloaded.google.main">
+<span id="google"></span><h2>Google<a class="headerlink" href="#module-plugins.downloaded.google.main" title="Permalink to this heading"></a></h2>
 <p>[googleSearch.py]
 Google Search Plugin</p>
 <p>[Author]
@@ -259,13 +175,13 @@ Returns the first three links from a google search.</p>
 <p>[Commands]
 &gt;&gt;&gt; .google &lt;&lt;search term&gt;&gt;
 returns search links</p>
-</div>
-<div class="section" id="mail">
-<h2>Mail<a class="headerlink" href="#mail" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mail">
+<h2>Mail<a class="headerlink" href="#mail" title="Permalink to this heading"></a></h2>
 <p>TODO</p>
-</div>
-<div class="section" id="module-plugins.maths">
-<span id="maths"></span><h2>Maths<a class="headerlink" href="#module-plugins.maths" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-plugins.downloaded.maths.main">
+<span id="maths"></span><h2>Maths<a class="headerlink" href="#module-plugins.downloaded.maths.main" title="Permalink to this heading"></a></h2>
 <p>[maths.py]
 Miscellaneous Maths Operations Plugin</p>
 <p>[Author]
@@ -287,9 +203,9 @@ returns sine of number</p>
 <span class="go">returns number between number1 and number2</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="module-plugins.memo">
-<span id="memo"></span><h2>Memo<a class="headerlink" href="#module-plugins.memo" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-plugins.downloaded.memo.main">
+<span id="memo"></span><h2>Memo<a class="headerlink" href="#module-plugins.downloaded.memo.main" title="Permalink to this heading"></a></h2>
 <p>[memo.py]
 Memory Use Illustration Plugin</p>
 <p>[Author]
@@ -300,9 +216,9 @@ responds to .memo, demo of a basic memory plugin</p>
 &gt;&gt;&gt; .memo add &lt;key&gt; &lt;value&gt;
 &gt;&gt;&gt; .memo rem &lt;key&gt;
 &gt;&gt;&gt; .memo fetch &lt;key&gt;</p>
-</div>
-<div class="section" id="module-plugins.password_generator">
-<span id="password-generator"></span><h2>Password Generator<a class="headerlink" href="#module-plugins.password_generator" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-plugins.downloaded.password_generator.main">
+<span id="password-generator"></span><h2>Password Generator<a class="headerlink" href="#module-plugins.downloaded.password_generator.main" title="Permalink to this heading"></a></h2>
 <p>[password_generator.py]
 Password Generator Plugin</p>
 <p>[Author]
@@ -321,12 +237,13 @@ returns alphabetic password of specified length</p>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">.</span><span class="n">passgenspecialchar</span> <span class="o">&lt;&lt;</span><span class="n">length</span><span class="o">&gt;&gt;</span>
-<span class="go">returns universally accepted alphanumeric password with special characters of specified length where length &gt;= 4</span>
+<span class="go">returns universally accepted alphanumeric password with</span>
+<span class="go">special characters of specified length where length &gt;= 4</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="module-plugins.pydocs">
-<span id="pydocs"></span><h2>Pydocs<a class="headerlink" href="#module-plugins.pydocs" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-plugins.downloaded.pydocs.main">
+<span id="pydocs"></span><h2>Pydocs<a class="headerlink" href="#module-plugins.downloaded.pydocs.main" title="Permalink to this heading"></a></h2>
 <p>[dictionary.py]
 Dictionary Plugin</p>
 <p>[Author]
@@ -337,9 +254,9 @@ and returns some of the relevant links</p>
 <p>[Commands]
 &gt;&gt;&gt; .pydocs &lt;keyword&gt;
 returns links in python documentation related to the keyword</p>
-</div>
-<div class="section" id="module-plugins.username">
-<span id="username"></span><h2>Username<a class="headerlink" href="#module-plugins.username" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-plugins.downloaded.username.main">
+<span id="username"></span><h2>Username<a class="headerlink" href="#module-plugins.downloaded.username.main" title="Permalink to this heading"></a></h2>
 <p>[username.py]
 Username Generator Plugin</p>
 <p>[Author]
@@ -349,21 +266,21 @@ generates random usernames, used for inspiration</p>
 <p>[Commands]
 &gt;&gt;&gt; .uname
 returns generated username</p>
-</div>
-<div class="section" id="module-plugins.weather">
-<span id="weather"></span><h2>Weather<a class="headerlink" href="#module-plugins.weather" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-plugins.downloaded.weather.main">
+<span id="weather"></span><h2>Weather<a class="headerlink" href="#module-plugins.downloaded.weather.main" title="Permalink to this heading"></a></h2>
 <p>[weather.py]
-Weather Plugin
-[Author]
-Gabriele Ron
-[About]
-A plugin to get the weather of a location
-[Commands]
+Weather Plugin</p>
+<p>[Author]
+Gabriele Ron</p>
+<p>[About]
+A plugin to get the weather of a location</p>
+<p>[Commands]
 &gt;&gt;&gt; .weather &lt;city&gt; &lt;country code&gt;
 returns the weather</p>
-</div>
-<div class="section" id="module-plugins.wikipedia">
-<span id="wikipedia"></span><h2>Wikipedia<a class="headerlink" href="#module-plugins.wikipedia" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-plugins.downloaded.wikipedia.main">
+<span id="wikipedia"></span><h2>Wikipedia<a class="headerlink" href="#module-plugins.downloaded.wikipedia.main" title="Permalink to this heading"></a></h2>
 <p>[wikipedia.py]
 Wikipedia Plugin</p>
 <p>[Author]
@@ -376,13 +293,13 @@ requires wikipedia library. Can use pip -&gt; “pip install wikipedia”</p>
 <p>[Commands]
 &gt;&gt;&gt; .wiki &lt;command&gt; &lt;topic&gt;
 returns a wikipedia article</p>
-</div>
-<div class="section" id="translate">
-<h2>Translate<a class="headerlink" href="#translate" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="translate">
+<h2>Translate<a class="headerlink" href="#translate" title="Permalink to this heading"></a></h2>
 <p>TODO</p>
-</div>
-<div class="section" id="module-plugins.send_message">
-<span id="send-message"></span><h2>Send Message<a class="headerlink" href="#module-plugins.send_message" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-plugins.downloaded.send_message.main">
+<span id="send-message"></span><h2>Send Message<a class="headerlink" href="#module-plugins.downloaded.send_message.main" title="Permalink to this heading"></a></h2>
 <p>[send_message.py]
 Send Message Plugin</p>
 <p>[Author]
@@ -399,56 +316,38 @@ Sends a message to #channel like
 </pre></div>
 </div>
 <p>Checks if user online first and says “User not online.”</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../how_to.html" class="btn btn-neutral float-right" title="How Tos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="miscellaneous.html" class="btn btn-neutral float-left" title="Miscellaneous" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="miscellaneous.html" class="btn btn-neutral float-left" title="Miscellaneous" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../how_to.html" class="btn btn-neutral float-right" title="How Tos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019, Abdur-rahmaanJ
-
-    </p>
+    <p>&#169; Copyright 2019, Abdur-rahmaanJ.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
