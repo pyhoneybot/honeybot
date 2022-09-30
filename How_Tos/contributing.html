@@ -95,8 +95,24 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">honeybot</span>
 </pre></div>
 </div>
+<p>create a virtualenv to work with different python libs versions</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">venv</span>
+<span class="n">source</span> <span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+</pre></div>
+</div>
+<p>install the tools needed to make the constraint checks</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">black</span> <span class="n">isort</span> <span class="n">bandit</span> <span class="n">pre</span><span class="o">-</span><span class="n">commit</span>
+<span class="n">pre</span><span class="o">-</span><span class="n">commit</span> <span class="n">install</span>
+</pre></div>
+</div>
 <p>different changes to different files. for example, someone making a weather plugin first he creates a new branch</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="s2">&quot;weather-plugin&quot;</span>
+</pre></div>
+</div>
+<p>test if all files are well formatted, complying with style and security rules, before send the PR</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">black</span> <span class="o">--</span><span class="n">check</span> <span class="o">--</span><span class="n">verbose</span> <span class="o">--</span><span class="n">config</span> <span class="o">./</span><span class="n">pyproject</span><span class="o">.</span><span class="n">toml</span> <span class="n">src</span><span class="o">/</span><span class="n">honeybot</span><span class="o">/</span><span class="n">plugins</span><span class="o">/</span><span class="n">downloaded</span><span class="o">/</span><span class="n">weather</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span>
+<span class="n">isort</span> <span class="o">--</span><span class="n">check</span><span class="o">-</span><span class="n">only</span> <span class="o">--</span><span class="n">settings</span><span class="o">-</span><span class="n">path</span> <span class="o">./</span><span class="n">pyproject</span><span class="o">.</span><span class="n">toml</span> <span class="n">src</span><span class="o">/</span><span class="n">honeybot</span><span class="o">/</span><span class="n">plugins</span><span class="o">/</span><span class="n">downloaded</span><span class="o">/</span><span class="n">weather</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span>
+<span class="n">bandit</span> <span class="o">-</span><span class="n">ll</span> <span class="o">-</span><span class="n">c</span> <span class="o">./</span><span class="n">pyproject</span><span class="o">.</span><span class="n">toml</span> <span class="o">-</span><span class="n">r</span> <span class="n">src</span><span class="o">/</span><span class="n">honeybot</span><span class="o">/</span><span class="n">plugins</span><span class="o">/</span><span class="n">downloaded</span><span class="o">/</span><span class="n">weather</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 <p>then he commits</p>
