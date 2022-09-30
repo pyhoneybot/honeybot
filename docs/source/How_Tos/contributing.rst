@@ -19,11 +19,34 @@ cd into the project
 
    cd honeybot
 
+create a virtualenv to work with different python \ libs versions
+
+.. code-block::
+   
+   python -m venv venv
+   source venv/bin/activate
+
+install the tools needed to make the constraint checks
+
+.. code-block::
+
+   pip install black isort bandit pre-commit
+   pre-commit install
+
 different changes to different files. for example, someone making a weather plugin first he creates a new branch
 
 .. code-block::
 
    git checkout -b "weather-plugin"
+
+test if all files are well formatted, complying with style and security rules, before send the PR
+
+.. code-block::
+
+    black --check --verbose --config ./pyproject.toml src/honeybot/plugins/downloaded/weather/main.py
+    isort --check-only --settings-path ./pyproject.toml src/honeybot/plugins/downloaded/weather/main.py
+    bandit -ll -c ./pyproject.toml -r src/honeybot/plugins/downloaded/weather/main.py     
+
 
 then he commits
 

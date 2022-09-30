@@ -53,7 +53,8 @@ Your folder structure needs to look as follows:
 Generating docs
 ^^^^^^^^^^^^^^^
 
-Once you’re set up you can test if sphinx works properly in `honeybot/docs/`_ directory, by changing to 'html' folder, opening a terminal and typing **'sphinx-build ../docs/source/ .'**. This will take the *.rst files in `honeybot/docs/source*`_ and ‘make’ them into html in 'html/' folder that contains the **gh-pages** branch. If it shows any warning you’ll have to fix them before committing, otherwise the documentation wont be automatically build once you push your changes to Github.
+Once you’re set up you can test if sphinx works properly in `honeybot/docs/`_ directory, by changing to 'html' folder, opening a terminal and typing **'sphinx-build ../docs/source/ .'**. This will take the *.rst* files in 
+`honeybot/docs/source/`_ and ‘make’ them into html in 'html/' folder that contains the 'gh-pages' branch. If it shows any warning you’ll have to fix them before committing, otherwise the documentation wont be automatically build once you push your changes to Github.
 Next you can 'add' and 'commit' these changes into your fork by typing:
 
 **git add \***
@@ -66,15 +67,15 @@ Finally, you can make a pull request by typing:
 
 And this'll create a PR in the **gh-pages** branch that'll be analysed by someone in project.
 
-Later do you still need to push the master branch too. Because the *.rst files are on this branch and were not go to the previus PR:
+Later do you still need to push the master branch too. Because the *.rst* files are on this branch and were not go to the previus PR:
 
-**git add docs/source/\***
+**git add docs/source \***
 
 **git commit -m "Commit message"**
 
 **git push origin master**
 
-Since I won't provide a full tutorial on how to write rst files here is a useful
+Since I won't provide a full tutorial on how to write *.rst* files here is a useful
 link:
 rst_
 
@@ -86,4 +87,3 @@ rst_
 .. _honeybot/docs/source/How_Tos/: https://github.com/pyhoneybot/honeybot/tree/master/docs/source/How_Tos
 .. _honeybot/docs/source/Plugins/: https://github.com/pyhoneybot/honeybot/tree/master/docs/source/Plugins
 .. _honeybot/docs/: https://github.com/pyhoneybot/honeybot/tree/master/docs
-.. _honeybot/docs/source*: https://github.com/pyhoneybot/honeybot/tree/master/docs/source

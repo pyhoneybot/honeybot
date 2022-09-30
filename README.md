@@ -284,7 +284,7 @@ if message received == .hi:
 - don't forget to add your country flag here after accepted PR. i'll have to hunt it down on your profile if not.
 - make sure to follow PEP8
 
-**about PR**
+**About PR**
 
 first clone the project
 
@@ -298,10 +298,32 @@ cd into the project
 cd honeybot
 ```
 
+create a virtualenv to work with different python \ libs versions
+
+```
+python -m venv venv
+source venv/bin/activate
+```
+
+install the tools needed to make the constraint checks
+
+```
+pip install black isort bandit pre-commit
+pre-commit install
+```
+
 different changes to different files. for example, someone making a weather plugin first he creates a new branch
 
 ```
 git checkout -b "weather-plugin"
+```
+
+test if all files are well formatted, complying with style and security rules, before send the PR
+
+```
+black --check --verbose --config ./pyproject.toml src/honeybot/plugins/downloaded/weather/main.py
+isort --check-only --settings-path ./pyproject.toml src/honeybot/plugins/downloaded/weather/main.py
+bandit -ll -c ./pyproject.toml -r src/honeybot/plugins/downloaded/weather/main.py 
 ```
 
 then he commits
