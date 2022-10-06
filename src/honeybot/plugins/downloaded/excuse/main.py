@@ -26,8 +26,8 @@ class Plugin:
     def run(self, incoming, methods, info, bot_info):
         try:
             msgs = info["args"][1:][0].split()
-            if info['command'] == 'PRIVMSG' and msgs[0] == '.excuse':
-                    excuse = requests.get(self.url).json()[0]['excuse']
-                    methods['send'](info['address'], excuse)
+            if info["command"] == "PRIVMSG" and msgs[0] == ".excuse":
+                excuse = requests.get(self.url).json()[0]["excuse"]
+                methods["send"](info["address"], excuse)
         except Exception as e:
             print("No excuse for you!", e)
