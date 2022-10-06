@@ -48,7 +48,7 @@ jobs:
       # Run imports sort check
       - name: isort imports sort
         run: |
-          isort --check-only --settings-path ./pyproject.toml src/honeybot/plugins/downloaded/
+          isort --check-only --settings-path ./pyproject.toml src/honeybot/
 
       # Run PEP8 style check
       - name: black PEP8 style check
