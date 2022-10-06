@@ -7,5 +7,5 @@ Returns a random excuse for you.
 
 COMMANDS = """
 >>> .excuse
-returns a random image url.
+Returns a random excuse for you.
 """
