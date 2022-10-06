@@ -45,9 +45,7 @@ class Bot_core(object):
         self.owners = configfile_to_list(self.info["settings_path"], "OWNERS")
         self.password = password
         self.friends = configfile_to_list(self.info["settings_path"], "FRIENDS")
-        self.autojoin_channels = configfile_to_list(
-            self.info["settings_path"], "AUTOJOIN_CHANNELS"
-        )
+        self.autojoin_channels = configfile_to_list(self.info["settings_path"], "AUTOJOIN_CHANNELS")
         self.required_modules = get_requirements()
         self.time = time.time()
 
@@ -184,9 +182,7 @@ class Bot_core(object):
                     with pathlib.Path(req_path).open() as requirements_txt:
                         install_requires = [
                             str(requirement)
-                            for requirement in pkg_resources.parse_requirements(
-                                requirements_txt
-                            )
+                            for requirement in pkg_resources.parse_requirements(requirements_txt)
                         ]
                         print("installing", install_requires)
                         subprocess.check_call(
