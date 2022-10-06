@@ -12,10 +12,7 @@ class Tester:
     def __init__(self, test_type, command):
 
         # Same methods as HoneyBot, but these print to screen
-        methods = {
-            "send_raw": self.send,
-            "send": self.send_target,
-            "join": self.join}
+        methods = {"send_raw": self.send, "send": self.send_target, "join": self.join}
 
         # Set MOCK info for testing
         info = {
