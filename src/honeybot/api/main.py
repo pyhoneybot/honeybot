@@ -12,9 +12,6 @@ import time
 
 import pkg_resources
 
-# import setuptools
-# from pathlib import Path
-
 try:
     from honeybot.api import commands, memory
     from honeybot.api.utils import configfile_to_list, get_requirements, prevent_none
