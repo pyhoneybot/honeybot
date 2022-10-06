@@ -7,13 +7,12 @@ build-backend = "setuptools.build_meta"
 
 [tool.isort]
 profile = "black"
-extend_skip = [".github", ".idea", "__pycache__", "gui_manager.py", "test_core.py", "test_legacy_core.py", "test_plugin_script.py"]
+extend_skip = [".github", ".idea", "__pycache__"]
 line_length = 100
 
 [tool.black]
 line-length = 100
 target-version = ['py37', 'py38', 'py39', 'py310']
-include = 'src/honeybot/plugins/downloaded/'
 exclude = '\.txt?'
 # 'extend-exclude' excludes files or directories in addition to the defaults
 extend-exclude = '''
@@ -23,11 +22,8 @@ extend-exclude = '''
   |\.idea
   |__pycache__
   |venv
-  |gui_manager\.py,test_core\.py,test_legacy_core\.py,test_plugin_script\.py
-  |src/honeybot\/plugins\/downloaded\/calc\/main\.py
 )
 '''
 
 [tool.bandit]
-exclude = [".git", ".github", ".idea", "__pycache__", "venv", "workshop", "./build/lib/honeybot/plugins/downloaded/calc/main.py", "./build/lib/honeybot/plugins/downloaded/monopoly/main.py"]
-targets = ["./src/honeybot/plugins/downloaded"]
+exclude_dirs = [".git", ".github", ".idea", "__pycache__", "venv", "workshop"]
