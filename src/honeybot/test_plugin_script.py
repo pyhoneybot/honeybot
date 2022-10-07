@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """ Change to your plugin file name below.
                     ↓↓↓↓  """
-from plugins import roman_numeral as test_plugin
 import time
 
+from plugins import roman_numeral as test_plugin
 
 test_plugin = test_plugin.Plugin
 

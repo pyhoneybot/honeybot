@@ -1,9 +1,10 @@
-import unittest
 import configparser
-import traceback
-from api.main import Bot_core as Bot
 import os
 import time
+import traceback
+import unittest
+
+from api.main import Bot_core as Bot
 
 """
 ':appinv!c5e342c5@gateway/web/cgi-irc/kiwiirc.com/ip.200.200.22.200 PRIVMSG ##bottestingmu :ef'

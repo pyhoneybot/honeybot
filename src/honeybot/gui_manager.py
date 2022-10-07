@@ -1,8 +1,8 @@
-from tkinter import *
-import tkinter as tk
 import os
-import threading
 import subprocess as sp
+import threading
+import tkinter as tk
+from tkinter import *
 
 window = tk.Tk()
 window.geometry("650x670")
