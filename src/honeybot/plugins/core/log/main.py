@@ -31,7 +31,7 @@ class Plugin:
     def __init__(self):
         pass
 
-    def run(self, methods, info, bot_info):
+    def run(self, incoming, methods, info, bot_info):
         msgs = info["args"][1:]
         try:
             if info["command"] == "PRIVMSG":
