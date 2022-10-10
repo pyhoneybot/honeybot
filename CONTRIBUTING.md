@@ -1,6 +1,6 @@
 ## 📃 Quickstart
 
-fork repo, run run.py in /honeybot/run.py
+fork repo, run run.py in /honeybot/run.py 
 
 
 ## 📃 Full Contributing Guide
