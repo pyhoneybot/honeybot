@@ -31,9 +31,7 @@ class Plugin:
             msgs = info["args"][1:][0].split()
             if info["command"] == "PRIVMSG" and msgs[0] == ".duck":
                 query = " ".join(msg for msg in msgs[1:])
-                duck_abstract = requests.get(self.__gen_url_from_query(query)).json()[
-                    "Abstract"
-                ]
+                duck_abstract = requests.get(self.__gen_url_from_query(query)).json()["Abstract"]
                 methods["send"](info["address"], duck_abstract)
         except Exception as e:
             print("quack quack!", e)
