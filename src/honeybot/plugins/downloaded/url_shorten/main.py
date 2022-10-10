@@ -31,9 +31,7 @@ class Plugin:
                     1
                 ]  # not entertaining multiple url. also assuming url is encoded i.e. no space will be there inside url.
                 short_url = (
-                    requests.post(self.url, json={"url": query})
-                    .json()
-                    .get("result_url", "")
+                    requests.post(self.url, json={"url": query}).json().get("result_url", "")
                 )
                 methods["send"](info["address"], short_url)
         except Exception as e:
