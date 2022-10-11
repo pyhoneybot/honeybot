@@ -5,7 +5,7 @@
 
 
 
-<img src="https://github.com/pyhoneybot/honeybot/blob/master/honeybot_real.png" width="64" />
+<img src="./assets/honeybot_real.png" width="64" />
 
 [![PyPI version](https://badge.fury.io/py/honeybot.svg)](https://badge.fury.io/py/honeybot)
 [![First Timers Only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg)](https://www.firsttimersonly.com/)
