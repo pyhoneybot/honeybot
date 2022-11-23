@@ -1,9 +1,10 @@
-import unittest
 import configparser
-import traceback
-from api.main import Bot_core as Bot
 import os
 import time
+import traceback
+import unittest
+
+from api.main import Bot_core as Bot
 
 """
 ':appinv!c5e342c5@gateway/web/cgi-irc/kiwiirc.com/ip.200.200.22.200 PRIVMSG ##bottestingmu :ef'
@@ -21,9 +22,11 @@ root = os.getcwd()
 settings = os.path.join(root, "settings")
 config = configparser.ConfigParser()
 config.read("settings/CONNECT.conf")
-info = {'settings_path': settings, 'cwd': root}
+info = {"settings_path": settings, "cwd": root}
 # incoming
-incoming = ":appinv!c5e342c5@gateway/web/cgi-irc/kiwiirc.com/ip.200.200.22.200 PRIVMSG ##bottestingmu :ef"
+incoming = (
+    ":appinv!c5e342c5@gateway/web/cgi-irc/kiwiirc.com/ip.200.200.22.200 PRIVMSG ##bottestingmu :ef"
+)
 bot = Bot(info)
 sec = 5
 
@@ -56,14 +59,10 @@ class HoneybotTests(unittest.TestCase):
         self.assertEqual(bot.message_info(incoming)["command"], "PRIVMSG")
 
     def test_info_address(self):
-        self.assertEqual(
-            bot.message_info(incoming)["address"],
-            "##bottestingmu")
+        self.assertEqual(bot.message_info(incoming)["address"], "##bottestingmu")
 
     def test_info_args(self):
-        self.assertEqual(
-            bot.message_info(incoming)["args"],
-            ["##bottestingmu", "ef"])
+        self.assertEqual(bot.message_info(incoming)["args"], ["##bottestingmu", "ef"])
 
 
 """

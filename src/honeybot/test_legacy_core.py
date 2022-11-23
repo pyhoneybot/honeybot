@@ -1,5 +1,6 @@
-import unittest
 import configparser
+import unittest
+
 from main import Bot_core as Bot
 
 """
@@ -60,9 +61,7 @@ class HoneybotTests(unittest.TestCase):
     """
 
     def test_set_nick_command(self):
-        self.assertEqual(
-            bot.set_nick_command(),
-            "NICK {0}\r\n".format(config["INFO"]["name"]))
+        self.assertEqual(bot.set_nick_command(), "NICK {0}\r\n".format(config["INFO"]["name"]))
 
     def test_present_command(self):
         self.assertEqual(

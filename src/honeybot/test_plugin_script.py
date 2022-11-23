@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """ Change to your plugin file name below.
                     ↓↓↓↓  """
-from plugins import roman_numeral as test_plugin
 import time
 
+from plugins import roman_numeral as test_plugin
 
 test_plugin = test_plugin.Plugin
 
@@ -12,10 +12,7 @@ class Tester:
     def __init__(self, test_type, command):
 
         # Same methods as HoneyBot, but these print to screen
-        methods = {
-            "send_raw": self.send,
-            "send": self.send_target,
-            "join": self.join}
+        methods = {"send_raw": self.send, "send": self.send_target, "join": self.join}
 
         # Set MOCK info for testing
         info = {

@@ -1,8 +1,8 @@
-from tkinter import *
-import tkinter as tk
 import os
-import threading
 import subprocess as sp
+import threading
+import tkinter as tk
+from tkinter import *
 
 window = tk.Tk()
 window.geometry("650x670")
@@ -93,16 +93,8 @@ elements = [
     [["tt", Text(window, width=80)]],
     [["label3", Label(window, text="Don't forget to hit save!")]],
     [
-        ["saveBtn", Button(
-            window,
-            text="Save File",
-            width=10,
-            command=saveFile)],
-        ["reorderBtn", Button(
-            window,
-            text="Reorder",
-            width=10,
-            command=reorder)],
+        ["saveBtn", Button(window, text="Save File", width=10, command=saveFile)],
+        ["reorderBtn", Button(window, text="Reorder", width=10, command=reorder)],
     ],
     [
         ["runBot", Button(window, text="RUN", width=10, command=run_bot)],
