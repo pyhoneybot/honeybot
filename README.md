@@ -1,4 +1,4 @@
-# 🍯 honeybot py [ [docs](https://pyhoneybot.github.io/honeybot/) ] [ [Maintainer Needed](https://github.com/pyhoneybot/honeybot/issues/101) ]
+# 🍯 honeybot py [ [docs](https://pyhoneybot.github.io/honeybot/) ]
 
 <div align="center">
 
@@ -7,7 +7,7 @@
 
 <img src="./assets/honeybot_real.png" width="64" />
 
-[![PyPI version](https://badge.fury.io/py/honeybot.svg)](https://badge.fury.io/py/honeybot)
+[![PyPI version](https://badge.fury.io/py/honeybot.png)](https://badge.fury.io/py/honeybot)
 [![First Timers Only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg)](https://www.firsttimersonly.com/)
 ![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-pink.svg)
 ![Made in Moris](https://img.shields.io/badge/Made%20in-Moris-green.svg)
