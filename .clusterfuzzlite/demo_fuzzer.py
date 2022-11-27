@@ -19,11 +19,12 @@ import sys
 import atheris
 
 # aiohttp imports
-import asyncio
+# import asyncio
 with atheris.instrument_imports():
-    import aiohttp
-    from aiohttp.base_protocol import BaseProtocol
-    from aiohttp import http_exceptions, streams
+    # import aiohttp
+    # from aiohttp.base_protocol import BaseProtocol
+    # from aiohttp import http_exceptions, streams
+    pass
 
 @atheris.instrument_func
 def TestOneInput(data):
