@@ -14,7 +14,7 @@
 #
 ################################################################################
 
-FROM gcr.io/oss-fuzz-base/base-builder
+FROM gcr.io/oss-fuzz-base/base-builder-python
 
 COPY . $SRC/clusterfuzzlite-example
 WORKDIR clusterfuzzlite-example
