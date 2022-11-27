@@ -2,7 +2,7 @@ import os
 import subprocess as sp
 import threading
 import tkinter as tk
-from tkinter import * 
+from tkinter import *
 
 window = tk.Tk()
 window.geometry("650x670")
