@@ -24,11 +24,12 @@ with atheris.instrument_imports():
     # import aiohttp
     # from aiohttp.base_protocol import BaseProtocol
     # from aiohttp import http_exceptions, streams
+    from honeybot.api.print import print_connect_settings
     pass
 
 @atheris.instrument_func
 def TestOneInput(data):
-    pass
+    print_connect_settings(data)
 
 def main():
     atheris.Setup(sys.argv, TestOneInput, enable_python_coverage=True)
