@@ -4,7 +4,9 @@ import sys
 
 from setuptools import find_packages, setup
 
-assert sys.version_info >= (3, 7, 0), "honeybot requires Python 3.7.0"
+if not sys.version_info >= (3, 7, 0): 
+    raise Exception("honeybot requires Python 3.7.0 at least")
+
 from pathlib import Path  # noqa E402
 
 CURRENT_DIR = Path(__file__).parent
