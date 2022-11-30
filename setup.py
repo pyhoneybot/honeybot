@@ -24,7 +24,10 @@ def get_long_description() -> str:
         (CURRENT_DIR / "README.md").read_text(encoding="utf8")
     )
 
-
+if sys.argv[-1] == "publish":  # requests
+    os.system("python setup.py sdist")  # bdist_wheel
+    os.system("twine upload dist/* --skip-existing")
+    sys.exit()
 
 setup(
     name="honeybot",
