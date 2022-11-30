@@ -4,7 +4,7 @@ import sys
 
 from setuptools import find_packages, setup
 
-if not sys.version_info >= (3, 7, 0): 
+if not (sys.version_info.major == 3 and sys.version_info.minor >= 7 and sys.version_info.micro >= 0): 
     raise Exception("honeybot requires Python 3.7.0 at least")
 
 from pathlib import Path  # noqa E402
