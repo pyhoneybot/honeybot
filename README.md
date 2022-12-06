@@ -171,13 +171,13 @@ you should see the bot as hbot ... or as it's name is in [settings](https://gith
 Change SERVER, PORT and NICKNAME variables to match your preferences
 
 ```
-docker build -t honeybot -f ./docker/Dockerfile .
+docker build -t "honeybot/honeybot:6.0.2" .
 ```
 
 ** Running Docker image **
 
 ```
-docker run honeybot
+docker run -d --name=honeybot honeybot/honeybot:v6.0.2 honeybot run
 ```
 
 ## 🔧 Plugins Development
