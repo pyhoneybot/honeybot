@@ -12,13 +12,13 @@ Change SERVER, PORT and NICKNAME variables to match your preferences
 
 .. code-block::
 
-   docker build -t honeybot -f ./docker/Dockerfile .
+   docker build -t "honeybot/honeybot:6.0.2" .
 
 Running Docker image
 
 .. code-block::
 
-   docker run honeybot
+   docker run -d --name=honeybot honeybot/honeybot:v6.0.2 honeybot run
 
 Quickstart
 ^^^^^^^^^^

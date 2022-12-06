@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Running the bot &mdash; HoneyBot 5.0.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -81,22 +80,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="running-the-bot">
+  <div class="section" id="running-the-bot">
 <h1>Running the bot<a class="headerlink" href="#running-the-bot" title="Permalink to this heading"></a></h1>
 <p>This How To will cover how to get our instance of the bot running in order to
 test it’s behaviour and functions.</p>
-<section id="building-docker-image">
+<div class="section" id="building-docker-image">
 <h2>Building Docker image<a class="headerlink" href="#building-docker-image" title="Permalink to this heading"></a></h2>
 <p>Change SERVER, PORT and NICKNAME variables to match your preferences</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">build</span> <span class="o">-</span><span class="n">t</span> <span class="n">honeybot</span> <span class="o">-</span><span class="n">f</span> <span class="o">./</span><span class="n">docker</span><span class="o">/</span><span class="n">Dockerfile</span> <span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">build</span> <span class="o">-</span><span class="n">t</span> <span class="s2">&quot;honeybot/honeybot:6.0.2&quot;</span> <span class="o">.</span>
 </pre></div>
 </div>
 <p>Running Docker image</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="n">honeybot</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">honeybot</span> <span class="n">honeybot</span><span class="o">/</span><span class="n">honeybot</span><span class="p">:</span><span class="n">v6</span><span class="mf">.0.2</span> <span class="n">honeybot</span> <span class="n">run</span>
 </pre></div>
 </div>
-</section>
-<section id="quickstart">
+</div>
+<div class="section" id="quickstart">
 <h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this heading"></a></h2>
 <blockquote>
 <div><p>specify your details in CONNECT.conf (already included)</p>
@@ -108,8 +107,8 @@ name = appinventormuBot</p>
 <blockquote>
 <div><p>run run.py</p>
 </div></blockquote>
-</section>
-<section id="seeing-the-bot-in-action">
+</div>
+<div class="section" id="seeing-the-bot-in-action">
 <h2>Seeing The Bot In Action<a class="headerlink" href="#seeing-the-bot-in-action" title="Permalink to this heading"></a></h2>
 <p>Get an IRC client</p>
 <blockquote>
@@ -122,8 +121,8 @@ Android: Revolution IRC</p>
 url: chat.freenode.net</p>
 <p>then join channel #ltch</p>
 <p>you should see the bot as hbot … or as it’s name is in settings</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Setting up Documentation &mdash; HoneyBot 5.0.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -81,7 +80,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="setting-up-documentation">
+  <div class="section" id="setting-up-documentation">
 <h1>Setting up Documentation<a class="headerlink" href="#setting-up-documentation" title="Permalink to this heading"></a></h1>
 <p>This How To focuses on setting up <strong>Sphinx</strong> in order to edit the HoneyBot documentation.
 You <em>don’t</em> need to do this if you’re simply adding a plugin.
@@ -89,7 +88,7 @@ If you should have <strong>any</strong> questions feel free to ask on our <a cla
 <p>For documentation HoneyBot uses a tool named <a class="reference external" href="https://www.sphinx-doc.org/en/master/">sphinx</a>. Sphinx reads in
 the docstrings of functions, methods and classes and automatically parses
 them as you can see in the actual documentation.</p>
-<section id="requirements">
+<div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h2>
 <p>To generate the documentation you will need to have sphinx installed,
 click <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html">here</a> for a quick installation guide. <strong>Make sure you’ve installed the
@@ -135,8 +134,8 @@ These <em>.rst</em> files they are too on following paths: <a class="reference e
 </tr>
 </tbody>
 </table>
-</section>
-<section id="generating-docs">
+</div>
+<div class="section" id="generating-docs">
 <h2>Generating docs<a class="headerlink" href="#generating-docs" title="Permalink to this heading"></a></h2>
 <p>Once you’re set up you can test if sphinx works properly in <a class="reference external" href="https://github.com/pyhoneybot/honeybot/tree/master/docs">honeybot/docs/</a> directory, by changing to ‘html’ folder, opening a terminal and typing <strong>‘sphinx-build ../docs/source/ .’</strong>. This will take the <em>.rst</em> files in
 <a class="reference external" href="https://github.com/pyhoneybot/honeybot/tree/master/docs/source">honeybot/docs/source/</a> and ‘make’ them into html in ‘html/’ folder that contains the ‘gh-pages’ branch. If it shows any warning you’ll have to fix them before committing, otherwise the documentation wont be automatically build once you push your changes to Github.
@@ -153,8 +152,8 @@ Next you can ‘add’ and ‘commit’ these changes into your fork by typing:<
 <p>Since I won’t provide a full tutorial on how to write <em>.rst</em> files here is a useful
 link:
 <a class="reference external" href="https://packagecontrol.io/packages/Restructured%20Text%20%28RST%29%20Snippets">rst</a></p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
