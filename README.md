@@ -109,11 +109,11 @@ GUI clients are used to manage plugins, launch bot as well as specify credential
 | :page_with_curl: comic | Returns a random comic                                                                | [@mboekhold](https://github.com/mboekhold)                                                               |
 | 📝 todo                | Makes a to do list                                                                    | [@h-ranjan1110](https://github.com/h-ranjan1110)                                                         |
 | 🎱 Magic 8 Ball        | Answer questions using magic 8 ball                                                   | [@ZakariaTalhami](https://github.com/ZakariaTalhami)                                                     |
-| 🎟 Random Excuse       | Generates a random excuse for you.                                                   | [@rakeshseal0](https://github.com/rakeshseal0)
-| 🦆 DuckDuckGo Search    | Search queries in duckduckgo and return abstract.                                    | [@rakeshseal0](https://github.com/rakeshseal0)                                                     |
-| 🖼 Random Image        | Returns a random image url.                                                          | [@rakeshseal0](https://github.com/rakeshseal0) 
-| 🛢 URL Shortener       | Shortens a url                                                          | [@rakeshseal0](https://github.com/rakeshseal0)
-| 😁 emoji      | Returns emoji meaning                                             | [@deadex-ng](https://github.com/deadex-ng) 
+| 🎟 Random Excuse        | Generates a random excuse for you.                                                    | [@rakeshseal0](https://github.com/rakeshseal0)                                                           |
+| 🦆 DuckDuckGo Search   | Search queries in duckduckgo and return abstract.                                     | [@rakeshseal0](https://github.com/rakeshseal0)                                                           |
+| 🖼 Random Image         | Returns a random image url.                                                           | [@rakeshseal0](https://github.com/rakeshseal0)                                                           |
+| 🛢 URL Shortener        | Shortens a url                                                                        | [@rakeshseal0](https://github.com/rakeshseal0)                                                           |
+| 😁 emoji               | Returns emoji meaning                                                                 | [@deadex-ng](https://github.com/deadex-ng)                                                               |
 
 ## ⚡ Quickstart
 
