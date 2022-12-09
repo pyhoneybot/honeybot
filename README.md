@@ -23,7 +23,7 @@
  ### **[Claim Now!](https://aviyel.com/projects/84/pyhoneybot/rewards)**
 
 <hr>
-🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳 🇬🇧 🇬🇬 🇧🇷 🇸🇽 🇵🇱 🇩🇪
+🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳 🇬🇧 🇬🇬 🇧🇷 🇸🇽 🇵🇱 🇩🇪 🇲🇼
 
 </div>
 <div align="center">
@@ -112,7 +112,8 @@ GUI clients are used to manage plugins, launch bot as well as specify credential
 | 🎟 Random Excuse       | Generates a random excuse for you.                                                   | [@rakeshseal0](https://github.com/rakeshseal0)
 | 🦆 DuckDuckGo Search    | Search queries in duckduckgo and return abstract.                                    | [@rakeshseal0](https://github.com/rakeshseal0)                                                     |
 | 🖼 Random Image        | Returns a random image url.                                                          | [@rakeshseal0](https://github.com/rakeshseal0) 
-| 🛢 URL Shortener       | Shortens a url                                                          | [@rakeshseal0](https://github.com/rakeshseal0) 
+| 🛢 URL Shortener       | Shortens a url                                                          | [@rakeshseal0](https://github.com/rakeshseal0)
+| 😁 emoji      | Returns emoji meaning                                             | [@deadex-ng](https://github.com/deadex-ng) 
 
 ## ⚡ Quickstart
 
