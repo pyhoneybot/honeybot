@@ -4,7 +4,7 @@ fork repo, run run.py in /honeybot/run.py
 
 ## 📃 Full Contributing Guide
 
-- Don't forget to add your country flag ro the README.md after accepted PR. I'll have to hunt it down on your profile if you don't.
+- Don't forget to add your country flag on the README.md after accepted PR. I'll have to hunt it down on your profile if you don't.
 - Make sure to follow PEP8
 
 ### Code Style
@@ -52,6 +52,13 @@ different changes to different files. For example, for someone making a weather 
 ```
 git checkout -b "weather-plugin"
 ```
+test if all files are well formatted, complying with style and security rules, before send the PR
+
+```
+black --check --verbose --config ./pyproject.toml src/honeybot/plugins/downloaded/weather/main.py
+isort --check-only --settings-path ./pyproject.toml src/honeybot/plugins/downloaded/weather/main.py
+bandit -ll -c ./pyproject.toml -r src/honeybot/plugins/downloaded/weather/main.py 
+```
 
 then he commits
 
@@ -98,7 +105,15 @@ Now he wants to go back to fixing his weather plugin, he changes branch
 git checkout weather-plugin
 ```
 
-works, then commit
+test if all files are well formatted, complying with style and security rules, before send the PR
+
+```
+black --check --verbose --config ./pyproject.toml src/honeybot/plugins/downloaded/weather/main.py
+isort --check-only --settings-path ./pyproject.toml src/honeybot/plugins/downloaded/weather/main.py
+bandit -ll -c ./pyproject.toml -r src/honeybot/plugins/downloaded/weather/main.py 
+```
+
+then commit
 
 ```
 git add *

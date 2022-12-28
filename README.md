@@ -35,14 +35,20 @@
 
 # Table of Contents  
 
-## Table of Content
-- [About](#-about)
-- [Install](#instalation)
-- [Data](#data)
-- [Notebooks](#notebooks)
-- [Scripts](#scripts)
-- [Technologies used](#technologies-used)
-## Headers
+- [📮 About](#-about)
+- [🕹 Project Motivation](#-project-motivation)
+- [✂ Current Features](#-current-features)
+- [:mountain: GUI clients](#mountain-gui-clients)
+- [⌚ Current Plugins](#-current-plugins)
+- [⚡ Quickstart](#-quickstart)
+- [💻 Seeing The Bot In Action](#-seeing-the-bot-in-action)
+- [Docker](#docker)
+- [🔧 Plugins Development](#-plugins-development)
+- [📃 Contributing Guide](#-contributing-guide)
+- [🔌 Todo Plugins](#-todo-plugins)
+- [☑ Allowing Plugins](#-allowing-plugins)
+- [📧 Contact (Including vulnerabilities)](#-contact-including-vulnerabilities)
+- [🖊 Credits](#-credits)
 
 ## 📮 About
 
@@ -300,145 +306,7 @@ if message received == .hi:
 - don't forget to add your country flag here after accepted PR. i'll have to hunt it down on your profile if not.
 - make sure to follow PEP8
 
-**About PR**
-
-first clone the project
-
-```
-git clone https://github.com/pyhoneybot/honeybot.git
-```
-
-cd into the project
-
-```
-cd honeybot
-```
-
-create a virtualenv to work with different python \ libs versions
-
-```
-python -m venv venv
-source venv/bin/activate
-```
-
-install the tools needed to make the constraint checks
-
-```
-pip install black isort bandit pre-commit
-pre-commit install
-```
-
-different changes to different files. for example, someone making a weather plugin first he creates a new branch
-
-```
-git checkout -b "weather-plugin"
-```
-
-test if all files are well formatted, complying with style and security rules, before send the PR
-
-```
-black --check --verbose --config ./pyproject.toml src/honeybot/plugins/downloaded/weather/main.py
-isort --check-only --settings-path ./pyproject.toml src/honeybot/plugins/downloaded/weather/main.py
-bandit -ll -c ./pyproject.toml -r src/honeybot/plugins/downloaded/weather/main.py 
-```
-
-then he commits
-
-```
-git add *
-git commit -m "added weather plugin"
-```
-
-or
-
-```
-git commit -a -m "did this"
-```
-
-then he push to create a PR with the branch
-
-```
-git push origin head
-```
-
-or
-
-```
-git push origin weather-plugin
-```
-
-now let us say he wants to work on another issue, adding a joke in the jokes plugin, he creates another branch
-
-```
-git checkout -b "add-jokes"
-```
-
-after, same as before
-
-```
-git add *
-git commit -m "added some jokes"
-git push origin head
-```
-
-now he wants to fix his weather plugin, he changes branch
-
-```
-git checkout weather-plugin
-```
-
-works, then commit
-
-```
-git add *
-git commit -m "fixed <issue>"
-```
-
-then a PR
-
-```
-git push origin head
-```
-
-**Why all these?**
-
-So as not to reject a whole PR just because of some oddities. Reject only unneeded part.
-
-**Updating the Documentation**
-
-If you created a new plugin you should add your plugin to the documentation.
-To do this, go into your cloned honeybot repo and then into the directory _docs/source/Plugins_ .
-Depending on the type of plugin write this into the development, fun, miscellaneous or utility RST file:
-
-```rst
-
-   <Plugin-Name>
-   ^^^^^^^^^^^^^
-   .. automodule:: plugins.<your-plugin-filename>
-      :members:
-```
-
-This allows sphinx to automatically pull the docstrings from the code of your plugin and parse them accordingly.
-
-A small guide on how to further contribute to the documentation of the project can be found [here](https://pyhoneybot.github.io/honeybot/How_Tos/documentation.html)
-
-## 🥄 Updating fork
-
-Now, other changes are ongoing, what if you need the latest changes?
-
-```
-git pull origin master
-```
-
-helps if you cloned your own repo. What if you want to update your local copy of someone else's repo that you forked?
-You do it like that
-
-```
-cd <your/local/cloned/repo/path/here>
-git remote add upstream https://github.com/pyhoneybot/honeybot.git
-git fetch upstream
-git pull upstream master
-```
+Check out [Contributing](https://github.com/pyhoneybot/honeybot/blob/master/CONTRIBUTING.md) to get started on contributing.
 
 ## 🔌 Todo Plugins
 
@@ -460,30 +328,6 @@ in PLUGINS.conf, add the plugin to allow on a new line !
 calc
 username
 ```
-
-## :thought_balloon: Project Testimonials
-
-[@TannerFry](https://github.com/TannerFry)
-
-> With experience in programming in Python, and implementing an SMTP email plugin for a different system, picking up HoneyBot and following the documentation provided for new-comers made it very simple to implement the same SMTP email plugin to the HoneyBot system. This was my first time contributing to an open-source
-> project on GitHub and it was an overall great experience. The welcoming of new contributors and documentation on how to contribute and implement plugins is great for people
-> who have never contributed to a project before, and Abdur-Rahmaan Janhangeer was extremely helpful when answering my questions and helping me along the way.
-
-[@RiceAbove](https://github.com/RiceAbove)
-
-> HoneyBot is my first time collaborating to an open source project and I'm loving it. Before discovering HoneyBot, I was very intimidated on the idea of working with other people and had no idea what an IRC even was. Now I realize how much fun and rewarding it is to work together on a project with dedicated and friendly individuals. The documentation is easy to follow and everyone is super helpful. I highly recommend any new programmer who want to contribute on an open source project to try out HoneyBot. Personally I enjoy working on this project more than my own schoolwork.
-
-[@justinwalker4179](https://github.com/IronPenguin4179)
-
-> HoneyBot is my first open source project and I had never worked with an IRC before. For school I was required to contribute to projects, but it was always so intimidating to me. I had always heard it gets easier once you've gotten over the fear wall, and that's what HoneyBot did for me. Excellent readme and quick feedback allowed me to make my first plugin. Now I've made many contributions, and look forward to any new issues I can get my hands on. Abdur-Rahmaan Janhangeer has been extremely helpful and I owe him and this project a lot for getting me into the open source world.
-
-[@mboekhold](https://github.com/mboekhold)
-
-> HoneyBot is a very friendly and welcoming community. They provided quick feedback and I would defenitely recommend this project to newcomers to give them that first boost on contributing to open source. HoneyBot helps you all the way there to issuing your first PR, step by step. I contributed a comic plugin, and I was thankful for meeting all the friendly and passionate people who are active in this community.
-
-[@Macr0Nerd](https://github.com/Macr0Nerd)
-
-> I came onto this project in October of 2018. At the time, my experience with open source was nil. I wasn't even sure I was good with python; I just happened to be better than everyone in class. Working on HoneyBot really opened my eyes to the power of community and programming, and has sent me on a path I don't wanna turn from. Just seeing how this project has evolved over the past year and how I've grown with it, I wouldn't trade it for the world. My name might not be on any of the recent plugins or doc strings, but I'll never forget that it'll always be tied to this project and a lot of the code. Also, I don't know if they'll check my commit so go look at the C++ Client! It's cool I promise!
 
 ## 📧 Contact (Including vulnerabilities)
 
