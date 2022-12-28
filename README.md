@@ -47,6 +47,7 @@
 - [📃 Contributing Guide](#-contributing-guide)
 - [🔌 Todo Plugins](#-todo-plugins)
 - [☑ Allowing Plugins](#-allowing-plugins)
+- [:thought_balloon: Project Testimonials](https://github.com/deadex-ng/honeybot/blob/readme-fix/TESTIMONIALS.md)
 - [📧 Contact (Including vulnerabilities)](#-contact-including-vulnerabilities)
 - [🖊 Credits](#-credits)
 
