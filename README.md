@@ -34,10 +34,14 @@
 </div>
 
 # Table of Contents  
-[📮 About](#about) 
-[Emphasis](#project motivation) 
-[link](#quickstart)
-[link](#quickstart)
+
+## Table of Content
+- [About](#about)
+- [Install](#instalation)
+- [Data](#data)
+- [Notebooks](#notebooks)
+- [Scripts](#scripts)
+- [Technologies used](#technologies-used)
 ## Headers
 
 ## 📮 About
