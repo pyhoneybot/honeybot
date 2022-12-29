@@ -66,13 +66,6 @@ different changes to different files. For example, for someone making a weather 
 ```
 git checkout -b "weather-plugin"
 ```
-test if all files are well formatted, complying with style and security rules, before send the PR
-
-```
-black --check --verbose --config ./pyproject.toml src/honeybot/plugins/downloaded/weather/main.py
-isort --check-only --settings-path ./pyproject.toml src/honeybot/plugins/downloaded/weather/main.py
-bandit -ll -c ./pyproject.toml -r src/honeybot/plugins/downloaded/weather/main.py 
-```
 
 then he commits
 
