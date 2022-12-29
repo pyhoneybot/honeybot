@@ -47,6 +47,20 @@ cd into the project
 cd honeybot
 ```
 
+create a virtualenv to work with different python libs versions
+
+```
+python -m venv venv
+source venv/bin/activate
+```
+
+install the tools needed to make the constraint checks
+
+```
+pip install black isort bandit pre-commit
+pre-commit install
+```
+
 different changes to different files. For example, for someone making a weather plugin, first he creates a new branch
 
 ```
