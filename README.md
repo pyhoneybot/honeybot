@@ -33,7 +33,7 @@
 
 </div>
 
-# Table of Contents  
+# Table of Contents
 
 - [📮 About](#-about)
 - [🕹 Project Motivation](#-project-motivation)
@@ -132,6 +132,7 @@ GUI clients are used to manage plugins, launch bot as well as specify credential
 | 🖼 Random Image         | Returns a random image url.                                                           | [@rakeshseal0](https://github.com/rakeshseal0)                                                           |
 | 🛢 URL Shortener        | Shortens a url                                                                        | [@rakeshseal0](https://github.com/rakeshseal0)                                                           |
 | 😁 emoji               | Returns emoji meaning                                                                 | [@deadex-ng](https://github.com/deadex-ng)                                                               |
+| :birthday: birthday    | Shows birthday match probability on a people group.                                   | [@paulosgf](https://github.com/paulosgf)                                                                 |
 
 ## ⚡ Quickstart
 
@@ -186,14 +187,15 @@ you should see the bot as hbot ... or as it's name is in [settings](https://gith
 
 ## Docker
 
-** Building Docker image **
+**Building Docker image**
+
 Change SERVER, PORT and NICKNAME variables to match your preferences
 
 ```
 docker build -t "honeybot/honeybot:6.0.2" .
 ```
 
-** Running Docker image **
+**Running Docker image**
 
 ```
 docker run -d --name=honeybot honeybot/honeybot:v6.0.2 honeybot run
