@@ -37,7 +37,7 @@ Magic 8 Ball
    :members:
 
 Basketball
-^^^^^
+^^^^^^^^^^
 .. automodule:: plugins.downloaded.basketball.main
    :members:
 
