@@ -191,8 +191,7 @@ class Hangman:
             self.check_win()
         else:
             self.display_message = (
-                "'{}' was incorrect. ".format(wordGuess)
-                + f"You have {self.guessCount} guesses remaining."
+                f"'{wordGuess}' was incorrect. " + f"You have {self.guessCount} guesses remaining."
             )
 
     # check_win determines if the user has guessed the entire word after each
