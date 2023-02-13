@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [sysinfo.py]
 System Information Plugin.
@@ -81,11 +80,11 @@ class Plugin:
                 # Number of cores.
                 methods["send"](
                     info["address"],
-                    "Physical cores: {}".format(psutil.cpu_count(logical=False)),
+                    f"Physical cores: {psutil.cpu_count(logical=False)}",
                 )
                 methods["send"](
                     info["address"],
-                    "Total cores: {}".format(psutil.cpu_count(logical=True)),
+                    f"Total cores: {psutil.cpu_count(logical=True)}",
                 )
                 # CPU frequencies.
                 cpufreq = psutil.cpu_freq()

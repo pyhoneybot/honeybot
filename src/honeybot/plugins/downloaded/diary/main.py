@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [diary.py]
 Diary Plugin

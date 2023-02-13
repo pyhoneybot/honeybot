@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [date.py]
 Date Plugin
@@ -28,7 +27,7 @@ class Plugin:
         day = curr_date.strftime("%d")
         month = curr_date.strftime("%B")
         year = curr_date.strftime("%Y")
-        return "Today is {} {}, {}".format(month, day, year)
+        return f"Today is {month} {day}, {year}"
 
     def run(self, incoming, methods, info, bot_info):
         try:

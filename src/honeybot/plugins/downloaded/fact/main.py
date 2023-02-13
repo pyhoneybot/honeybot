@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [fact.py]
 Fact Plugin

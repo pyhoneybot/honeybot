@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [installed_module.py]
 Installation checker

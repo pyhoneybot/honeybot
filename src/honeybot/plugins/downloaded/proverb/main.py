@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [proverb.py]
 Proverb Plugin
@@ -45,7 +44,7 @@ class Plugin:
             "Todays flat tits were yesterdays pointed ones",
         ]
 
-        return "{}".format(random.choice(proverbs))
+        return f"{random.choice(proverbs)}"
 
     def run(self, incoming, methods, info, bot_info):
         try:

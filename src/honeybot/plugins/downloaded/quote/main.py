@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [quote.py]
 Quotes Plugin
@@ -85,7 +84,7 @@ class Plugin:
             "The future belongs to those who believe in the beauty of their dreams.",
         ]
 
-        return "{}".format(random.choice(quotes))
+        return f"{random.choice(quotes)}"
 
     def run(self, incoming, methods, info, bot_info):
         try:

@@ -1,5 +1,5 @@
 # Game Objects
-class Space(object):
+class Space:
     def __init__(self, name):
         self.name = name
 
@@ -32,7 +32,7 @@ class Property(Space):
         hotel_rent,
         house_cost,
     ):
-        super(Property, self).__init__(name)
+        super().__init__(name)
         self.price = price
         self.color = color
         self.house_count = 0  # 5 means hotel
@@ -66,7 +66,7 @@ class Property(Space):
 
 class Railroad(Space):
     def __init__(self, name):
-        super(Railroad, self).__init__(name)
+        super().__init__(name)
         self.price = 200
         self.rents = {1: 25, 2: 50, 3: 100, 4: 200}
 
@@ -83,7 +83,7 @@ class Railroad(Space):
 
 class Utility(Space):
     def __init__(self, name):
-        super(Utility, self).__init__(name)
+        super().__init__(name)
         self.price = 150
         self.rents = {1: "4 *", 2: "10 *"}
 

@@ -7,7 +7,7 @@ import random
 import card
 
 
-class Deck(object):
+class Deck:
     """deck class"""
 
     colors = ["C", "D", "H", "S"]

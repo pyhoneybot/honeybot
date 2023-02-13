@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [weather.py]
 Weather Plugin

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [url_shorten.py]
 URL Shortener Plugin

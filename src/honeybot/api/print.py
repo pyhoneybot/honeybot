@@ -1,7 +1,7 @@
 import configparser
 import os
 
-ascii_message = """
+ascii_message = r"""
             _  _                   _         _
   _ __ _  _| || |___ _ _  ___ _  _| |__  ___| |_
  | '_ \ || | __ / _ \ ' \/ -_) || | '_ \/ _ \  _|

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [onthisday.py]
 On This Day

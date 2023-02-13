@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [todo.py]
 Todo list Plugin
@@ -83,7 +82,7 @@ class Plugin:
             methods["send"](info["address"], "Awesome " + user + ". You Have No Task Pending!")
         else:
             methods["send"](info["address"], "Hi, " + user + ". These are your tasks.")
-            with open("todo.txt", "r") as f:
+            with open("todo.txt") as f:
                 lines = f.readlines()
             count = 1
             for line in lines:
@@ -111,7 +110,7 @@ class Plugin:
                 elif msgs[1] == "delete":
                     line_no = int(msgs[2])
 
-                    with open("todo.txt", "r") as f:
+                    with open("todo.txt") as f:
                         lines = f.readlines()
 
                     count = 1

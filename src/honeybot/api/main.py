@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import configparser
 import importlib
 import logging
@@ -29,7 +27,7 @@ BOT CONNECTION SETUP
 """
 
 
-class Bot_core(object):
+class Bot_core:
     def __init__(self, info, password=""):
         self.info = info
         connect_config = configparser.ConfigParser()
@@ -159,9 +157,7 @@ class Bot_core(object):
             print("loading plugin:", folder)
             try:
                 sys.path.append(self.root_path)
-                module = importlib.import_module(
-                    "plugins.{}.{}.main".format(category_folder, folder)
-                )
+                module = importlib.import_module(f"plugins.{category_folder}.{folder}.main")
                 obj = module
                 self.plugins.append(obj)
             except ModuleNotFoundError as e:
@@ -277,7 +273,7 @@ class Bot_core(object):
             sys.exit()
         parts = incoming.split(":")
         if parts[0].strip().lower() == "ping":
-            logger.warning("ping detected from: {}".format(parts[1]))
+            logger.warning(f"ping detected from: {parts[1]}")
             self.send(commands.pong_return(self.domain))
             self.send(commands.pong_return(parts[1]))
 

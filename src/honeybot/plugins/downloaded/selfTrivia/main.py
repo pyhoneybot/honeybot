@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [quote.py]
 Self Trivia Plugin
@@ -118,7 +117,7 @@ class Plugin:
             "Who painted the Mona Lisa?",  # Leonardo da Vinci.
         ]
 
-        return "{}".format(random.choice(questions))
+        return f"{random.choice(questions)}"
 
     def run(self, incoming, methods, info, bot_info):
         try:

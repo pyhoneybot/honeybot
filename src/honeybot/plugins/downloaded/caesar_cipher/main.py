@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [calc.py]
 Caesar Cipher plugin
@@ -30,6 +29,6 @@ class Plugin:
                         expr = msgs[1]
                         encoded = codecs.encode(expr, "rot-13")
                         print(encoded)
-                        methods["send"](info["address"], "{}".format(encoded))
+                        methods["send"](info["address"], f"{encoded}")
         except Exception as e:
             print("woops plugin", __file__, e)

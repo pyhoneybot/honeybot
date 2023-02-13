@@ -11,7 +11,7 @@ dirs = [d for d in os.listdir(BASE_DIR) if not d.startswith("__")]
 
 def pinfo(folder, attrib):
     try:
-        mod = importlib.import_module("plugins.downloaded.{}.info".format(folder))
+        mod = importlib.import_module(f"plugins.downloaded.{folder}.info")
         return getattr(mod, attrib)
     except Exception as e:
         if attrib == "ORIGINAL_AUTHORS":

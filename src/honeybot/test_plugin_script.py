@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """ Change to your plugin file name below.
                     ↓↓↓↓  """
 import time

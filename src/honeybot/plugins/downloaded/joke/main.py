@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [joke.py]
 Joke Plugin
@@ -77,7 +76,7 @@ class Plugin:
             + " because they always take things literally.",
         ]
 
-        return "{}".format(random.choice(jokes))
+        return f"{random.choice(jokes)}"
 
     def run(self, incoming, methods, info, bot_info):
         try:

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [debug.py]
 Debug plugin : Un

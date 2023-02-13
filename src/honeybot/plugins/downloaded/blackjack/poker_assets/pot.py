@@ -3,7 +3,7 @@
 # pylint: disable=E1601
 
 
-class Pot(object):
+class Pot:
     """pot class"""
 
     def __init__(self):

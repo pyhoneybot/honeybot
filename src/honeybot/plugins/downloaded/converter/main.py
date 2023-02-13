@@ -114,7 +114,7 @@ class Plugin:
 
             part1 = soup.find(class_="ccOutputTrail").previous_sibling
             part2 = soup.find(class_="ccOutputTrail").get_text(strip=True)
-            converted = "{}{}".format(part1, part2)
+            converted = f"{part1}{part2}"
             return str(amount) + base_cur + " is equal to " + converted + target_cur
 
     def run(self, incoming, methods, info, bot_info):

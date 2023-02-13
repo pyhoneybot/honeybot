@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [bitcoin.py]
 Bitcoin Price Checking Plugin

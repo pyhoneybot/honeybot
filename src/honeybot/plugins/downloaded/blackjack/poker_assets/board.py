@@ -3,7 +3,7 @@
 # pylint: disable=E1601
 
 
-class Board(object):
+class Board:
     """board class"""
 
     def __init__(self, board):

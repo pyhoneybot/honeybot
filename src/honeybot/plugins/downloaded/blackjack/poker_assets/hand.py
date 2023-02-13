@@ -10,7 +10,7 @@
 # import card
 
 
-class Hand(object):
+class Hand:
     """hand class"""
 
     def __init__(self, hand):

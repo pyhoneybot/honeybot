@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [random_image.py]
 Random Image Plugin

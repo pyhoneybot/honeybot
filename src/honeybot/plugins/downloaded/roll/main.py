@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [roll.py]
 Dice_Roll Plugin

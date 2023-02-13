@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [excuse.py]
 Random excuse Plugin

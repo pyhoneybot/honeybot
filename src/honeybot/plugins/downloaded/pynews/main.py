@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [pynews.py]
 Python news checking plugin

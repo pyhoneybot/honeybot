@@ -1,6 +1,6 @@
 class Commands:
     def set_nick(name):
-        return "NICK {0} \r\n".format(name)
+        return f"NICK {name} \r\n"
 
 
 print(Commands.set_nick("abc"))

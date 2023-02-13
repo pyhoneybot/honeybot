@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [age.py]
 Age Plugin
@@ -28,7 +27,7 @@ class Plugin:
         if months < 0 or (months == 0 and day < 0):
             years -= 1
 
-        msg = "You are {0}yrs. {1}mo. and {2} days old.".format(years, abs(months), abs(days))
+        msg = f"You are {years}yrs. {abs(months)}mo. and {abs(days)} days old."
         return msg
 
     def run(self, incoming, methods, info, bot_info):

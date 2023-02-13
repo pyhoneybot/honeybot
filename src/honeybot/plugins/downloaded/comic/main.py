@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [comic.py]
 Image search plugin

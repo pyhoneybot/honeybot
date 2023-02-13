@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [channeljoin.py]
 Join Plugin
@@ -26,7 +25,7 @@ class Plugin:
                 raw_user = info["prefix"]
                 user_index = raw_user.find("!")
                 user = raw_user[0:user_index]
-                with open("settings/OWNERS.conf", "r") as f:
+                with open("settings/OWNERS.conf") as f:
                     for owner in f:
                         if owner.strip() == user:
                             methods["join"](msgs[1])
