@@ -21,16 +21,16 @@ class Plugin:
 
     def joke(self):
         jokes = [
-            "Why did the physics teacher break up with the biology teacher? There was no \
-    chemistry.",
-            "I asked my daughter if she’d seen my newspaper. She told me that newspapers \
-    are old school.She said that people use tablets nowadays and handed me her \
-    iPad. The fly didn’t stand a chance",
-            "A recent scientific study showed that out of 2,293,618,367 people, 94% are \
-    too lazy to actually read that number.",
+            "Why did the physics teacher break up with the biology teacher? There was no    "
+            " chemistry.",
+            "I asked my daughter if she’d seen my newspaper. She told me that newspapers     are"
+            " old school.She said that people use tablets nowadays and handed me her     iPad. The"
+            " fly didn’t stand a chance",
+            "A recent scientific study showed that out of 2,293,618,367 people, 94% are     too"
+            " lazy to actually read that number.",
             "Why is it a bad idea to insult an octopus? because it is well armed",
-            'Two cannibals are eating a clown, one looks to the other and asks "Does this \
-    taste funny to you?"',
+            'Two cannibals are eating a clown, one looks to the other and asks "Does this     taste'
+            ' funny to you?"',
             "What is red and smells like blue paint? Red Paint.",
             "How many South Americans does it take to change a lightbulb? A Brazilian!",
             "I have just invented a new word. Plagiarism.",
@@ -53,10 +53,10 @@ class Plugin:
             "If you saw a robbery at the Apple store, would you be an iWitness?",
             "Why did the blind man turn down the job? He couldn't see himself doing it.",
             "Want to hear a joke about construction? We're still working on it.",
-            'As I handed my dad his 50th birthday card, he looked at me with tears in his \
-    eyes and said, "You know, one would have been enough."',
-            'I caught my wife yelling at the TV saying, "Don\'t go into the church you idiot!", \
-    She was watching our wedding video again.',
+            "As I handed my dad his 50th birthday card, he looked at me with tears in his     eyes"
+            ' and said, "You know, one would have been enough."',
+            'I caught my wife yelling at the TV saying, "Don\'t go into the church you idiot!",    '
+            " She was watching our wedding video again.",
             "When a woman is giving birth, she is literally kidding.",
             "My wife yelled at me agai for having no sense of direction."
             + " So I packed up my stuff and right.",
@@ -67,8 +67,8 @@ class Plugin:
             "Geology rocks, but Geography is where it's at.",
             "Scientists were starting to get bored watching the Earth turn,"
             + " and so after 24 hours, they called it a day.",
-            "My wife yelled at me an said, \"You haven't listened to anything I've said!\", which \
-    I thought was an interesting way to start a conversation.",
+            "My wife yelled at me an said, \"You haven't listened to anything I've said!\", which  "
+            "   I thought was an interesting way to start a conversation.",
             "I’d tell you a Fibonacci joke, but’s it’s probably as bad"
             + " as the last two you’ve heard combined.",
             "What did the pirate say on his 80th birthday? AYE MATEY.",

@@ -68,9 +68,7 @@ class Plugin:
                 bt = datetime.fromtimestamp(boot_time_timestamp)
                 methods["send"](
                     info["address"],
-                    f"Boot Time: "
-                    f"{bt.year}/{bt.month}/{bt.day} "
-                    f"{bt.hour}:{bt.minute}:{bt.second}",
+                    f"Boot Time: {bt.year}/{bt.month}/{bt.day} {bt.hour}:{bt.minute}:{bt.second}",
                 )
 
             if info["command"] == "PRIVMSG" and info["args"][1] == ".cpuinfo":
@@ -132,15 +130,14 @@ class Plugin:
                         elif str(address.family) == "AddressFamily.AF_PACKET":
                             methods["send"](
                                 info["address"],
-                                f"MAC Address: {address.address}"
-                                f" ||  Netmask: {address.netmask}",
+                                f"MAC Address: {address.address} ||  Netmask: {address.netmask}",
                             )
                 # Get IO statistics since boot.
                 net_io = psutil.net_io_counters()
                 methods["send"](
                     info["address"],
                     f"Total Bytes Sent: {self.get_size(net_io.bytes_sent)}"
-                    f" ||  Total Bytes Received: "
+                    " ||  Total Bytes Received: "
                     f"{self.get_size(net_io.bytes_recv)}",
                 )
 
@@ -167,7 +164,7 @@ class Plugin:
                         continue
                     methods["send"](
                         info["address"],
-                        f"  Total Size: "
+                        "  Total Size: "
                         f"{self.get_size(partition_usage.total)}\n  "
                         f"Used: {self.get_size(partition_usage.used)}\n  "
                         f"Free: {self.get_size(partition_usage.free)}\n  "

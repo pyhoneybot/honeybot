@@ -89,7 +89,7 @@ class Plugin:
         """check if entry exists and if it does delete it"""
         path = Plugin.get_path(self, time)
         if not os.path.exists(path):
-            return "There is no diary entry for that date. " "Check the date is entered correctly!"
+            return "There is no diary entry for that date. Check the date is entered correctly!"
         else:
             os.remove(path)
             return "Entry deleted successfully!"

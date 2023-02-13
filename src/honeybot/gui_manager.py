@@ -82,8 +82,10 @@ elements = [
             "MainLabel",
             Label(
                 window,
-                text="Select the plugins you wish to \
-                        load and add them to the config file",
+                text=(
+                    "Select the plugins you wish to                         load and add them to"
+                    " the config file"
+                ),
             ),
         ]
     ],

@@ -268,7 +268,7 @@ class Plugin:
         params = self._urlencode(params)
         url = f"{urlparse.urljoin(self.base_url, extra_url)}?{params}"
         if len(url) > 2000:  # for GET requests only, POST is 5K
-            raise ValueError("Query is too long. URL can only be 2000 " "characters")
+            raise ValueError("Query is too long. URL can only be 2000 characters")
         return url
 
     def _fetch_data(self, url):

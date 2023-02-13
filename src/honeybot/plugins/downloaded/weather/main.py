@@ -26,9 +26,9 @@ class Plugin:
 
             if info["command"] == "PRIVMSG" and msgs[0] == ".weather":
                 api_url = (
-                    f"https://api.openweathermap.org/data/2.5/weather?"
+                    "https://api.openweathermap.org/data/2.5/weather?"
                     f"q={msgs[1]},{msgs[2]}"
-                    f"&APPID=8801bc666d30a8cc9294feaf60c01117&units=metric"
+                    "&APPID=8801bc666d30a8cc9294feaf60c01117&units=metric"
                 )
                 response = requests.get(api_url)
                 response_json = response.json()

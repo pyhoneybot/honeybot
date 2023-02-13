@@ -145,7 +145,7 @@ class Plugin:
             Plugin.DECK = poker_assets.deck.Deck()
             methods["send"](
                 info["address"],
-                name + " has started a game of blackjack! " "Use .blackjack join to join in!",
+                name + " has started a game of blackjack! Use .blackjack join to join in!",
             )
         else:
             methods["send"](info["address"], "A game already exists!")
