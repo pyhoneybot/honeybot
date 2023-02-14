@@ -28,7 +28,7 @@ jobs:
     strategy:
       matrix:
         os: ["ubuntu-latest"]
-        python-version: ["3.7", "3.8", "3.9", "3.10"]
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -39,30 +39,24 @@ jobs:
         # Runs sanity checks on each python version
         with:
           python-version: ${{ matrix.python-version }}
-
-      # Install dependencies
+                # Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install black isort
-
-      # Run imports sort check
-      - name: isort imports sort
-        run: |
-          isort --check-only --settings-path ./pyproject.toml src/honeybot/
-
-      # Run PEP8 style check
-      - name: black PEP8 style check
-        run: |
-          black --check --verbose --config ./pyproject.toml src/honeybot/
-
+          pip install black==22.3.0 isort pre-commit bandit[toml] pyupgrade==2.31.1
+          pip install .
+      # Run pre-commit checks
+      - uses: pre-commit/action@v3.0.0
+#      - uses: pre-commit-ci/lite-action@v1.0.1
+        if: always()
+  
   test:
     # The type of runner that the job will run on
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: ["ubuntu-latest"]
-        python-version: ["3.7", "3.8", "3.9", "3.10"]
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -78,13 +72,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install bandit[toml]
-          pip install .
-
-      # Run security checks
-      - name: bandit Security checks
-        run: |
-          bandit -ll -c ./pyproject.toml -r .
+          pip install honeybot
 
       # Run sanity tests
       - name: Run Tests
