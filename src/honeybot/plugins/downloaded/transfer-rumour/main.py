@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [transfer-rumour.py]
 Transfer Rumour Plugin

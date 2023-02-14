@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [fact.py]
 Fact Plugin
@@ -39,8 +38,8 @@ FACT_LIST = [
     + "Instead, they played piano music."
     "Amelia Earhart and Eleanor Roosevelt once sneaked out of a White"
     + "House event, commandeered an airplane, and went on a joyride to Baltimore."
-    "The 100 folds in a chef's toque are said to represent 100 ways " + "to cook an egg."
-    "The world’s oldest surviving piano is at the Metropolitan Museum of Art "
+    "The 100 folds in a chef's toque are said to represent 100 ways "
+    + "to cook an egg.The world’s oldest surviving piano is at the Metropolitan Museum of Art "
     + "in New York City. The instrument dates back to 1720, and was made by "
     + "an Italian man named Bartolomeo Cristofori."
     "The modern popped collar originated as a way to keep tennis players’"

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [Quote.py]
 Quote Plugin

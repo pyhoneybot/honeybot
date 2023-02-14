@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [joins.py]
 Joins Plugin
@@ -28,8 +27,8 @@ class Plugin:
 
                 # Greets joined user
                 channel = info["args"][0]
-                greet = "Hello {} welcome to {} !".format(user, channel)
-                methods["send"](info["address"], "{}".format(greet))
+                greet = f"Hello {user} welcome to {channel} !"
+                methods["send"](info["address"], f"{greet}")
 
         except Exception as e:
             print("woops plugin error ", e)

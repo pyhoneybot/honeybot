@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [flight.py]
 Flight information plugin

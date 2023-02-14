@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """ Change to your plugin file name below.
                     ↓↓↓↓  """
 import time
@@ -28,14 +27,17 @@ class Tester:
 
         # Update info with MOCK data.
         if test_type == "message":
-            incoming = f":TestAccount!~TestIdentity@192.168.123.123 \
-                PRIVMSG ##TestChannel :{command}"
+            incoming = (
+                ":TestAccount!~TestIdentity@192.168.123.123                 PRIVMSG ##TestChannel"
+                f" :{command}"
+            )
             info["command"] = "PRIVMSG"
             info["args"] = [0, command]
 
         if test_type == "user_join":
-            incoming = ":TestAccount!~TestIdentity@192.168.123.123 \
-                JOIN ##TestChannel"
+            incoming = (
+                ":TestAccount!~TestIdentity@192.168.123.123                 JOIN ##TestChannel"
+            )
             info["command"] = "JOIN"
 
         if test_type == "user_quit":

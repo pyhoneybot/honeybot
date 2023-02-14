@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [abbreviation.py]
 Abbreviation Plugin

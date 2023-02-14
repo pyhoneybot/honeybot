@@ -1,5 +1,5 @@
 # Game Objects
-class Space(object):
+class Space:
     def __init__(self, name):
         self.name = name
 
@@ -32,7 +32,7 @@ class Property(Space):
         hotel_rent,
         house_cost,
     ):
-        super(Property, self).__init__(name)
+        super().__init__(name)
         self.price = price
         self.color = color
         self.house_count = 0  # 5 means hotel
@@ -66,7 +66,7 @@ class Property(Space):
 
 class Railroad(Space):
     def __init__(self, name):
-        super(Railroad, self).__init__(name)
+        super().__init__(name)
         self.price = 200
         self.rents = {1: 25, 2: 50, 3: 100, 4: 200}
 
@@ -83,7 +83,7 @@ class Railroad(Space):
 
 class Utility(Space):
     def __init__(self, name):
-        super(Utility, self).__init__(name)
+        super().__init__(name)
         self.price = 150
         self.rents = {1: "4 *", 2: "10 *"}
 
@@ -157,15 +157,13 @@ chance_deck = [
     },
     {"Advance to go, collect $200": [3, ()]},
     {
-        "Advance token to the nearest Railroad and pay owner Twice the Rental owed."
-        " If Railroad is unowned you may buy it from the bank": [
+        "Advance token to the nearest Railroad and pay owner Twice the Rental owed. If Railroad is unowned you may buy it from the bank": [
             4,
             (),
         ]
     },
     {
-        "Advance token to the nearest Railroad and pay owner Twice the Rental owed."
-        " If Railroad is unowned you may buy it from the bank": [
+        "Advance token to the nearest Railroad and pay owner Twice the Rental owed. If Railroad is unowned you may buy it from the bank": [
             4,
             (),
         ]
@@ -176,8 +174,7 @@ chance_deck = [
     {"Advance to Illinois Ave": [2, (board_spaces[24],)]},
     {"Pay poor tax of $15": [8, (15,)]},
     {
-        "Make general repairs on all your property. "
-        "For each house pay $25, for each hotel $100": [
+        "Make general repairs on all your property. For each house pay $25, for each hotel $100": [
             9,
             (25, 100),
         ]
@@ -190,8 +187,7 @@ chance_deck = [
     },
     {"Your building and loan matures. Collect $150": [7, (150,)]},
     {
-        "Advance token to nearest utility. If Unowned you may buy it from the bank. "
-        "If owned throw dice and pay owner ten times the amount thrown.": [
+        "Advance token to nearest utility. If Unowned you may buy it from the bank. If owned throw dice and pay owner ten times the amount thrown.": [
             10,
             (),
         ]

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [password_generator.py]
 Password Generator Plugin

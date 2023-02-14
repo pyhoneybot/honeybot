@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [roman_numeral.py]
 Roman Numeral Converter Plugin

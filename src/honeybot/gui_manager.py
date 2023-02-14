@@ -14,7 +14,7 @@ configPath = os.path.join(os.sep, current_path, "settings", "PLUGINS.conf")
 
 
 def get_unique_text(text):
-    uniques = sorted(set([i.strip() for i in text.split("\n") if i]))
+    uniques = sorted({i.strip() for i in text.split("\n") if i})
     uniques_text = "\n".join(uniques)
     return uniques_text
 
@@ -82,8 +82,10 @@ elements = [
             "MainLabel",
             Label(
                 window,
-                text="Select the plugins you wish to \
-                        load and add them to the config file",
+                text=(
+                    "Select the plugins you wish to                         load and add them to"
+                    " the config file"
+                ),
             ),
         ]
     ],

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [help.py]
 Help Plugin

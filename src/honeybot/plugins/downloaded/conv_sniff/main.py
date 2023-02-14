@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [conv_sniff.py]
 Conversation Sniffer Plugin

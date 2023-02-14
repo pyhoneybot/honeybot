@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [username.py]
 Username Generator Plugin
@@ -33,7 +32,7 @@ class Plugin:
             "intelligent",
             "uncommon",
             "cute",
-            "dangerous" "innocent",
+            "dangerousinnocent",
             "spooky",
             "crazy",
             "young",
@@ -177,7 +176,7 @@ class Plugin:
             "bug",
             "name",
             "heisenberg",
-            "dragon" "snake",
+            "dragonsnake",
             "lion",
             "rebel",
             "patriot",
@@ -277,7 +276,7 @@ class Plugin:
             "woman",
             "women",
         ]
-        return "{}{}".format(random.choice(p1), random.choice(p2))
+        return f"{random.choice(p1)}{random.choice(p2)}"
 
     def run(self, incoming, methods, info, bot_info):
         try:

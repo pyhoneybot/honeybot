@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [story.py]
 Story Plugin

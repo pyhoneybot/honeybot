@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [hangman.py]
 Hangman Game Plugin
@@ -152,7 +151,7 @@ class Hangman:
         print(self.gameWord)
         self.display = "-" * len(self.gameWord)
         self.guessCount = len(self.display) + 3
-        self.display_message = " You have {0} guesses remaining.".format(self.guessCount)
+        self.display_message = f" You have {self.guessCount} guesses remaining."
         self.endGame = False
         self.endMessage = "You shouldn't be able to see this."
 
@@ -191,9 +190,9 @@ class Hangman:
             self.display = self.gameWord
             self.check_win()
         else:
-            self.display_message = "'{0}' was incorrect. ".format(
-                wordGuess
-            ) + "You have {0} guesses remaining.".format(self.guessCount)
+            self.display_message = (
+                f"'{wordGuess}' was incorrect. " + f"You have {self.guessCount} guesses remaining."
+            )
 
     # check_win determines if the user has guessed the entire word after each
     # guess. If the user hasn't won, they lost one of their guesses.
@@ -205,9 +204,9 @@ class Hangman:
                 win = False
 
         if win is True:
-            self.display = "'{0}' is correct. You win!".format(self.gameWord)
+            self.display = f"'{self.gameWord}' is correct. You win!"
             self.display_message = (
-                " You had {0} guesses remaining.".format(self.guessCount)
+                f" You had {self.guessCount} guesses remaining."
                 + "\nUse 'start' command to try again."
             )
             self.endGame = True
@@ -223,12 +222,12 @@ class Hangman:
         if self.guessCount == 0:
             self.endMessage = (
                 "You have no more guesses.\n"
-                + "The correct word was '{0}'.\n".format(self.gameWord)
+                + f"The correct word was '{self.gameWord}'.\n"
                 + "You lose. Use start command to try again"
             )
             self.endGame = True
         else:
-            self.display_message = " You have {0} guesses remaining.".format(self.guessCount)
+            self.display_message = f" You have {self.guessCount} guesses remaining."
 
     # display_screen is to output what the user should see in the game's current
     # state.

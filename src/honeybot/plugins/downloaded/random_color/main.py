@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [random_color.py]
 Random Color Plugin

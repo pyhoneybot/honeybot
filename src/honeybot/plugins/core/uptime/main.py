@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [uptime.py]
 Uptime Plugin
@@ -33,7 +32,7 @@ class Plugin:
         uptime -= mins * 60
         sec = int(uptime)
 
-        msg = "Bot has been up for {0} hr, {1} min, and {2} sec.".format(hrs, mins, sec)
+        msg = f"Bot has been up for {hrs} hr, {mins} min, and {sec} sec."
         return msg
 
     def run(self, incoming, methods, info, bot_info):

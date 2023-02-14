@@ -17,8 +17,10 @@ config = configparser.ConfigParser()
 config.read("settings/CONNECT.conf")
 
 # incoming
-incoming = ":appinv!c5e342c5@gateway/web/cgi-irc/kiwiirc.com/ip.200.200.22.200 \
-        PRIVMSG ##bottestingmu :ef"
+incoming = (
+    ":appinv!c5e342c5@gateway/web/cgi-irc/kiwiirc.com/ip.200.200.22.200         PRIVMSG"
+    " ##bottestingmu :ef"
+)
 bot = Bot()
 
 
@@ -43,8 +45,7 @@ class HoneybotTests(unittest.TestCase):
     def test_info_prefix(self):
         self.assertEqual(
             bot.info(incoming)["prefix"],
-            "appinv!c5e342c5@gateway/web/cgi-irc/kiwiirc.com/\
-                    ip.200.200.22.200",
+            "appinv!c5e342c5@gateway/web/cgi-irc/kiwiirc.com/                    ip.200.200.22.200",
         )
 
     def test_info_command(self):
@@ -61,7 +62,7 @@ class HoneybotTests(unittest.TestCase):
     """
 
     def test_set_nick_command(self):
-        self.assertEqual(bot.set_nick_command(), "NICK {0}\r\n".format(config["INFO"]["name"]))
+        self.assertEqual(bot.set_nick_command(), "NICK {}\r\n".format(config["INFO"]["name"]))
 
     def test_present_command(self):
         self.assertEqual(

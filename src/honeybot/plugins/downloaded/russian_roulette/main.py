@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [russian_roulette.py]
 Russian Roulette Plugin

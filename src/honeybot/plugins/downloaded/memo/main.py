@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [memo.py]
 Memory Use Illustration Plugin

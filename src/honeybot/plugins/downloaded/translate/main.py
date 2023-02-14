@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 """
 [translate.py]
 Translate Plugin
@@ -187,14 +185,14 @@ def load_cached_key(key):
 
 class ZipCache(FileCache):
     def __init__(self, cache=".cache"):  # TODO: allow user configurable?
-        super(ZipCache, self).__init__(cache)
+        super().__init__(cache)
 
     def get(self, key):
         cacheFullPath = os.path.join(self.cache, self.safe(key))
         retval = None
         try:
             retval = load_cached_key(cacheFullPath)
-        except IOError:
+        except OSError:
             pass
         return retval
 
@@ -229,7 +227,7 @@ class RedirectHandler(HTTPRedirectHandler):
 # Translator Class #
 
 
-class Plugin(object):
+class Plugin:
     """
     Google Translator object.
 
@@ -268,9 +266,9 @@ class Plugin(object):
     def _build_uri(self, extra_url, params):
         params = [("key", api)] + params
         params = self._urlencode(params)
-        url = "%s?%s" % (urlparse.urljoin(self.base_url, extra_url), params)
+        url = f"{urlparse.urljoin(self.base_url, extra_url)}?{params}"
         if len(url) > 2000:  # for GET requests only, POST is 5K
-            raise ValueError("Query is too long. URL can only be 2000 " "characters")
+            raise ValueError("Query is too long. URL can only be 2000 characters")
         return url
 
     def _fetch_data(self, url):

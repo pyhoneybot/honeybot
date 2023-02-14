@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [monopoly.py]
 Monopoly Plugin
@@ -927,7 +926,7 @@ class Plugin:
             random.shuffle(Plugin.players)
             methods["send"](
                 info["address"],
-                "The monopoly game has started, " "player order has been randomly generated:",
+                "The monopoly game has started, player order has been randomly generated:",
             )
             for player in Plugin.players:
                 name = player.getName()
@@ -1006,8 +1005,7 @@ class Plugin:
                                 methods["send"](
                                     info["address"],
                                     "You have landed on your own property "
-                                    + "but you cannot buy houses "
-                                    "for railroads or utilities",
+                                    + "but you cannot buy houses for railroads or utilities",
                                 )
                                 Plugin.next_turn()
 
@@ -1100,8 +1098,7 @@ class Plugin:
                                 methods["send"](
                                     info["address"],
                                     "You have landed on your own property "
-                                    + "but you cannot buy houses "
-                                    "for railroads or utilities",
+                                    + "but you cannot buy houses for railroads or utilities",
                                 )
                                 Plugin.next_turn()
                         else:

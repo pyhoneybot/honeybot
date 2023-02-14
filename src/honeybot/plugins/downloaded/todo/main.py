@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [todo.py]
 Todo list Plugin
@@ -48,28 +47,24 @@ class Plugin:
         """help function to give information about commands."""
         methods["send"](
             info["address"],
-            ".todo add  <Your Task Here> \
-            (It adds the task to do the todo list.)",
+            ".todo add  <Your Task Here>             (It adds the task to do the todo list.)",
         )
         methods["send"](
             info["address"],
-            ".todo delete  <index> \
-            (To delete a task input it's index number as shown in the list.)",
+            ".todo delete  <index>             (To delete a task input it's index number as shown"
+            " in the list.)",
         )
         methods["send"](
             info["address"],
-            ".todo show \
-            (It shows all the task currently on the list.)",
+            ".todo show             (It shows all the task currently on the list.)",
         )
         methods["send"](
             info["address"],
-            ".todo clear \
-            (This will delete all the task in the list.)",
+            ".todo clear             (This will delete all the task in the list.)",
         )
         methods["send"](
             info["address"],
-            ".todo help \
-            (sends messages explaining how to use the todo plugin.)",
+            ".todo help             (sends messages explaining how to use the todo plugin.)",
         )
 
     def showlist(info, methods):
@@ -83,7 +78,7 @@ class Plugin:
             methods["send"](info["address"], "Awesome " + user + ". You Have No Task Pending!")
         else:
             methods["send"](info["address"], "Hi, " + user + ". These are your tasks.")
-            with open("todo.txt", "r") as f:
+            with open("todo.txt") as f:
                 lines = f.readlines()
             count = 1
             for line in lines:
@@ -111,7 +106,7 @@ class Plugin:
                 elif msgs[1] == "delete":
                     line_no = int(msgs[2])
 
-                    with open("todo.txt", "r") as f:
+                    with open("todo.txt") as f:
                         lines = f.readlines()
 
                     count = 1

@@ -4,7 +4,7 @@
 import game_init
 
 
-class Player(object):
+class Player:
     """player class"""
 
     def __init__(self, nr, chips, username):

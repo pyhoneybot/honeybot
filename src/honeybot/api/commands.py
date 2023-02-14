@@ -1,5 +1,5 @@
 def set_nick(name):
-    return "NICK {0} \r\n".format(name)
+    return f"NICK {name} \r\n"
 
 
 def present(name):
@@ -7,16 +7,16 @@ def present(name):
 
 
 def identify(password):
-    return "msg NickServ identify {0} \r\n".format(password)
+    return f"msg NickServ identify {password} \r\n"
 
 
 def join_channel(channel):
-    return "JOIN {0} \r\n".format(channel)
+    return f"JOIN {channel} \r\n"
 
 
 def specific_send(target, msg):
-    return "PRIVMSG {0} :{1}\r\n".format(target, msg)
+    return f"PRIVMSG {target} :{msg}\r\n"
 
 
 def pong_return(domain):
-    return "PONG :{}\r\n".format(domain)
+    return f"PONG :{domain}\r\n"

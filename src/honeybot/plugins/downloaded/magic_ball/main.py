@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [magic_ball.py]
 Magic 8 ball Plugin

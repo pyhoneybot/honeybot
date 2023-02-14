@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [countries.py]
 Country-Capital Plugin

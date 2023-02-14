@@ -11,7 +11,7 @@ def prevent_none(x):
 
 def configfile_to_list(settings_path, filename):
     elements = []
-    with open(os.path.join(settings_path, "{}.conf".format(filename))) as f:
+    with open(os.path.join(settings_path, f"{filename}.conf")) as f:
         elements = f.read().split("\n")
         elements = list(filter(lambda x: x != "", elements))
     return elements

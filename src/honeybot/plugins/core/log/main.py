@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 [log.py]
 Log Plugin
@@ -19,7 +18,7 @@ from datetime import datetime
 
 # Makes a new log dir if not existent
 # Change according to where you have honeybot dir
-log_path = "{}/log".format(os.getcwd())
+log_path = f"{os.getcwd()}/log"
 if not os.path.exists(log_path):
     os.makedirs("log")
 
@@ -36,7 +35,7 @@ class Plugin:
         try:
             if info["command"] == "PRIVMSG":
                 # Make log file (if not existent) using current date
-                f = open("log/{}.txt".format(curr_date), "a+")
+                f = open(f"log/{curr_date}.txt", "a+")
 
                 # Current time
                 curr_time = datetime.now().strftime("%H:%M:%S")
@@ -47,7 +46,7 @@ class Plugin:
                 user = raw_user[0:user_index]
 
                 # Logging the chat into txt file
-                f.write("{}: {}: {}\r\n".format(curr_time, user, msgs[0]))
+                f.write(f"{curr_time}: {user}: {msgs[0]}\r\n")
 
         except Exception as e:
             print("woops plugin error ", e)
