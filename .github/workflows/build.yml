@@ -39,7 +39,7 @@ jobs:
         # Runs sanity checks on each python version
         with:
           python-version: ${{ matrix.python-version }}
-                # Install dependencies
+        # Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -47,7 +47,7 @@ jobs:
           pip install .
       # Run pre-commit checks
       - uses: pre-commit/action@v3.0.0
-#      - uses: pre-commit-ci/lite-action@v1.0.1
+      - uses: pre-commit-ci/lite-action@v1.0.1
         if: always()
   
   test:
