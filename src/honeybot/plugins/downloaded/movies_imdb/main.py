@@ -1,6 +1,6 @@
 """
 [movies_imdb.py]
-IMDb Plugin
+IMDb Movies Plugin
 
 [Author]
 Zoi Katsantoni
@@ -95,7 +95,7 @@ class Plugin:
 
             if msgs[0] == ".movies_imdb":
                 if info["command"] == "PRIVMSG" and msgs[1] == "250movies":
-                    methods['send'](info['address'], movies.top_movies(movie2))
+                    methods['send'](info['address'], self.top_movies(movie2))
                 if info["command"] == "PRIVMSG" and msgs[1] == "searchmovie":
                     if (
                             len(msgs) > 4
@@ -106,21 +106,21 @@ class Plugin:
                         what_to_search = int(msgs[3])
 
                         if what_to_search == "cast":
-                            methods['send'](info['address'], movies.get_movie_cast(movie_to_search))
+                            methods['send'](info['address'], self.get_movie_cast(movie_to_search))
                         elif what_to_search == "directors":
-                            methods['send'](info['address'], movies.get_movie_directors(movie_to_search))
+                            methods['send'](info['address'], self.get_movie_directors(movie_to_search))
                         elif what_to_search == "producers":
-                            methods['send'](info['address'], movies.get_movie_producers(movie_to_search))
+                            methods['send'](info['address'], self.get_movie_producers(movie_to_search))
                         elif what_to_search == "rating":
-                            methods['send'](info['address'], movies.get_movie_rating(movie_to_search))
+                            methods['send'](info['address'], self.get_movie_rating(movie_to_search))
                         elif what_to_search == "year":
-                            methods['send'](info['address'], movies.get_movie_year(movie_to_search))
+                            methods['send'](info['address'], self.get_movie_year(movie_to_search))
                         elif what_to_search == "genre":
-                            methods['send'](info['address'], movies.get_movie_genre(movie_to_search))
+                            methods['send'](info['address'], self.get_movie_genre(movie_to_search))
                         elif what_to_search == "runtime":
-                            methods['send'](info['address'], movies.get_movie_runtime(movie_to_search))
+                            methods['send'](info['address'], self.get_movie_runtime(movie_to_search))
                         elif what_to_search == "countries":
-                            methods['send'](info['address'], movies.get_movie_countries(movie_to_search))
+                            methods['send'](info['address'], self.get_movie_countries(movie_to_search))
 
         except Exception as e:
             print("imdb plugin error: ", e)
