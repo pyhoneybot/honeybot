@@ -57,7 +57,7 @@ dataEuroBasket = {
     "2013": ["France", "Lithuania", "Spain", "80-66"],
     "2015": ["Spain", "Lithuania", "France", "80-63"],
     "2017": ["Slovenia", "Serbia", "Spain", "93-85"],
-    "2022": ["Spain", "France", "Germany", "88-76"]
+    "2022": ["Spain", "France", "Germany", "88-76"],
 }
 dataWorldCup = {
     "1950": ["Argentina", "USA", "Chile", "64-50"],
@@ -77,7 +77,7 @@ dataWorldCup = {
     "2006": ["Spain", "Greece", "USA", "70-47"],
     "2010": ["USA", "Turkey", "Lithuania", "81-64"],
     "2014": ["USA", "Serbia", "France", "129-92"],
-    "2019": ["Spain", "Argentina", "France", "95-75"]
+    "2019": ["Spain", "Argentina", "France", "95-75"],
 }
 
 
@@ -123,9 +123,18 @@ class Plugin:
         if goldMedal == silverMedal and silverMedal == bronzeMedal and bronzeMedal == 0:
             return "The country: " + country + " does not have any medal"
         else:
-            text = country + " Medals:\n" + "Gold: " + str(goldMedal) + "\nSilver: " + str(
-                silverMedal) + "\nBronze: " + str(bronzeMedal) + "\nTotal Medals: " + str(
-                goldMedal + silverMedal + bronzeMedal)
+            text = (
+                country
+                + " Medals:\n"
+                + "Gold: "
+                + str(goldMedal)
+                + "\nSilver: "
+                + str(silverMedal)
+                + "\nBronze: "
+                + str(bronzeMedal)
+                + "\nTotal Medals: "
+                + str(goldMedal + silverMedal + bronzeMedal)
+            )
             return text
 
     def __createTable__(maxLen, word):
@@ -141,13 +150,13 @@ class Plugin:
 
     def __allTheMedalsAllTheYears__(event):
         dataEvent = {}
-        text=""
+        text = ""
         if event == "eu":
             dataEvent = dataEuroBasket
-            text="European Basketball Championship\n"
+            text = "European Basketball Championship\n"
         elif event == "wc":
             dataEvent = dataWorldCup
-            text="FIBA Basketball World Cup\n"
+            text = "FIBA Basketball World Cup\n"
 
         if not dataEvent:
             return
@@ -202,7 +211,9 @@ class Plugin:
                 elif msgs[2].isnumeric():
                     methods["send"](info["address"], Plugin.__accordingToYear__(msgs[2], msgs[1]))
                 else:
-                    methods["send"](info["address"], Plugin.__accordingToCountry__(msgs[2], msgs[1]))
+                    methods["send"](
+                        info["address"], Plugin.__accordingToCountry__(msgs[2], msgs[1])
+                    )
 
         except Exception as e:
             print("Something Wrong. There is a Plugin Error: ", e)
