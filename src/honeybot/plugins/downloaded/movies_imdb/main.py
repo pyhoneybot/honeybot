@@ -9,17 +9,17 @@ Zoi Katsantoni
 Searches a movie then returns certain information
 
 [Commands]
->>> .movies_imdb <<search>> <<movie>> <<information>>
-returns the certain information about the movie
-.movies_imdb 250movies
-returns 250 all-time most popular movies
-"""
+
+> > > .movies_imdb <<search>> <<movie>> <<information>>
+> > > returns the certain information about the movie
+> > > .movies_imdb 250movies
+> > > returns 250 all-time most popular movies
+> > > """
 
 import imdb
 
-
 class Plugin:
-    movies = imdb.IMDb()
+movies = imdb.IMDb()
 
     def __init__(self):
         pass
