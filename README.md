@@ -2,9 +2,6 @@
 
 <div align="center">
 
-
-
-
 <img src="./assets/honeybot_real.png" width="64" />
 
 [![PyPI version](https://badge.fury.io/py/honeybot.png)](https://badge.fury.io/py/honeybot)
@@ -15,12 +12,14 @@
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/pyhoneybot/honeybot/badge)](https://api.securityscorecards.dev/projects/github.com/pyhoneybot/honeybot)
 
 ## Launching pyhoneybot Rewards
- Contributed to pyhoneybot? Here is a big thank you from our community to you.
- Claim your badge and showcase them with pride.
- Let us inspire more folks !
 
- ![pyhoneybot Badges](https://aviyel.com/assets/uploads/rewards/share/project/84/512/share.png)
- ### **[Claim Now!](https://aviyel.com/projects/84/pyhoneybot/rewards)**
+Contributed to pyhoneybot? Here is a big thank you from our community to you.
+Claim your badge and showcase them with pride.
+Let us inspire more folks !
+
+![pyhoneybot Badges](https://aviyel.com/assets/uploads/rewards/share/project/84/512/share.png)
+
+### **[Claim Now!](https://aviyel.com/projects/84/pyhoneybot/rewards)**
 
 <hr>
 🇲🇺 🇺🇸 🇨🇦 🇦🇷 🇮🇳 🇬🇧 🇬🇬 🇧🇷 🇸🇽 🇵🇱 🇩🇪 🇲🇼
@@ -133,6 +132,8 @@ GUI clients are used to manage plugins, launch bot as well as specify credential
 | 🛢 URL Shortener        | Shortens a url                                                                        | [@rakeshseal0](https://github.com/rakeshseal0)                                                           |
 | 😁 emoji               | Returns emoji meaning                                                                 | [@deadex-ng](https://github.com/deadex-ng)                                                               |
 | :birthday: birthday    | Shows birthday match probability on a people group.                                   | [@paulosgf](https://github.com/paulosgf)                                                                 |
+| 🏀 basketball          | Shows information about the medals of euroBasket and Basketball world cup             | [@kefthymic](https://github.com/kefthymic)                                                               |
+| 🎬 movies_imdb         | Returns certain information about a certain movie or shows 250 all time best movies   | [@ZoeyKats](https://github.com/ZoeyKats)                                                                 |
 
 ## ⚡ Quickstart
 
