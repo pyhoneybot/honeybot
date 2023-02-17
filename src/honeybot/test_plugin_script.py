@@ -2,7 +2,7 @@
                     ↓↓↓↓  """
 import time
 
-from plugins import roman_numeral as test_plugin
+from plugins import basketball as test_plugin
 
 test_plugin = test_plugin.Plugin
 
@@ -71,7 +71,7 @@ if __name__ == "__main__":
             4.1 User quitting a channel
     """
 
-    incoming_command_test = ".roman 420"
+    incoming_command_test = ".basketball eu all"
 
     Tester("message", incoming_command_test)
     # Tester('user_join', incoming_command_test)

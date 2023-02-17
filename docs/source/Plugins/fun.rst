@@ -36,6 +36,11 @@ Magic 8 Ball
 .. automodule:: plugins.downloaded.magic_ball.main
    :members:
 
+Basketball
+^^^^^^^^^^
+.. automodule:: plugins.downloaded.basketball.main
+   :members:
+
 Monopoly
 ^^^^^^^^
 TODO
