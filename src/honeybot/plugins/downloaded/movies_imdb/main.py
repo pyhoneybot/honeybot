@@ -18,6 +18,7 @@ Searches a movie then returns certain information
 
 import imdb
 
+
 class Plugin:
     movies = imdb.IMDb()
 
