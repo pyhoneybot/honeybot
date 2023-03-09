@@ -131,8 +131,9 @@ GUI clients are used to manage plugins, launch bot as well as specify credential
 | 🖼 Random Image         | Returns a random image url.                                                           | [@rakeshseal0](https://github.com/rakeshseal0)                                                           |
 | 🛢 URL Shortener        | Shortens a url                                                                        | [@rakeshseal0](https://github.com/rakeshseal0)                                                           |
 | 😁 emoji               | Returns emoji meaning                                                                 | [@deadex-ng](https://github.com/deadex-ng)                                                               |
-| :birthday: birthday    | Shows birthday match probability on a people group.                                   | [@paulosgf](https://github.com/paulosgf)                                                                 |
+| 🎂 birthday            | Shows birthday match probability on a people group.                                   | [@paulosgf](https://github.com/paulosgf)                                                                 |
 | 🏀 basketball          | Shows information about the medals of euroBasket and Basketball world cup             | [@kefthymic](https://github.com/kefthymic)                                                               |
+| 🎬 movies_imdb         | Returns certain information about a certain movie or shows 250 all time best movies   | [@ZoeyKats](https://github.com/ZoeyKats)                                                                 |
 
 ## ⚡ Quickstart
 

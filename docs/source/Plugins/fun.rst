@@ -54,3 +54,8 @@ Russian Roulette
 ^^^^^^^^^^^^^^^^
 .. automodule:: plugins.downloaded.russian_roulette.main
    :members:
+
+IMDb Movies
+^^^^^^^^^
+.. automodule:: plugins.downloaded.movies_imdb.main
+   :members:
