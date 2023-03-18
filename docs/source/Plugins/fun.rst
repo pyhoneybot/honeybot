@@ -56,6 +56,6 @@ Russian Roulette
    :members:
 
 IMDb Movies
-^^^^^^^^^
+^^^^^^^^^^^
 .. automodule:: plugins.downloaded.movies_imdb.main
    :members:
