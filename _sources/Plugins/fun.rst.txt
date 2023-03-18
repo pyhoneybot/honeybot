@@ -36,6 +36,11 @@ Magic 8 Ball
 .. automodule:: plugins.downloaded.magic_ball.main
    :members:
 
+Basketball
+^^^^^^^^^^
+.. automodule:: plugins.downloaded.basketball.main
+   :members:
+
 Monopoly
 ^^^^^^^^
 TODO
@@ -48,4 +53,9 @@ Riddle
 Russian Roulette
 ^^^^^^^^^^^^^^^^
 .. automodule:: plugins.downloaded.russian_roulette.main
+   :members:
+
+IMDb Movies
+^^^^^^^^^^^
+.. automodule:: plugins.downloaded.movies_imdb.main
    :members:

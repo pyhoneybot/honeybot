@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Development &mdash; HoneyBot 5.0.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -10,10 +11,8 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -28,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html">
-            <img src="../_static/honeybot_logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/honeybot_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -74,9 +77,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../plugins.html">Plugins</a> &raquo;</li>
-      <li>Development</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../plugins.html">Plugins</a></li>
+      <li class="breadcrumb-item active">Development</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/pyhoneybot/honeybot/blob/master/docs/source/Plugins/development.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -86,9 +89,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="development">
+  <section id="development">
 <h1>Development<a class="headerlink" href="#development" title="Permalink to this heading"></a></h1>
-<div class="section" id="module-plugins.downloaded.channeljoin.main">
+<section id="module-plugins.downloaded.channeljoin.main">
 <span id="channel-join"></span><h2>Channel Join<a class="headerlink" href="#module-plugins.downloaded.channeljoin.main" title="Permalink to this heading"></a></h2>
 <p>[channeljoin.py]
 Join Plugin</p>
@@ -99,8 +102,8 @@ Bot Will join a given channel in the server</p>
 <p>[Commands]
 &gt;&gt;&gt; .channeljoin channel
 bot joins the given channel</p>
-</div>
-<div class="section" id="module-plugins.downloaded.debug.main">
+</section>
+<section id="module-plugins.downloaded.debug.main">
 <span id="debug"></span><h2>Debug<a class="headerlink" href="#module-plugins.downloaded.debug.main" title="Permalink to this heading"></a></h2>
 <p>[debug.py]
 Debug plugin : Un</p>
@@ -111,8 +114,8 @@ prints all parameters passed to bot</p>
 <p>[Commands]
 &gt;&gt;&gt; .debug
 prints some parameters</p>
-</div>
-<div class="section" id="module-plugins.downloaded.help.main">
+</section>
+<section id="module-plugins.downloaded.help.main">
 <span id="help"></span><h2>Help<a class="headerlink" href="#module-plugins.downloaded.help.main" title="Permalink to this heading"></a></h2>
 <p>[help.py]
 Help Plugin</p>
@@ -123,8 +126,8 @@ Show link with all the functionalities of the bot.</p>
 <p>[Commands]
 &gt;&gt;&gt; .help
 returns link of plugins informations</p>
-</div>
-<div class="section" id="module-plugins.downloaded.installed_modules.main">
+</section>
+<section id="module-plugins.downloaded.installed_modules.main">
 <span id="installed-modules"></span><h2>Installed Modules<a class="headerlink" href="#module-plugins.downloaded.installed_modules.main" title="Permalink to this heading"></a></h2>
 <p>[installed_module.py]
 Installation checker</p>
@@ -134,8 +137,8 @@ Abdur-Rahmaan Janhangeer, pythonmembers.club</p>
 checks if all listed in requirements.txt installed</p>
 <p>[Commands]
 &gt;&gt;&gt; .installed</p>
-</div>
-<div class="section" id="module-plugins.core.joins.main">
+</section>
+<section id="module-plugins.core.joins.main">
 <span id="joins"></span><h2>Joins<a class="headerlink" href="#module-plugins.core.joins.main" title="Permalink to this heading"></a></h2>
 <p>[joins.py]
 Joins Plugin</p>
@@ -143,8 +146,8 @@ Joins Plugin</p>
 Gico Carlo Evangelista, <a class="reference external" href="https://gicocarlo.me/">https://gicocarlo.me/</a></p>
 <p>[About]
 Greets everyone who joins the channel</p>
-</div>
-<div class="section" id="module-plugins.core.log.main">
+</section>
+<section id="module-plugins.core.log.main">
 <span id="log"></span><h2>Log<a class="headerlink" href="#module-plugins.core.log.main" title="Permalink to this heading"></a></h2>
 <p>[log.py]
 Log Plugin</p>
@@ -152,8 +155,8 @@ Log Plugin</p>
 Gico Carlo Evangelista, <a class="reference external" href="https://gicocarlo.me/">https://gicocarlo.me/</a></p>
 <p>[About]
 Logs the chat into a log.txt file</p>
-</div>
-<div class="section" id="module-plugins.core.uptime.main">
+</section>
+<section id="module-plugins.core.uptime.main">
 <span id="uptime"></span><h2>Uptime<a class="headerlink" href="#module-plugins.core.uptime.main" title="Permalink to this heading"></a></h2>
 <p>[uptime.py]
 Uptime Plugin</p>
@@ -164,8 +167,8 @@ Returns how long the bot has been running for</p>
 <p>[Commands]
 &gt;&gt;&gt; .uptime
 returns the bot uptime</p>
-</div>
-<div class="section" id="module-plugins.downloaded.test.main">
+</section>
+<section id="module-plugins.downloaded.test.main">
 <span id="test"></span><h2>Test<a class="headerlink" href="#module-plugins.downloaded.test.main" title="Permalink to this heading"></a></h2>
 <p>[test.py]
 Test Plugin</p>
@@ -173,8 +176,8 @@ Test Plugin</p>
 Abdur-Rahmaan Janhangeer, pythonmembers.club</p>
 <p>[About]
 tests run</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

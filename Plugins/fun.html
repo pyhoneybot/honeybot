@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fun &mdash; HoneyBot 5.0.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -10,10 +11,8 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -28,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html">
-            <img src="../_static/honeybot_logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/honeybot_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -51,9 +54,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.horoscope.main">Horoscope</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.joke.main">Joke</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.magic_ball.main">Magic 8 Ball</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.basketball.main">Basketball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#monopoly">Monopoly</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.riddle.main">Riddle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.russian_roulette.main">Russian Roulette</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-plugins.downloaded.movies_imdb.main">IMDb Movies</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="miscellaneous.html">Miscellaneous</a></li>
@@ -76,9 +81,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../plugins.html">Plugins</a> &raquo;</li>
-      <li>Fun</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../plugins.html">Plugins</a></li>
+      <li class="breadcrumb-item active">Fun</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/pyhoneybot/honeybot/blob/master/docs/source/Plugins/fun.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -88,13 +93,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="fun">
+  <section id="fun">
 <h1>Fun<a class="headerlink" href="#fun" title="Permalink to this heading"></a></h1>
-<div class="section" id="blackjack">
+<section id="blackjack">
 <h2>Blackjack<a class="headerlink" href="#blackjack" title="Permalink to this heading"></a></h2>
 <p>TODO</p>
-</div>
-<div class="section" id="module-plugins.downloaded.comic.main">
+</section>
+<section id="module-plugins.downloaded.comic.main">
 <span id="comic"></span><h2>Comic<a class="headerlink" href="#module-plugins.downloaded.comic.main" title="Permalink to this heading"></a></h2>
 <p>[comic.py]
 Image search plugin</p>
@@ -105,8 +110,8 @@ Returns a random comic from xkcd</p>
 <p>[Commands]
 &gt;&gt;&gt; .comic
 returns a url of a random comic</p>
-</div>
-<div class="section" id="module-plugins.downloaded.dadjoke.main">
+</section>
+<section id="module-plugins.downloaded.dadjoke.main">
 <span id="dadjoke"></span><h2>Dadjoke<a class="headerlink" href="#module-plugins.downloaded.dadjoke.main" title="Permalink to this heading"></a></h2>
 <p>[dadjoke.py]
 Dad joke plugin</p>
@@ -117,8 +122,8 @@ Sends a random “dad joke” from icanhazdadjoke.com</p>
 <p>[Commands]
 &gt;&gt;&gt; .dadjoke
 Have you heard of the band 1023MB? They haven’t got a gig yet.</p>
-</div>
-<div class="section" id="module-plugins.downloaded.hangman.main">
+</section>
+<section id="module-plugins.downloaded.hangman.main">
 <span id="hangman"></span><h2>Hangman<a class="headerlink" href="#module-plugins.downloaded.hangman.main" title="Permalink to this heading"></a></h2>
 <p>[hangman.py]
 Hangman Game Plugin</p>
@@ -133,8 +138,8 @@ Starts hangman game and returns game screen.</p>
 <span class="go">Submits word or letter guess and returns game screen.</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="module-plugins.downloaded.horoscope.main">
+</section>
+<section id="module-plugins.downloaded.horoscope.main">
 <span id="horoscope"></span><h2>Horoscope<a class="headerlink" href="#module-plugins.downloaded.horoscope.main" title="Permalink to this heading"></a></h2>
 <p>[horoscope.py]
 Horoscope Plugin</p>
@@ -149,8 +154,8 @@ enter month and date as number</p>
 returns horoscope for starsign</p>
 <p>.horoscope &lt;&lt;month&gt;&gt; &lt;&lt;day&gt;&gt;
 returns horoscope for starsign of day entered</p>
-</div>
-<div class="section" id="module-plugins.downloaded.joke.main">
+</section>
+<section id="module-plugins.downloaded.joke.main">
 <span id="joke"></span><h2>Joke<a class="headerlink" href="#module-plugins.downloaded.joke.main" title="Permalink to this heading"></a></h2>
 <p>[joke.py]
 Joke Plugin</p>
@@ -161,8 +166,8 @@ sends a random joke on request</p>
 <p>[Commands]
 &gt;&gt;&gt; .joke
 returns a random joke</p>
-</div>
-<div class="section" id="module-plugins.downloaded.magic_ball.main">
+</section>
+<section id="module-plugins.downloaded.magic_ball.main">
 <span id="magic-8-ball"></span><h2>Magic 8 Ball<a class="headerlink" href="#module-plugins.downloaded.magic_ball.main" title="Permalink to this heading"></a></h2>
 <p>[magic_ball.py]
 Magic 8 ball Plugin</p>
@@ -177,12 +182,27 @@ returns It is certain</p>
 <span class="go">returns Very doubtful</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="monopoly">
+</section>
+<section id="module-plugins.downloaded.basketball.main">
+<span id="basketball"></span><h2>Basketball<a class="headerlink" href="#module-plugins.downloaded.basketball.main" title="Permalink to this heading"></a></h2>
+<p>[basketball.py]
+Basketball Plugin</p>
+<p>[Author]
+Konstantinos Efthymiadis</p>
+<p>[About]
+Given the event and year as parameters, the plugin will return the countries that won the medal that year
+Given the event and country as parameters, the plugin will return the number of medals this country has won</p>
+<p>[Commands]
+&gt;&gt;&gt; .basketball &lt;&lt;event&gt;&gt; &lt;&lt;year/country&gt;&gt;
+returns a string with all the information
+&gt;&gt;&gt; .basketball &lt;&lt;event&gt;&gt; &lt;&lt;all&gt;&gt;
+returns a table with all the medals of all the years</p>
+</section>
+<section id="monopoly">
 <h2>Monopoly<a class="headerlink" href="#monopoly" title="Permalink to this heading"></a></h2>
 <p>TODO</p>
-</div>
-<div class="section" id="module-plugins.downloaded.riddle.main">
+</section>
+<section id="module-plugins.downloaded.riddle.main">
 <span id="riddle"></span><h2>Riddle<a class="headerlink" href="#module-plugins.downloaded.riddle.main" title="Permalink to this heading"></a></h2>
 <p>[riddle.py]
 Riddle Plugin</p>
@@ -195,8 +215,8 @@ Returns a riddle or whether guess at the answer was correct or not.</p>
 returns a random riddle</p>
 <p>.riddle guess &lt;&lt;attempt&gt;&gt;
 returns whether the guess was correct or wrong</p>
-</div>
-<div class="section" id="module-plugins.downloaded.russian_roulette.main">
+</section>
+<section id="module-plugins.downloaded.russian_roulette.main">
 <span id="russian-roulette"></span><h2>Russian Roulette<a class="headerlink" href="#module-plugins.downloaded.russian_roulette.main" title="Permalink to this heading"></a></h2>
 <p>[russian_roulette.py]
 Russian Roulette Plugin</p>
@@ -212,8 +232,23 @@ where #channel is the channel name and nicknames is the nickname of the user</p>
 <p>[Commands]
 &gt;&gt;&gt; .russian_roulette
 either returns a string saying you survived or kicks you off the channel</p>
-</div>
-</div>
+</section>
+<section id="module-plugins.downloaded.movies_imdb.main">
+<span id="imdb-movies"></span><h2>IMDb Movies<a class="headerlink" href="#module-plugins.downloaded.movies_imdb.main" title="Permalink to this heading"></a></h2>
+<p>[movies_imdb.py]
+IMDb Movies Plugin</p>
+<p>[Author]
+Zoi Katsantoni</p>
+<p>[About]
+Searches a movie then returns certain information</p>
+<p>[Commands]</p>
+<p>&gt; &gt; &gt; .movies_imdb &lt;&lt;search&gt;&gt; &lt;&lt;movie&gt;&gt; &lt;&lt;information&gt;&gt;
+&gt; &gt; &gt; returns the certain information about the movie
+&gt; &gt; &gt; .movies_imdb 250movies
+&gt; &gt; &gt; returns 250 all-time most popular movies
+&gt; &gt; &gt;</p>
+</section>
+</section>
 
 
            </div>
