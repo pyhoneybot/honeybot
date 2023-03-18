@@ -43,8 +43,8 @@ test if all files are well formatted, complying with style and security rules, b
 
 .. code-block::
 
-    black --check --verbose --config ./pyproject.toml src/honeybot/plugins/downloaded/weather/main.py
-    isort --check-only --settings-path ./pyproject.toml src/honeybot/plugins/downloaded/weather/main.py
+    black --config ./pyproject.toml src/honeybot/plugins/downloaded/weather/main.py
+    isort --settings-path ./pyproject.toml src/honeybot/plugins/downloaded/weather/main.py
     bandit -ll -c ./pyproject.toml -r src/honeybot/plugins/downloaded/weather/main.py     
 
 

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Setting up Documentation &mdash; HoneyBot 5.0.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -10,10 +11,8 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -28,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html">
-            <img src="../_static/honeybot_logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/honeybot_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -68,9 +71,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../how_to.html">How Tos</a> &raquo;</li>
-      <li>Setting up Documentation</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../how_to.html">How Tos</a></li>
+      <li class="breadcrumb-item active">Setting up Documentation</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/pyhoneybot/honeybot/blob/master/docs/source/How_Tos/documentation.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -80,7 +83,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="setting-up-documentation">
+  <section id="setting-up-documentation">
 <h1>Setting up Documentation<a class="headerlink" href="#setting-up-documentation" title="Permalink to this heading"></a></h1>
 <p>This How To focuses on setting up <strong>Sphinx</strong> in order to edit the HoneyBot documentation.
 You <em>don’t</em> need to do this if you’re simply adding a plugin.
@@ -88,7 +91,7 @@ If you should have <strong>any</strong> questions feel free to ask on our <a cla
 <p>For documentation HoneyBot uses a tool named <a class="reference external" href="https://www.sphinx-doc.org/en/master/">sphinx</a>. Sphinx reads in
 the docstrings of functions, methods and classes and automatically parses
 them as you can see in the actual documentation.</p>
-<div class="section" id="requirements">
+<section id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h2>
 <p>To generate the documentation you will need to have sphinx installed,
 click <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html">here</a> for a quick installation guide. <strong>Make sure you’ve installed the
@@ -104,10 +107,6 @@ These <em>.rst</em> files they are too on following paths: <a class="reference e
 <p><strong>‘git clone -b gh-pages https://github.com/&lt;YOU&gt;/honeybot.git html’</strong></p>
 <p>Your folder structure needs to look as follows:</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 77%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>honeybot/</p></th>
 <th class="head"><p>&lt;==== master fork repo</p></th>
@@ -134,8 +133,8 @@ These <em>.rst</em> files they are too on following paths: <a class="reference e
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="generating-docs">
+</section>
+<section id="generating-docs">
 <h2>Generating docs<a class="headerlink" href="#generating-docs" title="Permalink to this heading"></a></h2>
 <p>Once you’re set up you can test if sphinx works properly in <a class="reference external" href="https://github.com/pyhoneybot/honeybot/tree/master/docs">honeybot/docs/</a> directory, by changing to ‘html’ folder, opening a terminal and typing <strong>‘sphinx-build ../docs/source/ .’</strong>. This will take the <em>.rst</em> files in
 <a class="reference external" href="https://github.com/pyhoneybot/honeybot/tree/master/docs/source">honeybot/docs/source/</a> and ‘make’ them into html in ‘html/’ folder that contains the ‘gh-pages’ branch. If it shows any warning you’ll have to fix them before committing, otherwise the documentation wont be automatically build once you push your changes to Github.
@@ -152,8 +151,8 @@ Next you can ‘add’ and ‘commit’ these changes into your fork by typing:<
 <p>Since I won’t provide a full tutorial on how to write <em>.rst</em> files here is a useful
 link:
 <a class="reference external" href="https://packagecontrol.io/packages/Restructured%20Text%20%28RST%29%20Snippets">rst</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
