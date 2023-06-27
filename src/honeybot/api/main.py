@@ -262,3 +262,31 @@ class BotCore:
     def quit(self):
         self.send(commands.quit())
         self.is_listen_on = False
+    
+    """
+    ONGOING REQUIREMENT/S
+    """
+    def stay_alive(self, incoming):
+        if not incoming:
+            logger.critical("<must handle reconnection - incoming is not True>")
+            sys.exit()
+        parts = incoming.split(":")
+        if parts[0].strip().lower() == "ping":
+            logger.warning(f"ping detected from: {parts[1]}")
+            self.send(commands.pong_return(self.domain))
+            self.send(commands.pong_return(parts[1]))
+
+    # all in one for registered bot
+    def registered_run(self):
+        self.connect()
+        self.identify()
+        self.greet()
+        self.load_plugins()
+        self.pull()
+
+    def unregistered_run(self):
+        self.print_running_infos()
+        self.connect()
+        self.greet()
+        self.load_plugins()
+        self.pull()
