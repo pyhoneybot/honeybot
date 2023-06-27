@@ -262,7 +262,7 @@ class BotCore:
     def quit(self):
         self.send(commands.quit())
         self.is_listen_on = False
-    
+
     """
     ONGOING REQUIREMENT/S
     """
