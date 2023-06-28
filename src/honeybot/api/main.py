@@ -10,11 +10,8 @@ import time
 
 import pkg_resources
 
-try:
-    from honeybot.api import commands, memory
-    from honeybot.api.utils import configfile_to_list, get_requirements, prevent_none
-except Exception as e:
-    raise e
+from honeybot.api import commands, memory
+from honeybot.api.utils import configfile_to_list, get_requirements, prevent_none
 
 
 plugins = []
@@ -27,7 +24,7 @@ BOT CONNECTION SETUP
 """
 
 
-class Bot_core:
+class BotCore:
     def __init__(self, info, password=""):
         self.info = info
         connect_config = configparser.ConfigParser()
@@ -45,7 +42,7 @@ class Bot_core:
         self.time = time.time()
 
         self.irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.isListenOn = 1
+        self.is_listen_on = 1
         dom = self.server_url.split(".")
         self.domain = ".".join(dom[-2:])
         self.sp_command = "hbot"
@@ -126,7 +123,7 @@ class Bot_core:
     """
 
     def is_valid_plug_name(self, name):
-        if (name.startswith("__")) or (name == ""):
+        if name.startswith("__") or name == "":
             return False
 
         return True
@@ -142,7 +139,6 @@ class Bot_core:
         print("-" * 3)
 
     def load_plugins_from_folder(self, category_folder, from_conf=None, from_dir=None):
-
         if from_dir is not None:
             to_load = [f for f in os.listdir(from_dir) if self.is_valid_plug_name(f)]
         elif from_conf is not None:
@@ -245,28 +241,31 @@ class Bot_core:
             self.send(commands.join_channel(channel))
 
     def pull(self):
-        while self.isListenOn:
+        while self.is_listen_on:
             try:
-                data = self.irc.recv(2048)
-                raw_msg = data.decode("UTF-8")
-                msg = raw_msg.strip("\n\r")
-                self.stay_alive(msg)
-                self.core_commands_parse(msg)
-                logger.info(msg)
+                data = self.irc.recv(2048).decode("UTF-8", errors="replace")
+                for line in data.split("\r\n"):
+                    if line != "":
+                        self.core_commands_parse(line)
 
-                if len(data) == 0:
-                    try:
-                        logger.critical(f"<must handle reconnection - {len(data)}==0>")
-                        sys.exit()
-                    except Exception as e:
-                        logger.info(e)
+            except KeyboardInterrupt:
+                self.is_listen_on = False
+                self.quit()
             except Exception as e:
-                logger.info(e)
+                logger.error(e)
+                logger.debug("there was an error")
+                logger.debug(data)
+                logger.debug("!!")
+                logger.debug(line)
+                logger.debug("-" * 50)
+
+    def quit(self):
+        self.send(commands.quit())
+        self.is_listen_on = False
 
     """
     ONGOING REQUIREMENT/S
     """
-
     def stay_alive(self, incoming):
         if not incoming:
             logger.critical("<must handle reconnection - incoming is not True>")
