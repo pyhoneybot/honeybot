@@ -50,7 +50,7 @@ setup(
     python_requires=">=3.7.0",
     zip_safe=False,
     install_requires=[
-
+        "tomli>=2.0.0"
     ],
     classifiers=[
         "Development Status :: 4 - Beta",
