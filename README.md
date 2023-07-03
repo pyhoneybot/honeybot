@@ -326,11 +326,12 @@ Check out [Contributing](https://github.com/pyhoneybot/honeybot/blob/master/CONT
 **Plugins available**
 <https://pyhoneybot.github.io/honeybot/plugins.html>
 
-in PLUGINS.conf, add the plugin to allow on a new line !
+in settings/settings.toml, add the plugin to allow! 
 
-```
-calc
-username
+```toml
+[PLUGINS]
+
+downloaded = ["greet",] # Downloaded plugins to load
 ```
 
 ## 📧 Contact (Including vulnerabilities)
