@@ -45,12 +45,12 @@ setup(
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     package_data={
-        "honeybot": ["settings/*.conf", "*.txt"]
+        "honeybot": ["settings/*.conf", "*.txt", "*.toml"]
     },
     python_requires=">=3.7.0",
     zip_safe=False,
     install_requires=[
-
+        "tomli>=2.0.0"
     ],
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -63,6 +63,7 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3 :: Only",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],

@@ -12,13 +12,13 @@ repos:
     hooks:
       - id: isort
         name: Reorder Python Imports
-        args: ["--check-only", "--settings-path", "./pyproject.toml", "src/honeybot/"]
+        args: ["./pyproject.toml", "src/honeybot/"]
   - repo: https://github.com/psf/black
     rev: 22.3.0
     hooks:
       - id: black
         name: Lint code
-        args: ["--check", "--preview", "--config", "./pyproject.toml", "src/honeybot/"]
+        args: ["src/honeybot/"]
   - repo: https://github.com/PyCQA/bandit
     rev: 1.7.4
     hooks:

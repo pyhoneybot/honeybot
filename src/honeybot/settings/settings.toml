@@ -1,0 +1,20 @@
+[INFO]
+
+server_url = "irc.libera.chat"
+port = 6667
+name = "appinventormuBot"
+autojoin_channels = ["##bottestingmu", "#ltch"]
+
+[PLUGINS]
+
+downloaded = [] # Downloaded plugins to load
+
+[USERNAMES]
+
+owners = [] # Become owner by process instead of just checking for usernames
+friends = []
+
+[CUSTOM_VALUES]
+
+# This section is devoted to values required by plugins
+# PLUGINNAMEVARNAME = VALUE
