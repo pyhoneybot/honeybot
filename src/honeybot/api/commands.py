@@ -21,5 +21,6 @@ def specific_send(target, msg):
 def pong_return(domain):
     return f"PONG :{domain}\r\n"
 
+
 def quit():
     return f"QUIT Leaving / \r\n"

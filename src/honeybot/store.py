@@ -3,7 +3,7 @@ import json
 import os
 
 BASE_DIR = "plugins/downloaded"
-STORE_DIR = "../../honeybot-store"
+STORE_DIR = "../../honeybot-store"  # ...
 
 plugins = {"plugins": []}
 dirs = [d for d in os.listdir(BASE_DIR) if not d.startswith("__")]

@@ -9,12 +9,11 @@ import sys
 import time
 
 import pkg_resources
+import tomli
 
 from honeybot.api import commands, memory
-from honeybot.api.utils import configfile_to_list, get_requirements, prevent_none
 from honeybot.api import print as output
-
-import tomli
+from honeybot.api.utils import configfile_to_list, get_requirements, prevent_none
 
 plugins = []
 
@@ -29,7 +28,7 @@ BOT CONNECTION SETUP
 class BotCore:
     def __init__(self, info, password=""):
         self.info = info
-        with open(info['toml_path'], 'rb') as f:
+        with open(info["toml_path"], "rb") as f:
             self.configs = tomli.load(f)
         self.settings_path = self.info["settings_path"]
         self.root_path = self.info["cwd"]
@@ -137,9 +136,9 @@ class BotCore:
     """
 
     def print_running_infos(self):
-        print(output.status('i')+ " Run infos:")
+        print(output.status("i") + " Run infos:")
         for key in self.info:
-            print(output.tab()+' '+key, self.info[key])
+            print(output.tab() + " " + key, self.info[key])
         print(output.line())
 
     def load_plugins_from_folder(self, category_folder, from_conf=None, from_dir=None):
@@ -147,9 +146,9 @@ class BotCore:
             dir_path = os.path.join(self.info["plugins_path"], "core")
             to_load = [f for f in os.listdir(dir_path) if self.is_valid_plug_name(f)]
         elif from_conf is True:
-            to_load = self.configs['PLUGINS']['downloaded']
+            to_load = self.configs["PLUGINS"]["downloaded"]
 
-        print(output.status('i')+ " Loading from", category_folder)
+        print(output.status("i") + " Loading from", category_folder)
         for folder in to_load:
             print(output.tab(), "loading plugin:", folder)
             try:
@@ -193,12 +192,12 @@ class BotCore:
             TODO
         """
 
-        print(output.status('i')+ " Loading plugins...")
+        print(output.status("i") + " Loading plugins...")
 
         self.load_plugins_from_folder("downloaded", from_conf=True)
         self.load_plugins_from_folder("core", from_dir=True)
 
-        print(output.status('x')+ " Loaded plugins")
+        print(output.status("x") + " Loaded plugins")
         print(output.line())
 
     def run_plugins(self, incoming):
@@ -239,10 +238,10 @@ class BotCore:
         self.send(commands.present(self.name))
         for channel in self.autojoin_channels:
             self.send(commands.join_channel(channel))
-        print(output.status('x'), 'Joined channels:', ', '.join(self.autojoin_channels))
+        print(output.status("x"), "Joined channels:", ", ".join(self.autojoin_channels))
 
     def pull(self):
-        print(output.status('i'), 'Listening to incoming messages')
+        print(output.status("i"), "Listening to incoming messages")
         while self.is_listen_on:
             try:
                 data = self.irc.recv(2048).decode("UTF-8", errors="replace")
@@ -270,6 +269,7 @@ class BotCore:
     """
     ONGOING REQUIREMENT/S
     """
+
     def stay_alive(self, incoming):
         if not incoming:
             logger.critical("<must handle reconnection - incoming is not True>")
