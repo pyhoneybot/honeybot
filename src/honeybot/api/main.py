@@ -12,7 +12,7 @@ import pkg_resources
 
 from honeybot.api import commands, memory
 from honeybot.api.utils import configfile_to_list, get_requirements, prevent_none
-
+from honeybot.api import print as output
 
 plugins = []
 
@@ -83,7 +83,8 @@ class BotCore:
                 "user": prevent_none(user),
             }
         except Exception as e:
-            logger.error(e)
+            # logger.error(e)
+            pass
 
     def bot_info(self):
         return {
@@ -133,10 +134,10 @@ class BotCore:
     """
 
     def print_running_infos(self):
-        print("Run infos:")
+        print(output.status('i')+ " Run infos:")
         for key in self.info:
-            print(key, self.info[key])
-        print("-" * 3)
+            print(output.tab()+' '+key, self.info[key])
+        print(output.line())
 
     def load_plugins_from_folder(self, category_folder, from_conf=None, from_dir=None):
         if from_dir is not None:
@@ -148,9 +149,9 @@ class BotCore:
                 to_load = f.read().split("\n")
                 to_load = list(filter(lambda x: x != "", to_load))
 
-        print("Loading", category_folder)
+        print(output.status('i')+ " Loading from", category_folder)
         for folder in to_load:
-            print("loading plugin:", folder)
+            print(output.tab(), "loading plugin:", folder)
             try:
                 sys.path.append(self.root_path)
                 module = importlib.import_module(f"plugins.{category_folder}.{folder}.main")
@@ -178,7 +179,8 @@ class BotCore:
                             [sys.executable, "-m", "pip", "install", *install_requires]
                         )
             except Exception as e:
-                logger.debug(e)
+                # logger.debug(e)
+                pass
 
     def load_plugins(self):
         """
@@ -191,15 +193,15 @@ class BotCore:
             TODO
         """
 
-        logger.info("Loading plugins...")
+        print(output.status('i')+ " Loading plugins...")
 
         conf_path = os.path.join(self.settings_path, "PLUGINS.conf")
         dir_path = os.path.join(self.info["plugins_path"], "core")
         self.load_plugins_from_folder("downloaded", from_conf=conf_path)
         self.load_plugins_from_folder("core", from_dir=dir_path)
 
-        logger.info("Loaded plugins")
-        print("---")
+        print(output.status('x')+ " Loaded plugins")
+        print(output.line())
 
     def run_plugins(self, incoming):
         """
@@ -239,8 +241,10 @@ class BotCore:
         self.send(commands.present(self.name))
         for channel in self.autojoin_channels:
             self.send(commands.join_channel(channel))
+        print(output.status('x'), 'Joined channels:', ', '.join(self.autojoin_channels))
 
     def pull(self):
+        print(output.status('i'), 'Listening to incoming messages')
         while self.is_listen_on:
             try:
                 data = self.irc.recv(2048).decode("UTF-8", errors="replace")
@@ -252,12 +256,14 @@ class BotCore:
                 self.is_listen_on = False
                 self.quit()
             except Exception as e:
-                logger.error(e)
-                logger.debug("there was an error")
-                logger.debug(data)
-                logger.debug("!!")
-                logger.debug(line)
-                logger.debug("-" * 50)
+                # logger.error(e)
+                # print(e)
+                # logger.debug("there was an error")
+                # logger.debug(data)
+                # logger.debug("!!")
+                # logger.debug(line)
+                # logger.debug("-" * 50)
+                pass
 
     def quit(self):
         self.send(commands.quit())
