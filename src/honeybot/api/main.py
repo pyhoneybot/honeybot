@@ -14,6 +14,8 @@ from honeybot.api import commands, memory
 from honeybot.api.utils import configfile_to_list, get_requirements, prevent_none
 from honeybot.api import print as output
 
+import tomli
+
 plugins = []
 
 # Start logger
@@ -27,17 +29,18 @@ BOT CONNECTION SETUP
 class BotCore:
     def __init__(self, info, password=""):
         self.info = info
-        connect_config = configparser.ConfigParser()
-        connect_config.read(os.path.join(self.info["settings_path"], "CONNECT.conf"))
+        with open(info['toml_path'], 'rb') as f:
+            self.configs = tomli.load(f)
         self.settings_path = self.info["settings_path"]
         self.root_path = self.info["cwd"]
-        self.server_url = connect_config["INFO"]["server_url"]
-        self.port = int(connect_config["INFO"]["port"])
-        self.name = connect_config["INFO"]["name"]
-        self.owners = configfile_to_list(self.info["settings_path"], "OWNERS")
+        self.server_url = self.configs["INFO"]["server_url"]
+        self.port = int(self.configs["INFO"]["port"])
+        self.name = self.configs["INFO"]["name"]
+        self.owners = self.configs["USERNAMES"]["owners"]
         self.password = password
-        self.friends = configfile_to_list(self.info["settings_path"], "FRIENDS")
-        self.autojoin_channels = configfile_to_list(self.info["settings_path"], "AUTOJOIN_CHANNELS")
+        self.friends = self.configs["USERNAMES"]["friends"]
+        self.autojoin_channels = self.configs["INFO"]["autojoin_channels"]
+        self.downloaded_plugins_to_load = self.configs["PLUGINS"]["downloaded"]
         self.required_modules = get_requirements()
         self.time = time.time()
 
@@ -140,14 +143,11 @@ class BotCore:
         print(output.line())
 
     def load_plugins_from_folder(self, category_folder, from_conf=None, from_dir=None):
-        if from_dir is not None:
-            to_load = [f for f in os.listdir(from_dir) if self.is_valid_plug_name(f)]
-        elif from_conf is not None:
-            to_load = []
-            plugs = from_conf
-            with open(plugs) as f:
-                to_load = f.read().split("\n")
-                to_load = list(filter(lambda x: x != "", to_load))
+        if from_dir is True:
+            dir_path = os.path.join(self.info["plugins_path"], "core")
+            to_load = [f for f in os.listdir(dir_path) if self.is_valid_plug_name(f)]
+        elif from_conf is True:
+            to_load = self.configs['PLUGINS']['downloaded']
 
         print(output.status('i')+ " Loading from", category_folder)
         for folder in to_load:
@@ -195,10 +195,8 @@ class BotCore:
 
         print(output.status('i')+ " Loading plugins...")
 
-        conf_path = os.path.join(self.settings_path, "PLUGINS.conf")
-        dir_path = os.path.join(self.info["plugins_path"], "core")
-        self.load_plugins_from_folder("downloaded", from_conf=conf_path)
-        self.load_plugins_from_folder("core", from_dir=dir_path)
+        self.load_plugins_from_folder("downloaded", from_conf=True)
+        self.load_plugins_from_folder("core", from_dir=True)
 
         print(output.status('x')+ " Loaded plugins")
         print(output.line())

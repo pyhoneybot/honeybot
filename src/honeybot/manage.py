@@ -30,6 +30,7 @@ def main():
     info = {
         "cwd": os.getcwd(),
         "settings_path": os.path.join(os.getcwd(), "settings"),
+        "toml_path": os.path.join(os.getcwd(), "settings", "settings.toml"),
         "plugins_path": os.path.join(os.getcwd(), "plugins"),
     }
 

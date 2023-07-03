@@ -31,9 +31,9 @@ def print_honeybot_manifesto(info):
 
 
 def print_connect_settings(info):
-    settings_path = os.path.join(info["settings_path"], "CONNECT.conf")
+    settings_path = os.path.join(info["settings_path"], "settings.toml")
     if not os.path.exists(settings_path):
-        print('Could not find CONNECT.conf in', info["settings_path"])
+        print('honeybot.api.print :: Could not find settings.toml in', info["settings_path"])
         print('Make sure you are in the right folder')
         sys.exit()
     connect_config = configparser.ConfigParser()
